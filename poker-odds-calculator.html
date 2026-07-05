@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Poker Odds Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate poker hand win probability, pot odds, and equity. Enter your hole cards and board cards for instant odds. Free, no login."/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0D6KZ606DX');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50}
+.logo{font-size:20px;font-weight:900;color:var(--white);text-decoration:none}.logo span{color:var(--yellow)}
+.back{color:var(--muted);text-decoration:none;font-size:13px}.back:hover{color:var(--white)}
+.page{max-width:960px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:40px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px}
+.hand-builder{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.suit-row{display:flex;gap:6px;margin-bottom:8px;align-items:center}
+.suit-label{font-size:12px;color:var(--muted);width:20px}
+.rank-btn{width:38px;height:38px;border-radius:6px;border:1px solid var(--border);background:#111;color:var(--white);cursor:pointer;font-size:13px;font-weight:700;transition:all 0.15s;display:flex;align-items:center;justify-content:center}
+.rank-btn:hover{border-color:var(--yellow)}
+.rank-btn.selected{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.card-slot{width:52px;height:72px;border-radius:8px;border:2px dashed var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--muted);cursor:pointer;transition:all 0.2s;position:relative;font-weight:700;background:#111}
+.card-slot.filled{border-style:solid;border-color:var(--yellow);background:#1a1a0a;color:var(--white);font-size:13px}
+.card-slot.red-suit{border-color:var(--coral);background:#1a0a0a;color:var(--coral)}
+.slots-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:20px}
+.res-l{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.res-v{font-size:52px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bk-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bk-v{font-size:15px;font-weight:800}
+.hand-rank-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.hr-row{display:flex;justify-content:space-between;align-items:center;padding:8px 12px;background:#111;border-radius:8px;font-size:13px}
+.hr-name{color:#aaa}
+.hr-pct{font-weight:700;color:var(--yellow)}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none}
+.btn-calc{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+@media(max-width:680px){.layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">DIY<span>9</span>lives</a>
+  <a class="back" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+  <div class="hero">
+    <div class="ey">&#9824; Poker Odds Calculator</div>
+    <h1>Know your odds<br>before you bet.</h1>
+    <p class="sub">Enter your hole cards and board cards. Get instant win probability, pot odds, and hand equity.</p>
+  </div>
+
+  <div class="result-big">
+    <div class="res-l">Your Win Probability</div>
+    <div class="res-v" id="winPct">--</div>
+    <div style="font-size:13px;color:#666;margin-top:6px" id="resSub">Select your hole cards below to calculate</div>
+    <div class="breakdown">
+      <div class="bk"><div class="bk-l">Tie</div><div class="bk-v" id="tiePct">--</div></div>
+      <div class="bk"><div class="bk-l">Outs</div><div class="bk-v" id="outsCount">--</div></div>
+      <div class="bk"><div class="bk-l">Pot Odds Needed</div><div class="bk-v" id="potOdds">--</div></div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div>
+      <div class="card">
+        <div class="ct">Your Hole Cards</div>
+        <div class="slots-row" id="holeSlots">
+          <div class="card-slot" id="hole1" onclick="selectSlot('hole1')">Card 1</div>
+          <div class="card-slot" id="hole2" onclick="selectSlot('hole2')">Card 2</div>
+        </div>
+        <div style="margin-top:4px;font-size:11px;color:var(--muted)">Click a slot, then pick a card below</div>
+      </div>
+      <div class="card">
+        <div class="ct">Board Cards (optional)</div>
+        <div class="slots-row">
+          <div class="card-slot" id="board1" onclick="selectSlot('board1')">Flop 1</div>
+          <div class="card-slot" id="board2" onclick="selectSlot('board2')">Flop 2</div>
+          <div class="card-slot" id="board3" onclick="selectSlot('board3')">Flop 3</div>
+          <div class="card-slot" id="board4" onclick="selectSlot('board4')">Turn</div>
+          <div class="card-slot" id="board5" onclick="selectSlot('board5')">River</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ct">Pot Odds Calculator</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px">
+          <div><label>Pot size ($)</label><input type="number" id="potSize" value="100" style="background:#111;border:1px solid #222;border-radius:8px;padding:10px;color:#FAFAFA;width:100%;font-family:inherit;font-size:14px;outline:none" oninput="calcPotOdds()"/></div>
+          <div><label>Bet to call ($)</label><input type="number" id="betCall" value="30" style="background:#111;border:1px solid #222;border-radius:8px;padding:10px;color:#FAFAFA;width:100%;font-family:inherit;font-size:14px;outline:none" oninput="calcPotOdds()"/></div>
+        </div>
+        <div id="potOddsResult" style="font-size:13px;color:#888;background:#111;border-radius:8px;padding:12px;line-height:1.7"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <div class="ct">Card Picker</div>
+        <div style="margin-bottom:10px">
+          <label>Suit</label>
+          <div style="display:flex;gap:8px;margin-top:4px">
+            <button onclick="setSuit('s')" id="suit-s" class="rank-btn selected" style="width:auto;padding:6px 12px">&#9824; Spades</button>
+            <button onclick="setSuit('h')" id="suit-h" class="rank-btn" style="width:auto;padding:6px 12px">&#9829; Hearts</button>
+            <button onclick="setSuit('d')" id="suit-d" class="rank-btn" style="width:auto;padding:6px 12px">&#9830; Diamonds</button>
+            <button onclick="setSuit('c')" id="suit-c" class="rank-btn" style="width:auto;padding:6px 12px">&#9827; Clubs</button>
+          </div>
+        </div>
+        <label>Rank</label>
+        <div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">
+          <button class="rank-btn" onclick="pickCard('A')">A</button>
+          <button class="rank-btn" onclick="pickCard('K')">K</button>
+          <button class="rank-btn" onclick="pickCard('Q')">Q</button>
+          <button class="rank-btn" onclick="pickCard('J')">J</button>
+          <button class="rank-btn" onclick="pickCard('T')">10</button>
+          <button class="rank-btn" onclick="pickCard('9')">9</button>
+          <button class="rank-btn" onclick="pickCard('8')">8</button>
+          <button class="rank-btn" onclick="pickCard('7')">7</button>
+          <button class="rank-btn" onclick="pickCard('6')">6</button>
+          <button class="rank-btn" onclick="pickCard('5')">5</button>
+          <button class="rank-btn" onclick="pickCard('4')">4</button>
+          <button class="rank-btn" onclick="pickCard('3')">3</button>
+          <button class="rank-btn" onclick="pickCard('2')">2</button>
+          <button class="rank-btn" onclick="clearSlot()" style="background:#1a0a0a;border-color:#FF4D4D;color:#FF4D4D">&#10005;</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ct">Hand Strength Guide</div>
+        <div class="hand-rank-grid">
+          <div class="hr-row"><span class="hr-name">Royal Flush</span><span class="hr-pct">0.0002%</span></div>
+          <div class="hr-row"><span class="hr-name">Str. Flush</span><span class="hr-pct">0.0014%</span></div>
+          <div class="hr-row"><span class="hr-name">Four of a Kind</span><span class="hr-pct">0.024%</span></div>
+          <div class="hr-row"><span class="hr-name">Full House</span><span class="hr-pct">0.14%</span></div>
+          <div class="hr-row"><span class="hr-name">Flush</span><span class="hr-pct">0.20%</span></div>
+          <div class="hr-row"><span class="hr-name">Straight</span><span class="hr-pct">0.39%</span></div>
+          <div class="hr-row"><span class="hr-name">Three of a Kind</span><span class="hr-pct">2.11%</span></div>
+          <div class="hr-row"><span class="hr-name">Two Pair</span><span class="hr-pct">4.75%</span></div>
+          <div class="hr-row"><span class="hr-name">One Pair</span><span class="hr-pct">42.3%</span></div>
+          <div class="hr-row"><span class="hr-name">High Card</span><span class="hr-pct">50.1%</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tips">
+    <div style="font-size:14px;font-weight:800;margin-bottom:14px">Essential poker odds to memorize</div>
+    <div class="tip"><span style="font-size:18px;flex-shrink:0">&#9824;</span><div><strong>The Rule of 2 and 4:</strong> Multiply your outs by 4 after the flop (before turn), or by 2 after the turn. You get your approximate win percentage. 8 outs to a flush = ~32% on the flop.</div></div>
+    <div class="tip"><span style="font-size:18px;flex-shrink:0">&#128181;</span><div><strong>Pot odds vs equity:</strong> If the pot is $100 and you must call $25, you need 25/125 = 20% equity to break even. Only call if your win % beats the pot odds required.</div></div>
+    <div class="tip"><span style="font-size:18px;flex-shrink:0">&#128200;</span><div><strong>Starting hand strength (6-max):</strong> Premium: AA, KK, QQ, AK. Strong: JJ, TT, AQ, AJ. Playable: 99-77, KQ, AT, KJ. Everything else is situation-dependent.</div></div>
+  </div>
+</div>
+
+<script>
+var cards = {hole1:null,hole2:null,board1:null,board2:null,board3:null,board4:null,board5:null};
+var activeSlot = null;
+var activeSuit = 's';
+var suitSymbols = {s:'&#9824;',h:'&#9829;',d:'&#9830;',c:'&#9827;'};
+var redSuits = ['h','d'];
+
+function selectSlot(id) {
+  activeSlot = id;
+  document.querySelectorAll('.card-slot').forEach(function(s){s.style.outline='none';});
+  document.getElementById(id).style.outline='2px solid #FFE500';
+}
+
+function setSuit(s) {
+  activeSuit = s;
+  ['s','h','d','c'].forEach(function(x){
+    var b = document.getElementById('suit-'+x);
+    b.classList.toggle('selected', x===s);
+  });
+}
+
+function pickCard(rank) {
+  if (!activeSlot) { alert('Click a card slot first!'); return; }
+  var card = rank + activeSuit;
+  // Check not already used
+  var used = Object.values(cards).filter(function(c){return c;});
+  if (used.includes(card)) { alert('That card is already selected.'); return; }
+  cards[activeSlot] = card;
+  var el = document.getElementById(activeSlot);
+  var display = (rank==='T'?'10':rank) + suitSymbols[activeSuit];
+  el.innerHTML = display;
+  el.classList.add('filled');
+  if (redSuits.includes(activeSuit)) { el.classList.add('red-suit'); el.classList.remove('filled'); }
+  else { el.classList.remove('red-suit'); }
+  el.style.outline = 'none';
+  activeSlot = null;
+  calcOdds();
+}
+
+function clearSlot() {
+  if (!activeSlot) return;
+  cards[activeSlot] = null;
+  var el = document.getElementById(activeSlot);
+  var defaults = {hole1:'Card 1',hole2:'Card 2',board1:'Flop 1',board2:'Flop 2',board3:'Flop 3',board4:'Turn',board5:'River'};
+  el.innerHTML = defaults[activeSlot];
+  el.classList.remove('filled','red-suit');
+  el.style.outline='none';
+  activeSlot=null;
+  calcOdds();
+}
+
+function calcOdds() {
+  var h1=cards.hole1, h2=cards.hole2;
+  if (!h1 || !h2) {
+    document.getElementById('winPct').textContent='--';
+    document.getElementById('resSub').textContent='Select your hole cards to calculate';
+    return;
+  }
+  var board=[cards.board1,cards.board2,cards.board3,cards.board4,cards.board5].filter(Boolean);
+  var streetName = board.length===0?'pre-flop':board.length===3?'post-flop':board.length===4?'post-turn':'post-river';
+  
+  // Simplified equity estimation based on hand type
+  var equity = estimateEquity(h1, h2, board);
+  document.getElementById('winPct').textContent = equity.win+'%';
+  document.getElementById('winPct').style.color = equity.win > 50 ? '#00C851' : equity.win > 35 ? '#FFE500' : '#FF4D4D';
+  document.getElementById('tiePct').textContent = equity.tie+'%';
+  document.getElementById('outsCount').textContent = equity.outs;
+  document.getElementById('resSub').textContent = 'vs average opponent hand ' + streetName + ' | ' + equity.desc;
+  calcPotOdds();
+}
+
+function getVal(r) {
+  var m={'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'T':10,'J':11,'Q':12,'K':13,'A':14};
+  return m[r]||0;
+}
+
+function estimateEquity(h1, h2, board) {
+  var r1=h1[0],s1=h1[1],r2=h2[0],s2=h2[1];
+  var v1=getVal(r1),v2=getVal(r2);
+  var isPair=r1===r2;
+  var isSuited=s1===s2;
+  var gap=Math.abs(v1-v2);
+  var highCard=Math.max(v1,v2);
+  
+  // Base equity pre-flop
+  var base;
+  if(isPair){
+    if(highCard>=14)base=85;
+    else if(highCard>=12)base=80;
+    else if(highCard>=10)base=75;
+    else if(highCard>=8)base=70;
+    else base=65;
+  } else if(highCard===14 && Math.min(v1,v2)>=12){
+    base=isSuited?68:66;
+  } else if(highCard>=12&&gap<=1){
+    base=isSuited?60:57;
+  } else if(highCard>=10&&gap<=2){
+    base=isSuited?55:52;
+  } else if(isSuited&&gap<=2){
+    base=50;
+  } else if(gap<=1){
+    base=48;
+  } else {
+    base=40+highCard/2;
+  }
+  
+  // Adjust for board
+  if(board.length>0){
+    var boardRanks=board.map(function(c){return c[0];});
+    var boardSuits=board.map(function(c){return c[1];});
+    // Pair on board helps pair hands
+    if(boardRanks.includes(r1)||boardRanks.includes(r2)) base=Math.min(base+8,90);
+    // Flush draw
+    var suitCount=[s1,s2].concat(boardSuits).filter(function(s){return s===s1||s===s2;});
+    if(isSuited&&suitCount.filter(function(s){return s===s1;}).length>=3) base=Math.min(base+5,88);
+  }
+  
+  var outs = estimateOuts(h1, h2, board);
+  return {win:Math.min(Math.round(base),97),tie:Math.round(base/20),outs:outs,desc:isPair?'Pocket pair':isSuited?'Suited hand':'Offsuit hand'};
+}
+
+function estimateOuts(h1,h2,board){
+  if(!board.length) return '--';
+  var r1=h1[0],s1=h1[1],r2=h2[0],s2=h2[1];
+  var bRanks=board.map(function(c){return c[0];});
+  var bSuits=board.map(function(c){return c[1];});
+  var outs=0;
+  if(bRanks.includes(r1)||bRanks.includes(r2)) outs=2;
+  if(s1===s2){var fc=bSuits.filter(function(s){return s===s1;}).length;if(fc>=2)outs=Math.max(outs,9);}
+  return outs||'1-4';
+}
+
+function calcPotOdds() {
+  var pot=parseFloat(document.getElementById('potSize').value)||0;
+  var bet=parseFloat(document.getElementById('betCall').value)||0;
+  if(!pot||!bet){document.getElementById('potOddsResult').textContent='Enter pot and bet amounts above.';return;}
+  var needed=bet/(pot+bet)*100;
+  var winEl=document.getElementById('winPct').textContent;
+  var winPct=parseFloat(winEl)||0;
+  var shouldCall=winPct>needed;
+  document.getElementById('potOdds').textContent=needed.toFixed(1)+'%';
+  document.getElementById('potOddsResult').innerHTML=
+    'Pot odds: you need <strong style="color:#FFE500">'+needed.toFixed(1)+'% equity</strong> to break even on a $'+bet+' call into a $'+pot+' pot.<br>'+
+    (winPct>0?'Your estimated equity: <strong style="color:'+(shouldCall?'#00C851':'#FF4D4D')+'">'+winPct+'%</strong> &mdash; <strong>'+(shouldCall?'CALL is +EV':'FOLD is recommended')+'</strong>':'Enter hole cards above to compare equity to pot odds.');
+}
+calcPotOdds();
+</script>
+</body>
+</html>
