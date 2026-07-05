@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Mortgage Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate your monthly mortgage payment including tax and insurance. See full amortization schedule. Free."/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0D6KZ606DX');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:900px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:40px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:16px}
+.card-title{font-size:15px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px}
+.result-label{font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.result-val{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.result-sub{font-size:13px;color:#666;margin-top:8px}
+.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bk-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bk-v{font-size:16px;font-weight:800}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip-icon{font-size:18px;flex-shrink:0}
+.tip strong{color:var(--white)}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px}
+.aff-t{font-size:13px;color:#c4b5fd}.aff-t strong{color:#fff}
+.aff-btn{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px}
+.sl-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.range-val{color:var(--yellow);font-weight:700}
+.table{width:100%;border-collapse:collapse;font-size:13px}
+.table th{text-align:left;padding:8px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+.table td{padding:8px;border-bottom:1px solid #1a1a1a}
+.table tr:last-child td{border:none}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}.breakdown{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero">
+<div class="ey">Mortgage Calculator</div>
+<h1>Know your real<br>monthly payment.</h1>
+<p class="sub">Calculate principal, interest, tax, and insurance. See exactly what you owe each month.</p>
+</div>
+
+<div class="result-big">
+  <div class="result-label">Monthly Payment</div>
+  <div class="result-val" id="mPayment">$0</div>
+  <div class="result-sub" id="mSub">Fill in the details below</div>
+  <div class="breakdown">
+    <div class="bk"><div class="bk-l">Principal</div><div class="bk-v" id="mPrin">$0</div></div>
+    <div class="bk"><div class="bk-l">Interest</div><div class="bk-v" id="mInt">$0</div></div>
+    <div class="bk"><div class="bk-l">Total Cost</div><div class="bk-v" id="mTotal">$0</div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">&#127968; Loan Details</div>
+  <div class="grid2">
+    <div class="field"><label>Home price ($)</label><input type="number" id="mPrice" value="350000" oninput="calcMortgage()"/></div>
+    <div class="field"><label>Down payment ($)</label><input type="number" id="mDown" value="70000" oninput="calcMortgage()"/></div>
+    <div class="field"><label>Annual interest rate (%)</label><input type="number" id="mRate" value="7.0" step="0.1" oninput="calcMortgage()"/></div>
+    <div class="field"><label>Loan term (years)</label><select id="mTerm" onchange="calcMortgage()"><option value="30" selected>30 years</option><option value="20">20 years</option><option value="15">15 years</option><option value="10">10 years</option></select></div>
+    <div class="field"><label>Property tax ($/yr)</label><input type="number" id="mTax" value="3500" oninput="calcMortgage()"/></div>
+    <div class="field"><label>Home insurance ($/yr)</label><input type="number" id="mIns" value="1200" oninput="calcMortgage()"/></div>
+  </div>
+</div>
+<div class="card" id="amCard">
+  <div class="card-title">&#128200; Amortization (first 12 months)</div>
+  <table class="table" id="amTable"><thead><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody id="amBody"></tbody></table>
+</div>
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Mortgage tips that save real money</div>
+  <div class="tip"><span class="tip-icon">&#128181;</span><div><strong>20% down avoids PMI.</strong> Private Mortgage Insurance adds $100-300/month to your payment. Put 20% down and eliminate it entirely.</div></div>
+  <div class="tip"><span class="tip-icon">&#8987;</span><div><strong>15-year vs 30-year:</strong> A 15-year mortgage builds equity twice as fast and saves tens of thousands in interest &mdash; but payments are ~40% higher.</div></div>
+  <div class="tip"><span class="tip-icon">&#128176;</span><div><strong>One extra payment per year</strong> knocks years off a 30-year mortgage. Even rounding up $50/month makes a significant difference.</div></div>
+</div>
+<script>
+function fmt(n){return '$'+Math.round(n).toLocaleString();}
+function calcMortgage(){
+  var price=parseFloat(document.getElementById('mPrice').value)||0;
+  var down=parseFloat(document.getElementById('mDown').value)||0;
+  var rate=parseFloat(document.getElementById('mRate').value)||0;
+  var term=parseInt(document.getElementById('mTerm').value)||30;
+  var tax=parseFloat(document.getElementById('mTax').value)||0;
+  var ins=parseFloat(document.getElementById('mIns').value)||0;
+  var principal=price-down;
+  var r=rate/100/12;
+  var n=term*12;
+  var pmt=r>0?principal*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):principal/n;
+  var taxMo=tax/12;
+  var insMo=ins/12;
+  var total=pmt+taxMo+insMo;
+  var totalPaid=pmt*n+tax*term+ins*term;
+  var totalInt=pmt*n-principal;
+  document.getElementById('mPayment').textContent=fmt(total)+'/mo';
+  document.getElementById('mSub').textContent='P&I: '+fmt(pmt)+' + Tax: '+fmt(taxMo)+' + Insurance: '+fmt(insMo)+' | Down: '+Math.round(down/price*100)+'%';
+  document.getElementById('mPrin').textContent=fmt(principal);
+  document.getElementById('mInt').textContent=fmt(totalInt);
+  document.getElementById('mTotal').textContent=fmt(totalPaid);
+  var bal=principal, rows='';
+  for(var i=1;i<=12;i++){
+    var intPmt=bal*r;
+    var prinPmt=pmt-intPmt;
+    bal-=prinPmt;
+    rows+='<tr><td>'+i+'</td><td>'+fmt(pmt)+'</td><td class="green">'+fmt(prinPmt)+'</td><td class="red">'+fmt(intPmt)+'</td><td>'+fmt(Math.max(0,bal))+'</td></tr>';
+  }
+  document.getElementById('amBody').innerHTML=rows;
+}
+calcMortgage();
+</script>
+<div class="aff"><div class="aff-t"><strong>Ready to buy?</strong> LendingTree lets you compare mortgage rates from multiple lenders in minutes.</div><a href="https://www.lendingtree.com" target="_blank" rel="noopener" class="aff-btn">Learn more &rarr;</a></div>
+</div>
+</body>
+</html>
