@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Age Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate your exact age in years, months, days, hours, and minutes. Find out how many days until your next birthday."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field{margin-bottom:0}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.rs{font-size:13px;color:#666;margin-top:6px}
+.bkd{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bkv{font-size:15px;font-weight:800}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px;transition:all 0.2s}
+.btn:hover{background:#f5dc00;transform:translateY(-1px)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px}
+.at{font-size:13px;color:#c4b5fd}.at strong{color:#fff}
+.ab{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px;cursor:pointer}
+.slv{color:var(--yellow);font-weight:700}
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700;margin:2px}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+.big-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2,.grid3,.bkd,.big-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Age Calculator</div><h1>Your exact age,<br>down to the minute.</h1><p class="sub">Enter your birthday and see exactly how old you are, plus how long until your next one.</p></div>
+
+<div class="result-big">
+  <div class="rl">Your Age</div>
+  <div class="rv" id="ageMain">--</div>
+  <div class="rs" id="ageSub">Enter your date of birth below</div>
+  <div class="bkd">
+    <div class="bk"><div class="bkl">Total Days</div><div class="bkv" id="ageDays">--</div></div>
+    <div class="bk"><div class="bkl">Total Hours</div><div class="bkv" id="ageHours">--</div></div>
+    <div class="bk"><div class="bkl">Next Birthday</div><div class="bkv yellow" id="ageBday">--</div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="ct">&#127874; Your Birthday</div>
+  <div class="grid2">
+    <div><label>Date of birth</label><input type="date" id="dob" oninput="calcAge()"/></div>
+    <div><label>Calculate as of</label><input type="date" id="calcDate" oninput="calcAge()"/></div>
+  </div>
+</div>
+<div class="card" id="funCard" style="display:none">
+  <div class="ct">&#127775; Fun Facts About Your Age</div>
+  <div id="funFacts" style="font-size:14px;line-height:2;color:#aaa"></div>
+</div>
+<script>
+var today = new Date();
+document.getElementById("dob").value = "1990-01-15";
+document.getElementById("calcDate").value = today.toISOString().split("T")[0];
+function calcAge(){
+  var dob = new Date(document.getElementById("dob").value+"T00:00:00");
+  var calc = new Date(document.getElementById("calcDate").value+"T00:00:00");
+  if(!dob||!calc||isNaN(dob)) return;
+  var diffMs = calc - dob;
+  var days = Math.floor(diffMs/86400000);
+  var yrs = calc.getFullYear()-dob.getFullYear();
+  var mo = calc.getMonth()-dob.getMonth();
+  var d = calc.getDate()-dob.getDate();
+  if(d<0){mo--;d+=new Date(calc.getFullYear(),calc.getMonth(),0).getDate();}
+  if(mo<0){yrs--;mo+=12;}
+  document.getElementById("ageMain").textContent=yrs+" years";
+  document.getElementById("ageSub").textContent=yrs+" years, "+mo+" months, "+d+" days old";
+  document.getElementById("ageDays").textContent=days.toLocaleString();
+  document.getElementById("ageHours").textContent=(days*24).toLocaleString();
+  var nextBday=new Date(calc.getFullYear(),dob.getMonth(),dob.getDate());
+  if(nextBday<=calc) nextBday.setFullYear(nextBday.getFullYear()+1);
+  var daysLeft=Math.ceil((nextBday-calc)/86400000);
+  document.getElementById("ageBday").textContent=daysLeft+" days";
+  document.getElementById("funCard").style.display="block";
+  var wks=Math.floor(days/7),hrs=days*24,mins=hrs*60;
+  document.getElementById("funFacts").innerHTML=
+    "&#10024; You have been alive for <strong style=color:#FFE500>"+days.toLocaleString()+"</strong> days<br>"+
+    "&#9200; That is <strong style=color:#FFE500>"+hrs.toLocaleString()+"</strong> hours or <strong style=color:#FFE500>"+mins.toLocaleString()+"</strong> minutes<br>"+
+    "&#128197; You have had <strong style=color:#FFE500>"+(yrs)+"</strong> birthdays<br>"+
+    "&#127874; Your next birthday is in <strong style=color:#22c55e>"+daysLeft+"</strong> days";
+}
+calcAge();
+</script>
+
+</div>
+</body>
+</html>
