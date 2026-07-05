@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Home Renovation ROI Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate return on investment for any home improvement project. See which renovations add the most value at resale."/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0D6KZ606DX');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:900px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:40px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:16px}
+.card-title{font-size:15px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px}
+.result-label{font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.result-val{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.result-sub{font-size:13px;color:#666;margin-top:8px}
+.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bk-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bk-v{font-size:16px;font-weight:800}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip-icon{font-size:18px;flex-shrink:0}
+.tip strong{color:var(--white)}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px}
+.aff-t{font-size:13px;color:#c4b5fd}.aff-t strong{color:#fff}
+.aff-btn{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px}
+.sl-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.range-val{color:var(--yellow);font-weight:700}
+.table{width:100%;border-collapse:collapse;font-size:13px}
+.table th{text-align:left;padding:8px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+.table td{padding:8px;border-bottom:1px solid #1a1a1a}
+.table tr:last-child td{border:none}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}.breakdown{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero">
+<div class="ey">Home Renovation ROI</div>
+<h1>Which renovations actually<br>pay off at resale?</h1>
+<p class="sub">Enter your project and cost. See exactly how much value it adds based on national average return rates.</p>
+</div>
+
+<div class="result-big">
+  <div class="result-label">Estimated ROI at Resale</div>
+  <div class="result-val" id="rROI">0%</div>
+  <div class="result-sub" id="rSub">Based on national average return rates</div>
+  <div class="breakdown">
+    <div class="bk"><div class="bk-l">Cost</div><div class="bk-v" id="rCost">$0</div></div>
+    <div class="bk"><div class="bk-l">Value Added</div><div class="bk-v green" id="rVal">$0</div></div>
+    <div class="bk"><div class="bk-l">Net Gain/Loss</div><div class="bk-v" id="rNet">$0</div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">&#127968; Renovation Details</div>
+  <div class="field"><label>Project type</label>
+    <select id="rType" onchange="calcReno()">
+      <option value="0.74">Kitchen remodel (mid-range)</option>
+      <option value="0.58">Kitchen remodel (major)</option>
+      <option value="0.70">Bathroom remodel (mid-range)</option>
+      <option value="0.56">Bathroom addition</option>
+      <option value="0.91">Garage door replacement</option>
+      <option value="0.69">Deck addition (wood)</option>
+      <option value="0.63">Master suite addition</option>
+      <option value="0.85">Entry door replacement (steel)</option>
+      <option value="0.68">Siding replacement (vinyl)</option>
+      <option value="0.61">Basement finishing</option>
+      <option value="0.72">Window replacement</option>
+      <option value="0.55">Sunroom addition</option>
+      <option value="0.80">Roof replacement</option>
+      <option value="0.65">Custom (enter your own %)</option>
+    </select>
+  </div>
+  <div class="grid2">
+    <div class="field"><label>Estimated project cost ($)</label><input type="number" id="rCostIn" value="25000" oninput="calcReno()"/></div>
+    <div class="field"><label>Custom ROI % (if custom)</label><input type="number" id="rCustom" value="65" oninput="calcReno()"/></div>
+    <div class="field"><label>Home current value ($)</label><input type="number" id="rHomeVal" value="400000" oninput="calcReno()"/></div>
+    <div class="field"><label>Years until you sell</label><input type="number" id="rYears" value="5" min="1" oninput="calcReno()"/></div>
+  </div>
+</div>
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Home improvement ROI facts</div>
+  <div class="tip"><span class="tip-icon">&#127968;</span><div><strong>Kitchen and bathrooms drive the most value.</strong> Buyers pay a premium for updated kitchens. A mid-range kitchen remodel returns ~74 cents per dollar spent.</div></div>
+  <div class="tip"><span class="tip-icon">&#128165;</span><div><strong>Curb appeal is underrated.</strong> Garage doors, entry doors, and landscaping consistently return 80-100%+ because buyers form opinions in the first 30 seconds.</div></div>
+  <div class="tip"><span class="tip-icon">&#9888;</span><div><strong>Over-improving is real.</strong> If your renovated home would be worth more than the nicest homes on the block, you will never recover the full cost. Know your neighborhood ceiling.</div></div>
+</div>
+<script>
+function fmt(n){return '$'+Math.round(Math.abs(n)).toLocaleString();}
+function calcReno(){
+  var sel=document.getElementById('rType');
+  var roiPct=sel.value==='0.65'?parseFloat(document.getElementById('rCustom').value)/100:parseFloat(sel.value);
+  var cost=parseFloat(document.getElementById('rCostIn').value)||0;
+  var homeVal=parseFloat(document.getElementById('rHomeVal').value)||0;
+  var years=parseInt(document.getElementById('rYears').value)||1;
+  var valueAdded=cost*roiPct;
+  var net=valueAdded-cost;
+  var roiPct2=((valueAdded/cost-1)*100);
+  document.getElementById('rROI').textContent=Math.round(roiPct*100)+'%';
+  document.getElementById('rSub').textContent='Returns '+fmt(valueAdded)+' of your '+fmt(cost)+' investment at resale | Home will be worth ~'+fmt(homeVal+valueAdded);
+  document.getElementById('rCost').textContent=fmt(cost);
+  document.getElementById('rVal').textContent=fmt(valueAdded);
+  var netEl=document.getElementById('rNet');
+  netEl.textContent=(net>=0?'+':'-')+fmt(net);
+  netEl.className='bk-v '+(net>=0?'green':'red');
+}
+calcReno();
+</script>
+<div class="aff"><div class="aff-t"><strong>Planning a renovation?</strong> Houzz connects you with local contractors and lets you browse millions of design ideas.</div><a href="https://www.houzz.com" target="_blank" rel="noopener" class="aff-btn">Learn more &rarr;</a></div>
+</div>
+</body>
+</html>
