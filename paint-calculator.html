@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Paint Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate exactly how many gallons of paint you need for any room. Never overbuy or run short. Free paint calculator."/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0D6KZ606DX');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50}
+.logo{font-size:20px;font-weight:900;color:var(--white);text-decoration:none}.logo span{color:var(--yellow)}
+.back{color:var(--muted);text-decoration:none;font-size:13px}.back:hover{color:var(--white)}
+.page{max-width:960px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:40px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:20px}
+.res-l{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.res-v{font-size:52px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.res-s{font-size:13px;color:#666;margin-top:6px}
+.breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:14px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bk-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bk-v{font-size:15px;font-weight:800}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field{margin-bottom:0}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.add-room-btn{width:100%;padding:10px;border:1px dashed var(--border);border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;font-family:inherit;font-size:13px;margin-top:8px;transition:all 0.2s}
+.add-room-btn:hover{border-color:#555;color:var(--white)}
+.room-row{background:#111;border-radius:10px;padding:14px;margin-bottom:10px;position:relative}
+.room-row-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.room-name{font-size:13px;font-weight:700;color:var(--yellow)}
+.rm-btn{background:transparent;border:none;color:#444;cursor:pointer;font-size:16px}
+.rm-btn:hover{color:var(--coral)}
+.paint-summary{background:#111;border-radius:10px;padding:16px;margin-top:8px;font-size:13px;line-height:1.8;color:#aaa}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:16px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.aff{background:linear-gradient(135deg,#1a0a00,#0d1a00);border:1px solid #f59e0b44;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.aff-t{font-size:13px;color:#fcd34d}.aff-t strong{color:#fff}
+.aff-btn{padding:9px 18px;border-radius:8px;background:#f59e0b;color:#000;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.breakdown{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">DIY<span>9</span>lives</a>
+  <a class="back" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+  <div class="hero">
+    <div class="ey">&#127912; Paint Calculator</div>
+    <h1>Never overbuy paint<br>or run out mid-room.</h1>
+    <p class="sub">Enter your room dimensions and get the exact gallons needed. Add multiple rooms for a full project estimate.</p>
+  </div>
+
+  <div class="result-big">
+    <div class="res-l">Total Gallons Needed</div>
+    <div class="res-v" id="totalGal">0</div>
+    <div class="res-s" id="totalSub">Add a room below to calculate</div>
+    <div class="breakdown">
+      <div class="bk"><div class="bk-l">Sq Ft to Paint</div><div class="bk-v" id="totalSqft">0</div></div>
+      <div class="bk"><div class="bk-l">Quarts</div><div class="bk-v" id="totalQts">0</div></div>
+      <div class="bk"><div class="bk-l">Est. Cost</div><div class="bk-v" id="estCost">$0</div></div>
+      <div class="bk"><div class="bk-l">Rooms</div><div class="bk-v" id="roomCount">0</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="ct">&#9881; Global Settings</div>
+    <div class="grid3">
+      <div><label>Paint quality</label><select id="paintType" onchange="recalc()"><option value="30">Budget ($20-35/gal)</option><option value="45" selected>Mid-range ($40-55/gal)</option><option value="65">Premium ($55-75/gal)</option></select></div>
+      <div><label>Number of coats</label><select id="coats" onchange="recalc()"><option value="1">1 coat</option><option value="2" selected>2 coats (standard)</option><option value="3">3 coats (dark colors)</option></select></div>
+      <div><label>Coverage (sq ft/gal)</label><select id="coverage" onchange="recalc()"><option value="350">350 (rough/textured)</option><option value="400" selected>400 (standard)</option><option value="450">450 (smooth walls)</option></select></div>
+    </div>
+  </div>
+
+  <div id="roomsContainer"></div>
+  <button class="add-room-btn" onclick="addRoom()">+ Add a room</button>
+
+  <div class="card" style="margin-top:16px">
+    <div class="ct">&#128203; Shopping List</div>
+    <div id="shoppingList" style="font-size:13px;color:#888">Add rooms above to generate your shopping list.</div>
+  </div>
+
+  <div class="tips" style="margin-top:16px">
+    <div style="font-size:14px;font-weight:800;margin-bottom:14px">Pro painting tips</div>
+    <div class="tip"><span style="font-size:18px;flex-shrink:0">&#127912;</span><div><strong>Always buy 10% extra.</strong> Batch variations between cans are real, and you will need touch-up paint later. Better to return a can than run out mid-wall.</div></div>
+    <div class="tip"><span style="font-size:18px;flex-shrink:0">&#9999;</span><div><strong>Primer is not optional on new drywall</strong> or when going from dark to light. Skip it and you will need 3+ coats. With primer, 2 coats is usually enough.</div></div>
+    <div class="tip"><span style="font-size:18px;flex-shrink:0">&#127760;</span><div><strong>Flat vs eggshell vs satin:</strong> Flat hides imperfections (ceilings, low-traffic). Eggshell is best for most walls. Satin or semi-gloss for bathrooms, kitchens, and trim.</div></div>
+  </div>
+
+  <div class="aff">
+    <div class="aff-t"><strong>Ready to buy?</strong> Home Depot and Lowe's both offer free color matching and will mix any paint color in-store.</div>
+    <a href="https://www.homedepot.com/b/Paint/N-5yc1vZar4u" target="_blank" rel="noopener" class="aff-btn">Shop paint at Home Depot &rarr;</a>
+  </div>
+</div>
+
+<script>
+var rooms = [];
+var roomId = 0;
+
+function addRoom() {
+  roomId++;
+  rooms.push({id:roomId, name:'Room '+roomId, length:12, width:10, height:9, doors:1, windows:2});
+  renderRooms();
+  recalc();
+}
+
+function removeRoom(id) {
+  rooms = rooms.filter(function(r){return r.id!==id;});
+  renderRooms();
+  recalc();
+}
+
+function updateRoom(id, field, val) {
+  var r = rooms.find(function(r){return r.id===id;});
+  if (r) { r[field] = field==='name'?val:(parseFloat(val)||0); recalc(); }
+}
+
+function renderRooms() {
+  var container = document.getElementById('roomsContainer');
+  container.innerHTML = rooms.map(function(r) {
+    return '<div class="room-row" id="room-'+r.id+'">' +
+      '<div class="room-row-header">' +
+        '<input style="background:transparent;border:none;color:#FFE500;font-size:13px;font-weight:700;width:120px;outline:none;padding:0" value="'+r.name+'" onchange="updateRoom('+r.id+',\'name\',this.value)"/>' +
+        '<button class="rm-btn" onclick="removeRoom('+r.id+')">&#10005;</button>' +
+      '</div>' +
+      '<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px">' +
+        '<div><label>Length (ft)</label><input type="number" value="'+r.length+'" oninput="updateRoom('+r.id+',\'length\',this.value)"/></div>' +
+        '<div><label>Width (ft)</label><input type="number" value="'+r.width+'" oninput="updateRoom('+r.id+',\'width\',this.value)"/></div>' +
+        '<div><label>Height (ft)</label><input type="number" value="'+r.height+'" oninput="updateRoom('+r.id+',\'height\',this.value)"/></div>' +
+        '<div><label>Doors</label><input type="number" value="'+r.doors+'" min="0" oninput="updateRoom('+r.id+',\'doors\',this.value)"/></div>' +
+        '<div><label>Windows</label><input type="number" value="'+r.windows+'" min="0" oninput="updateRoom('+r.id+',\'windows\',this.value)"/></div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
+function recalc() {
+  var coverage = parseInt(document.getElementById('coverage').value) || 400;
+  var coats = parseInt(document.getElementById('coats').value) || 2;
+  var pricePerGal = parseInt(document.getElementById('paintType').value) || 45;
+  var totalSqft = 0;
+  var roomSummaries = [];
+
+  rooms.forEach(function(r) {
+    var wallArea = 2*(r.length+r.width)*r.height;
+    var doorArea = r.doors * 20; // ~20 sq ft per door
+    var winArea = r.windows * 15; // ~15 sq ft per window
+    var paintable = Math.max(0, wallArea - doorArea - winArea);
+    var gals = paintable * coats / coverage;
+    totalSqft += paintable;
+    roomSummaries.push({name:r.name, sqft:Math.round(paintable), gals:gals});
+  });
+
+  var totalGals = rooms.reduce(function(s,r){
+    var wa=2*(r.length+r.width)*r.height;
+    var paintable=Math.max(0,wa-r.doors*20-r.windows*15);
+    return s+paintable*coats/coverage;
+  },0);
+  var withBuffer = totalGals * 1.1;
+  var gallons = Math.ceil(withBuffer);
+  var quarts = Math.round(withBuffer * 4);
+  var cost = Math.round(gallons * pricePerGal);
+
+  document.getElementById('totalGal').textContent = gallons;
+  document.getElementById('totalSqft').textContent = Math.round(totalSqft);
+  document.getElementById('totalQts').textContent = quarts;
+  document.getElementById('estCost').textContent = '$'+cost;
+  document.getElementById('roomCount').textContent = rooms.length;
+
+  var fullGallons = Math.floor(withBuffer);
+  var remQuarts = Math.round((withBuffer - fullGallons) * 4);
+  document.getElementById('totalSub').textContent =
+    gallons + ' gal needed (incl. 10% buffer) | ' + coats + ' coats | $'+pricePerGal+'/gal estimate';
+
+  if (rooms.length === 0) {
+    document.getElementById('totalSub').textContent = 'Add a room below to calculate';
+    document.getElementById('shoppingList').textContent = 'Add rooms above to generate your shopping list.';
+    return;
+  }
+
+  var list = '<strong style="color:#fff">Your shopping list:</strong><br><br>';
+  list += roomSummaries.map(function(r){
+    var g=Math.ceil(r.gals*1.1);
+    return '&#9679; <strong>'+r.name+'</strong>: '+r.sqft+' sq ft &rarr; '+g+' gallon'+(g!==1?'s':'');
+  }).join('<br>');
+  list += '<br><br><strong style="color:#FFE500">Total: Buy '+gallons+' gallon'+(gallons!==1?'s':'')+
+    (remQuarts>0?' (or '+fullGallons+' gal + '+remQuarts+' qt)':'')+
+    ' &mdash; estimated $'+cost+'</strong>';
+  list += '<br><span style="font-size:12px;color:#555">Prices vary by brand and store. Includes 10% buffer for touch-ups.</span>';
+  document.getElementById('shoppingList').innerHTML = list;
+}
+
+// Add first room by default
+addRoom();
+</script>
+</body>
+</html>
