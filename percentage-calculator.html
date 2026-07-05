@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Percentage Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate percentages instantly. What is X% of Y? What percentage is X of Y? Increase/decrease percentages."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field{margin-bottom:0}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.rs{font-size:13px;color:#666;margin-top:6px}
+.bkd{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bkv{font-size:15px;font-weight:800}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px;transition:all 0.2s}
+.btn:hover{background:#f5dc00;transform:translateY(-1px)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px}
+.at{font-size:13px;color:#c4b5fd}.at strong{color:#fff}
+.ab{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px;cursor:pointer}
+.slv{color:var(--yellow);font-weight:700}
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700;margin:2px}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+.big-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2,.grid3,.bkd,.big-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Percentage Calculator</div><h1>Percentage math,<br>solved instantly.</h1><p class="sub">The three most common percentage problems, all solved instantly with no algebra required.</p></div>
+
+<div class="big-grid">
+  <div class="card">
+    <div class="ct">&#128221; What is X% of Y?</div>
+    <div class="field" style="margin-bottom:10px"><label>Percentage (%)</label><input type="number" id="p1a" value="15" oninput="calc1()"/></div>
+    <div class="field" style="margin-bottom:10px"><label>Of number</label><input type="number" id="p1b" value="200" oninput="calc1()"/></div>
+    <div id="res1" style="background:#111;border-radius:10px;padding:14px;text-align:center;font-size:22px;font-weight:900;color:#FFE500;margin-top:4px">30</div>
+    <div id="res1b" style="font-size:12px;color:#555;text-align:center;margin-top:6px">15% of 200 = 30</div>
+  </div>
+  <div class="card">
+    <div class="ct">&#128202; X is what % of Y?</div>
+    <div class="field" style="margin-bottom:10px"><label>Value (X)</label><input type="number" id="p2a" value="30" oninput="calc2()"/></div>
+    <div class="field" style="margin-bottom:10px"><label>Total (Y)</label><input type="number" id="p2b" value="200" oninput="calc2()"/></div>
+    <div id="res2" style="background:#111;border-radius:10px;padding:14px;text-align:center;font-size:22px;font-weight:900;color:#FFE500;margin-top:4px">15%</div>
+    <div id="res2b" style="font-size:12px;color:#555;text-align:center;margin-top:6px">30 is 15% of 200</div>
+  </div>
+  <div class="card">
+    <div class="ct">&#128200; Percentage change</div>
+    <div class="field" style="margin-bottom:10px"><label>Original value</label><input type="number" id="p3a" value="80" oninput="calc3()"/></div>
+    <div class="field" style="margin-bottom:10px"><label>New value</label><input type="number" id="p3b" value="100" oninput="calc3()"/></div>
+    <div id="res3" style="background:#111;border-radius:10px;padding:14px;text-align:center;font-size:22px;font-weight:900;color:#22c55e;margin-top:4px">+25%</div>
+    <div id="res3b" style="font-size:12px;color:#555;text-align:center;margin-top:6px">80 to 100 = +25% increase</div>
+  </div>
+  <div class="card">
+    <div class="ct">&#127917; Add or remove %</div>
+    <div class="field" style="margin-bottom:10px"><label>Starting number</label><input type="number" id="p4a" value="100" oninput="calc4()"/></div>
+    <div class="field" style="margin-bottom:10px"><label>Percentage to add/remove</label><input type="number" id="p4b" value="20" oninput="calc4()"/></div>
+    <div id="res4" style="background:#111;border-radius:10px;padding:10px;text-align:center;margin-top:4px">
+      <span style="font-size:13px;color:#666">Add: </span><span style="font-size:20px;font-weight:900;color:#22c55e" id="res4add">120</span>
+      <span style="font-size:13px;color:#666;margin-left:14px">Remove: </span><span style="font-size:20px;font-weight:900;color:#FF4D4D" id="res4sub">80</span>
+    </div>
+  </div>
+</div>
+<div class="tips" style="margin-top:14px">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Quick percentage formulas</div>
+  <div class="tip"><span class="ti">&#128161;</span><div><strong>To find 10%:</strong> just move the decimal point one place left. 10% of 350 = 35. For 5%, halve that. For 20%, double it. Mental math hack.</div></div>
+  <div class="tip"><span class="ti">&#128200;</span><div><strong>Percentage change formula:</strong> (New - Old) / Old x 100. If something went from $80 to $100, that is a 25% increase, not 20%.</div></div>
+  <div class="tip"><span class="ti">&#127917;</span><div><strong>Tip shortcut:</strong> For an 18% tip, find 10% (move decimal), add half of that (5%), then add another 3%. Total = 10+5+3 = 18%.</div></div>
+</div>
+<script>
+function calc1(){var a=parseFloat(document.getElementById("p1a").value)||0,b=parseFloat(document.getElementById("p1b").value)||0,r=a*b/100;document.getElementById("res1").textContent=r%1===0?r:r.toFixed(2);document.getElementById("res1b").textContent=a+"% of "+b+" = "+(r%1===0?r:r.toFixed(2));}
+function calc2(){var a=parseFloat(document.getElementById("p2a").value)||0,b=parseFloat(document.getElementById("p2b").value)||1,r=(a/b*100);document.getElementById("res2").textContent=r.toFixed(2)+"%";document.getElementById("res2b").textContent=a+" is "+r.toFixed(2)+"% of "+b;}
+function calc3(){var a=parseFloat(document.getElementById("p3a").value)||1,b=parseFloat(document.getElementById("p3b").value)||0,r=(b-a)/a*100;var el=document.getElementById("res3");el.textContent=(r>=0?"+":"")+r.toFixed(2)+"%";el.style.color=r>=0?"#22c55e":"#FF4D4D";document.getElementById("res3b").textContent=a+" to "+b+" = "+(r>=0?"increase":"decrease")+" of "+Math.abs(r).toFixed(2)+"%";}
+function calc4(){var a=parseFloat(document.getElementById("p4a").value)||0,b=parseFloat(document.getElementById("p4b").value)||0;document.getElementById("res4add").textContent=(a+a*b/100).toFixed(2);document.getElementById("res4sub").textContent=Math.max(0,a-a*b/100).toFixed(2);}
+calc1();calc2();calc3();calc4();
+</script>
+
+</div>
+</body>
+</html>
