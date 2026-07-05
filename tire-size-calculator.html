@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0D6KZ606DX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
+<title>Tire Size Calculator &mdash; Compare Equivalent Sizes &amp; Speedometer Error | DIY9lives</title>
+<meta name="description" content="Free tire size calculator. Enter your stock tire size and find equivalent sizes for 15 to 22 inch wheels, compare diameters, and see exactly how much your speedometer will be off. No login, no ads in your face.">
+<link rel="canonical" href="https://diy9lives.com/tire-size-calculator.html">
+<style>
+  :root{
+    --black:#0a0a0a; --card:#141414; --yellow:#FFE500; --coral:#FF4D4D;
+    --white:#FAFAFA; --muted:#666666; --border:#222222; --green:#00C851;
+    --orange:#FF8800;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;}
+  a{color:inherit;text-decoration:none;}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+  .logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}
+  .logo span{color:var(--yellow);}
+  .nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
+
+  main{max-width:960px;margin:0 auto;padding:90px 20px 60px;}
+
+  .crumb{font-size:12px;color:var(--muted);margin-bottom:14px;}
+  .crumb a:hover{color:var(--yellow);}
+  h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+  h1 em{font-style:normal;color:var(--yellow);}
+  .sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:28px;}
+
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+  .card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+  .badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;}
+  .b-free{background:var(--yellow);color:var(--black);}
+
+  /* SIZE PICKER */
+  .picker{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;}
+  .field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:6px;}
+  select{width:100%;background:var(--black);color:var(--white);border:1px solid var(--border);border-radius:9px;padding:11px 12px;font-size:16px;font-weight:600;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23666' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;cursor:pointer;}
+  select:focus{outline:none;border-color:var(--yellow);}
+  .size-readout{font-size:14px;color:var(--muted);}
+  .size-readout strong{color:var(--yellow);font-size:18px;font-weight:800;}
+
+  /* STOCK STATS */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;}
+  .stat{background:var(--black);border:1px solid var(--border);border-radius:10px;padding:12px 14px;}
+  .stat .v{font-size:20px;font-weight:800;letter-spacing:-.5px;}
+  .stat .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:2px;}
+
+  /* RESULTS TABLE */
+  .rim-group{margin-bottom:6px;}
+  .rim-head{display:flex;align-items:baseline;gap:10px;padding:14px 4px 8px;border-bottom:1px solid var(--border);}
+  .rim-head .rh-size{font-size:17px;font-weight:800;}
+  .rim-head .rh-note{font-size:12px;color:var(--muted);}
+  table{width:100%;border-collapse:collapse;font-size:14px;}
+  th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:10px 8px 6px;font-weight:700;}
+  td{padding:10px 8px;border-top:1px solid #1b1b1b;}
+  tr.row{cursor:pointer;transition:background .12s;}
+  tr.row:hover{background:#1a1a1a;}
+  tr.row.active{background:#1e1c00;box-shadow:inset 3px 0 0 var(--yellow);}
+  .sz{font-weight:700;white-space:nowrap;}
+  .diff{font-weight:700;white-space:nowrap;}
+  .d-green{color:var(--green);} .d-yellow{color:var(--yellow);} .d-orange{color:var(--orange);} .d-coral{color:var(--coral);}
+  .pill{display:inline-block;font-size:10px;font-weight:800;padding:2px 7px;border-radius:5px;margin-left:6px;vertical-align:1px;}
+  .p-best{background:var(--green);color:var(--black);}
+  .p-stock{background:var(--yellow);color:var(--black);}
+  .speedo-cell{color:var(--muted);white-space:nowrap;}
+  .hint{font-size:12px;color:var(--muted);margin-top:10px;}
+  .hint b{color:var(--white);}
+
+  /* LEGEND */
+  .legend{display:flex;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);margin-top:12px;}
+  .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:-1px;}
+
+  /* DETAIL / SPEEDO */
+  #detail{display:none;}
+  .detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+  .cmp-svg{width:100%;height:auto;background:var(--black);border:1px solid var(--border);border-radius:10px;}
+  .cmp-legend{display:flex;gap:16px;font-size:12px;margin-top:8px;color:var(--muted);}
+  .speedo-table td:first-child{color:var(--muted);}
+  .speedo-table td:last-child{font-weight:700;}
+  .warn{margin-top:12px;font-size:13px;padding:12px 14px;border-radius:9px;background:#1a1400;border:1px solid #3a3000;color:#ffdd66;line-height:1.55;}
+  .ok{background:#001a0a;border-color:#003a18;color:#7fe0a8;}
+  .spec-mini{width:100%;font-size:13px;}
+  .spec-mini td{padding:7px 8px;}
+  .spec-mini td:nth-child(2),.spec-mini td:nth-child(3){font-weight:600;white-space:nowrap;}
+  .spec-mini .lbl{color:var(--muted);}
+
+  /* AFFILIATE */
+  .aff{display:flex;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(120deg,#141414,#181400);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:20px;flex-wrap:wrap;}
+  .aff p{font-size:14px;color:var(--muted);max-width:520px;}
+  .aff p b{color:var(--white);}
+  .aff a{background:var(--yellow);color:var(--black);font-weight:800;font-size:13px;padding:10px 18px;border-radius:8px;white-space:nowrap;}
+
+  /* FAQ */
+  details{border-top:1px solid var(--border);padding:14px 4px;}
+  details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+  details summary::after{content:"+";color:var(--yellow);font-size:18px;font-weight:800;}
+  details[open] summary::after{content:"\2212";}
+  details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+
+  footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
+  footer a{color:var(--yellow);}
+
+  @media(max-width:680px){
+    .picker{grid-template-columns:repeat(3,1fr);gap:8px;}
+    .detail-grid{grid-template-columns:1fr;}
+    th:nth-child(4),td:nth-child(4){display:none;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="/">DIY<span>9</span>lives</a>
+  <a class="nav-cta" href="/">All 25 tools &rarr;</a>
+</nav>
+
+<main>
+  <div class="crumb"><a href="/">Home</a> / Cars &amp; Driving / Tire Size Calculator</div>
+  <h1>Tire Size <em>Calculator</em></h1>
+  <p class="sub">Going from 16&quot; wheels to 18&quot;? Enter your stock tire size and instantly see the closest equivalent sizes for every wheel diameter &mdash; plus exactly how far off your speedometer will read with each one.</p>
+
+  <!-- STOCK SIZE INPUT -->
+  <div class="card">
+    <h2>Your stock tire size <span class="badge b-free">Free</span></h2>
+    <div class="picker">
+      <div class="field">
+        <label>Width (mm)</label>
+        <select id="inWidth"></select>
+      </div>
+      <div class="field">
+        <label>Aspect ratio (%)</label>
+        <select id="inAspect"></select>
+      </div>
+      <div class="field">
+        <label>Wheel (in)</label>
+        <select id="inRim"></select>
+      </div>
+    </div>
+    <div class="size-readout">Stock size: <strong id="stockLabel">225/60R16</strong> &nbsp;&mdash;&nbsp; the numbers on your sidewall, e.g. <b>225 / 60 R 16</b></div>
+  </div>
+
+  <!-- STOCK STATS -->
+  <div class="card">
+    <h2>Stock tire specs</h2>
+    <div class="stats" id="stockStats"></div>
+  </div>
+
+  <!-- RESULTS -->
+  <div class="card">
+    <h2>Equivalent sizes by wheel diameter</h2>
+    <p class="hint" style="margin:0 0 4px;">Only shows sizes actually stocked by major tire retailers &mdash; not every size that's mathematically close. Tap any size for the <b>speedometer error table</b> and a visual comparison. Rule of thumb: stay within <b>&plusmn;3%</b> of stock diameter (within &plusmn;1% is ideal).</p>
+    <div id="results"></div>
+    <div class="legend">
+      <span><span class="dot" style="background:var(--green)"></span>&lt; 1% &mdash; ideal</span>
+      <span><span class="dot" style="background:var(--yellow)"></span>1&ndash;2% &mdash; fine</span>
+      <span><span class="dot" style="background:var(--orange)"></span>2&ndash;3% &mdash; edge of safe</span>
+    </div>
+    <p class="hint" style="margin-top:14px;">Even within the sizes above, exact stock and pricing vary a lot by brand and by season &mdash; a size that's cheap and in stock at one retailer might be back-ordered at another. <b>It pays to check two or three sellers before buying.</b></p>
+  </div>
+
+  <!-- DETAIL -->
+  <div class="card" id="detail">
+    <h2 id="detailTitle">Comparison</h2>
+    <div class="detail-grid">
+      <div>
+        <svg id="cmpSvg" class="cmp-svg" viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg"></svg>
+        <div class="cmp-legend">
+          <span><span class="dot" style="background:#666"></span>Stock</span>
+          <span><span class="dot" style="background:var(--yellow)"></span>New size</span>
+        </div>
+        <table class="spec-mini" id="specMini"></table>
+      </div>
+      <div>
+        <table class="speedo-table">
+          <thead><tr><th>Speedometer reads</th><th>Actual speed</th></tr></thead>
+          <tbody id="speedoBody"></tbody>
+        </table>
+        <div class="warn" id="speedoNote"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AFFILIATE -->
+  <div class="aff">
+    <p><b>Ready to buy?</b> Availability and price for the same exact size can swing by $30&ndash;80 a tire between sellers. Compare a couple options before you check out.</p>
+    <a href="https://www.cargurus.com" rel="nofollow sponsored" target="_blank">Compare on CarGurus &rarr;</a>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card">
+    <h2>Quick answers</h2>
+    <details open>
+      <summary>How do I read a tire size like 225/60R16?</summary>
+      <p><b>225</b> is the tread width in millimeters. <b>60</b> is the aspect ratio &mdash; the sidewall height as a percentage of the width (here, 60% of 225mm = 135mm tall). <b>R16</b> means it fits a 16-inch wheel. Overall diameter = wheel + two sidewalls.</p>
+    </details>
+    <details>
+      <summary>Why does tire size affect my speedometer?</summary>
+      <p>Your speedometer counts wheel rotations and assumes the stock tire circumference. A larger tire covers more ground per rotation, so your speedometer reads <b>lower</b> than your true speed. A smaller tire does the opposite. Even 2&ndash;3% matters: at a true 70 mph that&#39;s about 2 mph of error &mdash; enough to earn a ticket or fail a state inspection in some places.</p>
+    </details>
+    <details>
+      <summary>What is &quot;plus sizing&quot;?</summary>
+      <p>Going up one inch in wheel diameter while keeping the overall tire diameter nearly the same. The pattern: <b>+1 inch of wheel &asymp; +10mm width and &minus;5 to &minus;10 aspect ratio</b>. Example: 225/60R16 &rarr; 225/55R17 &rarr; 245/45R18 &rarr; 245/40R19. Bigger wheel, shorter sidewall, same rollout.</p>
+    </details>
+    <details>
+      <summary>Will a wider tire fit my car?</summary>
+      <p>This calculator matches diameters, but width clearance depends on your specific wheel offset, suspension, and fender room. As a rule, +10 to +20mm over stock is usually fine; beyond that, check a fitment forum for your exact model or measure clearance at full steering lock.</p>
+    </details>
+    <details>
+      <summary>Why don&#39;t I see every mathematically close size?</summary>
+      <p>Tire makers don&#39;t produce every possible width/aspect-ratio combination &mdash; only specific sizes get manufactured and stocked at scale. This tool matches your stock diameter against sizes that are actually common in retailer catalogs, so what you see here is realistically shoppable. Even so, exact in-stock availability and pricing shift often, so it&#39;s worth checking a couple of sellers before you commit to a size.</p>
+    </details>
+  </div>
+</main>
+
+<footer>
+  <p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all 25 tools</a></p>
+</footer>
+
+<script>
+(function(){
+  var MM_PER_IN = 25.4;
+  var widths = [];  for(var w=155; w<=345; w+=10) widths.push(w);
+  var aspects = []; for(var a=25;  a<=85;  a+=5)  aspects.push(a);
+  var rims = [];    for(var r=13;  r<=22;  r++)   rims.push(r);
+  var RESULT_RIMS_MIN = 13, RESULT_RIMS_MAX = 22;
+  var SPEEDO_POINTS = [25,35,45,55,60,65,70,75,80];
+
+  // Width/aspect-ratio pairs actually stocked by major retailers for each wheel
+  // diameter (typical Tire Rack / Discount Tire style catalog patterns). Keeps
+  // results to sizes a shopper can realistically buy, not just close math matches.
+  var COMMON = {
+    13:[[145,80],[155,80],[165,80],[175,70],[185,70],[195,60],[195,70]],
+    14:[[175,65],[185,65],[195,65],[195,70],[205,70],[205,75],[215,70],[225,75]],
+    15:[[185,65],[195,60],[195,65],[205,65],[205,70],[205,75],[215,65],[215,70],[225,70],[225,75],[235,75]],
+    16:[[195,55],[205,55],[205,60],[205,65],[215,55],[215,60],[215,65],[215,70],[225,55],[225,60],[225,65],[225,70],[225,75],[235,60],[235,65],[235,70],[235,75],[245,70],[245,75],[265,70],[265,75],[275,70]],
+    17:[[205,40],[205,45],[205,50],[215,45],[215,50],[215,55],[215,60],[225,45],[225,50],[225,55],[225,60],[225,65],[235,45],[235,50],[235,55],[235,60],[235,65],[245,45],[245,65],[255,65],[255,70],[265,65],[265,70],[275,65],[275,70],[285,70]],
+    18:[[215,35],[215,40],[225,40],[225,45],[225,50],[225,55],[235,40],[235,45],[235,50],[235,55],[235,60],[245,40],[245,45],[245,50],[245,60],[255,45],[255,55],[255,60],[255,65],[265,60],[265,65],[275,55],[275,60],[275,65],[285,60],[285,65],[295,60],[295,70]],
+    19:[[225,35],[225,40],[235,35],[235,40],[235,45],[235,50],[245,35],[245,40],[245,45],[255,35],[255,40],[255,45],[255,50],[255,55],[265,35],[265,50],[275,40],[275,45],[275,55],[275,60],[285,45],[285,55],[295,55],[305,55]],
+    20:[[235,30],[235,35],[235,45],[245,35],[245,40],[245,45],[245,50],[255,35],[255,40],[255,45],[255,50],[255,55],[265,35],[265,40],[265,45],[265,50],[275,40],[275,45],[275,55],[275,60],[285,45],[285,50],[295,45],[295,50],[305,50],[315,35]],
+    21:[[245,30],[245,35],[245,40],[255,30],[255,35],[255,40],[255,45],[255,50],[265,30],[265,35],[265,40],[265,45],[275,30],[275,35],[275,40],[275,45],[285,35],[285,40],[285,45],[295,35],[295,40],[305,35],[305,40],[315,35]],
+    22:[[245,30],[255,30],[255,35],[265,30],[265,35],[275,30],[275,35],[285,35],[285,40],[285,45],[295,30],[295,35],[305,30],[305,35],[305,40],[315,35],[325,30],[325,35]]
+  };
+
+  var elW = document.getElementById('inWidth');
+  var elA = document.getElementById('inAspect');
+  var elR = document.getElementById('inRim');
+
+  function fill(sel, arr, def){
+    for(var i=0;i<arr.length;i++){
+      var o=document.createElement('option');
+      o.value=arr[i]; o.textContent=arr[i];
+      if(arr[i]===def) o.selected=true;
+      sel.appendChild(o);
+    }
+  }
+  fill(elW,widths,225); fill(elA,aspects,60); fill(elR,rims,16);
+
+  function diameterIn(w,a,r){ return r + 2*(w*(a/100))/MM_PER_IN; }
+  function sizeLabel(w,a,r){ return w + '/' + a + 'R' + r; }
+  function fmt(n,d){ return n.toFixed(d===undefined?1:d); }
+
+  var stock = {};
+  var selectedKey = null;
+
+  function diffClass(p){
+    var ap=Math.abs(p);
+    if(ap<1) return 'd-green';
+    if(ap<2) return 'd-yellow';
+    if(ap<=3) return 'd-orange';
+    return 'd-coral';
+  }
+
+  function recalc(){
+    var w=+elW.value, a=+elA.value, r=+elR.value;
+    var d=diameterIn(w,a,r);
+    stock={w:w,a:a,r:r,d:d};
+    document.getElementById('stockLabel').textContent=sizeLabel(w,a,r);
+
+    var sidewallIn=(w*(a/100))/MM_PER_IN;
+    var circIn=Math.PI*d;
+    var revsMile=63360/circIn;
+    var stats=[
+      [fmt(d,2)+'&quot;', 'Overall diameter'],
+      [fmt(sidewallIn,2)+'&quot;', 'Sidewall height'],
+      [fmt(circIn,1)+'&quot;', 'Circumference'],
+      [fmt(revsMile,0), 'Revs per mile'],
+      [fmt(w/MM_PER_IN,1)+'&quot;', 'Tread width']
+    ];
+    var sh='';
+    for(var i=0;i<stats.length;i++){
+      sh+='<div class="stat"><div class="v">'+stats[i][0]+'</div><div class="k">'+stats[i][1]+'</div></div>';
+    }
+    document.getElementById('stockStats').innerHTML=sh;
+
+    buildResults();
+    document.getElementById('detail').style.display='none';
+    selectedKey=null;
+  }
+
+  function buildResults(){
+    var out='';
+    var anyResults=false;
+    for(var rim=RESULT_RIMS_MIN; rim<=RESULT_RIMS_MAX; rim++){
+      var pairs=COMMON[rim]||[];
+      var cands=[];
+      for(var pi=0;pi<pairs.length;pi++){
+        var w=pairs[pi][0], a=pairs[pi][1];
+        var d=diameterIn(w,a,rim);
+        var p=(d-stock.d)/stock.d*100;
+        if(Math.abs(p)<=3) cands.push({w:w,a:a,r:rim,d:d,p:p});
+      }
+      cands.sort(function(x,y){
+        var dd=Math.abs(x.p)-Math.abs(y.p);
+        if(Math.abs(dd)>0.0001) return dd;
+        return Math.abs(x.w-stock.w)-Math.abs(y.w-stock.w);
+      });
+      var top=cands.slice(0,3);
+      if(!top.length) continue;
+      anyResults=true;
+
+      out+='<div class="rim-group">';
+      out+='<div class="rim-head"><span class="rh-size">'+rim+'&quot; wheels</span>';
+      if(rim===stock.r) out+='<span class="rh-note">your stock wheel size</span>';
+      out+='</div>';
+      out+='<table><thead><tr><th>Size</th><th>Diameter</th><th>Difference</th><th>Speedo reads 60, actual is</th></tr></thead><tbody>';
+      for(var i=0;i<top.length;i++){
+        var c=top[i];
+        var isStock=(c.w===stock.w&&c.a===stock.a&&c.r===stock.r);
+        var actual60=60*(c.d/stock.d);
+        var key=c.w+'-'+c.a+'-'+c.r;
+        out+='<tr class="row" data-k="'+key+'" data-w="'+c.w+'" data-a="'+c.a+'" data-r="'+c.r+'">';
+        out+='<td class="sz">'+sizeLabel(c.w,c.a,c.r);
+        if(isStock) out+='<span class="pill p-stock">Stock</span>';
+        else if(i===0&&Math.abs(c.p)<1) out+='<span class="pill p-best">Best match</span>';
+        out+='</td>';
+        out+='<td>'+fmt(c.d,2)+'&quot;</td>';
+        out+='<td class="diff '+diffClass(c.p)+'">'+(c.p>=0?'+':'')+fmt(c.p,2)+'%</td>';
+        out+='<td class="speedo-cell">'+fmt(actual60,1)+' mph</td>';
+        out+='</tr>';
+      }
+      out+='</tbody></table></div>';
+    }
+    if(!anyResults){
+      out='<p class="hint" style="margin:14px 4px;">No commonly-stocked size on any wheel diameter lands within 3% of your stock diameter. Your stock size may be unusual, or you may need a specialty fitment &mdash; a local tire shop can check custom options.</p>';
+    }
+    document.getElementById('results').innerHTML=out;
+
+    var rows=document.querySelectorAll('tr.row');
+    for(var j=0;j<rows.length;j++){
+      rows[j].addEventListener('click',function(){
+        showDetail(+this.dataset.w,+this.dataset.a,+this.dataset.r,this.dataset.k);
+      });
+    }
+  }
+
+  function showDetail(w,a,r,key){
+    selectedKey=key;
+    var rows=document.querySelectorAll('tr.row');
+    for(var i=0;i<rows.length;i++){
+      rows[i].classList.toggle('active',rows[i].dataset.k===key);
+    }
+
+    var d=diameterIn(w,a,r);
+    var ratio=d/stock.d;
+    var p=(ratio-1)*100;
+
+    document.getElementById('detailTitle').textContent =
+      sizeLabel(stock.w,stock.a,stock.r)+' vs '+sizeLabel(w,a,r);
+
+    // Speedo table
+    var sb='';
+    for(var s=0;s<SPEEDO_POINTS.length;s++){
+      var ind=SPEEDO_POINTS[s];
+      var act=ind*ratio;
+      sb+='<tr><td>'+ind+' mph</td><td class="'+diffClass(p)+'">'+fmt(act,1)+' mph</td></tr>';
+    }
+    document.getElementById('speedoBody').innerHTML=sb;
+
+    var note=document.getElementById('speedoNote');
+    var ap=Math.abs(p);
+    if(ap<0.35){
+      note.className='warn ok';
+      note.innerHTML='<b>Nearly perfect match.</b> Your speedometer error changes by less than half a percent &mdash; this is as close as it gets.';
+    } else if(p>0){
+      note.className='warn';
+      note.innerHTML='<b>Larger tire (+'+fmt(p,2)+'%):</b> your speedometer will read <b>lower</b> than your true speed. When it shows 70 mph you are actually doing about <b>'+fmt(70*ratio,1)+' mph</b>. Your odometer also under-counts miles by the same amount.';
+    } else {
+      note.className='warn';
+      note.innerHTML='<b>Smaller tire ('+fmt(p,2)+'%):</b> your speedometer will read <b>higher</b> than your true speed. When it shows 70 mph you are actually doing about <b>'+fmt(70*ratio,1)+' mph</b>. Your odometer also over-counts miles by the same amount.';
+    }
+
+    // Specs mini table
+    var sw1=(stock.w*(stock.a/100))/MM_PER_IN, sw2=(w*(a/100))/MM_PER_IN;
+    var c1=Math.PI*stock.d, c2=Math.PI*d;
+    var rm1=63360/c1, rm2=63360/c2;
+    var mini='<tr><th></th><th>Stock</th><th>New</th></tr>';
+    mini+='<tr><td class="lbl">Size</td><td>'+sizeLabel(stock.w,stock.a,stock.r)+'</td><td>'+sizeLabel(w,a,r)+'</td></tr>';
+    mini+='<tr><td class="lbl">Diameter</td><td>'+fmt(stock.d,2)+'&quot;</td><td>'+fmt(d,2)+'&quot;</td></tr>';
+    mini+='<tr><td class="lbl">Sidewall</td><td>'+fmt(sw1,2)+'&quot;</td><td>'+fmt(sw2,2)+'&quot;</td></tr>';
+    mini+='<tr><td class="lbl">Circumference</td><td>'+fmt(c1,1)+'&quot;</td><td>'+fmt(c2,1)+'&quot;</td></tr>';
+    mini+='<tr><td class="lbl">Revs / mile</td><td>'+fmt(rm1,0)+'</td><td>'+fmt(rm2,0)+'</td></tr>';
+    document.getElementById('specMini').innerHTML=mini;
+
+    // SVG comparison â two tires side by side, scaled
+    var svg=document.getElementById('cmpSvg');
+    var maxD=Math.max(stock.d,d);
+    var scale=200/maxD;               // px per inch
+    var r1=stock.d*scale/2, r2=d*scale/2;
+    var rim1=stock.r*scale/2, rim2=r*scale/2;
+    var cy=130;
+    var cx1=105, cx2=295;
+    var s='';
+    s+='<circle cx="'+cx1+'" cy="'+cy+'" r="'+r1+'" fill="#1c1c1c" stroke="#666" stroke-width="2"/>';
+    s+='<circle cx="'+cx1+'" cy="'+cy+'" r="'+rim1+'" fill="#0a0a0a" stroke="#444" stroke-width="1.5"/>';
+    s+='<circle cx="'+cx2+'" cy="'+cy+'" r="'+r2+'" fill="#1e1c00" stroke="#FFE500" stroke-width="2"/>';
+    s+='<circle cx="'+cx2+'" cy="'+cy+'" r="'+rim2+'" fill="#0a0a0a" stroke="#8a7c00" stroke-width="1.5"/>';
+    s+='<text x="'+cx1+'" y="'+(cy+r1+18)+'" fill="#666" font-size="12" text-anchor="middle" font-family="system-ui,sans-serif">'+sizeLabel(stock.w,stock.a,stock.r)+'</text>';
+    s+='<text x="'+cx2+'" y="'+(cy+r2+18)+'" fill="#FFE500" font-size="12" text-anchor="middle" font-family="system-ui,sans-serif">'+sizeLabel(w,a,r)+'</text>';
+    svg.innerHTML=s;
+
+    document.getElementById('detail').style.display='block';
+    document.getElementById('detail').scrollIntoView({behavior:'smooth',block:"nearest'});
+  }
+
+  elW.addEventListener('change',recalc);
+  elA.addEventListener('change',recalc);
+  elR.addEventListener('change',recalc);
+  recalc();
+
+  // Auto-open the 18" best match as a demo so the page never looks empty
+  var firstBest=document.querySelector('tr.row[data-r="18"]');
+  if(firstBest) showDetail(+firstBest.dataset.w,+firstBest.dataset.a,+firstBest.dataset.r,firstBest.dataset.k);
+})();
+</script>
+</body>
+</html>
