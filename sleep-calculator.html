@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Sleep Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Find the best time to wake up or go to sleep based on sleep cycles. Wake up refreshed every morning."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field{margin-bottom:0}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.rs{font-size:13px;color:#666;margin-top:6px}
+.bkd{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bkv{font-size:15px;font-weight:800}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px;transition:all 0.2s}
+.btn:hover{background:#f5dc00;transform:translateY(-1px)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px}
+.at{font-size:13px;color:#c4b5fd}.at strong{color:#fff}
+.ab{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px;cursor:pointer}
+.slv{color:var(--yellow);font-weight:700}
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700;margin:2px}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+.big-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2,.grid3,.bkd,.big-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Sleep Calculator</div><h1>Wake up refreshed<br>every morning.</h1><p class="sub">Sleep happens in 90-minute cycles. Hit one cleanly and you wake up energized instead of groggy.</p></div>
+
+<div class="result-big" style="border-color:#7c3aed">
+  <div class="rl">Best Wake Times</div>
+  <div class="rv" id="wakeMain" style="color:#c4b5fd;font-size:32px;line-height:1.4">--</div>
+  <div class="rs" id="wakeSub">Enter when you need to fall asleep</div>
+</div>
+<div class="card">
+  <div style="display:flex;gap:10px;margin-bottom:16px">
+    <button onclick="setMode('wake')" id="btnWake" style="flex:1;padding:10px;border-radius:8px;border:2px solid #7c3aed;background:#7c3aed20;color:#c4b5fd;font-weight:700;cursor:pointer;font-family:inherit;font-size:13px">I want to WAKE at...</button>
+    <button onclick="setMode('sleep')" id="btnSleep" style="flex:1;padding:10px;border-radius:8px;border:1px solid #222;background:transparent;color:#666;font-weight:700;cursor:pointer;font-family:inherit;font-size:13px">I want to SLEEP at...</button>
+  </div>
+  <div id="wakeRow" class="field" style="margin-bottom:14px">
+    <label id="timeLabel">What time do you want to wake up?</label>
+    <input type="time" id="targetTime" value="07:00" oninput="calcSleep()"/>
+  </div>
+  <div class="field">
+    <label>Time to fall asleep: <span class="slv" id="fallLabel">14 min</span></label>
+    <input type="range" class="slider" id="fallSlider" min="5" max="40" value="14" oninput="document.getElementById('fallLabel').textContent=this.value+' min';calcSleep()"/>
+  </div>
+</div>
+<div class="card">
+  <div class="ct">&#128164; Sleep Cycle Options</div>
+  <div id="cycleGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px"></div>
+</div>
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Sleep science facts</div>
+  <div class="tip"><span class="ti">&#9200;</span><div><strong>90-minute sleep cycles.</strong> Each cycle goes through light sleep, deep sleep, and REM. Waking mid-cycle causes sleep inertia (that groggy, disoriented feeling).</div></div>
+  <div class="tip"><span class="ti">&#128162;</span><div><strong>Most adults need 5-6 full cycles</strong> (7.5-9 hours). Getting 6 cycles in is rare but powerful. Even 4 cycles is better than waking mid-cycle after 8 hours.</div></div>
+  <div class="tip"><span class="ti">&#9728;</span><div><strong>Consistency beats duration.</strong> Going to sleep and waking at the same time every day (including weekends) is the single most impactful sleep habit.</div></div>
+</div>
+<script>
+var mode = "wake";
+function setMode(m){
+  mode=m;
+  document.getElementById("btnWake").style.borderColor=m==="wake"?"#7c3aed":"#222";
+  document.getElementById("btnWake").style.color=m==="wake"?"#c4b5fd":"#666";
+  document.getElementById("btnWake").style.background=m==="wake"?"#7c3aed20":"transparent";
+  document.getElementById("btnSleep").style.borderColor=m==="sleep"?"#7c3aed":"#222";
+  document.getElementById("btnSleep").style.color=m==="sleep"?"#c4b5fd":"#666";
+  document.getElementById("btnSleep").style.background=m==="sleep"?"#7c3aed20":"transparent";
+  document.getElementById("timeLabel").textContent=m==="wake"?"What time do you want to wake up?":"What time do you want to go to sleep?";
+  calcSleep();
+}
+function fmt12(h,m){var ap=h>=12?"PM":"AM";h=h%12||12;return h+":"+(m<10?"0"+m:m)+" "+ap;}
+function calcSleep(){
+  var t=document.getElementById("targetTime").value;
+  if(!t) return;
+  var parts=t.split(":");
+  var h=parseInt(parts[0]),m=parseInt(parts[1]);
+  var fall=parseInt(document.getElementById("fallSlider").value)||14;
+  var cycles=[],mins;
+  if(mode==="wake"){
+    for(var c=6;c>=1;c--){
+      var totalMins=c*90+fall;
+      var sh=(h*60+m-totalMins+1440)%1440;
+      cycles.push({cyc:c,h:Math.floor(sh/60),m:sh%60,dur:c*1.5});
+    }
+    document.getElementById("wakeSub").textContent="Go to sleep at one of these times to wake at "+fmt12(h,m);
+  } else {
+    for(var c=1;c<=6;c++){
+      var totalMins=c*90+fall;
+      var wh=(h*60+m+totalMins)%1440;
+      cycles.push({cyc:c,h:Math.floor(wh/60),m:wh%60,dur:c*1.5});
+    }
+    document.getElementById("wakeSub").textContent="Wake up at one of these times if you sleep at "+fmt12(h,m);
+  }
+  var recs=cycles.filter(function(c){return c.cyc>=4&&c.cyc<=6;});
+  document.getElementById("wakeMain").textContent=recs.map(function(c){return fmt12(c.h,c.m);}).join(" / ");
+  document.getElementById("cycleGrid").innerHTML=cycles.map(function(c){
+    var isRec=c.cyc>=4&&c.cyc<=6;
+    return "<div style='background:#111;border-radius:8px;padding:12px;text-align:center;border:1px solid "+(isRec?"#7c3aed":"#222")+"'>"+
+      "<div style='font-size:11px;color:#666;margin-bottom:4px'>"+c.cyc+" cycle"+(c.cyc>1?"s":"")+" ("+c.dur+"h)</div>"+
+      "<div style='font-size:18px;font-weight:800;color:"+(isRec?"#c4b5fd":"#666")+"'>"+fmt12(c.h,c.m)+"</div>"+
+      (isRec?"<div style='font-size:10px;color:#7c3aed;margin-top:3px'>Recommended</div>":"")+
+    "</div>";
+  }).join("");
+}
+calcSleep();
+</script>
+
+</div>
+</body>
+</html>
