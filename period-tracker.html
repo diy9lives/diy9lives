@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0D6KZ606DX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
+<title>Period &amp; Ovulation Tracker &mdash; Free Cycle Calculator | DIY9lives</title>
+<meta name="description" content="Free period and ovulation tracker. Enter your last period start date and cycle length to predict your next period, fertile window, and ovulation day. No login, no app, no data stored.">
+<link rel="canonical" href="https://diy9lives.com/period-tracker.html">
+<style>
+:root{
+--black:#0a0a0a; --card:#141414; --yellow:#FFE500; --coral:#FF4D4D;
+--white:#FAFAFA; --muted:#666666; --border:#222222; --green:#00C851;
+--pink:#FF7AA2; --purple:#B388FF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;}
+a{color:inherit;text-decoration:none;}
+
+nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}
+.logo span{color:var(--yellow);}
+.nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
+
+main{max-width:960px;margin:0 auto;padding:90px 20px 60px;}
+
+.crumb{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.crumb a:hover{color:var(--yellow);}
+h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+h1 em{font-style:normal;color:var(--pink);}
+.sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:28px;}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;}
+.b-free{background:var(--yellow);color:var(--black);}
+
+/* INPUTS */
+.inputs{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px;}
+.field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:6px;}
+input[type=date],input[type=number]{width:100%;background:var(--black);color:var(--white);border:1px solid var(--border);border-radius:9px;padding:11px 12px;font-size:15px;font-weight:600;font-family:inherit;}
+input:focus{outline:none;border-color:var(--pink);}
+.field-note{font-size:11px;color:var(--muted);margin-top:5px;}
+
+/* RESULTS */
+.result-hero{background:linear-gradient(135deg,#1a0d14,#141414);border:2px solid var(--pink);border-radius:16px;padding:28px;text-align:center;margin-bottom:20px;}
+.rh-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
+.rh-val{font-size:15px;font-weight:800;}
+.rh-phase{font-size:38px;font-weight:900;color:var(--pink);letter-spacing:-1px;margin:4px 0 8px;}
+.rh-sub{font-size:13px;color:var(--muted);}
+
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;}
+.stat{background:var(--black);border:1px solid var(--border);border-radius:10px;padding:14px;}
+.stat .v{font-size:19px;font-weight:800;letter-spacing:-.3px;}
+.stat .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+.stat.fertile{border-color:var(--purple)33;background:#160f22;}
+.stat.fertile .v{color:var(--purple);}
+.stat.period{border-color:var(--coral)33;background:#1f1010;}
+.stat.period .v{color:var(--coral);}
+
+/* CYCLE WHEEL */
+.wheel-wrap{display:flex;gap:24px;align-items:center;flex-wrap:wrap;}
+.wheel-svg{width:220px;height:220px;flex-shrink:0;}
+.wheel-legend{display:flex;flex-direction:column;gap:8px;font-size:13px;flex:1;min-width:200px;}
+.wl-item{display:flex;align-items:center;gap:8px;}
+.wl-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
+/* UPCOMING TABLE */
+table{width:100%;border-collapse:collapse;font-size:14px;}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:10px 8px 8px;font-weight:700;}
+td{padding:10px 8px;border-top:1px solid #1b1b1b;}
+.tag{display:inline-block;font-size:10px;font-weight:800;padding:2px 8px;border-radius:5px;}
+.tag-period{background:var(--coral);color:#1a0808;}
+.tag-fertile{background:var(--purple);color:#160f22;}
+.tag-ovulation{background:var(--pink);color:#1a0d14;}
+
+.hint{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;}
+.hint b{color:var(--white);}
+
+.disclaimer{background:#1a1400;border:1px solid #3a3000;border-radius:9px;padding:14px 16px;font-size:12px;color:#ffdd66;line-height:1.6;margin-top:14px;}
+
+/* FAQ */
+details{border-top:1px solid var(--border);padding:14px 4px;}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details summary::after{content:"+";color:var(--pink);font-size:18px;font-weight:800;}
+details[open] summary::after{content:"\2212";}
+details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+
+footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
+footer a{color:var(--pink);}
+
+@media(max-width:680px){
+.inputs{grid-template-columns:1fr;}
+.wheel-wrap{flex-direction:column;align-items:stretch;}
+th:nth-child(4),td:nth-child(4){display:none;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a class="logo" href="/">DIY<span>9</span>lives</a>
+<a class="nav-cta" href="/">All tools &rarr;</a>
+</nav>
+
+<main>
+<div class="crumb"><a href="/">Home</a> / Health &amp; Body / Period &amp; Ovulation Tracker</div>
+<h1>Period &amp; Ovulation <em>Tracker</em></h1>
+<p class="sub">Enter your last period start date and average cycle length to see your predicted next period, fertile window, ovulation day, and where you are in your cycle right now &mdash; no app, no account, no data stored anywhere.</p>
+
+<!-- INPUTS -->
+<div class="card">
+<h2>Your cycle info <span class="badge b-free">Free</span></h2>
+<div class="inputs">
+<div class="field">
+<label>Last period start date</label>
+<input type="date" id="inStart"/>
+</div>
+<div class="field">
+<label>Average cycle length (days)</label>
+<input type="number" id="inCycle" value="28" min="21" max="45"/>
+<div class="field-note">Day 1 of one period to day 1 of the next. 28 is average; 21&ndash;35 is typical.</div>
+</div>
+<div class="field">
+<label>Period length (days)</label>
+<input type="number" id="inPeriod" value="5" min="1" max="10"/>
+</div>
+</div>
+</div>
+
+<!-- RESULT HERO -->
+<div class="result-hero">
+<div class="rh-label">Today &mdash; Cycle Day <span id="cycleDayNum">1</span></div>
+<div class="rh-phase" id="phaseLabel">Menstrual</div>
+<div class="rh-sub" id="phaseSub">Enter your last period start date above to see your prediction.</div>
+</div>
+
+<!-- STATS -->
+<div class="card">
+<h2>Your predictions</h2>
+<div class="stats">
+<div class="stat period"><div class="v" id="nextPeriodDate">&ndash;</div><div class="k">Next period</div></div>
+<div class="stat"><div class="v" id="daysUntil">&ndash;</div><div class="k">Days away</div></div>
+<div class="stat"><div class="v" id="ovulationDate">&ndash;</div><div class="k">Estimated ovulation</div></div>
+<div class="stat fertile"><div class="v" id="fertileWindow">&ndash;</div><div class="k">Fertile window</div></div>
+</div>
+</div>
+
+<!-- CYCLE WHEEL -->
+<div class="card">
+<h2>Cycle overview</h2>
+<div class="wheel-wrap">
+<svg id="wheelSvg" class="wheel-svg" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg"></svg>
+<div class="wheel-legend">
+<div class="wl-item"><span class="wl-dot" style="background:var(--coral)"></span>Menstrual &mdash; your period</div>
+<div class="wl-item"><span class="wl-dot" style="background:#3d8bfd"></span>Follicular &mdash; body prepares to ovulate</div>
+<div class="wl-item"><span class="wl-dot" style="background:var(--pink)"></span>Ovulation &mdash; egg is released</div>
+<div class="wl-item"><span class="wl-dot" style="background:var(--purple)"></span>Luteal &mdash; after ovulation, before next period</div>
+</div>
+</div>
+<p class="hint">The white marker shows today's position in your cycle.</p>
+</div>
+
+<!-- UPCOMING -->
+<div class="card">
+<h2>Next 6 cycles</h2>
+<table>
+<thead><tr><th>Cycle</th><th>Period starts</th><th>Fertile window</th><th>Ovulation (est.)</th></tr></thead>
+<tbody id="upcomingBody"></tbody>
+</table>
+<p class="hint">Predictions assume your cycle stays consistent at the length entered above. <b>The more irregular your cycles, the less reliable predictions further out become</b> &mdash; treat cycles 3&ndash;6 as rough estimates, not certainties.</p>
+</div>
+
+<div class="disclaimer">
+<b>Not a method of birth control or a conception guarantee.</b> This tool estimates ovulation using the standard 14-day luteal phase model, which is a population average &mdash; your actual ovulation day can shift due to stress, illness, travel, and cycle irregularity. If you're trying to conceive or avoid pregnancy, talk to a doctor about more reliable methods (BBT charting, ovulation predictor kits, or clinical guidance).
+</div>
+
+<!-- FAQ -->
+<div class="card">
+<h2>Quick answers</h2>
+<details open>
+<summary>How does this calculate ovulation?</summary>
+<p>It uses the standard model: ovulation typically happens about 14 days <b>before</b> your next period starts (the luteal phase &mdash; the time between ovulation and your period &mdash; is usually a fairly consistent 12&ndash;14 days, even when the first half of your cycle varies). So ovulation day = cycle length &minus; 14.</p>
+</details>
+<details>
+<summary>What is the "fertile window"?</summary>
+<p>The 5&ndash;6 days each cycle when pregnancy is possible: the 5 days before ovulation (sperm can survive that long) plus ovulation day itself (the egg survives about 24 hours after release). It's the same window methods like Flo and Clue use.</p>
+</details>
+<details>
+<summary>My cycles are irregular &mdash; is this still accurate?</summary>
+<p>Less so. This tool assumes a consistent cycle length, so the more your cycles vary month to month, the less reliable the prediction &mdash; especially for ovulation timing and cycles further in the future. If you track your actual cycle lengths over a few months, use the average, and treat the fertile window as a wider "roughly this week" estimate rather than exact days.</p>
+</details>
+<details>
+<summary>Why isn't my data saved anywhere?</summary>
+<p>This tool runs entirely in your browser &mdash; nothing you enter is sent to a server, stored in an account, or tracked. Close the tab and it's gone. If you want a running history across cycles, a dedicated app (with an account) will do that; this tool is built for a quick, private, no-signup check.</p>
+</details>
+</div>
+</main>
+
+<footer>
+<p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all tools</a></p>
+</footer>
+
+<script>
+(function(){
+  var MS_DAY = 86400000;
+
+  var elStart = document.getElementById('inStart');
+  var elCycle = document.getElementById('inCycle');
+  var elPeriod = document.getElementById('inPeriod');
+
+  function todayLocal(){
+    var d = new Date();
+    d.setHours(0,0,0,0);
+    return d;
+  }
+
+  function parseDateInput(val){
+    if(!val) return null;
+    var parts = val.split('-');
+    return new Date(+parts[0], +parts[1]-1, +parts[2]);
+  }
+
+  function addDays(date, n){
+    var d = new Date(date);
+    d.setDate(d.getDate()+n);
+    return d;
+  }
+
+  function fmtDate(d){
+    return d.toLocaleDateString('en-US', {weekday:'short', month:'short', day:'numeric'});
+  }
+
+  function fmtDateShort(d){
+    return d.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+  }
+
+  // default the date field to 14 days ago so the page never looks empty
+  (function setDefault(){
+    var d = addDays(todayLocal(), -14);
+    var yyyy = d.getFullYear();
+    var mm = String(d.getMonth()+1).padStart(2,'0');
+    var dd = String(d.getDate()).padStart(2,'0');
+    elStart.value = yyyy+'-'+mm+'-'+dd;
+  })();
+
+  function getPhase(cycleDay, periodLen, ovulationDay, cycleLen){
+    var fertileStart = ovulationDay - 5;
+    if(cycleDay <= periodLen) return 'Menstrual';
+    if(cycleDay < fertileStart) return 'Follicular';
+    if(cycleDay >= fertileStart && cycleDay <= ovulationDay+1) return 'Ovulation';
+    return 'Luteal';
+  }
+
+  var PHASE_COLOR = {
+    'Menstrual':'#FF4D4D',
+    'Follicular':'#3d8bfd',
+    'Ovulation':'#FF7AA2',
+    'Luteal':'#B388FF'
+  };
+  var PHASE_SUB = {
+    'Menstrual':'Your period. Energy often lowest around now.',
+    'Follicular':'Body is preparing to release an egg. Energy typically rising.',
+    'Ovulation':'Egg is released around now &mdash; your fertile window peak.',
+    'Luteal':'After ovulation, before your next period. PMS symptoms may start late in this phase.'
+  };
+
+  function drawWheel(cycleLen, periodLen, ovulationDay, cycleDay){
+    var svg = document.getElementById('wheelSvg');
+    var cx=110, cy=110, rOuter=95, rInner=62;
+    function arcPath(startFrac, endFrac, r1, r2){
+      var a0 = (startFrac*360-90)*Math.PI/180;
+      var a1 = (endFrac*360-90)*Math.PI/180;
+      var large = (endFrac-startFrac) > 0.5 ? 1 : 0;
+      var x0o=cx+r2*Math.cos(a0), y0o=cy+r2*Math.sin(a0);
+      var x1o=cx+r2*Math.cos(a1), y1o=cy+r2*Math.sin(a1);
+      var x1i=cx+r1*Math.cos(a1), y1i=cy+r1*Math.sin(a1);
+      var x0i=cx+r1*Math.cos(a0), y0i=cy+r1*Math.sin(a0);
+      return 'M'+x0o+','+y0o+' A'+r2+','+r2+' 0 '+large+' 1 '+x1o+','+y1o+
+             ' L'+x1i+','+y1i+' A'+r1+','+r1+' 0 '+large+' 0 '+x0i+','+y0i+' Z';
+    }
+    var fertileStart = ovulationDay-5;
+    var segs = [
+      [0, periodLen/cycleLen, PHASE_COLOR['Menstrual']],
+      [periodLen/cycleLen, (fertileStart-1)/cycleLen, PHASE_COLOR['Follicular']],
+      [(fertileStart-1)/cycleLen, (ovulationDay+1)/cycleLen, PHASE_COLOR['Ovulation']],
+      [(ovulationDay+1)/cycleLen, 1, PHASE_COLOR['Luteal']]
+    ];
+    var s='';
+    for(var i=0;i<segs.length;i++){
+      var a=Math.max(0,segs[i][0]), b=Math.min(1,segs[i][1]);
+      if(b<=a) continue;
+      s+='<path d="'+arcPath(a,b,rInner,rOuter)+'" fill="'+segs[i][2]+'" opacity="0.85"/>';
+    }
+    // today marker
+    var todayFrac = (cycleDay-1)/cycleLen;
+    var ang = (todayFrac*360-90)*Math.PI/180;
+    var mx = cx + ((rInner+rOuter)/2)*Math.cos(ang);
+    var my = cy + ((rInner+rOuter)/2)*Math.sin(ang);
+    s+='<circle cx="'+mx+'" cy="'+my+'" r="7" fill="#fff" stroke="#000" stroke-width="2"/>';
+    s+='<text x="'+cx+'" y="'+(cy-4)+'" fill="#fff" font-size="13" font-weight="800" text-anchor="middle" font-family="system-ui,sans-serif">Day '+cycleDay+'</text>';
+    s+='<text x="'+cx+'" y="'+(cy+14)+'" fill="#888" font-size="10" text-anchor="middle" font-family="system-ui,sans-serif">of '+cycleLen+'</text>';
+    svg.innerHTML = s;
+  }
+
+  function calc(){
+    var start = parseDateInput(elStart.value);
+    var cycleLen = parseInt(elCycle.value)||28;
+    var periodLen = parseInt(elPeriod.value)||5;
+    if(!start){ return; }
+
+    var today = todayLocal();
+    var daysSince = Math.floor((today-start)/MS_DAY);
+    var cycleDay = ((daysSince % cycleLen)+cycleLen)%cycleLen + 1;
+    var ovulationDay = Math.max(1, cycleLen-14);
+
+    var phase = getPhase(cycleDay, periodLen, ovulationDay, cycleLen);
+    document.getElementById('cycleDayNum').textContent = cycleDay;
+    document.getElementById('phaseLabel').textContent = phase;
+    document.getElementById('phaseLabel').style.color = PHASE_COLOR[phase];
+    document.getElementById('phaseSub').innerHTML = PHASE_SUB[phase];
+
+    // find the most recent cycle start on/before today
+    var cyclesElapsed = Math.floor(daysSince/cycleLen);
+    var currentCycleStart = addDays(start, cyclesElapsed*cycleLen);
+    var nextPeriod = addDays(currentCycleStart, cycleLen);
+    var daysUntil = Math.round((nextPeriod-today)/MS_DAY);
+    var thisOvulation = addDays(currentCycleStart, ovulationDay-1);
+    var fertileStartDate = addDays(thisOvulation, -5);
+    var fertileEndDate = thisOvulation;
+
+    // if we're past this cycle's fertile window, show next cycle's instead
+    if(today > fertileEndDate){
+      var nOvulation = addDays(nextPeriod, ovulationDay-1);
+      fertileStartDate = addDays(nOvulation, -5);
+      fertileEndDate = nOvulation;
+      thisOvulation = nOvulation;
+    }
+
+    document.getElementById('nextPeriodDate').textContent = fmtDateShort(nextPeriod);
+    document.getElementById('daysUntil').textContent = daysUntil>=0 ? daysUntil+(daysUntil===1?' day':' days') : 'today';
+    document.getElementById('ovulationDate').textContent = fmtDateShort(thisOvulation);
+    document.getElementById('fertileWindow').textContent = fmtDateShort(fertileStartDate)+' &ndash; '+fmtDateShort(fertileEndDate);
+
+    drawWheel(cycleLen, periodLen, ovulationDay, cycleDay);
+
+    // upcoming 6 cycles table, starting from the most recent past/current cycle
+    var rows='';
+    for(var i=0;i<6;i++){
+      var cStart = addDays(currentCycleStart, i*cycleLen);
+      var cOvulation = addDays(cStart, ovulationDay-1);
+      var cFertStart = addDays(cOvulation, -5);
+      rows += '<tr><td>'+(i===0?'Current':'+'+i)+'</td>'+
+              '<td>'+fmtDate(cStart)+'</td>'+
+              '<td>'+fmtDateShort(cFertStart)+' &ndash; '+fmtDateShort(cOvulation)+'</td>'+
+              '<td>'+fmtDate(cOvulation)+'</td></tr>';
+    }
+    document.getElementById('upcomingBody').innerHTML = rows;
+  }
+
+  elStart.addEventListener('change', calc);
+  elCycle.addEventListener('input', calc);
+  elPeriod.addEventListener('input', calc);
+  calc();
+})();
+</script>
+</body>
+</html>
