@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Unit Converter &mdash; DIY9lives</title>
+<meta name="description" content="Convert length, weight, temperature, volume, speed and more instantly. Free online unit converter."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field{margin-bottom:0}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.rs{font-size:13px;color:#666;margin-top:6px}
+.bkd{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bkv{font-size:15px;font-weight:800}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px;transition:all 0.2s}
+.btn:hover{background:#f5dc00;transform:translateY(-1px)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px}
+.at{font-size:13px;color:#c4b5fd}.at strong{color:#fff}
+.ab{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px;cursor:pointer}
+.slv{color:var(--yellow);font-weight:700}
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700;margin:2px}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+.big-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2,.grid3,.bkd,.big-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Unit Converter</div><h1>Convert anything<br>in seconds.</h1><p class="sub">Length, weight, temperature, volume, speed — all the conversions you actually need.</p></div>
+
+<div class="card">
+  <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px" id="catBtns"></div>
+  <div class="grid2">
+    <div>
+      <label>From</label>
+      <select id="fromUnit" onchange="convert()" style="margin-bottom:10px"></select>
+      <input type="number" id="fromVal" value="1" oninput="convert()" style="font-size:18px;font-weight:700"/>
+    </div>
+    <div>
+      <label>To</label>
+      <select id="toUnit" onchange="convert()" style="margin-bottom:10px"></select>
+      <div id="toVal" style="background:#111;border:1px solid #222;border-radius:8px;padding:10px 12px;font-size:18px;font-weight:900;color:#FFE500;min-height:44px">--</div>
+    </div>
+  </div>
+  <button onclick="swap()" class="btn" style="background:var(--card);color:var(--white);border:1px solid #333;margin-top:8px">&#8645; Swap units</button>
+</div>
+<div class="card" id="refCard">
+  <div class="ct">&#128218; Quick Reference</div>
+  <div id="refGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:6px;font-size:13px;color:#888"></div>
+</div>
+<script>
+var cats = {
+  Length:{units:{m:1,km:0.001,cm:100,mm:1000,"in":39.3701,ft:3.28084,yd:1.09361,mi:0.000621371,nmi:0.000539957},refs:["1 inch = 2.54 cm","1 foot = 12 inches","1 mile = 5,280 feet","1 km = 0.621 miles","1 meter = 3.281 feet","1 yard = 36 inches"]},
+  Weight:{units:{kg:1,g:1000,mg:1000000,lb:2.20462,oz:35.274,ton:0.001,"metric ton":0.001,st:0.157473},refs:["1 kg = 2.205 lbs","1 lb = 16 oz","1 stone = 14 lbs","1 ton = 2,000 lbs","1 pound = 453.6g","1 oz = 28.35g"]},
+  Temperature:{units:{C:1,F:1,K:1},refs:["0°C = 32°F","100°C = 212°F","37°C = 98.6°F","20°C = 68°F","-40°C = -40°F","0K = -273.15°C"]},
+  Volume:{units:{L:1,mL:1000,gal:0.264172,qt:1.05669,pt:2.11338,cup:4.22675,floz:33.814,tbsp:67.628,tsp:202.884,m3:0.001},refs:["1 gallon = 4 quarts","1 quart = 2 pints","1 pint = 2 cups","1 cup = 8 fl oz","1 L = 4.227 cups","1 tbsp = 3 tsp"]},
+  Speed:{units:{"km/h":1,"m/s":0.277778,mph:0.621371,knot:0.539957,"ft/s":0.911344},refs:["Speed of light = 299,792 km/s","Sound in air = 343 m/s","Walking = 5 km/h avg","Running = 10-15 km/h","Highway = 100-130 km/h","Airplane = ~900 km/h"]},
+  Area:{units:{"m²":1,"km²":0.000001,"cm²":10000,"ft²":10.7639,"in²":1550,"yd²":1.19599,acre:0.000247105,hectare:0.0001},refs:["1 acre = 43,560 ft²","1 hectare = 10,000 m²","1 mile² = 640 acres","1 football field ≈ 1.3 acres","1 km² = 247 acres","NYC = 783 km²"]}
+};
+var curCat="Length";
+function initCats(){
+  var btns=Object.keys(cats).map(function(c){
+    return "<button onclick="setCat('"+c+"')" id="cat_"+c+"" style='padding:7px 14px;border-radius:8px;border:1px solid "+(c===curCat?"#FFE500":"#222")+";background:"+(c===curCat?"#FFE50015":"transparent")+";color:"+(c===curCat?"#FFE500":"#666")+";cursor:pointer;font-family:inherit;font-size:13px;font-weight:700'>"+c+"</button>";
+  }).join("");
+  document.getElementById("catBtns").innerHTML=btns;
+  initUnits();
+}
+function setCat(c){
+  curCat=c;
+  Object.keys(cats).forEach(function(k){
+    var b=document.getElementById("cat_"+k);
+    if(b){b.style.borderColor=k===c?"#FFE500":"#222";b.style.color=k===c?"#FFE500":"#666";b.style.background=k===c?"#FFE50015":"transparent";}
+  });
+  initUnits();
+}
+function initUnits(){
+  var units=Object.keys(cats[curCat].units);
+  var fromSel=document.getElementById("fromUnit"),toSel=document.getElementById("toUnit");
+  fromSel.innerHTML=units.map(function(u){return "<option value='"+u+"'>"+u+"</option>";}).join("");
+  toSel.innerHTML=units.map(function(u){return "<option value='"+u+"'>"+u+"</option>";}).join("");
+  toSel.value=units[1]||units[0];
+  var refs=cats[curCat].refs||[];
+  document.getElementById("refGrid").innerHTML=refs.map(function(r){return "<div style='background:#111;border-radius:6px;padding:8px'>"+r+"</div>";}).join("");
+  convert();
+}
+function convert(){
+  var from=document.getElementById("fromUnit").value;
+  var to=document.getElementById("toUnit").value;
+  var val=parseFloat(document.getElementById("fromVal").value)||0;
+  var result;
+  if(curCat==="Temperature"){
+    if(from===to){result=val;}
+    else if(from==="C"&&to==="F"){result=val*9/5+32;}
+    else if(from==="F"&&to==="C"){result=(val-32)*5/9;}
+    else if(from==="C"&&to==="K"){result=val+273.15;}
+    else if(from==="K"&&to==="C"){result=val-273.15;}
+    else if(from==="F"&&to==="K"){result=(val-32)*5/9+273.15;}
+    else if(from==="K"&&to==="F"){result=(val-273.15)*9/5+32;}
+  } else {
+    var units=cats[curCat].units;
+    result=val/units[from]*units[to];
+  }
+  var r=result;
+  var disp=Math.abs(r)>=0.0001?parseFloat(r.toPrecision(8)).toString():r.toExponential(4);
+  document.getElementById("toVal").textContent=disp;
+}
+function swap(){var f=document.getElementById("fromUnit").value,t=document.getElementById("toUnit").value;document.getElementById("fromUnit").value=t;document.getElementById("toUnit").value=f;convert();}
+initCats();
+</script>
+
+</div>
+</body>
+</html>
