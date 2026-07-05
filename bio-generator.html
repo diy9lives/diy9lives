@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Bio Generator — DIY9lives</title>
+<meta name="description" content="Generate a professional bio for LinkedIn, Twitter, Upwork, Instagram, and more in seconds. Free, no login required."/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50}
+.logo{font-size:20px;font-weight:900;color:var(--white);text-decoration:none}.logo span{color:var(--yellow)}
+.back{color:var(--muted);text-decoration:none;font-size:13px}.back:hover{color:var(--white)}
+.page{max-width:960px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:48px}
+.eyebrow{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:16px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:12px}
+.sub{font-size:16px;color:#888;max-width:480px;margin:0 auto}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}
+.panel-title{font-size:14px;font-weight:800;margin-bottom:20px}
+.field{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus{border-color:var(--yellow)}
+.plat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.plat-btn{padding:8px;border-radius:8px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-family:inherit;font-size:12px;font-weight:600;transition:all 0.2s;text-align:center}
+.plat-btn.on{border-color:var(--yellow);color:var(--yellow);background:#FFE50010}
+.gen-btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:var(--black);font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:10px;transition:all 0.2s}
+.gen-btn:hover{background:#f5dc00;transform:translateY(-1px)}
+.tabs{display:flex;gap:6px;margin-bottom:10px;flex-wrap:wrap}
+.tab{padding:5px 12px;border-radius:99px;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;font-family:inherit;font-size:12px;font-weight:600;transition:all 0.2s}
+.tab.on{border-color:var(--yellow);color:var(--yellow);background:#FFE50010}
+.bar-wrap{height:4px;background:var(--border);border-radius:2px;margin-bottom:6px;overflow:hidden}
+.bar{height:100%;background:var(--yellow);border-radius:2px;transition:width 0.3s}
+.bar.warn{background:var(--coral)}
+.char-ct{font-size:11px;color:var(--muted);text-align:right;margin-bottom:10px}
+.result{background:#111;border:1px solid var(--border);border-radius:10px;padding:18px;min-height:160px;font-size:14px;line-height:1.7;color:#ccc;white-space:pre-wrap}
+.result.empty{color:#444;font-style:italic}
+.actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.btn{padding:10px 18px;border-radius:8px;font-weight:700;font-size:13px;border:none;cursor:pointer;font-family:inherit;transition:all 0.2s}
+.btn-y{background:var(--yellow);color:var(--black)}.btn-y:hover{background:#f5dc00}
+.btn-g{background:var(--card);color:var(--white);border:1px solid var(--border)}.btn-g:hover{border-color:#555}
+@media(max-width:768px){.layout{grid-template-columns:1fr}.plat-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">DIY<span>9</span>lives</a>
+  <a class="back" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+  <div class="hero">
+    <div class="eyebrow">&#128587; Bio Generator</div>
+    <h1>Your bio, done right,<br>for every platform.</h1>
+    <p class="sub">LinkedIn, Twitter, Upwork, Instagram — sharp, platform-optimized bios in seconds.</p>
+  </div>
+  <div class="layout">
+    <div class="panel">
+      <div class="panel-title">Your Details</div>
+      <div class="field"><label>Your name</label><input id="bName" placeholder="Jane Smith"/></div>
+      <div class="field"><label>Your title</label><input id="bTitle" placeholder="Freelance Web Designer"/></div>
+      <div class="field"><label>Who you help / your niche</label><input id="bNiche" placeholder="E-commerce brands and startups"/></div>
+      <div class="field"><label>Top result or achievement</label><input id="bResult" placeholder="Helped 50+ businesses increase conversions"/></div>
+      <div class="field"><label>Personal touch (optional)</label><input id="bPerson" placeholder="Based in Austin. Dog dad."/></div>
+      <div class="field"><label>Website or link (optional)</label><input id="bLink" placeholder="diy9lives.com"/></div>
+      <div class="field">
+        <label>Platform</label>
+        <div class="plat-grid">
+          <button class="plat-btn on" onclick="setPlatform(this,'linkedin')">LinkedIn</button>
+          <button class="plat-btn" onclick="setPlatform(this,'twitter')">Twitter/X</button>
+          <button class="plat-btn" onclick="setPlatform(this,'upwork')">Upwork</button>
+          <button class="plat-btn" onclick="setPlatform(this,'instagram')">Instagram</button>
+          <button class="plat-btn" onclick="setPlatform(this,'fiverr')">Fiverr</button>
+          <button class="plat-btn" onclick="setPlatform(this,'general')">General</button>
+        </div>
+      </div>
+      <button class="gen-btn" onclick="genBio()">Generate Bio</button>
+      <button class="gen-btn" onclick="genAll()" style="margin-top:8px;background:#1c1c1c;color:var(--white);border:1px solid var(--border)">Generate All Platforms</button>
+    </div>
+    <div class="panel">
+      <div class="panel-title">Your Bio</div>
+      <div class="tabs" id="tabs" style="display:none"></div>
+      <div class="bar-wrap"><div class="bar" id="bar" style="width:0%"></div></div>
+      <div class="char-ct" id="charCt">0 / 0 characters</div>
+      <div class="result empty" id="res">Your bio appears here after you click Generate.</div>
+      <div class="actions" id="acts" style="display:none">
+        <button class="btn btn-y" onclick="copyBio()">Copy bio</button>
+        <button class="btn btn-g" onclick="genBio()">Regenerate</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+var plat = 'linkedin';
+var allBios = {};
+var limits = {linkedin:300,twitter:160,upwork:5000,instagram:150,fiverr:600,general:500};
+var platLabels = {linkedin:'LinkedIn',twitter:'Twitter/X',upwork:'Upwork',instagram:'Instagram',fiverr:'Fiverr',general:'General'};
+
+function setPlatform(btn, p) {
+  document.querySelectorAll('.plat-btn').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  plat = p;
+  if (allBios[p]) showBio(p);
+}
+
+function getData() {
+  return {
+    name: document.getElementById('bName').value.trim(),
+    title: document.getElementById('bTitle').value.trim(),
+    niche: document.getElementById('bNiche').value.trim(),
+    result: document.getElementById('bResult').value.trim(),
+    person: document.getElementById('bPerson').value.trim(),
+    link: document.getElementById('bLink').value.trim()
+  };
+}
+
+function buildBio(d, p) {
+  var n = d.name || 'I';
+  var t = d.title || 'Freelancer';
+  var ni = d.niche ? ' specializing in ' + d.niche : '';
+  var r = d.result ? d.result + '.' : '';
+  var pe = d.person || '';
+  var lk = d.link ? ' ' + d.link : '';
+  var bios = {
+    linkedin: n + ' is a ' + t + ni + '. ' + r + (pe ? ' ' + pe : '') + lk,
+    twitter: t + (d.niche ? ' | ' + d.niche : '') + (r ? ' | ' + d.result : '') + (pe ? ' | ' + pe : '') + lk,
+    upwork: 'Hi, I am ' + n + ', a ' + t + (d.niche ? ' with a focus on ' + d.niche : '') + '.\n\n' + (r ? r + '\n\n' : '') + 'I deliver high-quality work on time and communicate clearly throughout every project.' + (pe ? '\n\n' + pe : '') + (lk ? '\n\n' + lk.trim() : ''),
+    instagram: (t + (d.niche ? ' · ' + d.niche : '') + (r ? '\n' + d.result : '') + (pe ? '\n' + pe : '') + (lk ? '\n' + lk.trim() : '')).trim(),
+    fiverr: 'I am ' + n + ', a ' + t + (d.niche ? ' who works with ' + d.niche : '') + '. ' + (r ? r + ' ' : '') + 'I deliver professional results, communicate quickly, and revise until you are happy.' + (pe ? ' ' + pe : '') + lk,
+    general: n + ' — ' + t + (d.niche ? ', ' + d.niche : '') + '. ' + (r ? r + ' ' : '') + (pe ? pe + ' ' : '') + lk
+  };
+  return (bios[p] || bios.general).trim();
+}
+
+function showBio(p) {
+  var bio = allBios[p] || '';
+  var lim = limits[p];
+  document.getElementById('res').textContent = bio;
+  document.getElementById('res').classList.remove('empty');
+  var pct = Math.min(100, (bio.length / lim) * 100);
+  var barEl = document.getElementById('bar');
+  barEl.style.width = pct + '%';
+  barEl.className = 'bar' + (pct > 90 ? ' warn' : '');
+  document.getElementById('charCt').textContent = bio.length + ' / ' + lim + ' chars' + (bio.length > lim ? ' — too long, trim it' : '');
+  document.getElementById('acts').style.display = 'flex';
+}
+
+function genBio() {
+  var d = getData();
+  allBios[plat] = buildBio(d, plat);
+  showBio(plat);
+  document.getElementById('tabs').style.display = 'none';
+}
+
+function genAll() {
+  var d = getData();
+  Object.keys(limits).forEach(function(p){ allBios[p] = buildBio(d, p); });
+  showBio(plat);
+  var tabsEl = document.getElementById('tabs');
+  tabsEl.style.display = 'flex';
+  tabsEl.innerHTML = Object.keys(limits).map(function(p){
+    return '<button class="tab' + (p===plat?' on':'') + '" onclick="switchTab(this,\'' + p + '\')">' + platLabels[p] + '</button>';
+  }).join('');
+}
+
+function switchTab(btn, p) {
+  plat = p;
+  document.querySelectorAll('.tab').forEach(function(b){b.classList.remove('on');});
+  btn.classList.add('on');
+  showBio(p);
+}
+
+function copyBio() {
+  navigator.clipboard.writeText(document.getElementById('res').textContent).then(function(){
+    var b = event.target; b.textContent = 'Copied!'; setTimeout(function(){b.textContent='Copy bio';},2000);
+  });
+}
+</script>
+</body>
+</html>
