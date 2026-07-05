@@ -414,7 +414,7 @@
     mini+='<tr><td class="lbl">Revs / mile</td><td>'+fmt(rm1,0)+'</td><td>'+fmt(rm2,0)+'</td></tr>';
     document.getElementById('specMini').innerHTML=mini;
 
-    // SVG comparison â two tires side by side, scaled
+    // SVG comparison — two tires side by side, scaled
     var svg=document.getElementById('cmpSvg');
     var maxD=Math.max(stock.d,d);
     var scale=200/maxD;               // px per inch
@@ -432,7 +432,7 @@
     svg.innerHTML=s;
 
     document.getElementById('detail').style.display='block';
-    document.getElementById('detail').scrollIntoView({behavior:'smooth',block:"nearest'});
+    document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'nearest'});
   }
 
   elW.addEventListener('change',recalc);
