@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Car Payment Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate your exact monthly car payment including tax. See true cost of ownership with insurance, gas, and maintenance."/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0D6KZ606DX');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:900px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:40px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:16px}
+.card-title{font-size:15px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px}
+.result-label{font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.result-val{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.result-sub{font-size:13px;color:#666;margin-top:8px}
+.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bk-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bk-v{font-size:16px;font-weight:800}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip-icon{font-size:18px;flex-shrink:0}
+.tip strong{color:var(--white)}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px}
+.aff-t{font-size:13px;color:#c4b5fd}.aff-t strong{color:#fff}
+.aff-btn{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px}
+.sl-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.range-val{color:var(--yellow);font-weight:700}
+.table{width:100%;border-collapse:collapse;font-size:13px}
+.table th{text-align:left;padding:8px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+.table td{padding:8px;border-bottom:1px solid #1a1a1a}
+.table tr:last-child td{border:none}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}.breakdown{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero">
+<div class="ey">Car Payment Calculator</div>
+<h1>Know the real cost<br>before you sign.</h1>
+<p class="sub">Calculate monthly payments, total interest, and true ownership costs including insurance and gas.</p>
+</div>
+
+<div class="result-big">
+  <div class="result-label">Monthly Car Payment</div>
+  <div class="result-val" id="cPayment">$0</div>
+  <div class="result-sub" id="cSub">Fill in the details below</div>
+  <div class="breakdown">
+    <div class="bk"><div class="bk-l">Loan Amount</div><div class="bk-v" id="cLoan">$0</div></div>
+    <div class="bk"><div class="bk-l">Total Interest</div><div class="bk-v" id="cInt">$0</div></div>
+    <div class="bk"><div class="bk-l">Total Cost</div><div class="bk-v" id="cTotal">$0</div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">&#128663; Car Loan Details</div>
+  <div class="grid2">
+    <div class="field"><label>Vehicle price ($)</label><input type="number" id="cPrice" value="35000" oninput="calcCar()"/></div>
+    <div class="field"><label>Down payment ($)</label><input type="number" id="cDown" value="5000" oninput="calcCar()"/></div>
+    <div class="field"><label>Trade-in value ($)</label><input type="number" id="cTrade" value="0" oninput="calcCar()"/></div>
+    <div class="field"><label>Sales tax rate (%)</label><input type="number" id="cTax" value="6.0" step="0.1" oninput="calcCar()"/></div>
+    <div class="field"><label>Annual interest rate (%)</label><input type="number" id="cRate" value="6.9" step="0.1" oninput="calcCar()"/></div>
+    <div class="field"><label>Loan term</label><select id="cTerm" onchange="calcCar()"><option value="24">24 months (2 yr)</option><option value="36">36 months (3 yr)</option><option value="48">48 months (4 yr)</option><option value="60" selected>60 months (5 yr)</option><option value="72">72 months (6 yr)</option><option value="84">84 months (7 yr)</option></select></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">&#9981; True Cost of Ownership (annual estimate)</div>
+  <div class="grid2">
+    <div class="field"><label>Insurance estimate ($/mo)</label><input type="number" id="cIns" value="120" oninput="calcOwn()"/></div>
+    <div class="field"><label>Gas cost ($/mo)</label><input type="number" id="cGas" value="150" oninput="calcOwn()"/></div>
+    <div class="field"><label>Maintenance ($/yr)</label><input type="number" id="cMaint" value="800" oninput="calcOwn()"/></div>
+    <div class="field"><label>Registration / fees ($/yr)</label><input type="number" id="cReg" value="200" oninput="calcOwn()"/></div>
+  </div>
+  <div id="ownResult" style="background:#111;border-radius:10px;padding:14px;font-size:14px;color:#888;margin-top:4px"></div>
+</div>
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Car buying tips</div>
+  <div class="tip"><span class="tip-icon">&#128165;</span><div><strong>20/4/10 rule.</strong> Put 20% down, finance no more than 4 years, keep total car costs under 10% of gross income. Most people violate all three.</div></div>
+  <div class="tip"><span class="tip-icon">&#128200;</span><div><strong>72-84 month loans are a trap.</strong> You will be underwater (owe more than the car is worth) for years. Stick to 48-60 months max.</div></div>
+  <div class="tip"><span class="tip-icon">&#128176;</span><div><strong>Negotiate the total price, not the monthly payment.</strong> Dealers love monthly payment talk because it hides how much you are really paying.</div></div>
+</div>
+<script>
+function fmt(n){return '$'+Math.round(n).toLocaleString();}
+function calcCar(){
+  var price=parseFloat(document.getElementById('cPrice').value)||0;
+  var down=parseFloat(document.getElementById('cDown').value)||0;
+  var trade=parseFloat(document.getElementById('cTrade').value)||0;
+  var taxR=parseFloat(document.getElementById('cTax').value)||0;
+  var rate=parseFloat(document.getElementById('cRate').value)||0;
+  var term=parseInt(document.getElementById('cTerm').value)||60;
+  var taxAmt=price*(taxR/100);
+  var loan=price+taxAmt-down-trade;
+  var r=rate/100/12;
+  var pmt=r>0?loan*r*Math.pow(1+r,term)/(Math.pow(1+r,term)-1):loan/term;
+  var totalPaid=pmt*term;
+  var totalInt=totalPaid-loan;
+  document.getElementById('cPayment').textContent=fmt(pmt)+'/mo';
+  document.getElementById('cSub').textContent='Over '+term+' months | Interest rate: '+rate+'% APR | Tax included';
+  document.getElementById('cLoan').textContent=fmt(loan);
+  document.getElementById('cInt').textContent=fmt(totalInt);
+  document.getElementById('cTotal').textContent=fmt(totalPaid+down+trade);
+  calcOwn();
+}
+function calcOwn(){
+  var pmt=parseFloat(document.getElementById('cPayment').textContent.replace(/[$,\/mo]/g,''))||0;
+  var ins=parseFloat(document.getElementById('cIns').value)||0;
+  var gas=parseFloat(document.getElementById('cGas').value)||0;
+  var maint=parseFloat(document.getElementById('cMaint').value)||0;
+  var reg=parseFloat(document.getElementById('cReg').value)||0;
+  var monthly=pmt+ins+gas+(maint/12)+(reg/12);
+  var annual=monthly*12;
+  document.getElementById('ownResult').innerHTML='<strong style="color:#FFE500">True monthly cost: $'+Math.round(monthly).toLocaleString()+'</strong> | Annual: $'+Math.round(annual).toLocaleString()+'<br><span style="font-size:12px">Payment + Insurance + Gas + Maintenance + Registration</span>';
+}
+calcCar();
+</script>
+<div class="aff"><div class="aff-t"><strong>Shopping for a car?</strong> CarGurus and AutoTempest aggregate listings from every dealer so you can see real market prices.</div><a href="https://www.cargurus.com" target="_blank" rel="noopener" class="aff-btn">Learn more &rarr;</a></div>
+</div>
+</body>
+</html>
