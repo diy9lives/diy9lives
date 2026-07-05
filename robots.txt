@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://diy9lives.com/sitemap.xml
