@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Salary & Take-Home Pay Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate your take-home pay after federal taxes, Social Security, and Medicare. See your hourly, weekly, monthly breakdown."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.field{margin-bottom:0}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.rs{font-size:13px;color:#666;margin-top:6px}
+.bkd{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bkv{font-size:15px;font-weight:800}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px;transition:all 0.2s}
+.btn:hover{background:#f5dc00;transform:translateY(-1px)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px}
+.at{font-size:13px;color:#c4b5fd}.at strong{color:#fff}
+.ab{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px;cursor:pointer}
+.slv{color:var(--yellow);font-weight:700}
+.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700;margin:2px}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+.big-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:640px){.grid2,.grid3,.bkd,.big-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Salary Calculator</div><h1>What is your paycheck<br>actually worth?</h1><p class="sub">Enter your salary and filing status. See exactly how much you take home after taxes.</p></div>
+
+<div class="result-big">
+  <div class="rl">Monthly Take-Home Pay</div>
+  <div class="rv" id="thPay">$0</div>
+  <div class="rs" id="thSub">Enter your salary below</div>
+  <div class="bkd">
+    <div class="bk"><div class="bkl">Annual Net</div><div class="bkv green" id="thAnnual">$0</div></div>
+    <div class="bk"><div class="bkl">Tax Paid/yr</div><div class="bkv red" id="thTax">$0</div></div>
+    <div class="bk"><div class="bkl">Effective Rate</div><div class="bkv" id="thRate">0%</div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="ct">&#128181; Income Details</div>
+  <div class="grid2" style="margin-bottom:12px">
+    <div><label>Annual salary ($)</label><input type="number" id="gross" value="65000" oninput="calcSal()"/></div>
+    <div><label>Pay frequency</label><select id="freq" onchange="calcSal()"><option value="52">Weekly</option><option value="26">Bi-weekly</option><option value="24">Semi-monthly</option><option value="12" selected>Monthly</option></select></div>
+    <div><label>Filing status</label><select id="filing" onchange="calcSal()"><option value="single" selected>Single</option><option value="married">Married filing jointly</option><option value="hoh">Head of household</option></select></div>
+    <div><label>State tax rate (%)</label><input type="number" id="stateTax" value="5" step="0.5" oninput="calcSal()"/></div>
+  </div>
+  <div class="grid2">
+    <div><label>401k contribution (%)</label><input type="number" id="k401" value="6" step="1" min="0" max="100" oninput="calcSal()"/></div>
+    <div><label>Health insurance ($/mo)</label><input type="number" id="health" value="150" oninput="calcSal()"/></div>
+  </div>
+</div>
+<div class="card">
+  <div class="ct">&#128200; Breakdown</div>
+  <div id="breakdown" style="font-size:14px;line-height:2;color:#aaa"></div>
+</div>
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Salary tips</div>
+  <div class="tip"><span class="ti">&#128200;</span><div><strong>The 50/30/20 rule:</strong> 50% of take-home to needs, 30% to wants, 20% to savings. A simple starting budget for any income level.</div></div>
+  <div class="tip"><span class="ti">&#128181;</span><div><strong>Max your 401k match first.</strong> A 6% employer match is a 100% return on investment. Never leave free money on the table before spending anywhere else.</div></div>
+  <div class="tip"><span class="ti">&#127919;</span><div><strong>Negotiating salary?</strong> Always negotiate. Studies show 85% of people who ask for more get it. The worst they can say is no.</div></div>
+</div>
+<script>
+function calcSal(){
+  var gross=parseFloat(document.getElementById("gross").value)||0;
+  var freq=parseInt(document.getElementById("freq").value)||12;
+  var statePct=parseFloat(document.getElementById("stateTax").value)||0;
+  var k401Pct=parseFloat(document.getElementById("k401").value)||0;
+  var healthMo=parseFloat(document.getElementById("health").value)||0;
+  var k401=gross*k401Pct/100;
+  var taxable=gross-k401;
+  // Simplified federal brackets 2024 (single)
+  var fed=0;
+  if(taxable>578125)fed=174238+(taxable-578125)*0.37;
+  else if(taxable>231250)fed=52832+(taxable-231250)*0.35;
+  else if(taxable>182050)fed=37104+(taxable-182050)*0.32;
+  else if(taxable>95375)fed=16290+(taxable-95375)*0.24;
+  else if(taxable>44725)fed=5147+(taxable-44725)*0.22;
+  else if(taxable>11000)fed=1100+(taxable-11000)*0.12;
+  else fed=taxable*0.10;
+  var ss=Math.min(gross,160200)*0.062;
+  var medicare=gross*0.0145;
+  var state=gross*statePct/100;
+  var healthAnnual=healthMo*12;
+  var totalDeductions=fed+ss+medicare+state+k401+healthAnnual;
+  var net=gross-totalDeductions;
+  var perPeriod=net/freq;
+  var effRate=(fed+ss+medicare+state)/gross*100;
+  document.getElementById("thPay").textContent="$"+Math.round(net/12).toLocaleString();
+  document.getElementById("thSub").textContent="$"+Math.round(net).toLocaleString()+"/year after all deductions | Effective tax rate: "+effRate.toFixed(1)+"%";
+  document.getElementById("thAnnual").textContent="$"+Math.round(net).toLocaleString();
+  document.getElementById("thTax").textContent="$"+Math.round(fed+ss+medicare+state).toLocaleString();
+  document.getElementById("thRate").textContent=effRate.toFixed(1)+"%";
+  document.getElementById("breakdown").innerHTML=
+    "Gross salary: <strong style=color:#FFE500>$"+gross.toLocaleString()+"</strong><br>"+
+    "Federal income tax: <strong style=color:#FF4D4D>-$"+Math.round(fed).toLocaleString()+"</strong> ("+((fed/gross)*100).toFixed(1)+"% marginal rate)<br>"+
+    "Social Security (6.2%): <strong style=color:#FF4D4D>-$"+Math.round(ss).toLocaleString()+"</strong><br>"+
+    "Medicare (1.45%): <strong style=color:#FF4D4D>-$"+Math.round(medicare).toLocaleString()+"</strong><br>"+
+    "State tax ("+statePct+"%): <strong style=color:#FF4D4D>-$"+Math.round(state).toLocaleString()+"</strong><br>"+
+    (k401>0?"401k contribution: <strong style=color:#3b82f6>-$"+Math.round(k401).toLocaleString()+"</strong><br>":"")+
+    (healthAnnual>0?"Health insurance: <strong style=color:#3b82f6>-$"+Math.round(healthAnnual).toLocaleString()+"</strong><br>":"")+
+    "<strong style=color:#22c55e>Take-home: $"+Math.round(net).toLocaleString()+"/year | $"+Math.round(net/12).toLocaleString()+"/month | $"+Math.round(net/52/40).toLocaleString()+"/hr</strong>";
+}
+calcSal();
+</script>
+
+</div>
+</body>
+</html>
