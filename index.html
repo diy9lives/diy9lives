@@ -3,513 +3,289 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>DIY9lives — Fix It Yourself. All 9 Lives.</title>
+<title>DIY9lives — Free Tools for Freelancers & Side Hustlers</title>
+<meta name="description" content="Free online tools for freelancers, side hustlers, and small businesses. Proposal generator, invoice builder, rate calculator and more. No login required."/>
+<meta name="keywords" content="free freelance tools, invoice generator free, proposal template free, hourly rate calculator, side hustle tools"/>
+<meta property="og:title" content="DIY9lives — Free Tools for Freelancers & Side Hustlers"/>
+<meta property="og:description" content="Stop paying $40/month for tools you can use free. Proposals, invoices, rate calculators and more."/>
+<meta property="og:url" content="https://diy9lives.com"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --black:  #0a0a0a;
-    --card:   #141414;
-    --card2:  #1c1c1c;
-    --yellow: #FFE500;
-    --coral:  #FF4D4D;
-    --white:  #FAFAFA;
-    --muted:  #666;
-    --border: #222;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--black);
-    color: var(--white);
-    font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
-    font-size: 16px;
-    line-height: 1.5;
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 16px 40px;
-    background: rgba(10,10,10,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-  .logo {
-    font-size: 22px; font-weight: 900; letter-spacing: -0.03em;
-    color: var(--white); text-decoration: none;
-  }
-  .logo span { color: var(--yellow); }
-  .nav-links { display: flex; gap: 8px; align-items: center; }
-  .nav-links a {
-    color: var(--muted); text-decoration: none; font-size: 14px;
-    padding: 8px 16px; border-radius: 8px; transition: all 0.2s;
-  }
-  .nav-links a:hover { color: var(--white); background: #222; }
-  .nav-cta {
-    background: var(--yellow) !important; color: var(--black) !important;
-    font-weight: 700; border-radius: 8px !important;
-  }
-  .nav-cta:hover { background: #f5dc00 !important; transform: translateY(-1px); }
-
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: flex; flex-direction: column; justify-content: center;
-    padding: 120px 40px 80px;
-    position: relative; overflow: hidden;
-  }
-  .hero-bg-num {
-    position: absolute; right: -40px; top: 50%;
-    transform: translateY(-50%);
-    font-size: clamp(300px, 40vw, 520px);
-    font-weight: 900; color: #FFE50008;
-    line-height: 1; pointer-events: none; user-select: none;
-    letter-spacing: -0.05em;
-    animation: float 6s ease-in-out infinite;
-  }
-  @keyframes float {
-    0%,100% { transform: translateY(-50%) translateX(0); }
-    50%      { transform: translateY(-52%) translateX(-12px); }
-  }
-  .hero-eyebrow {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--yellow); color: var(--black);
-    font-size: 12px; font-weight: 800; letter-spacing: 0.1em;
-    text-transform: uppercase; padding: 6px 14px; border-radius: 99px;
-    width: fit-content; margin-bottom: 28px;
-  }
-  .hero h1 {
-    font-size: clamp(52px, 8vw, 96px);
-    font-weight: 900; line-height: 0.95;
-    letter-spacing: -0.04em; max-width: 820px;
-    margin-bottom: 28px;
-  }
-  .hero h1 .accent { color: var(--yellow); }
-  .hero h1 .accent-red { color: var(--coral); }
-  .hero-sub {
-    font-size: clamp(16px, 2vw, 20px); color: #aaa;
-    max-width: 520px; margin-bottom: 40px; line-height: 1.6;
-  }
-  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
-  .btn-primary {
-    background: var(--yellow); color: var(--black);
-    font-weight: 800; font-size: 16px; border: none;
-    padding: 16px 32px; border-radius: 12px; cursor: pointer;
-    text-decoration: none; display: inline-block;
-    transition: all 0.2s; letter-spacing: -0.01em;
-  }
-  .btn-primary:hover { background: #f5dc00; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,229,0,0.3); }
-  .btn-ghost {
-    background: transparent; color: var(--white);
-    font-weight: 600; font-size: 16px;
-    border: 1px solid var(--border);
-    padding: 16px 32px; border-radius: 12px; cursor: pointer;
-    text-decoration: none; display: inline-block;
-    transition: all 0.2s;
-  }
-  .btn-ghost:hover { border-color: #555; background: #1a1a1a; }
-  .hero-stats {
-    display: flex; gap: 40px; margin-top: 60px; padding-top: 40px;
-    border-top: 1px solid var(--border); flex-wrap: wrap;
-  }
-  .stat-item { }
-  .stat-num { font-size: 32px; font-weight: 900; color: var(--yellow); letter-spacing: -0.03em; }
-  .stat-label { font-size: 13px; color: var(--muted); margin-top: 2px; }
-
-  /* ── MARQUEE ── */
-  .marquee-wrap {
-    overflow: hidden; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-    background: var(--card); padding: 14px 0;
-  }
-  .marquee-track {
-    display: flex; gap: 0; white-space: nowrap;
-    animation: marquee 20s linear infinite;
-  }
-  .marquee-track:hover { animation-play-state: paused; }
-  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .marquee-item {
-    display: inline-flex; align-items: center; gap: 10px;
-    padding: 0 32px; font-size: 14px; font-weight: 600; color: var(--muted);
-  }
-  .marquee-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--yellow); flex-shrink: 0; }
-
-  /* ── SECTION SHARED ── */
-  section { padding: 80px 40px; }
-  .section-label {
-    font-size: 12px; font-weight: 800; letter-spacing: 0.12em;
-    text-transform: uppercase; color: var(--yellow); margin-bottom: 16px;
-  }
-  .section-title {
-    font-size: clamp(32px, 5vw, 52px); font-weight: 900;
-    letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 16px;
-  }
-  .section-sub { font-size: 18px; color: #888; max-width: 520px; line-height: 1.6; }
-
-  /* ── TOOLS GRID ── */
-  .tools-header {
-    display: flex; justify-content: space-between; align-items: flex-end;
-    margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
-  }
-  .tools-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
-  }
-  .tool-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 28px;
-    transition: all 0.25s; cursor: pointer; text-decoration: none;
-    display: flex; flex-direction: column; gap: 14px;
-    position: relative; overflow: hidden;
-  }
-  .tool-card::before {
-    content: ""; position: absolute; inset: 0; border-radius: 16px;
-    opacity: 0; transition: opacity 0.25s;
-  }
-  .tool-card:hover { border-color: var(--yellow); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
-  .tool-card:hover::before { opacity: 1; }
-  .tool-card-top { display: flex; justify-content: space-between; align-items: flex-start; }
-  .tool-icon {
-    width: 48px; height: 48px; border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 22px; flex-shrink: 0;
-  }
-  .tool-badge {
-    font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 99px;
-    letter-spacing: 0.05em; text-transform: uppercase;
-  }
-  .badge-free { background: #FFE50022; color: var(--yellow); border: 1px solid #FFE50044; }
-  .badge-new  { background: #FF4D4D22; color: var(--coral);  border: 1px solid #FF4D4D44; }
-  .badge-soon { background: #ffffff11; color: #888; border: 1px solid #333; }
-  .tool-name { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; color: var(--white); }
-  .tool-desc { font-size: 14px; color: #888; line-height: 1.5; }
-  .tool-footer { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border); }
-  .tool-cat { font-size: 12px; color: var(--muted); font-weight: 600; }
-  .tool-arrow { font-size: 18px; color: var(--muted); transition: all 0.2s; }
-  .tool-card:hover .tool-arrow { color: var(--yellow); transform: translateX(4px); }
-
-  /* ── WHY SECTION ── */
-  .why-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px; margin-top: 48px;
-  }
-  .why-card {
-    background: var(--card); border: 1px solid var(--border);
-    border-radius: 16px; padding: 28px;
-  }
-  .why-num {
-    font-size: 48px; font-weight: 900; color: var(--yellow);
-    letter-spacing: -0.04em; line-height: 1; margin-bottom: 12px;
-  }
-  .why-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
-  .why-text { font-size: 14px; color: #888; line-height: 1.6; }
-
-  /* ── CTA BAND ── */
-  .cta-band {
-    background: var(--yellow); color: var(--black);
-    border-radius: 24px; padding: 60px 48px;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 24px; margin: 0 40px 80px;
-  }
-  .cta-band h2 {
-    font-size: clamp(28px, 4vw, 44px); font-weight: 900;
-    letter-spacing: -0.03em; line-height: 1.1; max-width: 480px;
-  }
-  .btn-dark {
-    background: var(--black); color: var(--yellow);
-    font-weight: 800; font-size: 16px; border: none;
-    padding: 16px 32px; border-radius: 12px; cursor: pointer;
-    text-decoration: none; display: inline-block; white-space: nowrap;
-    transition: all 0.2s;
-  }
-  .btn-dark:hover { background: #111; transform: translateY(-2px); }
-
-  /* ── FOOTER ── */
-  footer {
-    border-top: 1px solid var(--border); padding: 40px;
-    display: flex; justify-content: space-between; align-items: center;
-    flex-wrap: wrap; gap: 16px;
-  }
-  .footer-logo { font-size: 18px; font-weight: 900; }
-  .footer-logo span { color: var(--yellow); }
-  .footer-links { display: flex; gap: 24px; }
-  .footer-links a { color: var(--muted); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-  .footer-links a:hover { color: var(--white); }
-  .footer-copy { color: var(--muted); font-size: 13px; }
-
-  /* ── COMING SOON OVERLAY ── */
-  .coming-soon-msg {
-    display: none; position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
-    background: var(--card2); border: 1px solid var(--border); border-radius: 12px;
-    padding: 14px 24px; font-size: 14px; color: var(--white); z-index: 200;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.5); white-space: nowrap;
-  }
-  .coming-soon-msg.show { display: block; animation: popIn 0.2s ease; }
-  @keyframes popIn { from { opacity:0; transform:translateX(-50%) translateY(8px); } to { opacity:1; transform:translateX(-50%) translateY(0); } }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--card2:#1c1c1c;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+html{scroll-behavior:smooth}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;font-size:16px;line-height:1.5;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 40px;background:rgba(10,10,10,0.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);transition:border-color 0.3s}
+.logo{font-size:22px;font-weight:900;letter-spacing:-0.03em;color:var(--white);text-decoration:none}.logo span{color:var(--yellow)}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;padding:7px 14px;border-radius:8px;transition:all 0.2s}
+.nav-links a:hover{color:var(--white);background:#1a1a1a}
+.nav-cta{background:var(--yellow)!important;color:var(--black)!important;font-weight:700!important;border-radius:8px!important;padding:8px 18px!important}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 40px 60px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;right:-40px;top:50%;transform:translateY(-50%);font-size:clamp(260px,36vw,480px);font-weight:900;color:#FFE50008;line-height:1;pointer-events:none;user-select:none;animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(-50%)}50%{transform:translateY(-53%)}}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:6px 14px;border-radius:99px;width:fit-content;margin-bottom:24px}
+h1{font-size:clamp(46px,8vw,88px);font-weight:900;line-height:0.95;letter-spacing:-0.04em;max-width:780px;margin-bottom:24px}
+.y{color:var(--yellow)}.r{color:var(--coral)}
+.hero-sub{font-size:clamp(15px,2vw,19px);color:#999;max-width:500px;margin-bottom:36px;line-height:1.6}
+.btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+.btn{padding:14px 28px;border-radius:10px;font-weight:700;font-size:15px;text-decoration:none;display:inline-block;transition:all 0.2s;border:none;cursor:pointer;font-family:inherit;letter-spacing:-0.01em}
+.btn-y{background:var(--yellow);color:var(--black)}.btn-y:hover{background:#f5dc00;transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,229,0,0.25)}
+.btn-g{background:transparent;color:var(--white);border:1px solid #333}.btn-g:hover{border-color:#555;background:#1a1a1a}
+.stats{display:flex;gap:36px;margin-top:48px;padding-top:36px;border-top:1px solid var(--border);flex-wrap:wrap}
+.stat-n{font-size:28px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em}
+.stat-l{font-size:12px;color:var(--muted);margin-top:2px}
+.marquee-wrap{overflow:hidden;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--card);padding:13px 0}
+.marquee-track{display:flex;white-space:nowrap;animation:ticker 28s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.m-item{display:inline-flex;align-items:center;gap:10px;padding:0 28px;font-size:13px;font-weight:600;color:var(--muted)}
+.m-dot{width:5px;height:5px;border-radius:50%;background:var(--yellow);flex-shrink:0}
+section{padding:72px 40px}
+.sec-label{font-size:11px;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:14px}
+.sec-title{font-size:clamp(28px,4.5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:14px}
+.sec-sub{font-size:16px;color:#888;max-width:480px;line-height:1.6}
+.tools-hdr{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;flex-wrap:wrap;gap:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;transition:all 0.22s;cursor:pointer;text-decoration:none;display:flex;flex-direction:column;gap:12px;position:relative}
+.card:hover{border-color:var(--yellow);transform:translateY(-3px);box-shadow:0 14px 36px rgba(0,0,0,0.45)}
+.card-top{display:flex;justify-content:space-between;align-items:flex-start}
+.icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.badge{font-size:10px;font-weight:700;padding:3px 9px;border-radius:99px;letter-spacing:0.05em;text-transform:uppercase}
+.b-free{background:#FFE50022;color:var(--yellow);border:1px solid #FFE50044}
+.b-new{background:#FF4D4D22;color:var(--coral);border:1px solid #FF4D4D44}
+.b-soon{background:#ffffff0f;color:#666;border:1px solid #2a2a2a}
+.card-name{font-size:17px;font-weight:800;letter-spacing:-0.02em;color:var(--white)}
+.card-desc{font-size:13px;color:#888;line-height:1.5}
+.card-ft{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:12px;border-top:1px solid #1a1a1a}
+.card-cat{font-size:11px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.05em}
+.card-arr{font-size:17px;color:#444;transition:all 0.2s}
+.card:hover .card-arr{color:var(--yellow);transform:translateX(4px)}
+.email-section{background:var(--card);border-radius:16px;padding:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.email-form{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.email-input{flex:1;min-width:180px;background:#0d0d0d;border:1px solid var(--border);border-radius:8px;padding:12px 14px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+.email-input:focus{border-color:var(--yellow)}
+.email-note{font-size:11px;color:#555;margin-top:8px}
+.success{display:none;color:var(--green);font-size:13px;margin-top:8px;font-weight:600}
+.success.show{display:block}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-top:40px}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px}
+.why-n{font-size:42px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1;margin-bottom:10px}
+.why-t{font-size:16px;font-weight:800;margin-bottom:6px}
+.why-tx{font-size:13px;color:#888;line-height:1.6}
+.cta-band{background:var(--yellow);color:var(--black);border-radius:20px;padding:52px 44px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.cta-band h2{font-size:clamp(24px,4vw,40px);font-weight:900;letter-spacing:-0.03em;line-height:1.1;max-width:440px}
+.btn-dk{background:var(--black);color:var(--yellow);font-weight:800;font-size:15px;border:none;padding:14px 28px;border-radius:10px;cursor:pointer;text-decoration:none;display:inline-block;white-space:nowrap;transition:all 0.2s;font-family:inherit}
+.btn-dk:hover{background:#111;transform:translateY(-2px)}
+footer{border-top:1px solid var(--border);padding:36px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.footer-logo{font-size:17px;font-weight:900}.footer-logo span{color:var(--yellow)}
+.footer-links{display:flex;gap:20px}
+.footer-links a{color:var(--muted);text-decoration:none;font-size:13px;transition:color 0.2s}
+.footer-links a:hover{color:var(--white)}
+.foot-copy{color:#444;font-size:12px}
+.toast{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#1c1c1c;border:1px solid #333;border-radius:10px;padding:12px 20px;font-size:13px;z-index:300;box-shadow:0 8px 32px rgba(0,0,0,0.5);white-space:nowrap;color:var(--white)}
+.toast.show{display:block;animation:pop 0.2s ease}
+@keyframes pop{from{opacity:0;transform:translateX(-50%) translateY(6px)}to{opacity:1;transform:translateX(-50%) translateY(0)}}
+@media(max-width:768px){
+  nav{padding:12px 20px}
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding:88px 20px 48px}
+  h1{font-size:46px}
+  section{padding:52px 20px}
+  .email-section{grid-template-columns:1fr}
+  .cta-band{padding:36px 24px}
+  .stats{gap:20px}
+  footer{padding:28px 20px;flex-direction:column;text-align:center}
+  .footer-links{flex-wrap:wrap;justify-content:center}
+}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
-<nav>
+<nav id="navbar">
   <a class="logo" href="#">DIY<span>9</span>lives</a>
   <div class="nav-links">
     <a href="#tools">Tools</a>
-    <a href="#why">Why us</a>
-    <a href="#tools" class="nav-cta">Get started free</a>
+    <a href="#why">About</a>
+    <a href="#newsletter">Newsletter</a>
+    <a href="#tools" class="nav-cta">Try free →</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-bg-num">9</div>
-  <div class="hero-eyebrow">🐱 Free tools for real problems</div>
-  <h1>Stop paying.<br><span class="accent">Fix it</span><br><span class="accent-red">yourself.</span></h1>
-  <p class="hero-sub">A growing toolkit of free, no-login tools built for people who figure things out. Freelancers, side hustlers, small businesses — you've got 9 lives. Use them.</p>
-  <div class="hero-actions">
-    <a href="#tools" class="btn-primary">Browse free tools →</a>
-    <a href="#why" class="btn-ghost">How it works</a>
+  <div class="hero-bg">9</div>
+  <div class="eyebrow">🐱 100% free &middot; No login &middot; No BS</div>
+  <h1>Stop paying.<br><span class="y">Fix it</span><br><span class="r">yourself.</span></h1>
+  <p class="hero-sub">Free tools for freelancers, side hustlers, and small business owners who figure things out. You've got 9 lives — use them.</p>
+  <div class="btns">
+    <a href="#tools" class="btn btn-y">Browse free tools →</a>
+    <a href="#why" class="btn btn-g">How it works</a>
   </div>
-  <div class="hero-stats">
-    <div class="stat-item"><div class="stat-num">9+</div><div class="stat-label">Free tools</div></div>
-    <div class="stat-item"><div class="stat-num">$0</div><div class="stat-label">To get started</div></div>
-    <div class="stat-item"><div class="stat-num">2 min</div><div class="stat-label">Average time saved per task</div></div>
-    <div class="stat-item"><div class="stat-num">No login</div><div class="stat-label">Just use it</div></div>
+  <div class="stats">
+    <div><div class="stat-n">8+</div><div class="stat-l">Free tools live</div></div>
+    <div><div class="stat-n">$0</div><div class="stat-l">To get started</div></div>
+    <div><div class="stat-n">2 min</div><div class="stat-l">Avg time saved</div></div>
+    <div><div class="stat-n">No login</div><div class="stat-l">Just use it</div></div>
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee-track">
-    <span class="marquee-item"><span class="marquee-dot"></span>Proposal Generator</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Invoice Builder</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Hourly Rate Calculator</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Cold Email Writer</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Contract Checker</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Bio Generator</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Resume Bullet Writer</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Side Hustle Planner</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Proposal Generator</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Invoice Builder</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Hourly Rate Calculator</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Cold Email Writer</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Contract Checker</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Bio Generator</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Resume Bullet Writer</span>
-    <span class="marquee-item"><span class="marquee-dot"></span>Side Hustle Planner</span>
+    <span class="m-item"><span class="m-dot"></span>Proposal Generator</span>
+    <span class="m-item"><span class="m-dot"></span>Invoice Builder</span>
+    <span class="m-item"><span class="m-dot"></span>Hourly Rate Calculator</span>
+    <span class="m-item"><span class="m-dot"></span>Cold Email Writer</span>
+    <span class="m-item"><span class="m-dot"></span>Bio Generator</span>
+    <span class="m-item"><span class="m-dot"></span>Resume Bullet Writer</span>
+    <span class="m-item"><span class="m-dot"></span>Contract Checker</span>
+    <span class="m-item"><span class="m-dot"></span>Side Hustle Planner</span>
+    <span class="m-item"><span class="m-dot"></span>Proposal Generator</span>
+    <span class="m-item"><span class="m-dot"></span>Invoice Builder</span>
+    <span class="m-item"><span class="m-dot"></span>Hourly Rate Calculator</span>
+    <span class="m-item"><span class="m-dot"></span>Cold Email Writer</span>
+    <span class="m-item"><span class="m-dot"></span>Bio Generator</span>
+    <span class="m-item"><span class="m-dot"></span>Resume Bullet Writer</span>
+    <span class="m-item"><span class="m-dot"></span>Contract Checker</span>
+    <span class="m-item"><span class="m-dot"></span>Side Hustle Planner</span>
   </div>
 </div>
 
-<!-- TOOLS -->
 <section id="tools">
-  <div class="tools-header">
+  <div class="tools-hdr">
     <div>
-      <div class="section-label">The toolkit</div>
-      <div class="section-title">Pick a problem.<br>We've got the fix.</div>
+      <div class="sec-label">The toolkit</div>
+      <div class="sec-title">Pick a problem.<br>We've got the fix.</div>
     </div>
-    <p class="section-sub" style="font-size:15px;">All tools are free. No account needed. Just open and use.</p>
+    <p style="font-size:13px;color:#666;max-width:220px;line-height:1.5">All tools are free. No account needed. Just open and use.</p>
   </div>
-  <div class="tools-grid">
-
-    <a class="tool-card" href="#" onclick="launch('proposal'); return false;">
-      <div class="tool-card-top">
-        <div class="tool-icon" style="background:#FFE50022;">📄</div>
-        <span class="tool-badge badge-free">Free</span>
-      </div>
-      <div class="tool-name">Proposal Generator</div>
-      <div class="tool-desc">Send a polished project proposal in under 2 minutes. No Word doc wrestling required.</div>
-      <div class="tool-footer">
-        <span class="tool-cat">Freelance</span>
-        <span class="tool-arrow">→</span>
-      </div>
+  <div class="grid">
+    <a class="card" href="/proposal.html">
+      <div class="card-top"><div class="icon" style="background:#FFE50018">📄</div><span class="badge b-free">Free</span></div>
+      <div class="card-name">Proposal Generator</div>
+      <div class="card-desc">Send a polished project proposal in 2 minutes. No Word doc wrestling. Fill, preview, download.</div>
+      <div class="card-ft"><span class="card-cat">Freelance</span><span class="card-arr">→</span></div>
     </a>
-
-    <a class="tool-card" href="#" onclick="launch('invoice'); return false;">
-      <div class="tool-card-top">
-        <div class="tool-icon" style="background:#FF4D4D22;">🧾</div>
-        <span class="tool-badge badge-free">Free</span>
-      </div>
-      <div class="tool-name">Invoice Builder</div>
-      <div class="tool-desc">Create a professional invoice with line items, tax, and due dates. Download as PDF.</div>
-      <div class="tool-footer">
-        <span class="tool-cat">Freelance</span>
-        <span class="tool-arrow">→</span>
-      </div>
+    <a class="card" href="/invoice.html">
+      <div class="card-top"><div class="icon" style="background:#FF4D4D18">🧾</div><span class="badge b-free">Free</span></div>
+      <div class="card-name">Invoice Builder</div>
+      <div class="card-desc">Professional invoices with line items, tax, and due dates. Print or download as PDF instantly.</div>
+      <div class="card-ft"><span class="card-cat">Freelance</span><span class="card-arr">→</span></div>
     </a>
-
-    <a class="tool-card" href="#" onclick="showSoon('Hourly Rate Calculator'); return false;">
-      <div class="tool-card-top">
-        <div class="tool-icon" style="background:#a855f722;">💰</div>
-        <span class="tool-badge badge-new">New</span>
-      </div>
-      <div class="tool-name">Rate Calculator</div>
-      <div class="tool-desc">Stop undercharging. Enter your expenses and goals — get the hourly rate you actually need.</div>
-      <div class="tool-footer">
-        <span class="tool-cat">Business</span>
-        <span class="tool-arrow">→</span>
-      </div>
+    <a class="card" href="/rate-calculator.html">
+      <div class="card-top"><div class="icon" style="background:#a855f718">💰</div><span class="badge b-new">New</span></div>
+      <div class="card-name">Hourly Rate Calculator</div>
+      <div class="card-desc">Stop undercharging. Enter your income goals and expenses — get the exact rate you need.</div>
+      <div class="card-ft"><span class="card-cat">Business</span><span class="card-arr">→</span></div>
     </a>
-
-    <a class="tool-card" href="#" onclick="showSoon('Cold Email Writer'); return false;">
-      <div class="tool-card-top">
-        <div class="tool-icon" style="background:#22d3ee22;">✉️</div>
-        <span class="tool-badge badge-soon">Coming soon</span>
-      </div>
-      <div class="tool-name">Cold Email Writer</div>
-      <div class="tool-desc">Paste a prospect's name and what you do — get a punchy, personalized cold email instantly.</div>
-      <div class="tool-footer">
-        <span class="tool-cat">Sales</span>
-        <span class="tool-arrow">→</span>
-      </div>
+    <a class="card" href="#" onclick="soon('Cold Email Writer');return false">
+      <div class="card-top"><div class="icon" style="background:#22d3ee18">✉️</div><span class="badge b-soon">Coming soon</span></div>
+      <div class="card-name">Cold Email Writer</div>
+      <div class="card-desc">Paste a prospect name and what you do — get a punchy personalized cold email instantly.</div>
+      <div class="card-ft"><span class="card-cat">Sales</span><span class="card-arr">→</span></div>
     </a>
-
-    <a class="tool-card" href="#" onclick="showSoon('Bio Generator'); return false;">
-      <div class="tool-card-top">
-        <div class="tool-icon" style="background:#f59e0b22;">🙋</div>
-        <span class="tool-badge badge-soon">Coming soon</span>
-      </div>
-      <div class="tool-name">Bio Generator</div>
-      <div class="tool-desc">LinkedIn, Twitter, freelance profile — get a sharp bio tailored to where you're posting it.</div>
-      <div class="tool-footer">
-        <span class="tool-cat">Personal brand</span>
-        <span class="tool-arrow">→</span>
-      </div>
+    <a class="card" href="#" onclick="soon('Bio Generator');return false">
+      <div class="card-top"><div class="icon" style="background:#f59e0b18">🙋</div><span class="badge b-soon">Coming soon</span></div>
+      <div class="card-name">Bio Generator</div>
+      <div class="card-desc">LinkedIn, Twitter, Upwork — get a sharp bio tailored to where you're posting it.</div>
+      <div class="card-ft"><span class="card-cat">Personal brand</span><span class="card-arr">→</span></div>
     </a>
-
-    <a class="tool-card" href="#" onclick="showSoon('Side Hustle Planner'); return false;">
-      <div class="tool-card-top">
-        <div class="tool-icon" style="background:#10b98122;">🚀</div>
-        <span class="tool-badge badge-soon">Coming soon</span>
-      </div>
-      <div class="tool-name">Side Hustle Planner</div>
-      <div class="tool-desc">Turn a vague idea into a 30-day action plan. No fluff, just the next real steps.</div>
-      <div class="tool-footer">
-        <span class="tool-cat">Planning</span>
-        <span class="tool-arrow">→</span>
-      </div>
+    <a class="card" href="#" onclick="soon('Side Hustle Planner');return false">
+      <div class="card-top"><div class="icon" style="background:#10b98118">🚀</div><span class="badge b-soon">Coming soon</span></div>
+      <div class="card-name">Side Hustle Planner</div>
+      <div class="card-desc">Turn a vague idea into a 30-day action plan. No fluff — just the next real steps.</div>
+      <div class="card-ft"><span class="card-cat">Planning</span><span class="card-arr">→</span></div>
     </a>
-
-    <a class="tool-card" href="#" onclick="showSoon('Resume Bullet Writer'); return false;">
-      <div class="tool-card-top">
-        <div class="tool-icon" style="background:#6366f122;">📝</div>
-        <span class="tool-badge badge-soon">Coming soon</span>
-      </div>
-      <div class="tool-name">Resume Bullet Writer</div>
-      <div class="tool-desc">Paste your job duties in plain English — get punchy, ATS-friendly resume bullets back.</div>
-      <div class="tool-footer">
-        <span class="tool-cat">Career</span>
-        <span class="tool-arrow">→</span>
-      </div>
+    <a class="card" href="#" onclick="soon('Resume Bullet Writer');return false">
+      <div class="card-top"><div class="icon" style="background:#6366f118">📝</div><span class="badge b-soon">Coming soon</span></div>
+      <div class="card-name">Resume Bullet Writer</div>
+      <div class="card-desc">Paste job duties in plain English — get ATS-friendly, punchy resume bullets instantly.</div>
+      <div class="card-ft"><span class="card-cat">Career</span><span class="card-arr">→</span></div>
     </a>
-
-    <a class="tool-card" href="#" onclick="showSoon('Contract Checker'); return false;">
-      <div class="tool-card-top">
-        <div class="tool-icon" style="background:#ef444422;">⚖️</div>
-        <span class="tool-badge badge-soon">Coming soon</span>
-      </div>
-      <div class="tool-name">Contract Checker</div>
-      <div class="tool-desc">Paste any contract clause — find out if there's anything sketchy before you sign.</div>
-      <div class="tool-footer">
-        <span class="tool-cat">Legal</span>
-        <span class="tool-arrow">→</span>
-      </div>
+    <a class="card" href="#" onclick="soon('Contract Clause Checker');return false">
+      <div class="card-top"><div class="icon" style="background:#ef444418">⚖️</div><span class="badge b-soon">Coming soon</span></div>
+      <div class="card-name">Contract Checker</div>
+      <div class="card-desc">Paste any contract clause — find out what's sketchy before you sign. Plain English only.</div>
+      <div class="card-ft"><span class="card-cat">Legal</span><span class="card-arr">→</span></div>
     </a>
-
-    <!-- Suggest a tool card -->
-    <a class="tool-card" href="mailto:hello@diy9lives.com" style="border-style:dashed; border-color:#333;">
-      <div class="tool-card-top">
-        <div class="tool-icon" style="background:#ffffff0a; font-size:28px;">💡</div>
-      </div>
-      <div class="tool-name" style="color:#666;">Got an idea?</div>
-      <div class="tool-desc" style="color:#555;">Tell us what tool would save you the most time. We build what people actually need.</div>
-      <div class="tool-footer">
-        <span class="tool-cat" style="color:#444;">Suggest a tool</span>
-        <span class="tool-arrow" style="color:#444;">→</span>
-      </div>
+    <a class="card" href="mailto:hello@diy9lives.com" style="border-style:dashed;border-color:#1e1e1e">
+      <div class="card-top"><div class="icon" style="background:#ffffff06;font-size:24px">💡</div></div>
+      <div class="card-name" style="color:#444">Suggest a tool</div>
+      <div class="card-desc" style="color:#3a3a3a">Got a problem that needs solving? Tell us and we'll build it free.</div>
+      <div class="card-ft"><span class="card-cat" style="color:#333">hello@diy9lives.com</span><span class="card-arr" style="color:#333">→</span></div>
     </a>
-
   </div>
 </section>
 
-<!-- WHY -->
-<section id="why" style="background: var(--card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
-  <div class="section-label">Why DIY9lives</div>
-  <div class="section-title">Other tools charge $40/month<br>for this stuff.</div>
-  <p class="section-sub">We don't. Here's the deal.</p>
+<section id="newsletter" style="padding-top:0;padding-bottom:72px">
+  <div class="email-section">
+    <div>
+      <div class="sec-label">Stay ahead</div>
+      <div class="sec-title" style="font-size:clamp(22px,3.5vw,36px)">New free tool<br>every month.</div>
+      <p style="color:#777;font-size:14px;margin-top:12px;line-height:1.6;max-width:340px">We ship a new tool every month. Subscribe and be the first to know — no spam, ever.</p>
+    </div>
+    <div>
+      <div style="font-size:13px;color:#555;margin-bottom:12px">Join freelancers getting tools before anyone else</div>
+      <div class="email-form">
+        <input class="email-input" id="emailIn" type="email" placeholder="your@email.com"/>
+        <button class="btn btn-y" onclick="subscribe()" style="padding:13px 22px;font-size:14px">Get notified</button>
+      </div>
+      <div class="email-note">No spam. Unsubscribe anytime. 100% free.</div>
+      <div class="success" id="successMsg">🎉 You're in! Watch for our next tool drop.</div>
+    </div>
+  </div>
+</section>
+
+<section id="why" style="background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="sec-label">Why DIY9lives</div>
+  <div class="sec-title">Other tools charge $40/month<br>for this stuff.</div>
+  <p class="sec-sub">We don't. Here's the deal.</p>
   <div class="why-grid">
-    <div class="why-card">
-      <div class="why-num">01</div>
-      <div class="why-title">Actually free</div>
-      <div class="why-text">No trial. No credit card. No "free plan with 3 uses." Open a tool, use it, done.</div>
-    </div>
-    <div class="why-card">
-      <div class="why-num">02</div>
-      <div class="why-title">No account needed</div>
-      <div class="why-text">We're not collecting your email to sell you stuff later. Just use the tools.</div>
-    </div>
-    <div class="why-card">
-      <div class="why-num">03</div>
-      <div class="why-title">Built for real people</div>
-      <div class="why-text">Not enterprise software with 47 settings. Each tool does one thing and does it fast.</div>
-    </div>
-    <div class="why-card">
-      <div class="why-num">04</div>
-      <div class="why-title">New tools every month</div>
-      <div class="why-text">We ship based on what people request. Got a problem that needs a tool? Tell us.</div>
-    </div>
+    <div class="why-card"><div class="why-n">01</div><div class="why-t">Actually free</div><div class="why-tx">No trial. No credit card. No "3 free uses then pay." Open it, use it, done.</div></div>
+    <div class="why-card"><div class="why-n">02</div><div class="why-t">No account needed</div><div class="why-tx">We're not collecting your data. No login walls. Just open the tool and use it.</div></div>
+    <div class="why-card"><div class="why-n">03</div><div class="why-t">Built for real people</div><div class="why-tx">Not bloated enterprise software. Each tool does one thing fast and gets out of your way.</div></div>
+    <div class="why-card"><div class="why-n">04</div><div class="why-t">New tools monthly</div><div class="why-tx">We build what people request. Got a problem that needs a tool? Email us and we'll build it.</div></div>
   </div>
 </section>
 
-<!-- CTA BAND -->
-<div class="cta-band">
-  <h2>You've got 9 lives.<br>Stop wasting them on admin.</h2>
-  <a href="#tools" class="btn-dark">Browse all tools →</a>
-</div>
+<section style="padding-bottom:0">
+  <div class="cta-band">
+    <h2>You've got 9 lives.<br>Stop wasting them on admin.</h2>
+    <a href="#tools" class="btn-dk">Browse all free tools →</a>
+  </div>
+</section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo">DIY<span>9</span>lives</div>
   <div class="footer-links">
     <a href="#tools">Tools</a>
     <a href="#why">About</a>
+    <a href="#newsletter">Newsletter</a>
     <a href="mailto:hello@diy9lives.com">Contact</a>
   </div>
-  <div class="footer-copy">© 2025 DIY9lives. Fix it yourself.</div>
+  <div class="foot-copy">&copy; 2025 DIY9lives &middot; Fix it yourself.</div>
 </footer>
 
-<!-- Toast notification -->
-<div class="coming-soon-msg" id="toast"></div>
+<div class="toast" id="toast"></div>
 
 <script>
-  function showSoon(name) {
-    const t = document.getElementById('toast');
-    t.textContent = name + ' is coming soon — we\'re working on it! 🐱';
-    t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 3000);
-  }
-
-  function launch(type) {
-    showSoon(type === 'proposal' ? 'Proposal Generator (full app launching soon!)' : 'Invoice Builder (full app launching soon!)');
-  }
-
-  // Smooth active nav highlight
-  const sections = document.querySelectorAll('section[id], div[id]');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY + 80;
-    sections.forEach(s => {
-      const link = document.querySelector('nav a[href="#' + s.id + '"]');
-      if (!link) return;
-      if (s.offsetTop <= y && s.offsetTop + s.offsetHeight > y) {
-        link.style.color = '#fff';
-      } else {
-        link.style.color = '';
-      }
-    });
-  });
+function soon(name){
+  const t=document.getElementById('toast');
+  t.textContent='🔨 '+name+' is coming soon — subscribe to be first to know!';
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3500);
+}
+function subscribe(){
+  const inp=document.getElementById('emailIn');
+  const msg=document.getElementById('successMsg');
+  const v=inp.value.trim();
+  if(!v||!v.includes('@')){inp.style.borderColor='#FF4D4D';setTimeout(()=>inp.style.borderColor='var(--border)',2000);return;}
+  inp.value='';
+  msg.classList.add('show');
+  setTimeout(()=>msg.classList.remove('show'),5000);
+}
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.borderBottomColor=window.scrollY>50?'#2a2a2a':'var(--border)';
+});
 </script>
 </body>
 </html>
