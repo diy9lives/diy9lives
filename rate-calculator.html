@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Hourly Rate Calculator — DIY9lives</title>
+<meta name="description" content="Stop undercharging. Calculate the exact hourly rate you need to hit your income goals. Free, no login."/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);position:sticky;top:0;z-index:50}
+.logo{font-size:20px;font-weight:900;color:var(--white);text-decoration:none}.logo span{color:var(--yellow)}
+.back{color:var(--muted);text-decoration:none;font-size:13px;transition:color 0.2s}.back:hover{color:var(--white)}
+.page{max-width:900px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:48px}
+.eyebrow{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:16px}
+h1{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:12px}
+.sub{font-size:17px;color:#888;max-width:500px;margin:0 auto}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:24px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px}
+.card-title{font-size:15px;font-weight:800;margin-bottom:20px;display:flex;align-items:center;gap:8px}
+.card-icon{font-size:20px}
+.field{margin-bottom:16px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+.input-wrap{position:relative}
+.input-prefix{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:14px;pointer-events:none}
+input[type=number],input[type=text]{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px 10px 28px;color:var(--white);font-family:inherit;font-size:15px;outline:none;transition:border-color 0.2s}
+input[type=number]:focus,input[type=text]:focus{border-color:var(--yellow)}
+.suffix-input{padding-left:12px!important;padding-right:36px!important}
+.input-suffix{position:absolute;right:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:13px;pointer-events:none}
+.slider{width:100%;margin-top:8px;accent-color:var(--yellow)}
+.slider-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted);margin-top:4px}
+.result-card{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:36px;text-align:center;margin-bottom:24px}
+.result-label{font-size:13px;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px}
+.result-rate{font-size:72px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.result-per{font-size:20px;color:#888;margin-top:4px}
+.result-sub{font-size:14px;color:#666;margin-top:12px}
+.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+.bk-card{background:#111;border-radius:10px;padding:14px;text-align:center}
+.bk-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.bk-val{font-size:18px;font-weight:800;color:var(--white)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:24px}
+.tips-title{font-size:15px;font-weight:800;margin-bottom:16px}
+.tip{display:flex;gap:12px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.tip:last-child{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.tip-icon{font-size:20px;flex-shrink:0;margin-top:1px}
+.tip-text{font-size:13px;color:#888;line-height:1.5}
+.tip-text strong{color:var(--white)}
+.share-bar{display:flex;gap:10px;flex-wrap:wrap}
+.btn{padding:12px 24px;border-radius:9px;font-weight:700;font-size:14px;border:none;cursor:pointer;font-family:inherit;transition:all 0.2s}
+.btn-y{background:var(--yellow);color:var(--black)}.btn-y:hover{background:#f5dc00}
+.btn-g{background:var(--card);color:var(--white);border:1px solid var(--border)}.btn-g:hover{border-color:#555}
+@media(max-width:680px){.grid{grid-template-columns:1fr}.breakdown{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">DIY<span>9</span>lives</a>
+  <a class="back" href="/">← Back to all tools</a>
+</nav>
+<div class="page">
+  <div class="hero">
+    <div class="eyebrow">💰 Free Rate Calculator</div>
+    <h1>Stop undercharging.<br>Know your number.</h1>
+    <p class="sub">Enter your income goals and expenses. Get the exact hourly rate you need to actually make it work.</p>
+  </div>
+
+  <div class="result-card">
+    <div class="result-label">Your minimum hourly rate</div>
+    <div class="result-rate" id="rateDisplay">$0</div>
+    <div class="result-per">per hour</div>
+    <div class="result-sub" id="rateSub">Fill in your details below to calculate your rate</div>
+    <div class="breakdown">
+      <div class="bk-card"><div class="bk-label">Monthly need</div><div class="bk-val" id="bkMonthly">$0</div></div>
+      <div class="bk-card"><div class="bk-label">Billable hrs/mo</div><div class="bk-val" id="bkHours">0</div></div>
+      <div class="bk-card"><div class="bk-label">Recommended rate</div><div class="bk-val" id="bkRec">$0</div></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-title"><span class="card-icon">🎯</span> Income Goals</div>
+      <div class="field">
+        <label>Desired monthly take-home</label>
+        <div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="takeHome" value="5000" oninput="calc()"/></div>
+      </div>
+      <div class="field">
+        <label>Monthly business expenses</label>
+        <div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="expenses" value="500" oninput="calc()"/></div>
+      </div>
+      <div class="field">
+        <label>Self-employment tax buffer (%)</label>
+        <div class="input-wrap"><input type="number" class="suffix-input" id="taxBuffer" value="30" oninput="calc()"/><span class="input-suffix">%</span></div>
+      </div>
+      <div class="field">
+        <label>Buffer / savings / emergencies</label>
+        <div class="input-wrap"><span class="input-prefix">$</span><input type="number" id="buffer" value="500" oninput="calc()"/></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="card-icon">⏰</span> Your Time</div>
+      <div class="field">
+        <label>Billable hours per week: <strong id="hoursVal" style="color:var(--yellow)">25</strong></label>
+        <input type="range" class="slider" id="hoursSlider" min="5" max="60" value="25" oninput="document.getElementById('hoursVal').textContent=this.value;calc()"/>
+        <div class="slider-labels"><span>5 hrs</span><span>60 hrs</span></div>
+      </div>
+      <div class="field">
+        <label>Vacation weeks per year: <strong id="vacVal" style="color:var(--yellow)">4</strong></label>
+        <input type="range" class="slider" id="vacSlider" min="0" max="12" value="4" oninput="document.getElementById('vacVal').textContent=this.value;calc()"/>
+        <div class="slider-labels"><span>0 wks</span><span>12 wks</span></div>
+      </div>
+      <div class="field">
+        <label>Non-billable overhead (%): <strong id="overVal" style="color:var(--yellow)">30</strong></label>
+        <input type="range" class="slider" id="overSlider" min="0" max="60" value="30" oninput="document.getElementById('overVal').textContent=this.value;calc()"/>
+        <div class="slider-labels"><span>0%</span><span>60%</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tips">
+    <div class="tips-title">💡 How to use this rate</div>
+    <div class="tip"><span class="tip-icon">📊</span><div class="tip-text"><strong>This is your minimum floor.</strong> The rate shown is what you need just to break even. Add 20-30% on top to have room to negotiate and still be profitable.</div></div>
+    <div class="tip"><span class="tip-icon">🎯</span><div class="tip-text"><strong>Research market rates.</strong> Check what others in your field charge on Upwork, Toptal, or LinkedIn. Price near the middle of the market — too low signals inexperience, too high needs a strong portfolio.</div></div>
+    <div class="tip"><span class="tip-icon">📈</span><div class="tip-text"><strong>Raise your rate annually.</strong> Inflation, skills growth, and demand all justify increases. Most freelancers undercharge for years — raise 10-15% each year and watch what happens.</div></div>
+    <div class="tip"><span class="tip-icon">⚡</span><div class="tip-text"><strong>Consider project pricing.</strong> Clients often pay more for a fixed project price than an hourly rate — and you get paid for your efficiency, not just your time.</div></div>
+  </div>
+
+  <div class="share-bar">
+    <button class="btn btn-y" onclick="copyResult()">📋 Copy my rate</button>
+    <a class="btn btn-g" href="/proposal.html">→ Build a proposal with this rate</a>
+    <a class="btn btn-g" href="/invoice.html">→ Create an invoice</a>
+  </div>
+</div>
+
+<script>
+function calc(){
+  const takeHome=parseFloat(document.getElementById('takeHome').value)||0;
+  const expenses=parseFloat(document.getElementById('expenses').value)||0;
+  const taxBuf=parseFloat(document.getElementById('taxBuffer').value)||0;
+  const buffer=parseFloat(document.getElementById('buffer').value)||0;
+  const hoursWeek=parseFloat(document.getElementById('hoursSlider').value)||25;
+  const vacWeeks=parseFloat(document.getElementById('vacSlider').value)||4;
+  const overhead=parseFloat(document.getElementById('overSlider').value)||30;
+
+  const workWeeks=52-vacWeeks;
+  const grossMonthly=(takeHome+expenses+buffer)/(1-taxBuf/100);
+  const billableHoursMonth=(hoursWeek*workWeeks/12)*(1-overhead/100);
+  const minRate=billableHoursMonth>0?grossMonthly/billableHoursMonth:0;
+  const recRate=minRate*1.25;
+
+  document.getElementById('rateDisplay').textContent='$'+Math.ceil(minRate);
+  document.getElementById('bkMonthly').textContent='$'+Math.round(grossMonthly).toLocaleString();
+  document.getElementById('bkHours').textContent=Math.round(billableHoursMonth);
+  document.getElementById('bkRec').textContent='$'+Math.ceil(recRate);
+  document.getElementById('rateSub').textContent=
+    'Recommended rate with buffer: $'+Math.ceil(recRate)+'/hr &middot; '+
+    Math.round(billableHoursMonth)+' billable hours/month &middot; '+
+    workWeeks+' working weeks/year';
+}
+function copyResult(){
+  const rate=document.getElementById('rateDisplay').textContent;
+  const rec=document.getElementById('bkRec').textContent;
+  navigator.clipboard.writeText('My calculated hourly rate: '+rate+'/hr (recommended: '+rec+'/hr) — calculated at DIY9lives.com/rate-calculator').then(()=>{
+    const b=event.target;b.textContent='✓ Copied!';setTimeout(()=>b.textContent='📋 Copy my rate',2000);
+  });
+}
+calc();
+</script>
+</body>
+</html>
