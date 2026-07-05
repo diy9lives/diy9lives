@@ -49,13 +49,19 @@ input:focus,select:focus{border-color:var(--yellow)}
 .table td{padding:8px;border-bottom:1px solid #1a1a1a}
 .table tr:last-child td{border:none}
 .green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
-@media(max-width:680px){.grid2{grid-template-columns:1fr}.breakdown{grid-template-columns:1fr 1fr}}
+.game-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.game-btn{background:#111;border:1px solid var(--border);border-radius:10px;padding:12px 14px;color:var(--white);font-family:inherit;text-align:left;cursor:pointer;transition:border-color 0.15s}
+.game-btn:hover{border-color:var(--yellow)}
+.game-name{font-size:13px;font-weight:700;margin-bottom:3px}
+.game-edge{font-size:11px;color:var(--coral);font-weight:700}
+.game-note{font-size:11px;color:#555;margin-top:12px;line-height:1.6}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}.breakdown{grid-template-columns:1fr 1fr}.game-grid{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50">
-  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
-  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+<a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+<a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
 </nav>
 <div class="page">
 <div class="hero">
@@ -65,87 +71,111 @@ input:focus,select:focus{border-color:var(--yellow)}
 </div>
 
 <div class="result-big">
-  <div class="result-label">Expected Value Per Bet</div>
-  <div class="result-val" id="gEV">$0.00</div>
-  <div class="result-sub" id="gSub">Positive = edge in your favor | Negative = house edge</div>
-  <div class="breakdown">
-    <div class="bk"><div class="bk-l">Win Probability</div><div class="bk-v" id="gWinPct">0%</div></div>
-    <div class="bk"><div class="bk-l">Break-even Odds</div><div class="bk-v" id="gBreak">-</div></div>
-    <div class="bk"><div class="bk-l">House Edge</div><div class="bk-v red" id="gEdge">0%</div></div>
-  </div>
+<div class="result-label">Expected Value Per Bet</div>
+<div class="result-val" id="gEV">$0.00</div>
+<div class="result-sub" id="gSub">Positive = edge in your favor | Negative = house edge</div>
+<div class="breakdown">
+<div class="bk"><div class="bk-l">Win Probability</div><div class="bk-v" id="gWinPct">0%</div></div>
+<div class="bk"><div class="bk-l">Break-even Odds</div><div class="bk-v" id="gBreak">-</div></div>
+<div class="bk"><div class="bk-l">House Edge</div><div class="bk-v red" id="gEdge">0%</div></div>
+</div>
 </div>
 <div class="card">
-  <div class="card-title">&#127922; Bet Calculator</div>
-  <div class="grid2">
-    <div class="field"><label>Bet amount ($)</label><input type="number" id="gBet" value="100" oninput="calcGamble()"/></div>
-    <div class="field"><label>Payout if you win ($)</label><input type="number" id="gPayout" value="180" oninput="calcGamble()"/></div>
-    <div class="field"><label>Win probability (%)</label><input type="number" id="gProb" value="48" step="0.1" min="0" max="100" oninput="calcGamble()"/></div>
-    <div class="field"><label>Number of bets (session)</label><input type="number" id="gBets" value="100" oninput="calcGamble()"/></div>
-  </div>
-  <div class="field"><label>Odds format converter</label>
-    <div class="grid2" style="margin-top:6px">
-      <div><label style="font-size:10px">American odds (e.g. -110)</label><input type="number" id="gAmer" placeholder="-110" oninput="convertAmer()"/></div>
-      <div><label style="font-size:10px">Decimal odds (e.g. 1.91)</label><input type="number" id="gDec" step="0.01" placeholder="1.91" oninput="convertDec()"/></div>
-    </div>
-  </div>
+<div class="card-title">&#127920; Or pick a common casino game</div>
+<div class="game-grid">
+<button type="button" class="game-btn" onclick="setGame(2.70,36,this)"><div class="game-name">European Roulette <span style="color:#555;font-weight:400">(straight up)</span></div><div class="game-edge">2.70% house edge</div></button>
+<button type="button" class="game-btn" onclick="setGame(2.63,36,this)"><div class="game-name">American Roulette <span style="color:#555;font-weight:400">(straight up)</span></div><div class="game-edge">5.26% house edge</div></button>
+<button type="button" class="game-btn" onclick="setGame(49.75,2,this)"><div class="game-name">Blackjack <span style="color:#555;font-weight:400">(basic strategy)</span></div><div class="game-edge">~0.50% house edge</div></button>
+<button type="button" class="game-btn" onclick="setGame(49.30,2,this)"><div class="game-name">Craps <span style="color:#555;font-weight:400">(pass line)</span></div><div class="game-edge">1.40% house edge</div></button>
+<button type="button" class="game-btn" onclick="setGame(50.68,1.95,this)"><div class="game-name">Baccarat <span style="color:#555;font-weight:400">(banker bet)</span></div><div class="game-edge">~1.17% house edge</div></button>
+<button type="button" class="game-btn" onclick="setGame(47.5,2,this)"><div class="game-name">Slots <span style="color:#555;font-weight:400">(typical average)</span></div><div class="game-edge">~5% house edge</div></button>
+<button type="button" class="game-btn" onclick="setGame(50,1.909,this)"><div class="game-name">Sports bet <span style="color:#555;font-weight:400">(-110 / -110)</span></div><div class="game-edge">~4.55% vig</div></button>
+</div>
+<p class="game-note">Standard published house edges for a single-number/pass-line/basic-strategy bet at typical rules. Real numbers vary by casino, table rules, and (for blackjack) how closely you play basic strategy. Slot edges vary widely by machine and are shown here as a representative average &mdash; check your casino for actual RTP where published.</p>
+</div>
+<div class="card">
+<div class="card-title">&#127922; Bet Calculator</div>
+<div class="grid2">
+<div class="field"><label>Bet amount ($)</label><input type="number" id="gBet" value="100" oninput="calcGamble()"/></div>
+<div class="field"><label>Payout if you win ($)</label><input type="number" id="gPayout" value="180" oninput="calcGamble()"/></div>
+<div class="field"><label>Win probability (%)</label><input type="number" id="gProb" value="48" step="0.1" min="0" max="100" oninput="calcGamble()"/></div>
+<div class="field"><label>Number of bets (session)</label><input type="number" id="gBets" value="100" oninput="calcGamble()"/></div>
+</div>
+<div class="field"><label>Odds format converter</label>
+<div class="grid2" style="margin-top:6px">
+<div><label style="font-size:10px">American odds (e.g. -110)</label><input type="number" id="gAmer" placeholder="-110" oninput="convertAmer()"/></div>
+<div><label style="font-size:10px">Decimal odds (e.g. 1.91)</label><input type="number" id="gDec" step="0.01" placeholder="1.91" oninput="convertDec()"/></div>
+</div>
+</div>
 </div>
 <div class="card" id="sessionCard">
-  <div class="card-title">&#128200; Session Projection</div>
-  <div id="sessionResult" style="font-size:14px;line-height:1.9;color:#aaa"></div>
+<div class="card-title">&#128200; Session Projection</div>
+<div id="sessionResult" style="font-size:14px;line-height:1.9;color:#aaa"></div>
 </div>
 <div class="card" style="border-color:#FF4D4D44">
-  <div class="card-title" style="color:#FF4D4D">&#9888; Know the reality</div>
-  <div style="font-size:13px;color:#888;line-height:1.7">
-    <p>The house always has an edge. Blackjack: ~0.5% edge (best odds in the casino). Roulette: 5.26%. Slots: 2-15%. Sports betting: 4-6% average vig.</p>
-    <br/><p>A negative expected value means you will lose money over time &mdash; it is mathematically guaranteed with enough bets. The calculator above shows you exactly how much.</p>
-    <br/><p><strong style="color:#FFE500">Set a hard budget before you play. Never chase losses. Gambling should be entertainment, not income.</strong></p>
-    <br/><p>If gambling is causing problems: <a href="https://www.ncpgambling.org" target="_blank" style="color:#7c3aed">National Council on Problem Gambling</a> | 1-800-522-4700</p>
-  </div>
+<div class="card-title" style="color:#FF4D4D">&#9888; Know the reality</div>
+<div style="font-size:13px;color:#888;line-height:1.7">
+<p>The house always has an edge. Blackjack: ~0.5% edge (best odds in the casino). Roulette: 5.26%. Slots: 2-15%. Sports betting: 4-6% average vig.</p>
+<br/><p>A negative expected value means you will lose money over time &mdash; it is mathematically guaranteed with enough bets. The calculator above shows you exactly how much.</p>
+<br/><p><strong style="color:#FFE500">Set a hard budget before you play. Never chase losses. Gambling should be entertainment, not income.</strong></p>
+<br/><p>If gambling is causing problems: <a href="https://www.ncpgambling.org" target="_blank" style="color:#7c3aed">National Council on Problem Gambling</a> | 1-800-522-4700</p>
+</div>
 </div>
 <script>
 function fmt(n){return '$'+Math.abs(n).toFixed(2);}
 function calcGamble(){
-  var bet=parseFloat(document.getElementById('gBet').value)||0;
-  var payout=parseFloat(document.getElementById('gPayout').value)||0;
-  var prob=parseFloat(document.getElementById('gProb').value)||0;
-  var numBets=parseInt(document.getElementById('gBets').value)||1;
-  var p=prob/100;
-  var profit=payout-bet;
-  var ev=p*profit-(1-p)*bet;
-  var breakEvenProb=bet/payout*100;
-  var impliedProb=(1-(payout/bet/(payout/bet+1)))*100;
-  var edge=((breakEvenProb-prob)/100)*100;
-  document.getElementById('gEV').textContent=(ev>=0?'+':'')+fmt(ev);
-  document.getElementById('gEV').style.color=ev>=0?'#00C851':'#FF4D4D';
-  document.getElementById('gWinPct').textContent=prob+'%';
-  document.getElementById('gBreak').textContent=breakEvenProb.toFixed(1)+'% needed';
-  document.getElementById('gEdge').textContent=Math.abs(edge).toFixed(2)+'% '+(edge>0?'vs you':'your way');
-  document.getElementById('gEdge').className='bk-v '+(edge>0?'red':'green');
-  var expTotal=ev*numBets;
-  var winSess=Math.round(p*numBets);
-  document.getElementById('sessionResult').innerHTML=
-    'Over '+numBets+' bets at $'+bet+' each:<br>'+
-    '&bull; Expected wins: <strong>'+winSess+'</strong> | Expected losses: <strong>'+(numBets-winSess)+'</strong><br>'+
-    '&bull; Total wagered: <strong>$'+Math.round(bet*numBets).toLocaleString()+'</strong><br>'+
-    '&bull; Expected net result: <strong style="color:'+(expTotal>=0?'#00C851':'#FF4D4D')+'">'+(expTotal>=0?'+':'')+fmt(expTotal)+'</strong><br>'+
-    '&bull; Return on wagers: <strong>'+(ev/bet*100).toFixed(2)+'%</strong>';
+var bet=parseFloat(document.getElementById('gBet').value)||0;
+var payout=parseFloat(document.getElementById('gPayout').value)||0;
+var prob=parseFloat(document.getElementById('gProb').value)||0;
+var numBets=parseInt(document.getElementById('gBets').value)||1;
+var p=prob/100;
+var profit=payout-bet;
+var ev=p*profit-(1-p)*bet;
+var breakEvenProb=bet/payout*100;
+var impliedProb=(1-(payout/bet/(payout/bet+1)))*100;
+var edge=((breakEvenProb-prob)/100)*100;
+document.getElementById('gEV').textContent=(ev>=0?'+':'')+fmt(ev);
+document.getElementById('gEV').style.color=ev>=0?'#00C851':'#FF4D4D';
+document.getElementById('gWinPct').textContent=prob+'%';
+document.getElementById('gBreak').textContent=breakEvenProb.toFixed(1)+'% needed';
+document.getElementById('gEdge').textContent=Math.abs(edge).toFixed(2)+'% '+(edge>0?'vs you':'your way');
+document.getElementById('gEdge').className='bk-v '+(edge>0?'red':'green');
+var expTotal=ev*numBets;
+var winSess=Math.round(p*numBets);
+document.getElementById('sessionResult').innerHTML=
+'Over '+numBets+' bets at $'+bet+' each:<br>'+
+'&bull; Expected wins: <strong>'+winSess+'</strong> | Expected losses: <strong>'+(numBets-winSess)+'</strong><br>'+
+'&bull; Total wagered: <strong>$'+Math.round(bet*numBets).toLocaleString()+'</strong><br>'+
+'&bull; Expected net result: <strong style="color:'+(expTotal>=0?'#00C851':'#FF4D4D')+'">'+(expTotal>=0?'+':'')+fmt(expTotal)+'</strong><br>'+
+'&bull; Return on wagers: <strong>'+(ev/bet*100).toFixed(2)+'%</strong>';
 }
 function convertAmer(){
-  var a=parseFloat(document.getElementById('gAmer').value);
-  if(isNaN(a))return;
-  var dec=a>0?(a/100+1):(100/Math.abs(a)+1);
-  document.getElementById('gDec').value=dec.toFixed(2);
-  var prob=a>0?(100/(a+100)):(Math.abs(a)/(Math.abs(a)+100));
-  document.getElementById('gProb').value=(prob*100).toFixed(1);
-  calcGamble();
+var a=parseFloat(document.getElementById('gAmer').value);
+if(isNaN(a))return;
+var dec=a>0?(a/100+1):(100/Math.abs(a)+1);
+document.getElementById('gDec').value=dec.toFixed(2);
+var prob=a>0?(100/(a+100)):(Math.abs(a)/(Math.abs(a)+100));
+document.getElementById('gProb').value=(prob*100).toFixed(1);
+calcGamble();
 }
 function convertDec(){
-  var d=parseFloat(document.getElementById('gDec').value);
-  if(isNaN(d))return;
-  var amer=d>=2?(d-1)*100:(-100/(d-1));
-  document.getElementById('gAmer').value=Math.round(amer);
-  document.getElementById('gProb').value=(1/d*100).toFixed(1);
-  calcGamble();
+var d=parseFloat(document.getElementById('gDec').value);
+if(isNaN(d))return;
+var amer=d>=2?(d-1)*100:(-100/(d-1));
+document.getElementById('gAmer').value=Math.round(amer);
+document.getElementById('gProb').value=(1/d*100).toFixed(1);
+calcGamble();
+}
+function setGame(prob,mult,btn){
+var betEl=document.getElementById('gBet');
+var bet=parseFloat(betEl.value)||100;
+document.getElementById('gProb').value=prob;
+document.getElementById('gPayout').value=(bet*mult).toFixed(2);
+document.getElementById('gAmer').value='';
+document.getElementById('gDec').value='';
+calcGamble();
+document.querySelectorAll('.game-btn').forEach(function(b){b.style.borderColor='var(--border)';});
+if(btn) btn.style.borderColor='var(--yellow)';
 }
 calcGamble();
 </script>
