@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Gas & MPG Savings Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate your monthly gas cost and see how much you could save with a more fuel-efficient vehicle."/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0D6KZ606DX');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:900px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:40px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:16px}
+.card-title{font-size:15px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px}
+.result-label{font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.result-val{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.result-sub{font-size:13px;color:#666;margin-top:8px}
+.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bk-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bk-v{font-size:16px;font-weight:800}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip-icon{font-size:18px;flex-shrink:0}
+.tip strong{color:var(--white)}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px}
+.aff-t{font-size:13px;color:#c4b5fd}.aff-t strong{color:#fff}
+.aff-btn{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px}
+.sl-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.range-val{color:var(--yellow);font-weight:700}
+.table{width:100%;border-collapse:collapse;font-size:13px}
+.table th{text-align:left;padding:8px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+.table td{padding:8px;border-bottom:1px solid #1a1a1a}
+.table tr:last-child td{border:none}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}.breakdown{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero">
+<div class="ey">Gas Savings Calculator</div>
+<h1>How much is your car<br>actually costing you?</h1>
+<p class="sub">Enter your miles, MPG, and gas price. Compare vehicles and see your real monthly fuel cost.</p>
+</div>
+
+<div class="result-big">
+  <div class="result-label">Monthly Gas Cost</div>
+  <div class="result-val" id="gResult">$0</div>
+  <div class="result-sub" id="gSub">vs your comparison vehicle below</div>
+  <div class="breakdown">
+    <div class="bk"><div class="bk-l">Annual Cost</div><div class="bk-v" id="gAnnual">$0</div></div>
+    <div class="bk"><div class="bk-l">Gallons/Month</div><div class="bk-v" id="gGallons">0</div></div>
+    <div class="bk"><div class="bk-l">Cost per Mile</div><div class="bk-v" id="gPerMile">$0</div></div>
+  </div>
+</div>
+<div class="card">
+  <div class="card-title">&#9981; Your Vehicle</div>
+  <div class="grid2">
+    <div class="field"><label>Miles driven per month</label><input type="number" id="gMiles" value="1200" oninput="calcGas()"/></div>
+    <div class="field"><label>Current gas price ($/gal)</label><input type="number" id="gPrice" value="3.50" step="0.01" oninput="calcGas()"/></div>
+    <div class="field"><label>Your car MPG (city/hwy avg)</label><input type="number" id="gMPG" value="28" oninput="calcGas()"/></div>
+    <div class="field"><label>Compare to vehicle MPG</label><input type="number" id="gMPG2" value="42" oninput="calcGas()"/></div>
+  </div>
+</div>
+<div class="card" id="savingsCard">
+  <div class="card-title">&#128200; Savings Comparison</div>
+  <div id="savingsResult" style="font-size:14px;line-height:1.8;color:#aaa"></div>
+</div>
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Gas saving tips that actually work</div>
+  <div class="tip"><span class="tip-icon">&#128168;</span><div><strong>Tire pressure.</strong> Under-inflated tires reduce fuel economy by up to 3%. Check monthly. Most modern cars show tire pressure in the dashboard.</div></div>
+  <div class="tip"><span class="tip-icon">&#128337;</span><div><strong>Cruise control on highways</strong> can improve MPG by 7-14% by eliminating the micro-accelerations most drivers do unconsciously.</div></div>
+  <div class="tip"><span class="tip-icon">&#9981;</span><div><strong>GasBuddy app</strong> finds the cheapest gas within a few miles of you. Saving $0.20/gallon adds up to $100+ per year.</div></div>
+</div>
+<script>
+function fmt(n){return '$'+n.toFixed(2);}
+function calcGas(){
+  var miles=parseFloat(document.getElementById('gMiles').value)||0;
+  var price=parseFloat(document.getElementById('gPrice').value)||0;
+  var mpg1=parseFloat(document.getElementById('gMPG').value)||1;
+  var mpg2=parseFloat(document.getElementById('gMPG2').value)||1;
+  var gals1=miles/mpg1;
+  var cost1=gals1*price;
+  var annual1=cost1*12;
+  var perMile1=price/mpg1;
+  document.getElementById('gResult').textContent='$'+Math.round(cost1);
+  document.getElementById('gAnnual').textContent='$'+Math.round(annual1);
+  document.getElementById('gGallons').textContent=gals1.toFixed(1);
+  document.getElementById('gPerMile').textContent=fmt(perMile1);
+  var gals2=miles/mpg2;
+  var cost2=gals2*price;
+  var saveMo=cost1-cost2;
+  var saveYr=saveMo*12;
+  var color=saveMo>0?'#00C851':'#FF4D4D';
+  document.getElementById('gSub').textContent='Compare: '+mpg1+' MPG vs '+mpg2+' MPG vehicle';
+  document.getElementById('savingsResult').innerHTML=
+    'Your vehicle ('+mpg1+' MPG): <strong style="color:#FFE500">$'+Math.round(cost1)+'/mo</strong><br>'+
+    'Comparison ('+mpg2+' MPG): <strong style="color:#aaa">$'+Math.round(cost2)+'/mo</strong><br><br>'+
+    '<strong style="font-size:16px;color:'+color+'">'+(saveMo>0?'You could save ':'You are already saving ')+
+    '$'+Math.abs(Math.round(saveMo))+'/month ($'+Math.abs(Math.round(saveYr))+'/year) by switching.</strong>';
+}
+calcGas();
+</script>
+<div class="aff"><div class="aff-t"><strong>Shopping for a fuel-efficient car?</strong> FuelEconomy.gov has official MPG ratings for every vehicle.</div><a href="https://www.fueleconomy.gov" target="_blank" rel="noopener" class="aff-btn">Learn more &rarr;</a></div>
+</div>
+</body>
+</html>
