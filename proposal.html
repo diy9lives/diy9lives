@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Proposal Generator — DIY9lives</title>
+<meta name="description" content="Create a professional freelance proposal in 2 minutes. Free, no login required. Download as PDF."/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐱</text></svg>"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--teal:#0d9488;--teal2:#ccfbf1}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+nav{display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid var(--border);background:rgba(10,10,10,0.95);position:sticky;top:0;z-index:50}
+.logo{font-size:20px;font-weight:900;color:var(--white);text-decoration:none}.logo span{color:var(--yellow)}
+.back{color:var(--muted);text-decoration:none;font-size:13px;transition:color 0.2s}.back:hover{color:var(--white)}
+.wrap{display:grid;grid-template-columns:1fr 1fr;gap:0;min-height:calc(100vh - 57px)}
+.form-panel{padding:32px;overflow-y:auto;border-right:1px solid var(--border)}
+.preview-panel{padding:32px;background:#0d0d0d;overflow-y:auto}
+.panel-title{font-size:13px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;display:flex;align-items:center;gap:8px}
+.step{margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--border)}
+.step:last-child{border-bottom:none}
+.step-title{font-size:16px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.step-num{width:26px;height:26px;border-radius:50%;background:var(--yellow);color:var(--black);font-size:12px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,textarea,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s;margin-bottom:12px}
+input:focus,textarea:focus,select:focus{border-color:var(--yellow)}
+textarea{resize:vertical}
+.add-btn{width:100%;padding:9px;border:1px dashed var(--border);border-radius:8px;background:transparent;color:var(--muted);cursor:pointer;font-family:inherit;font-size:13px;transition:all 0.2s;margin-bottom:8px}
+.add-btn:hover{border-color:#555;color:var(--white)}
+.line-row{display:grid;grid-template-columns:1fr 60px 90px 80px 28px;gap:6px;margin-bottom:6px;align-items:center}
+.line-row input{margin-bottom:0}
+.remove-btn{background:transparent;border:none;color:#444;cursor:pointer;font-size:18px;line-height:1;transition:color 0.2s}
+.remove-btn:hover{color:var(--coral)}
+.line-hdr{display:grid;grid-template-columns:1fr 60px 90px 80px 28px;gap:6px;margin-bottom:6px}
+.line-hdr span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em}
+.total-box{background:#111;border:1px solid var(--border);border-radius:8px;padding:14px;margin-top:8px}
+.total-row{display:flex;justify-content:space-between;padding:4px 0;font-size:14px;color:var(--muted)}
+.total-final{display:flex;justify-content:space-between;padding:10px 0;border-top:1px solid var(--border);font-size:17px;font-weight:800;margin-top:4px;color:var(--white)}
+.total-final span:last-child{color:var(--yellow)}
+.action-bar{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap}
+.btn{padding:12px 24px;border-radius:9px;font-weight:700;font-size:14px;border:none;cursor:pointer;font-family:inherit;transition:all 0.2s;text-decoration:none;display:inline-block}
+.btn-y{background:var(--yellow);color:var(--black)}.btn-y:hover{background:#f5dc00;transform:translateY(-1px)}
+.btn-g{background:transparent;color:var(--white);border:1px solid var(--border)}.btn-g:hover{border-color:#555}
+/* PREVIEW */
+.doc{background:#fff;color:#0f172a;border-radius:12px;overflow:hidden;font-family:Georgia,serif;font-size:13px;line-height:1.6;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.doc-header{background:#0f172a;padding:28px 32px;display:flex;justify-content:space-between;align-items:flex-start}
+.doc-from{color:#fff;font-family:system-ui,sans-serif}
+.doc-from-name{font-size:22px;font-weight:800;letter-spacing:-0.02em}
+.doc-from-sub{color:#64748b;font-size:12px;margin-top:2px}
+.doc-type{color:#fff;text-align:right;font-family:system-ui,sans-serif}
+.doc-type-label{font-size:24px;font-weight:900;letter-spacing:0.05em;text-transform:uppercase}
+.doc-body{padding:28px 32px}
+.doc-meta{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px}
+.doc-meta-label{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;font-family:system-ui,sans-serif;margin-bottom:6px}
+.doc-meta-val{font-size:15px;font-weight:700;color:#0f172a;font-family:system-ui,sans-serif}
+.doc-meta-sub{font-size:12px;color:#64748b;font-family:system-ui,sans-serif}
+.doc-project{background:#f8fafc;border-radius:8px;padding:14px 16px;margin-bottom:20px;border:1px solid #e2e8f0}
+.doc-project-label{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;font-family:system-ui,sans-serif;margin-bottom:4px}
+.doc-project-name{font-size:16px;font-weight:800;font-family:system-ui,sans-serif}
+.doc-project-desc{font-size:13px;color:#64748b;margin-top:4px;font-family:system-ui,sans-serif}
+.doc-table-hdr{display:grid;grid-template-columns:1fr 50px 80px 80px;gap:8px;padding:8px 0;border-bottom:2px solid #0f172a;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#94a3b8;font-family:system-ui,sans-serif}
+.doc-table-hdr span:not(:first-child){text-align:right}
+.doc-table-row{display:grid;grid-template-columns:1fr 50px 80px 80px;gap:8px;padding:9px 0;border-bottom:1px solid #f1f5f9;font-family:system-ui,sans-serif;font-size:13px}
+.doc-table-row span:not(:first-child){text-align:right;color:#475569}
+.doc-table-row span:last-child{color:#0f172a;font-weight:600}
+.doc-totals{display:flex;justify-content:flex-end;margin:16px 0}
+.doc-totals-inner{width:220px}
+.doc-totals-row{display:flex;justify-content:space-between;padding:5px 0;font-size:13px;color:#64748b;font-family:system-ui,sans-serif}
+.doc-totals-final{display:flex;justify-content:space-between;padding:10px 0;border-top:2px solid #0f172a;font-size:18px;font-weight:800;font-family:system-ui,sans-serif}
+.doc-terms{border-top:1px solid #e2e8f0;padding-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:20px;font-family:system-ui,sans-serif}
+.doc-terms-label{font-size:10px;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px}
+.doc-terms-text{font-size:12px;color:#64748b;line-height:1.5;white-space:pre-line}
+.doc-footer{text-align:center;padding:14px;border-top:1px solid #e2e8f0;font-size:12px;color:#94a3b8;font-family:system-ui,sans-serif}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.preview-panel{display:none}.row{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">DIY<span>9</span>lives</a>
+  <a class="back" href="/">← Back to all tools</a>
+</nav>
+<div class="wrap">
+  <!-- FORM -->
+  <div class="form-panel">
+    <div class="panel-title">📄 Proposal Generator</div>
+    
+    <div class="step">
+      <div class="step-title"><span class="step-num">1</span> Your Info</div>
+      <div class="row">
+        <div><label>Your name</label><input id="yourName" placeholder="Jane Smith" oninput="render()"/></div>
+        <div><label>Your email</label><input id="yourEmail" placeholder="jane@example.com" oninput="render()"/></div>
+      </div>
+      <label>Phone (optional)</label><input id="yourPhone" placeholder="+1 (555) 000-0000" oninput="render()"/>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">2</span> Client Info</div>
+      <div class="row">
+        <div><label>Client name</label><input id="clientName" placeholder="John Doe" oninput="render()"/></div>
+        <div><label>Company (optional)</label><input id="clientCompany" placeholder="Acme Corp" oninput="render()"/></div>
+      </div>
+      <label>Client email</label><input id="clientEmail" placeholder="john@company.com" oninput="render()"/>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">3</span> Project</div>
+      <label>Project title</label><input id="projectTitle" placeholder="Website Redesign for Acme Corp" oninput="render()"/>
+      <label>Description</label><textarea id="projectDesc" rows="3" placeholder="What's included in this project..." oninput="render()"></textarea>
+      <div class="row">
+        <div><label>Issue date</label><input id="issueDate" type="date" oninput="render()"/></div>
+        <div><label>Valid until</label><input id="dueDate" type="date" oninput="render()"/></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">4</span> Line Items</div>
+      <div class="line-hdr"><span>Description</span><span>Qty</span><span>Rate</span><span>Amount</span><span></span></div>
+      <div id="lineItems"></div>
+      <button class="add-btn" onclick="addLine()">+ Add line item</button>
+      <div class="row" style="margin-top:8px">
+        <div><label>Tax rate (%)</label><input id="taxRate" type="number" value="0" min="0" oninput="render()"/></div>
+        <div><label>Deposit required (%)</label><input id="depositPct" type="number" value="50" min="0" max="100" oninput="render()"/></div>
+      </div>
+      <div class="total-box" id="totalBox" style="display:none">
+        <div class="total-row"><span>Subtotal</span><span id="tSub">-</span></div>
+        <div class="total-row" id="tTaxRow" style="display:none"><span>Tax</span><span id="tTax">-</span></div>
+        <div class="total-final"><span>Total</span><span id="tTotal">-</span></div>
+        <div class="total-row" id="tDepRow" style="display:none"><span id="tDepLabel">Deposit due now</span><span id="tDep">-</span></div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-title"><span class="step-num">5</span> Terms & Notes</div>
+      <label>Payment terms</label>
+      <textarea id="terms" rows="3" oninput="render()">Payment due within 14 days of invoice.
+Late payments subject to 1.5% monthly interest.</textarea>
+      <label>Additional notes</label>
+      <textarea id="notes" rows="2" placeholder="Anything else the client should know..." oninput="render()"></textarea>
+    </div>
+
+    <div class="action-bar">
+      <button class="btn btn-y" onclick="window.print()">🖨 Print / Save PDF</button>
+      <button class="btn btn-g" onclick="copyText()">📋 Copy as text</button>
+    </div>
+  </div>
+
+  <!-- PREVIEW -->
+  <div class="preview-panel">
+    <div class="panel-title">👁 Live Preview <span style="font-size:11px;color:#333;font-weight:400">(print this tab to save PDF)</span></div>
+    <div id="preview"></div>
+  </div>
+</div>
+
+<script>
+let lines = [{desc:'',qty:1,rate:''}];
+
+function addLine(){lines.push({desc:'',qty:1,rate:''});renderLines();render();}
+function removeLine(i){lines.splice(i,1);renderLines();render();}
+
+function renderLines(){
+  const c=document.getElementById('lineItems');
+  c.innerHTML=lines.map((l,i)=>
+    '<div class="line-row">'+
+    '<input placeholder="Description" value="'+esc(l.desc)+'" oninput="lines['+i+'].desc=this.value;render()"/>'+
+    '<input type="number" value="'+l.qty+'" min="1" style="text-align:center" oninput="lines['+i+'].qty=parseFloat(this.value)||1;render()"/>'+
+    '<input type="number" value="'+l.rate+'" placeholder="0.00" oninput="lines['+i+'].rate=this.value;render()"/>'+
+    '<div style="font-size:13px;font-weight:600;color:'+(l.qty*(parseFloat(l.rate)||0)>0?'#FFE500':'#444')+'">'+
+      (l.qty*(parseFloat(l.rate)||0)>0?'$'+(l.qty*(parseFloat(l.rate)||0)).toFixed(2):'—')+
+    '</div>'+
+    '<button class="remove-btn" onclick="removeLine('+i+')">×</button>'+
+    '</div>'
+  ).join('');
+}
+
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');}
+function cur(n){return '$'+parseFloat(n||0).toFixed(2).replace(/B(?=(\d{3})+(?!\d))/g,',');}
+function fmtDate(s){if(!s)return'—';const d=new Date(s+'T12:00:00');return d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});}
+
+function getVals(){
+  return{
+    yourName:document.getElementById('yourName').value,
+    yourEmail:document.getElementById('yourEmail').value,
+    yourPhone:document.getElementById('yourPhone').value,
+    clientName:document.getElementById('clientName').value,
+    clientCompany:document.getElementById('clientCompany').value,
+    clientEmail:document.getElementById('clientEmail').value,
+    projectTitle:document.getElementById('projectTitle').value,
+    projectDesc:document.getElementById('projectDesc').value,
+    issueDate:document.getElementById('issueDate').value,
+    dueDate:document.getElementById('dueDate').value,
+    taxRate:parseFloat(document.getElementById('taxRate').value)||0,
+    depositPct:parseFloat(document.getElementById('depositPct').value)||0,
+    terms:document.getElementById('terms').value,
+    notes:document.getElementById('notes').value,
+  };
+}
+
+function render(){
+  const v=getVals();
+  const sub=lines.reduce((s,l)=>s+(parseFloat(l.qty)||0)*(parseFloat(l.rate)||0),0);
+  const tax=sub*v.taxRate/100;
+  const total=sub+tax;
+  const deposit=total*v.depositPct/100;
+  const balance=total-deposit;
+  
+  // Update totals sidebar
+  if(sub>0){
+    document.getElementById('totalBox').style.display='block';
+    document.getElementById('tSub').textContent=cur(sub);
+    document.getElementById('tTaxRow').style.display=v.taxRate>0?'flex':'none';
+    document.getElementById('tTax').textContent=cur(tax);
+    document.getElementById('tTotal').textContent=cur(total);
+    document.getElementById('tDepRow').style.display=v.depositPct>0?'flex':'none';
+    document.getElementById('tDepLabel').textContent='Deposit ('+v.depositPct+'%) due now';
+    document.getElementById('tDep').textContent=cur(deposit);
+  }
+  
+  const activeLines=lines.filter(l=>l.desc||l.rate);
+  
+  document.getElementById('preview').innerHTML=
+  '<div class="doc">'+
+    '<div class="doc-header">'+
+      '<div class="doc-from">'+
+        '<div class="doc-from-name">'+(v.yourName||'Your Name')+'</div>'+
+        '<div class="doc-from-sub">'+(v.yourEmail||'email@example.com')+(v.yourPhone?' &middot; '+v.yourPhone:'')+'</div>'+
+      '</div>'+
+      '<div class="doc-type">'+
+        '<div class="doc-type-label">Proposal</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="doc-body">'+
+      '<div class="doc-meta">'+
+        '<div>'+
+          '<div class="doc-meta-label">Prepared for</div>'+
+          '<div class="doc-meta-val">'+(v.clientName||'Client Name')+'</div>'+
+          (v.clientCompany?'<div class="doc-meta-sub">'+v.clientCompany+'</div>':'')+
+          (v.clientEmail?'<div class="doc-meta-sub">'+v.clientEmail+'</div>':'')+
+        '</div>'+
+        '<div style="text-align:right">'+
+          '<div class="doc-meta-label">Details</div>'+
+          (v.issueDate?'<div class="doc-meta-sub">Date: <strong>'+fmtDate(v.issueDate)+'</strong></div>':'')+
+          (v.dueDate?'<div class="doc-meta-sub">Valid until: <strong>'+fmtDate(v.dueDate)+'</strong></div>':'')+
+          '<div style="margin-top:6px"><span style="background:#d1fae5;color:#065f46;border-radius:99px;padding:3px 10px;font-size:11px;font-weight:700;font-family:system-ui">Pending Approval</span></div>'+
+        '</div>'+
+      '</div>'+
+      (v.projectTitle?'<div class="doc-project"><div class="doc-project-label">Project</div><div class="doc-project-name">'+v.projectTitle+'</div>'+(v.projectDesc?'<div class="doc-project-desc">'+v.projectDesc+'</div>':'')+'</div>':'')+
+      (activeLines.length>0?
+        '<div class="doc-table-hdr"><span>Description</span><span style="text-align:right">Qty</span><span style="text-align:right">Rate</span><span style="text-align:right">Amount</span></div>'+
+        activeLines.map(l=>'<div class="doc-table-row"><span>'+l.desc+'</span><span>'+l.qty+'</span><span>'+cur(l.rate)+'</span><span>'+cur((parseFloat(l.qty)||0)*(parseFloat(l.rate)||0))+'</span></div>').join('')+
+        '<div class="doc-totals"><div class="doc-totals-inner">'+
+          '<div class="doc-totals-row"><span>Subtotal</span><span>'+cur(sub)+'</span></div>'+
+          (v.taxRate>0?'<div class="doc-totals-row"><span>Tax ('+v.taxRate+'%)</span><span>'+cur(tax)+'</span></div>':'')+
+          '<div class="doc-totals-final"><span>Total</span><span style="color:#0d9488">'+cur(total)+'</span></div>'+
+          (v.depositPct>0?'<div class="doc-totals-row"><span>Deposit ('+v.depositPct+'%) due now</span><span style="color:#ef4444;font-weight:700">'+cur(deposit)+'</span></div>':'')+
+          (v.depositPct>0?'<div class="doc-totals-row"><span>Balance on completion</span><span>'+cur(balance)+'</span></div>':'')+
+        '</div></div>'
+      :'')+
+      ((v.terms||v.notes)?
+        '<div class="doc-terms">'+
+          (v.terms?'<div><div class="doc-terms-label">Terms</div><div class="doc-terms-text">'+v.terms+'</div></div>':'')+
+          (v.notes?'<div><div class="doc-terms-label">Notes</div><div class="doc-terms-text">'+v.notes+'</div></div>':'')+
+        '</div>'
+      :'')+
+      '<div class="doc-footer">Thank you for your business'+(v.clientName?', '+v.clientName.split(' ')[0]:'')+'! &mdash; Generated free at DIY9lives.com</div>'+
+    '</div>'+
+  '</div>';
+}
+
+function copyText(){
+  const v=getVals();
+  const sub=lines.reduce((s,l)=>s+(parseFloat(l.qty)||0)*(parseFloat(l.rate)||0),0);
+  const tax=sub*v.taxRate/100;
+  const total=sub+tax;
+  const txt=[
+    'PROJECT PROPOSAL','',
+    'From: '+v.yourName+' ('+v.yourEmail+')',
+    'To: '+v.clientName+(v.clientCompany?' / '+v.clientCompany:''),'',
+    'Project: '+(v.projectTitle||'N/A'),
+    v.projectDesc?v.projectDesc:'','',
+    'LINE ITEMS:',
+    ...lines.filter(l=>l.desc).map(l=>'  '+l.desc+' — '+l.qty+' x $'+l.rate+' = $'+(l.qty*(parseFloat(l.rate)||0)).toFixed(2)),
+    '','Subtotal: '+cur(sub),
+    v.taxRate>0?'Tax: '+cur(tax):'',
+    'TOTAL: '+cur(total),'',
+    v.terms?'Terms: '+v.terms:'',
+    v.notes?'Notes: '+v.notes:'',
+  ].filter(x=>x!==undefined&&x!==null).join('\n');
+  navigator.clipboard.writeText(txt).then(()=>{
+    const b=event.target;b.textContent='✓ Copied!';setTimeout(()=>b.textContent='📋 Copy as text',2000);
+  });
+}
+
+// Init
+document.getElementById('issueDate').value=new Date().toISOString().split('T')[0];
+renderLines();
+render();
+</script>
+</body>
+</html>
