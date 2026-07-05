@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Resume Bullet Writer &mdash; DIY9lives</title>
+<meta name="description" content="Turn plain job duties into punchy ATS-friendly resume bullets. Free, no login required."/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0D6KZ606DX');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:900px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:40px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:16px}
+.card-title{font-size:15px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px}
+.result-label{font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.result-val{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.result-sub{font-size:13px;color:#666;margin-top:8px}
+.breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bk-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bk-v{font-size:16px;font-weight:800}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip-icon{font-size:18px;flex-shrink:0}
+.tip strong{color:var(--white)}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px}
+.aff-t{font-size:13px;color:#c4b5fd}.aff-t strong{color:#fff}
+.aff-btn{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.slider{width:100%;accent-color:var(--yellow);margin-top:6px}
+.sl-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+.range-val{color:var(--yellow);font-weight:700}
+.table{width:100%;border-collapse:collapse;font-size:13px}
+.table th{text-align:left;padding:8px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+.table td{padding:8px;border-bottom:1px solid #1a1a1a}
+.table tr:last-child td{border:none}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+@media(max-width:680px){.grid2{grid-template-columns:1fr}.breakdown{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero">
+<div class="ey">Resume Bullet Writer</div>
+<h1>Turn duties into<br>interview-winning bullets.</h1>
+<p class="sub">Paste your job duties in plain English. Get ATS-ready, action-verb bullets that get noticed.</p>
+</div>
+
+<div class="card">
+  <div class="card-title">&#128221; Your Job Details</div>
+  <div class="field"><label>Job title / role</label><input id="rTitle" placeholder="Marketing Manager"/></div>
+  <div class="field"><label>Your key duties (plain English, one per line)</label>
+    <textarea id="rDuties" rows="6" style="display:block;width:100%;background:#111;border:1px solid #222;border-radius:8px;padding:10px 12px;color:#FAFAFA;font-family:inherit;font-size:14px;outline:none;resize:vertical" placeholder="Ran social media accounts&#10;Managed a team of 3&#10;Created monthly reports&#10;Helped grow email list"></textarea></div>
+  <div class="grid2">
+    <div class="field"><label>Industry / context</label><input id="rIndustry" placeholder="SaaS / Tech startup"/></div>
+    <div class="field"><label>Tone</label><select id="rTone"><option>Results-focused</option><option>Leadership</option><option>Technical</option><option>Creative</option></select></div>
+  </div>
+  <button onclick="genBullets()" style="width:100%;padding:13px;border-radius:10px;border:none;background:#FFE500;color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:4px">Generate Resume Bullets</button>
+</div>
+<div class="card" id="outCard" style="display:none">
+  <div class="card-title">&#10003; Your ATS-Ready Bullets</div>
+  <div id="bulletsOut" style="font-size:14px;line-height:2;color:#ccc"></div>
+  <button onclick="copyBullets()" style="margin-top:16px;padding:10px 20px;border-radius:8px;border:none;background:#FFE500;color:#000;font-weight:700;cursor:pointer;font-family:inherit;font-size:13px">Copy all bullets</button>
+</div>
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Resume bullet tips</div>
+  <div class="tip"><span class="tip-icon">&#128251;</span><div><strong>Start with action verbs.</strong> Led, Built, Grew, Reduced, Launched, Managed, Increased. Never start with "Responsible for".</div></div>
+  <div class="tip"><span class="tip-icon">&#128202;</span><div><strong>Add numbers wherever possible.</strong> "Managed social media" becomes "Grew Instagram following by 40% in 6 months." Numbers get interviews.</div></div>
+  <div class="tip"><span class="tip-icon">&#129302;</span><div><strong>ATS tip:</strong> Mirror exact keywords from the job posting. Applicant tracking systems scan for matches before a human ever sees your resume.</div></div>
+</div>
+<script>
+var actionVerbs = {
+  'Results-focused':['Increased','Grew','Reduced','Improved','Generated','Delivered','Achieved','Boosted','Optimized','Saved'],
+  'Leadership':['Led','Managed','Directed','Mentored','Coordinated','Oversaw','Spearheaded','Established','Guided','Championed'],
+  'Technical':['Built','Developed','Engineered','Implemented','Deployed','Automated','Integrated','Architected','Designed','Debugged'],
+  'Creative':['Conceptualized','Designed','Crafted','Produced','Launched','Created','Developed','Curated','Transformed','Reimagined']
+};
+function genBullets(){
+  var duties=document.getElementById('rDuties').value.trim().split('\n').filter(function(d){return d.trim();});
+  var title=document.getElementById('rTitle').value.trim();
+  var industry=document.getElementById('rIndustry').value.trim();
+  var tone=document.getElementById('rTone').value;
+  var verbs=actionVerbs[tone];
+  if(!duties.length){alert('Please add your job duties first.');return;}
+  var bullets=duties.map(function(d,i){
+    var verb=verbs[i%verbs.length];
+    var clean=d.trim().toLowerCase().replace(/^(managed|ran|helped|did|worked on|responsible for|handled)\s*/i,'');
+    var context=industry?' for '+industry+' initiatives':'';
+    var result=Math.random()>0.5?' resulting in measurable impact on team performance':Math.random()>0.5?' driving efficiency and stakeholder satisfaction':'';
+    return '&bull; '+verb+' '+clean.charAt(0).toUpperCase()+clean.slice(1)+context+result+'.';
+  });
+  document.getElementById('bulletsOut').innerHTML=bullets.join('<br/>');
+  document.getElementById('outCard').style.display='block';
+  document.getElementById('outCard').scrollIntoView({behavior:'smooth',block:'start'});
+}
+function copyBullets(){
+  var text=document.getElementById('bulletsOut').innerText;
+  navigator.clipboard.writeText(text).then(function(){
+    var b=event.target;b.textContent='Copied!';setTimeout(function(){b.textContent='Copy all bullets';},2000);
+  });
+}
+</script>
+<div class="aff"><div class="aff-t"><strong>Need resume help?</strong> TopResume offers professional resume reviews &mdash; get expert feedback on your current resume.</div><a href="https://www.topresume.com" target="_blank" rel="noopener" class="aff-btn">Learn more &rarr;</a></div>
+</div>
+</body>
+</html>
