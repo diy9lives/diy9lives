@@ -146,7 +146,7 @@ footer a{color:var(--yellow);}
 
   function fetchRates(base){
     var symbols = Object.keys(CURRENCIES).filter(function(c){ return c !== base; }).join(',');
-    var url = 'https://api.frankfurter.app/latest?from=' + base + '&to=' + symbols;
+    var url = 'https://api.frankfurter.dev/v1/latest?base=' + base + '&symbols=' + symbols;
     return fetch(url).then(function(res){
       if(!res.ok) throw new Error('Request failed');
       return res.json();
