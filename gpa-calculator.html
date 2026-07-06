@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0D6KZ606DX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
+<title>GPA Calculator &mdash; Free Weighted &amp; Cumulative GPA Tool | DIY9lives</title>
+<meta name="description" content="Free GPA calculator. Add your courses, credit hours, and grades to instantly calculate your weighted GPA. Supports 4.0 and custom scales.">
+<link rel="canonical" href="https://diy9lives.com/gpa-calculator.html">
+<style>
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}.logo span{color:var(--yellow);}
+.nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
+main{max-width:920px;margin:0 auto;padding:90px 20px 60px;}
+.crumb{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.crumb a:hover{color:var(--yellow);}
+h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+h1 em{font-style:normal;color:var(--yellow);}
+.sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:28px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;background:var(--yellow);color:var(--black);}
+.col-labels{display:grid;grid-template-columns:1.6fr 1fr 1fr auto;gap:8px;margin-bottom:8px;}
+.col-labels div{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+.course-row{display:grid;grid-template-columns:1.6fr 1fr 1fr auto;gap:8px;margin-bottom:8px;align-items:center;}
+.course-row input,.course-row select{width:100%;background:var(--black);color:var(--white);border:1px solid var(--border);border-radius:8px;padding:9px 10px;font-size:13px;font-family:inherit;}
+.course-row input:focus,.course-row select:focus{outline:none;border-color:var(--yellow);}
+.course-row .rm{background:#2a1414;color:var(--coral);border:1px solid #3a1a1a;border-radius:8px;padding:9px 10px;cursor:pointer;font-weight:700;}
+.add-btn{background:var(--black);border:1px dashed var(--border);border-radius:9px;padding:10px;text-align:center;color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;margin-top:8px;}
+.add-btn:hover{border-color:var(--yellow);color:var(--yellow);}
+.result-hero{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px;}
+.rh-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
+.rh-val{font-size:52px;font-weight:900;color:var(--yellow);letter-spacing:-1.5px;}
+.rh-sub{font-size:13px;color:var(--muted);margin-top:8px;}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:16px;}
+.stat{background:var(--black);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;}
+.stat .v{font-size:18px;font-weight:800;}
+.stat .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+.field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:6px;}
+input[type=number]{background:var(--black);color:var(--white);border:1px solid var(--border);border-radius:9px;padding:11px 12px;font-size:15px;font-weight:600;font-family:inherit;width:100%;}
+.hint{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;}
+.hint b{color:var(--white);}
+details{border-top:1px solid var(--border);padding:14px 4px;}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details summary::after{content:"+";color:var(--yellow);font-size:18px;font-weight:800;}
+details[open] summary::after{content:"\2212";}
+details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
+footer a{color:var(--yellow);}
+@media(max-width:680px){.col-labels,.course-row{grid-template-columns:1fr 1fr;}.col-labels div:nth-child(3),.course-row select{grid-column:span 1;}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
+<main>
+<div class="crumb"><a href="/">Home</a> / Everyday Math / GPA Calculator</div>
+<h1>GPA <em>Calculator</em></h1>
+<p class="sub">Add each course with its credit hours and grade to calculate your weighted GPA &mdash; works for a single semester or your full cumulative record.</p>
+
+<div class="card">
+<h2>Your courses <span class="badge">Free</span></h2>
+<div class="col-labels">
+<div>Course name</div><div>Credit hours</div><div>Grade</div><div></div>
+</div>
+<div id="courseRows"></div>
+<div class="add-btn" onclick="addCourse('',3,'A')">+ Add another course</div>
+</div>
+
+<div class="result-hero">
+<div class="rh-label">Your GPA</div>
+<div class="rh-val" id="gpaResult">0.00</div>
+<div class="rh-sub" id="gpaSub">Based on a 4.0 scale</div>
+<div class="stats">
+<div class="stat"><div class="v" id="totalCredits">0</div><div class="k">Total credit hours</div></div>
+<div class="stat"><div class="v" id="totalPoints">0</div><div class="k">Total quality points</div></div>
+<div class="stat"><div class="v" id="courseCount">0</div><div class="k">Courses</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Already have a GPA to factor in?</h2>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+<div class="field"><label>Prior cumulative GPA</label><input type="number" id="priorGpa" value="0" step="0.01" min="0" max="4.33" oninput="calcGpa()"/></div>
+<div class="field"><label>Prior credit hours</label><input type="number" id="priorCredits" value="0" oninput="calcGpa()"/></div>
+</div>
+<p class="hint">Leave both at 0 if you're just calculating this semester on its own. Fill these in to see your new overall cumulative GPA after adding the courses above.</p>
+</div>
+
+<div class="card">
+<h2>Quick answers</h2>
+<details open>
+<summary>What grade scale does this use?</summary>
+<p>Standard US 4.0 scale: A/A+ = 4.0, A- = 3.7, B+ = 3.3, B = 3.0, B- = 2.7, C+ = 2.3, C = 2.0, C- = 1.7, D+ = 1.3, D = 1.0, F = 0.0. Some schools use slightly different scales (a few give A+ a 4.3) &mdash; check your school's official policy if you need an exact match.</p>
+</details>
+<details>
+<summary>How is weighted GPA calculated?</summary>
+<p>Each course's grade points are multiplied by its credit hours to get "quality points." All quality points are summed and divided by total credit hours. A 4-credit A (4.0) counts more than a 1-credit A, which is why higher-credit courses affect your GPA more.</p>
+</details>
+<details>
+<summary>How do I combine this with my existing GPA?</summary>
+<p>Enter your current cumulative GPA and total credit hours earned so far in the card above. The calculator treats your prior GPA as if it were one large course worth that many credits, then blends it with the new courses to give your updated overall GPA.</p>
+</details>
+</div>
+</main>
+<footer><p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all tools</a></p></footer>
+<script>
+var GRADE_POINTS = {
+  'A':4.0,'A-':3.7,'B+':3.3,'B':3.0,'B-':2.7,
+  'C+':2.3,'C':2.0,'C-':1.7,'D+':1.3,'D':1.0,'F':0.0
+};
+var rowId = 0;
+function addCourse(name, credits, grade){
+  rowId++;
+  var id = 'course'+rowId;
+  var div = document.createElement('div');
+  div.className = 'course-row';
+  div.id = id;
+  var gradeOptions = Object.keys(GRADE_POINTS).map(function(g){
+    return '<option value="'+g+'"'+(g===grade?' selected':'')+'>'+g+' ('+GRADE_POINTS[g].toFixed(1)+')</option>';
+  }).join('');
+  div.innerHTML =
+    '<input type="text" placeholder="e.g. Biology 101" value="'+name+'" oninput="calcGpa()"/>'+
+    '<input type="number" value="'+credits+'" min="0" step="0.5" oninput="calcGpa()"/>'+
+    '<select onchange="calcGpa()">'+gradeOptions+'</select>'+
+    '<button class="rm" onclick="removeCourse(\''+id+'\')">&times;</button>';
+  document.getElementById('courseRows').appendChild(div);
+  calcGpa();
+}
+function removeCourse(id){
+  var el = document.getElementById(id);
+  if(el) el.remove();
+  calcGpa();
+}
+function calcGpa(){
+  var rows = document.querySelectorAll('.course-row');
+  var totalPoints = 0, totalCredits = 0, count = 0;
+  rows.forEach(function(row){
+    var inputs = row.querySelectorAll('input');
+    var select = row.querySelector('select');
+    var credits = parseFloat(inputs[1].value) || 0;
+    var grade = select.value;
+    var points = GRADE_POINTS[grade] !== undefined ? GRADE_POINTS[grade] : 0;
+    if(credits > 0){
+      totalPoints += points * credits;
+      totalCredits += credits;
+      count++;
+    }
+  });
+
+  var priorGpa = parseFloat(document.getElementById('priorGpa').value) || 0;
+  var priorCredits = parseFloat(document.getElementById('priorCredits').value) || 0;
+  var priorPoints = priorGpa * priorCredits;
+
+  var combinedPoints = totalPoints + priorPoints;
+  var combinedCredits = totalCredits + priorCredits;
+  var gpa = combinedCredits > 0 ? combinedPoints / combinedCredits : 0;
+
+  document.getElementById('gpaResult').textContent = gpa.toFixed(2);
+  document.getElementById('totalCredits').textContent = totalCredits;
+  document.getElementById('totalPoints').textContent = totalPoints.toFixed(1);
+  document.getElementById('courseCount').textContent = count;
+
+  if(priorCredits > 0){
+    document.getElementById('gpaSub').textContent = 'New cumulative GPA including your ' + priorCredits + ' prior credit hours';
+  } else {
+    document.getElementById('gpaSub').textContent = 'Based on a 4.0 scale, this semester only';
+  }
+}
+addCourse('', 3, 'A');
+addCourse('', 4, 'B+');
+addCourse('', 3, 'A-');
+</script>
+</body>
+</html>

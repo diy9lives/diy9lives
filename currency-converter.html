@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0D6KZ606DX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
+<title>Currency Converter &mdash; Free Live Exchange Rates | DIY9lives</title>
+<meta name="description" content="Free currency converter with live exchange rates. Convert between 30+ world currencies instantly. No login, no ads, updated daily.">
+<link rel="canonical" href="https://diy9lives.com/currency-converter.html">
+<style>
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}.logo span{color:var(--yellow);}
+.nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
+main{max-width:820px;margin:0 auto;padding:90px 20px 60px;}
+.crumb{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.crumb a:hover{color:var(--yellow);}
+h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+h1 em{font-style:normal;color:var(--yellow);}
+.sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:28px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;background:var(--yellow);color:var(--black);}
+.converter-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:12px;align-items:end;}
+.field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:6px;}
+input[type=number],select{width:100%;background:var(--black);color:var(--white);border:1px solid var(--border);border-radius:9px;padding:11px 12px;font-size:16px;font-weight:600;font-family:inherit;}
+input:focus,select:focus{outline:none;border-color:var(--yellow);}
+.swap-btn{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:11px 14px;cursor:pointer;color:var(--yellow);font-size:18px;font-weight:800;height:44px;}
+.swap-btn:hover{border-color:var(--yellow);}
+.result-hero{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px;}
+.rh-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
+.rh-val{font-size:44px;font-weight:900;color:var(--yellow);letter-spacing:-1.5px;}
+.rh-sub{font-size:13px;color:var(--muted);margin-top:8px;}
+.rate-table{margin-top:16px;}
+table{width:100%;border-collapse:collapse;font-size:14px;}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:10px 8px 8px;font-weight:700;}
+td{padding:10px 8px;border-top:1px solid #1b1b1b;}
+.hint{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;}
+.hint b{color:var(--white);}
+.status-msg{font-size:13px;color:var(--muted);text-align:center;padding:20px;}
+.status-msg.error{color:var(--coral);}
+details{border-top:1px solid var(--border);padding:14px 4px;}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details summary::after{content:"+";color:var(--yellow);font-size:18px;font-weight:800;}
+details[open] summary::after{content:"\2212";}
+details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
+footer a{color:var(--yellow);}
+@media(max-width:680px){.converter-grid{grid-template-columns:1fr;}.swap-btn{width:100%;}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
+<main>
+<div class="crumb"><a href="/">Home</a> / Everyday Math / Currency Converter</div>
+<h1>Currency <em>Converter</em></h1>
+<p class="sub">Convert between 30+ world currencies using live daily exchange rates from the European Central Bank &mdash; no login, no ads, no markup.</p>
+
+<div class="card">
+<h2>Convert <span class="badge">Free</span></h2>
+<div class="converter-grid">
+<div class="field">
+<label>Amount</label>
+<input type="number" id="inAmount" value="100" min="0" oninput="convert()"/>
+<select id="fromCur" onchange="convert()" style="margin-top:8px;"></select>
+</div>
+<button type="button" class="swap-btn" onclick="swapCurrencies()" title="Swap">&#8646;</button>
+<div class="field">
+<label>Converted amount</label>
+<input type="text" id="outAmount" readonly style="color:var(--yellow);font-weight:800;"/>
+<select id="toCur" onchange="convert()" style="margin-top:8px;"></select>
+</div>
+</div>
+</div>
+
+<div class="result-hero">
+<div class="rh-label">Exchange Rate</div>
+<div class="rh-val" id="rateDisplay">&ndash;</div>
+<div class="rh-sub" id="rateSub">Loading live rates&hellip;</div>
+</div>
+
+<div class="card">
+<h2>Quick reference</h2>
+<div id="refTable">
+<div class="status-msg">Loading rates&hellip;</div>
+</div>
+<p class="hint">Rates are official ECB (European Central Bank) reference rates, updated once per business day around 4pm CET. This is the <b>mid-market rate</b> &mdash; banks and services like Wise, PayPal, or Revolut typically add a markup of 0.5&ndash;4% on top of this when you actually exchange money, so use this as a reference point, not the exact rate you'll get.</p>
+</div>
+
+<div class="card">
+<h2>Quick answers</h2>
+<details open>
+<summary>Why does my bank give me a different rate?</summary>
+<p>This tool shows the mid-market rate &mdash; the real, unmarked exchange rate used between banks. Consumer services (your bank, PayPal, airport kiosks) add a markup on top, often 1&ndash;4% for banks and cards, and sometimes more at airport currency exchanges. Wise and a few other services are known for charging closer to the mid-market rate with a transparent fee.</p>
+</details>
+<details>
+<summary>How often are rates updated?</summary>
+<p>Once per business day, around 4pm CET, based on European Central Bank reference rates. Rates don't update on weekends or ECB holidays, so if you check on a Saturday you'll see Friday's rate. This is standard for free reference-rate APIs; real-time forex trading rates fluctuate by the second and aren't publicly available for free.</p>
+</details>
+<details>
+<summary>Can I convert cryptocurrency here?</summary>
+<p>No, this tool covers standard fiat (government-issued) world currencies only. Crypto exchange rates move far more rapidly and would need a different data source.</p>
+</details>
+</div>
+</main>
+<footer><p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all tools</a></p></footer>
+<script>
+(function(){
+  var CURRENCIES = {
+    USD:'US Dollar', EUR:'Euro', GBP:'British Pound', JPY:'Japanese Yen', CHF:'Swiss Franc',
+    CAD:'Canadian Dollar', AUD:'Australian Dollar', CNY:'Chinese Yuan', INR:'Indian Rupee',
+    MXN:'Mexican Peso', BRL:'Brazilian Real', ZAR:'South African Rand', SGD:'Singapore Dollar',
+    HKD:'Hong Kong Dollar', NZD:'New Zealand Dollar', SEK:'Swedish Krona', NOK:'Norwegian Krone',
+    DKK:'Danish Krone', PLN:'Polish Zloty', THB:'Thai Baht', KRW:'South Korean Won',
+    TRY:'Turkish Lira', ILS:'Israeli Shekel', PHP:'Philippine Peso', IDR:'Indonesian Rupiah',
+    MYR:'Malaysian Ringgit', CZK:'Czech Koruna', HUF:'Hungarian Forint', RON:'Romanian Leu',
+    BGN:'Bulgarian Lev', ISK:'Icelandic Krona'
+  };
+  var POPULAR_TARGETS = ['EUR','GBP','JPY','CAD','AUD','MXN','INR','CNY'];
+  var latestRates = null;
+  var latestBase = null;
+  var latestDate = null;
+
+  function initSelects(){
+    var fromSel = document.getElementById('fromCur');
+    var toSel = document.getElementById('toCur');
+    var html = '';
+    Object.keys(CURRENCIES).forEach(function(code){
+      html += '<option value="'+code+'">'+code+' \u2014 '+CURRENCIES[code]+'</option>';
+    });
+    fromSel.innerHTML = html;
+    toSel.innerHTML = html;
+    fromSel.value = 'USD';
+    toSel.value = 'EUR';
+  }
+
+  function fetchRates(base){
+    var symbols = Object.keys(CURRENCIES).filter(function(c){ return c !== base; }).join(',');
+    var url = 'https://api.frankfurter.app/latest?from=' + base + '&to=' + symbols;
+    return fetch(url).then(function(res){
+      if(!res.ok) throw new Error('Request failed');
+      return res.json();
+    });
+  }
+
+  function convert(){
+    var fromCode = document.getElementById('fromCur').value;
+    if(latestBase !== fromCode || !latestRates){
+      document.getElementById('rateSub').textContent = 'Loading live rates\u2026';
+      fetchRates(fromCode).then(function(data){
+        latestRates = data.rates;
+        latestRates[fromCode] = 1;
+        latestBase = fromCode;
+        latestDate = data.date;
+        doConvert();
+        buildRefTable();
+      }).catch(function(err){
+        document.getElementById('rateSub').textContent = 'Could not load live rates. Check your connection and try again.';
+        document.getElementById('refTable').innerHTML = '<div class="status-msg error">Rates unavailable right now.</div>';
+      });
+    } else {
+      doConvert();
+    }
+  }
+
+  function doConvert(){
+    var amount = parseFloat(document.getElementById('inAmount').value) || 0;
+    var toCode = document.getElementById('toCur').value;
+    var rate = latestRates ? latestRates[toCode] : null;
+    if(rate == null){ return; }
+    var result = amount * rate;
+    document.getElementById('outAmount').value = result.toLocaleString(undefined, {maximumFractionDigits:2});
+    document.getElementById('rateDisplay').textContent = '1 ' + latestBase + ' = ' + rate.toFixed(4) + ' ' + toCode;
+    document.getElementById('rateSub').textContent = 'ECB reference rate as of ' + latestDate;
+  }
+
+  function buildRefTable(){
+    var rows = '<table><thead><tr><th>Currency</th><th>Rate</th></tr></thead><tbody>';
+    POPULAR_TARGETS.forEach(function(code){
+      if(code === latestBase) return;
+      var rate = latestRates[code];
+      if(rate == null) return;
+      rows += '<tr><td>1 '+latestBase+' = </td><td><strong>'+rate.toFixed(4)+' '+code+'</strong></td></tr>';
+    });
+    rows += '</tbody></table>';
+    document.getElementById('refTable').innerHTML = rows;
+  }
+
+  window.convert = convert;
+  window.swapCurrencies = function(){
+    var fromSel = document.getElementById('fromCur');
+    var toSel = document.getElementById('toCur');
+    var tmp = fromSel.value;
+    fromSel.value = toSel.value;
+    toSel.value = tmp;
+    latestRates = null;
+    convert();
+  };
+
+  initSelects();
+  convert();
+})();
+</script>
+</body>
+</html>
