@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0D6KZ606DX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
+<title>Retirement Calculator &mdash; Free Savings Projection | DIY9lives</title>
+<meta name="description" content="Free retirement calculator. See how your savings grow by retirement age, in today's dollars, plus estimated monthly retirement income using the 4% rule.">
+<link rel="canonical" href="https://diy9lives.com/retirement-calculator.html">
+<style>
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}.logo span{color:var(--yellow);}
+.nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
+main{max-width:960px;margin:0 auto;padding:90px 20px 60px;}
+.crumb{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.crumb a:hover{color:var(--yellow);}
+h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+h1 em{font-style:normal;color:var(--yellow);}
+.sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:28px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;background:var(--yellow);color:var(--black);}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:6px;}
+input{width:100%;background:var(--black);color:var(--white);border:1px solid var(--border);border-radius:9px;padding:11px 12px;font-size:15px;font-weight:600;font-family:inherit;}
+input:focus{outline:none;border-color:var(--yellow);}
+.result-hero{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px;}
+.rh-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
+.rh-val{font-size:44px;font-weight:900;color:var(--yellow);letter-spacing:-1.5px;}
+.rh-sub{font-size:13px;color:var(--muted);margin-top:8px;}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:16px;}
+.stat{background:var(--black);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;}
+.stat .v{font-size:18px;font-weight:800;}
+.stat .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+table{width:100%;border-collapse:collapse;font-size:14px;}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:10px 8px 8px;font-weight:700;}
+td{padding:10px 8px;border-top:1px solid #1b1b1b;}
+.hint{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;}
+.hint b{color:var(--white);}
+details{border-top:1px solid var(--border);padding:14px 4px;}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details summary::after{content:"+";color:var(--yellow);font-size:18px;font-weight:800;}
+details[open] summary::after{content:"\2212";}
+details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
+footer a{color:var(--yellow);}
+@media(max-width:680px){.grid3{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
+<main>
+<div class="crumb"><a href="/">Home</a> / Finance &amp; Money / Retirement Calculator</div>
+<h1>Retirement <em>Calculator</em></h1>
+<p class="sub">See how your retirement savings grow over time, what that's worth in today's dollars after inflation, and roughly how much monthly income it could support.</p>
+
+<div class="card">
+<h2>Your numbers <span class="badge">Free</span></h2>
+<div class="grid3">
+<div class="field"><label>Current age</label><input type="number" id="inAge" value="30" oninput="calc()"/></div>
+<div class="field"><label>Retirement age</label><input type="number" id="inRetireAge" value="65" oninput="calc()"/></div>
+<div class="field"><label>Current savings ($)</label><input type="number" id="inSavings" value="20000" oninput="calc()"/></div>
+</div>
+<div class="grid3" style="margin-top:14px;">
+<div class="field"><label>Monthly contribution ($)</label><input type="number" id="inContrib" value="500" oninput="calc()"/></div>
+<div class="field"><label>Expected annual return (%)</label><input type="number" id="inReturn" value="7" step="0.1" oninput="calc()"/></div>
+<div class="field"><label>Expected inflation (%)</label><input type="number" id="inInfl" value="3" step="0.1" oninput="calc()"/></div>
+</div>
+</div>
+
+<div class="result-hero">
+<div class="rh-label">Projected Balance at Retirement</div>
+<div class="rh-val" id="fvNominal">$0</div>
+<div class="rh-sub" id="fvReal">Worth $0 in today's dollars after inflation</div>
+<div class="stats">
+<div class="stat"><div class="v" id="totalContrib">$0</div><div class="k">You'll contribute</div></div>
+<div class="stat"><div class="v" id="totalGrowth">$0</div><div class="k">Investment growth</div></div>
+<div class="stat"><div class="v" id="monthlyIncome">$0</div><div class="k">Est. monthly income (4% rule)</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Growth over time</h2>
+<table>
+<thead><tr><th>Age</th><th>Years from now</th><th>Balance (nominal)</th><th>Balance (today's $)</th></tr></thead>
+<tbody id="growthBody"></tbody>
+</table>
+<p class="hint">"Today's dollars" shows what each future balance would actually buy at today's prices, after accounting for the inflation rate above.</p>
+</div>
+
+<div class="card">
+<h2>Quick answers</h2>
+<details open>
+<summary>What is the 4% rule?</summary>
+<p>A common (though debated) retirement planning guideline: if you withdraw about 4% of your portfolio in your first year of retirement, then adjust that dollar amount for inflation each year after, your savings have historically had a good chance of lasting 30 years. It's a starting estimate, not a guarantee &mdash; market conditions, sequence of returns, and how long you live all affect whether it actually holds up.</p>
+</details>
+<details>
+<summary>Is 7% a realistic annual return to assume?</summary>
+<p>7% is a commonly used estimate for long-term diversified stock market returns after adjusting for inflation is sometimes baked in differently depending on the source &mdash; some use 10% nominal (before inflation) and 7% real (after inflation). This calculator treats your input as a nominal return and separately adjusts for inflation at the end, so make sure you're not double-counting inflation in your return assumption.</p>
+</details>
+<details>
+<summary>Does this account for employer 401(k) matching?</summary>
+<p>Not automatically &mdash; if your employer matches contributions, add that match amount into your "monthly contribution" field to include it in the projection. Free employer match money is one of the highest-return moves in personal finance; always try to contribute at least enough to get the full match.</p>
+</details>
+</div>
+</main>
+<footer><p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all tools</a></p></footer>
+<script>
+function fmtMoney(n){ return '$'+Math.round(n).toLocaleString(); }
+function calc(){
+  var age = parseFloat(document.getElementById('inAge').value)||0;
+  var retireAge = parseFloat(document.getElementById('inRetireAge').value)||65;
+  var savings = parseFloat(document.getElementById('inSavings').value)||0;
+  var contrib = parseFloat(document.getElementById('inContrib').value)||0;
+  var annualReturn = parseFloat(document.getElementById('inReturn').value)||0;
+  var inflation = parseFloat(document.getElementById('inInfl').value)||0;
+
+  var years = Math.max(0, retireAge-age);
+  var r = annualReturn/100/12;
+  var n = years*12;
+
+  function fvAt(yrs){
+    var m = yrs*12;
+    var fvLump = savings*Math.pow(1+r, m);
+    var fvContrib = r>0 ? contrib*((Math.pow(1+r,m)-1)/r) : contrib*m;
+    return fvLump+fvContrib;
+  }
+
+  var fvTotal = fvAt(years);
+  var realValue = fvTotal/Math.pow(1+inflation/100, years);
+  var totalContrib = contrib*n;
+  var totalGrowth = fvTotal-savings-totalContrib;
+  var monthlyIncome = fvTotal*0.04/12;
+
+  document.getElementById('fvNominal').textContent = fmtMoney(fvTotal);
+  document.getElementById('fvReal').textContent = "Worth "+fmtMoney(realValue)+" in today's dollars after inflation";
+  document.getElementById('totalContrib').textContent = fmtMoney(totalContrib);
+  document.getElementById('totalGrowth').textContent = fmtMoney(totalGrowth);
+  document.getElementById('monthlyIncome').textContent = fmtMoney(monthlyIncome);
+
+  var rows='';
+  var step = years>20 ? 5 : (years>10 ? 2 : 1);
+  for(var y=step; y<=years; y+=step){
+    var fv = fvAt(y);
+    var real = fv/Math.pow(1+inflation/100, y);
+    rows += '<tr><td>'+Math.round(age+y)+'</td><td>+'+y+' yrs</td><td>'+fmtMoney(fv)+'</td><td>'+fmtMoney(real)+'</td></tr>';
+  }
+  if(years%step!==0 || years===0){
+    rows += '<tr><td>'+retireAge+'</td><td>+'+years+' yrs</td><td>'+fmtMoney(fvTotal)+'</td><td>'+fmtMoney(realValue)+'</td></tr>';
+  }
+  document.getElementById('growthBody').innerHTML = rows;
+}
+calc();
+</script>
+</body>
+</html>

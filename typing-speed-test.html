@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0D6KZ606DX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
+<title>Free Typing Speed Test &mdash; Check Your WPM | DIY9lives</title>
+<meta name="description" content="Free typing speed test. Measure your words per minute (WPM) and accuracy instantly. No signup, no account, unlimited retries.">
+<link rel="canonical" href="https://diy9lives.com/typing-speed-test.html">
+<style>
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}.logo span{color:var(--yellow);}
+.nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
+main{max-width:820px;margin:0 auto;padding:90px 20px 60px;}
+.crumb{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.crumb a:hover{color:var(--yellow);}
+h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+h1 em{font-style:normal;color:var(--yellow);}
+.sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:28px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.stats-row{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:18px;}
+.stat{background:var(--black);border:1px solid var(--border);border-radius:10px;padding:12px 18px;text-align:center;flex:1;min-width:100px;}
+.stat .v{font-size:26px;font-weight:900;color:var(--yellow);letter-spacing:-1px;}
+.stat .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+.passage{font-size:19px;line-height:1.8;font-family:'SF Mono',Consolas,monospace;padding:20px;background:var(--black);border:1px solid var(--border);border-radius:10px;letter-spacing:.2px;user-select:none;}
+.passage span.correct{color:var(--green);}
+.passage span.incorrect{color:var(--coral);background:#2a1010;border-radius:2px;}
+.passage span.current{background:var(--yellow);color:var(--black);border-radius:2px;}
+.passage span.pending{color:var(--muted);}
+#typeInput{width:100%;margin-top:14px;background:var(--black);border:2px solid var(--border);border-radius:10px;padding:14px;color:var(--white);font-size:16px;font-family:inherit;resize:none;}
+#typeInput:focus{outline:none;border-color:var(--yellow);}
+.controls{display:flex;justify-content:space-between;align-items:center;margin-top:14px;flex-wrap:wrap;gap:10px;}
+.btn{background:var(--yellow);color:var(--black);font-weight:800;font-size:13px;padding:10px 20px;border-radius:8px;border:none;cursor:pointer;font-family:inherit;}
+.btn:hover{opacity:.9;}
+.timer{font-size:14px;color:var(--muted);}
+.results{display:none;text-align:center;}
+.results.show{display:block;}
+.results .big{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-2px;}
+.results .lbl{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:4px;}
+.hint{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;}
+.hint b{color:var(--white);}
+details{border-top:1px solid var(--border);padding:14px 4px;}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details summary::after{content:"+";color:var(--yellow);font-size:18px;font-weight:800;}
+details[open] summary::after{content:"\2212";}
+details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
+footer a{color:var(--yellow);}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
+<main>
+<div class="crumb"><a href="/">Home</a> / Fun &amp; Entertainment / Typing Speed Test</div>
+<h1>Typing Speed <em>Test</em></h1>
+<p class="sub">Type the passage below as fast and accurately as you can. Your words-per-minute and accuracy are calculated the moment you finish &mdash; no signup, no limits, retry as many times as you want.</p>
+
+<div class="card">
+<div class="stats-row">
+<div class="stat"><div class="v" id="liveWpm">0</div><div class="k">WPM</div></div>
+<div class="stat"><div class="v" id="liveAcc">100%</div><div class="k">Accuracy</div></div>
+<div class="stat"><div class="v" id="liveTime">0.0s</div><div class="k">Time</div></div>
+</div>
+
+<div class="passage" id="passage"></div>
+<textarea id="typeInput" rows="3" placeholder="Click here and start typing to begin..." autocomplete="off" autocorrect="off" spellcheck="false"></textarea>
+<div class="controls">
+<div class="timer" id="statusMsg">Start typing to begin the test.</div>
+<button class="btn" onclick="restart()">New passage</button>
+</div>
+</div>
+
+<div class="card results" id="resultsCard">
+<div class="lbl">Your result</div>
+<div class="big" id="finalWpm">0 WPM</div>
+<div style="margin-top:12px;font-size:14px;color:var(--muted);" id="finalDetail">0% accuracy &middot; 0.0 seconds</div>
+</div>
+
+<div class="card">
+<h2 style="font-size:16px;font-weight:700;margin-bottom:10px;">Quick answers</h2>
+<details open>
+<summary>How is WPM calculated?</summary>
+<p>The standard formula: one "word" equals 5 characters (including spaces), regardless of actual word length. WPM = (total characters typed correctly &divide; 5) &divide; minutes elapsed. This is the same method used by most typing test sites, so your score here is comparable to results elsewhere.</p>
+</details>
+<details>
+<summary>What's a good typing speed?</summary>
+<p>Average typists land around 35&ndash;45 WPM. 60+ WPM is considered fast, and professional typists (transcriptionists, data entry specialists) often reach 70&ndash;100+ WPM. Accuracy matters as much as speed &mdash; a fast but error-prone typist usually loses more time to corrections than a slightly slower, more accurate one.</p>
+</details>
+<details>
+<summary>Does a typo end the test?</summary>
+<p>No. You can keep typing past a mistake &mdash; incorrect characters are just marked in red and count against your accuracy score. Only your final accuracy and WPM depend on how many characters you get right versus wrong over the whole passage.</p>
+</details>
+</div>
+</main>
+<footer><p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all tools</a></p></footer>
+<script>
+(function(){
+  var PASSAGES = [
+    "The old lighthouse keeper climbed the spiral stairs every evening, counting each step out of habit rather than need, and watched the harbor lights flicker on one by one as fishing boats returned before the tide turned against them.",
+    "A good habit is easier to build than to break, which is exactly backward from what most people expect when they start trying to change their daily routine for the better.",
+    "Somewhere between the second and third cup of coffee, the programmer finally noticed the missing semicolon that had been breaking the build for the better part of an hour.",
+    "The recipe called for patience more than any single ingredient, since the dough needed to rest overnight before it would rise properly the following morning.",
+    "Learning to type without looking at the keyboard feels impossible at first, but most people notice real improvement within just a couple of weeks of steady practice.",
+    "Rain tapped against the window in an uneven rhythm while the cat stretched across the warmest spot on the couch, entirely unbothered by the storm outside.",
+    "Every city has a street that locals avoid during rush hour, a shortcut that only works after dark, and a coffee shop that everyone swears has the best pastries in town.",
+    "The hiking trail split into three paths near the summit, and none of the faded signs agreed on which one actually led back down to the parking lot before sunset."
+  ];
+
+  var passageEl = document.getElementById('passage');
+  var inputEl = document.getElementById('typeInput');
+  var currentPassage = '';
+  var startTime = null;
+  var finished = false;
+  var timerInterval = null;
+
+  function renderPassage(typed){
+    var html = '';
+    for(var i=0;i<currentPassage.length;i++){
+      var ch = currentPassage[i];
+      var cls = 'pending';
+      if(i < typed.length){
+        cls = (typed[i] === ch) ? 'correct' : 'incorrect';
+      } else if(i === typed.length){
+        cls = 'current';
+      }
+      var displayCh = ch === ' ' ? '&nbsp;' : ch.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      html += '<span class="'+cls+'">'+displayCh+'</span>';
+    }
+    passageEl.innerHTML = html;
+  }
+
+  function pickPassage(){
+    return PASSAGES[Math.floor(Math.random()*PASSAGES.length)];
+  }
+
+  function liveUpdate(){
+    var typed = inputEl.value;
+    var elapsedMin = (Date.now()-startTime)/60000;
+    var correctChars = 0;
+    for(var i=0;i<typed.length && i<currentPassage.length;i++){
+      if(typed[i]===currentPassage[i]) correctChars++;
+    }
+    var wpm = elapsedMin>0 ? Math.round((correctChars/5)/elapsedMin) : 0;
+    var acc = typed.length>0 ? Math.round((correctChars/typed.length)*100) : 100;
+    document.getElementById('liveWpm').textContent = wpm;
+    document.getElementById('liveAcc').textContent = acc+'%';
+    document.getElementById('liveTime').textContent = ((Date.now()-startTime)/1000).toFixed(1)+'s';
+  }
+
+  function finish(){
+    finished = true;
+    clearInterval(timerInterval);
+    var typed = inputEl.value;
+    var elapsedMin = (Date.now()-startTime)/60000;
+    var correctChars = 0;
+    for(var i=0;i<currentPassage.length;i++){
+      if(typed[i]===currentPassage[i]) correctChars++;
+    }
+    var wpm = elapsedMin>0 ? Math.round((correctChars/5)/elapsedMin) : 0;
+    var acc = typed.length>0 ? Math.round((correctChars/typed.length)*100) : 100;
+    var seconds = (Date.now()-startTime)/1000;
+    document.getElementById('finalWpm').textContent = wpm+' WPM';
+    document.getElementById('finalDetail').textContent = acc+'% accuracy \u00b7 '+seconds.toFixed(1)+' seconds';
+    document.getElementById('resultsCard').classList.add('show');
+    document.getElementById('statusMsg').textContent = 'Finished! Click "New passage" to try again.';
+    inputEl.disabled = true;
+  }
+
+  inputEl.addEventListener('input', function(){
+    if(finished) return;
+    if(startTime === null){
+      startTime = Date.now();
+      document.getElementById('statusMsg').textContent = 'Typing...';
+      timerInterval = setInterval(liveUpdate, 200);
+    }
+    var typed = inputEl.value;
+    renderPassage(typed);
+    if(typed.length >= currentPassage.length){
+      finish();
+    }
+  });
+
+  window.restart = function(){
+    clearInterval(timerInterval);
+    currentPassage = pickPassage();
+    startTime = null;
+    finished = false;
+    inputEl.value = '';
+    inputEl.disabled = false;
+    document.getElementById('liveWpm').textContent = '0';
+    document.getElementById('liveAcc').textContent = '100%';
+    document.getElementById('liveTime').textContent = '0.0s';
+    document.getElementById('statusMsg').textContent = 'Start typing to begin the test.';
+    document.getElementById('resultsCard').classList.remove('show');
+    renderPassage('');
+    inputEl.focus();
+  };
+
+  restart();
+})();
+</script>
+</body>
+</html>

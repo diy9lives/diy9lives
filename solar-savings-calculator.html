@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0D6KZ606DX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
+<title>Solar Panel Savings Calculator &mdash; Payback Period &amp; ROI | DIY9lives</title>
+<meta name="description" content="Free solar savings calculator. Estimate system size, cost after tax credit, payback period, and 25-year savings based on your electric bill.">
+<link rel="canonical" href="https://diy9lives.com/solar-savings-calculator.html">
+<style>
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}.logo span{color:var(--yellow);}
+.nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
+main{max-width:960px;margin:0 auto;padding:90px 20px 60px;}
+.crumb{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.crumb a:hover{color:var(--yellow);}
+h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+h1 em{font-style:normal;color:var(--green);}
+.sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:28px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;background:var(--yellow);color:var(--black);}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:6px;}
+input,select{width:100%;background:var(--black);color:var(--white);border:1px solid var(--border);border-radius:9px;padding:11px 12px;font-size:15px;font-weight:600;font-family:inherit;}
+input:focus,select:focus{outline:none;border-color:var(--green);}
+.result-hero{background:linear-gradient(135deg,#0d1c14,#141414);border:2px solid var(--green);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px;}
+.rh-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
+.rh-val{font-size:44px;font-weight:900;color:var(--green);letter-spacing:-1.5px;}
+.rh-sub{font-size:13px;color:var(--muted);margin-top:8px;}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:16px;}
+.stat{background:var(--black);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;}
+.stat .v{font-size:18px;font-weight:800;}
+.stat .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+table{width:100%;border-collapse:collapse;font-size:14px;}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:10px 8px 8px;font-weight:700;}
+td{padding:10px 8px;border-top:1px solid #1b1b1b;}
+.hint{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;}
+.hint b{color:var(--white);}
+details{border-top:1px solid var(--border);padding:14px 4px;}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details summary::after{content:"+";color:var(--green);font-size:18px;font-weight:800;}
+details[open] summary::after{content:"\2212";}
+details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
+footer a{color:var(--green);}
+@media(max-width:680px){.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
+<main>
+<div class="crumb"><a href="/">Home</a> / Home &amp; Real Estate / Solar Panel Savings Calculator</div>
+<h1>Solar Panel Savings <em>Calculator</em></h1>
+<p class="sub">Enter your electric bill and location details to estimate system size, upfront cost after the federal tax credit, payback period, and 25-year savings.</p>
+
+<div class="card">
+<h2>Your electricity use <span class="badge">Free</span></h2>
+<div class="grid2">
+<div class="field"><label>Average monthly electric bill ($)</label><input type="number" id="inBill" value="150" oninput="calc()"/></div>
+<div class="field"><label>Your cost per kWh ($)</label><input type="number" id="inKwh" value="0.16" step="0.01" oninput="calc()"/></div>
+</div>
+<div class="field" style="margin-top:14px;">
+<label>Peak sun hours per day (your region)</label>
+<select id="inSun" onchange="calc()">
+<option value="3.5">Low sun (Northeast, Pacific NW) &mdash; ~3.5 hrs</option>
+<option value="4.5" selected>Moderate sun (Midwest, Mid-Atlantic) &mdash; ~4.5 hrs</option>
+<option value="5.5">High sun (Southwest, Southeast, California) &mdash; ~5.5 hrs</option>
+</select>
+</div>
+</div>
+
+<div class="card">
+<h2>System &amp; incentive assumptions</h2>
+<div class="grid2">
+<div class="field"><label>Installed cost per watt ($)</label><input type="number" id="inCostW" value="2.80" step="0.05" oninput="calc()"/></div>
+<div class="field"><label>Federal tax credit (%)</label><input type="number" id="inCredit" value="30" oninput="calc()"/></div>
+</div>
+<div class="field" style="margin-top:14px;"><label>Expected annual utility rate increase (%)</label><input type="number" id="inInfl" value="3" step="0.1" oninput="calc()"/></div>
+</div>
+
+<div class="result-hero">
+<div class="rh-label">Estimated Payback Period</div>
+<div class="rh-val" id="payback">0 years</div>
+<div class="rh-sub" id="lifetimeSavings">25-year net savings: $0</div>
+<div class="stats">
+<div class="stat"><div class="v" id="systemSize">0 kW</div><div class="k">System size needed</div></div>
+<div class="stat"><div class="v" id="systemCost">$0</div><div class="k">Cost before credit</div></div>
+<div class="stat"><div class="v" id="netCost">$0</div><div class="k">Cost after tax credit</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Savings over time</h2>
+<table>
+<thead><tr><th>Year</th><th>Est. annual utility savings</th><th>Cumulative savings</th><th>Net position</th></tr></thead>
+<tbody id="yearBody"></tbody>
+</table>
+<p class="hint">"Net position" is cumulative savings minus your system cost after the tax credit &mdash; once it turns positive, the system has paid for itself.</p>
+</div>
+
+<div class="card">
+<h2>Quick answers</h2>
+<details open>
+<summary>How accurate is this estimate?</summary>
+<p>This is a simplified planning estimate, not a quote. Real numbers depend on your roof's orientation and shading, local permitting costs, your specific utility's net metering policy (whether they credit you fully for excess power sent back to the grid), equipment choice, and installer pricing in your area. Get 2&ndash;3 real quotes before deciding.</p>
+</details>
+<details>
+<summary>What is the federal solar tax credit?</summary>
+<p>Officially the Residential Clean Energy Credit, it lets you deduct a percentage of your total system cost from your federal taxes owed that year (not a rebate check &mdash; it reduces what you owe). Confirm the current percentage and eligibility rules on IRS.gov or with a tax professional, since federal incentive programs can change.</p>
+</details>
+<details>
+<summary>What if I don't own my roof, or I'm renting?</summary>
+<p>This calculator assumes you own your home and plan to stay long enough to benefit from the payback period. If you rent, or might move soon, a solar lease or power purchase agreement (PPA) works differently &mdash; usually lower savings but no upfront cost. Community solar (subscribing to a shared solar farm) is another option if rooftop solar isn't feasible for you.</p>
+</details>
+</div>
+</main>
+<footer><p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all tools</a></p></footer>
+<script>
+function fmtMoney(n){ return '$'+Math.round(n).toLocaleString(); }
+function calc(){
+  var bill=parseFloat(document.getElementById('inBill').value)||0;
+  var kwhCost=parseFloat(document.getElementById('inKwh').value)||0.16;
+  var sunHours=parseFloat(document.getElementById('inSun').value)||4.5;
+  var costPerWatt=parseFloat(document.getElementById('inCostW').value)||2.80;
+  var creditPct=parseFloat(document.getElementById('inCredit').value)||30;
+  var inflPct=parseFloat(document.getElementById('inInfl').value)||3;
+
+  var monthlyKwh = kwhCost>0 ? bill/kwhCost : 0;
+  var dailyKwh = monthlyKwh/30;
+  var systemKw = sunHours>0 ? dailyKwh/(sunHours*0.8) : 0;
+  var systemCost = systemKw*1000*costPerWatt;
+  var credit = systemCost*creditPct/100;
+  var netCost = systemCost-credit;
+  var annualSavingsY1 = bill*12;
+  var paybackYears = annualSavingsY1>0 ? netCost/annualSavingsY1 : 0;
+
+  document.getElementById('systemSize').textContent = systemKw.toFixed(1)+' kW';
+  document.getElementById('systemCost').textContent = fmtMoney(systemCost);
+  document.getElementById('netCost').textContent = fmtMoney(netCost);
+  document.getElementById('payback').textContent = paybackYears.toFixed(1)+' years';
+
+  var rows='';
+  var cumulative=0;
+  var lifetimeTotal=0;
+  for(var y=1;y<=25;y++){
+    var yearSavings = annualSavingsY1*Math.pow(1+inflPct/100, y-1);
+    cumulative += yearSavings;
+    lifetimeTotal = cumulative;
+    if(y<=10 || y%5===0){
+      var net = cumulative-netCost;
+      rows += '<tr><td>'+y+'</td><td>'+fmtMoney(yearSavings)+'</td><td>'+fmtMoney(cumulative)+'</td>'+
+              '<td style="color:'+(net>=0?'#00C851':'#FF4D4D')+'">'+(net>=0?'+':'')+fmtMoney(net)+'</td></tr>';
+    }
+  }
+  document.getElementById('yearBody').innerHTML = rows;
+  document.getElementById('lifetimeSavings').textContent = '25-year net savings: '+fmtMoney(lifetimeTotal-netCost);
+}
+calc();
+</script>
+</body>
+</html>

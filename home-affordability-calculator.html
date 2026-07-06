@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0D6KZ606DX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
+<title>Home Affordability Calculator &mdash; How Much House Can I Afford? | DIY9lives</title>
+<meta name="description" content="Free home affordability calculator. Enter your income and debts to see the maximum home price you qualify for, using standard 28/36 debt-to-income rules.">
+<link rel="canonical" href="https://diy9lives.com/home-affordability-calculator.html">
+<style>
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}.logo span{color:var(--yellow);}
+.nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
+main{max-width:960px;margin:0 auto;padding:90px 20px 60px;}
+.crumb{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.crumb a:hover{color:var(--yellow);}
+h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+h1 em{font-style:normal;color:var(--yellow);}
+.sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:28px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;background:var(--yellow);color:var(--black);}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:6px;}
+input{width:100%;background:var(--black);color:var(--white);border:1px solid var(--border);border-radius:9px;padding:11px 12px;font-size:15px;font-weight:600;font-family:inherit;}
+input:focus{outline:none;border-color:var(--yellow);}
+.result-hero{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px;}
+.rh-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;}
+.rh-val{font-size:44px;font-weight:900;color:var(--yellow);letter-spacing:-1.5px;}
+.rh-sub{font-size:13px;color:var(--muted);margin-top:8px;}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:16px;}
+.stat{background:var(--black);border:1px solid var(--border);border-radius:10px;padding:12px;text-align:center;}
+.stat .v{font-size:18px;font-weight:800;}
+.stat .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
+table{width:100%;border-collapse:collapse;font-size:14px;}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:10px 8px 8px;font-weight:700;}
+td{padding:10px 8px;border-top:1px solid #1b1b1b;}
+.hint{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;}
+.hint b{color:var(--white);}
+.aff{display:flex;align-items:center;justify-content:space-between;gap:14px;background:linear-gradient(120deg,#141414,#181400);border:1px solid var(--border);border-radius:14px;padding:18px 20px;margin-bottom:20px;flex-wrap:wrap;}
+.aff p{font-size:14px;color:var(--muted);max-width:520px;}
+.aff p b{color:var(--white);}
+.aff a{background:var(--yellow);color:var(--black);font-weight:800;font-size:13px;padding:10px 18px;border-radius:8px;white-space:nowrap;}
+details{border-top:1px solid var(--border);padding:14px 4px;}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details summary::after{content:"+";color:var(--yellow);font-size:18px;font-weight:800;}
+details[open] summary::after{content:"\2212";}
+details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
+footer a{color:var(--yellow);}
+@media(max-width:680px){.grid3{grid-template-columns:1fr 1fr;}.grid2{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
+<main>
+<div class="crumb"><a href="/">Home</a> / Finance &amp; Money / Home Affordability Calculator</div>
+<h1>Home Affordability <em>Calculator</em></h1>
+<p class="sub">Enter your income, debts, and down payment to see the maximum home price you can realistically qualify for &mdash; using the same 28/36 debt-to-income rule lenders use.</p>
+
+<div class="card">
+<h2>Your finances <span class="badge">Free</span></h2>
+<div class="grid3">
+<div class="field"><label>Annual gross income ($)</label><input type="number" id="inIncome" value="90000" oninput="calc()"/></div>
+<div class="field"><label>Monthly debt payments ($)</label><input type="number" id="inDebts" value="400" oninput="calc()"/></div>
+<div class="field"><label>Down payment ($)</label><input type="number" id="inDown" value="30000" oninput="calc()"/></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Loan assumptions</h2>
+<div class="grid3">
+<div class="field"><label>Interest rate (%)</label><input type="number" id="inRate" value="6.5" step="0.1" oninput="calc()"/></div>
+<div class="field"><label>Loan term (years)</label><input type="number" id="inTerm" value="30" oninput="calc()"/></div>
+<div class="field"><label>Property tax rate (annual %)</label><input type="number" id="inTax" value="1.1" step="0.1" oninput="calc()"/></div>
+</div>
+<div class="grid2" style="margin-top:14px;">
+<div class="field"><label>Homeowners insurance (annual $)</label><input type="number" id="inIns" value="1400" oninput="calc()"/></div>
+<div class="field"><label>HOA dues (monthly $)</label><input type="number" id="inHoa" value="0" oninput="calc()"/></div>
+</div>
+</div>
+
+<div class="result-hero">
+<div class="rh-label">Home Price You Can Afford (Conservative)</div>
+<div class="rh-val" id="homePrice">$0</div>
+<div class="rh-sub" id="loanAmount">Loan amount: $0</div>
+<div class="stats">
+<div class="stat"><div class="v" id="monthlyPI">$0</div><div class="k">Principal &amp; interest</div></div>
+<div class="stat"><div class="v" id="monthlyTax">$0</div><div class="k">Property tax</div></div>
+<div class="stat"><div class="v" id="monthlyTotal">$0</div><div class="k">Total PITI</div></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Compare DTI scenarios</h2>
+<table>
+<thead><tr><th>Scenario</th><th>Debt-to-income cap</th><th>Home price</th><th>Monthly payment</th></tr></thead>
+<tbody id="scenarioBody"></tbody>
+</table>
+<p class="hint"><b>Conservative (28/36)</b> is the traditional rule most financial planners recommend &mdash; housing costs under 28% of gross income, total debt under 36%. <b>Qualifying max (43%)</b> is closer to the upper limit many lenders will still approve, but leaves much less room in your budget for savings, emergencies, or a rate increase if your loan is adjustable.</p>
+</div>
+
+<div class="aff">
+<p><b>Ready to see real rates?</b> Compare mortgage offers from multiple lenders to see what you'd actually qualify for.</p>
+<a href="https://www.lendingtree.com" rel="nofollow sponsored" target="_blank">Compare rates &rarr;</a>
+</div>
+
+<div class="card">
+<h2>Quick answers</h2>
+<details open>
+<summary>What is the 28/36 rule?</summary>
+<p>A standard lending guideline: your monthly housing costs (mortgage, tax, insurance, HOA) shouldn't exceed <b>28%</b> of your gross monthly income, and your <b>total</b> monthly debt payments (housing plus car loans, student loans, credit cards, etc.) shouldn't exceed <b>36%</b>. It's a rule of thumb, not a law &mdash; some loan programs allow higher ratios.</p>
+</details>
+<details>
+<summary>Why does my down payment affect the home price I can afford?</summary>
+<p>A larger down payment means a smaller loan, which lowers your monthly principal and interest &mdash; freeing up more of your DTI budget for a higher purchase price. It also usually gets you a better interest rate and avoids PMI (private mortgage insurance) if you put down 20% or more.</p>
+</details>
+<details>
+<summary>Does this include closing costs?</summary>
+<p>No. This calculates ongoing monthly affordability (PITI) only. Closing costs typically run 2&ndash;5% of the loan amount and are usually paid upfront, separate from your down payment &mdash; budget for those separately.</p>
+</details>
+</div>
+</main>
+<footer><p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all tools</a></p></footer>
+<script>
+function fmtMoney(n){ return '$'+Math.round(n).toLocaleString(); }
+function solveAfford(income, debts, down, rateAnnual, termYears, taxRateAnnual, insAnnual, hoaMonthly, frontPct, backPct){
+  var monthlyIncome = income/12;
+  var frontLimit = monthlyIncome*frontPct;
+  var backLimit = monthlyIncome*backPct - debts;
+  var maxHousing = Math.max(0, Math.min(frontLimit, backLimit));
+  var r = rateAnnual/100/12;
+  var n = termYears*12;
+  var k = r>0 ? r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1) : 1/n;
+  var taxMonthlyRate = taxRateAnnual/100/12;
+  var numerator = maxHousing - taxMonthlyRate*down - insAnnual/12 - hoaMonthly;
+  var loanAmount = Math.max(0, numerator/(k+taxMonthlyRate));
+  var homePrice = loanAmount+down;
+  var pi = loanAmount*k;
+  var tax = taxMonthlyRate*homePrice;
+  var total = pi+tax+insAnnual/12+hoaMonthly;
+  return {homePrice:homePrice, loanAmount:loanAmount, pi:pi, tax:tax, total:total, maxHousing:maxHousing};
+}
+function calc(){
+  var income=parseFloat(document.getElementById('inIncome').value)||0;
+  var debts=parseFloat(document.getElementById('inDebts').value)||0;
+  var down=parseFloat(document.getElementById('inDown').value)||0;
+  var rate=parseFloat(document.getElementById('inRate').value)||0;
+  var term=parseFloat(document.getElementById('inTerm').value)||30;
+  var tax=parseFloat(document.getElementById('inTax').value)||0;
+  var ins=parseFloat(document.getElementById('inIns').value)||0;
+  var hoa=parseFloat(document.getElementById('inHoa').value)||0;
+
+  var cons = solveAfford(income,debts,down,rate,term,tax,ins,hoa,0.28,0.36);
+  document.getElementById('homePrice').textContent = fmtMoney(cons.homePrice);
+  document.getElementById('loanAmount').textContent = 'Loan amount: '+fmtMoney(cons.loanAmount);
+  document.getElementById('monthlyPI').textContent = fmtMoney(cons.pi);
+  document.getElementById('monthlyTax').textContent = fmtMoney(cons.tax);
+  document.getElementById('monthlyTotal').textContent = fmtMoney(cons.total);
+
+  var scenarios = [
+    ['Conservative (28/36)', '36% max', cons],
+    ['Moderate (31/43)', '43% max', solveAfford(income,debts,down,rate,term,tax,ins,hoa,0.31,0.43)],
+    ['Qualifying max (43/50)', '50% max', solveAfford(income,debts,down,rate,term,tax,ins,hoa,0.43,0.50)]
+  ];
+  var rows='';
+  for(var i=0;i<scenarios.length;i++){
+    var s=scenarios[i][2];
+    rows+='<tr><td>'+scenarios[i][0]+'</td><td>'+scenarios[i][1]+'</td><td>'+fmtMoney(s.homePrice)+'</td><td>'+fmtMoney(s.total)+'/mo</td></tr>';
+  }
+  document.getElementById('scenarioBody').innerHTML = rows;
+}
+calc();
+</script>
+</body>
+</html>

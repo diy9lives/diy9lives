@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-0D6KZ606DX');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
+<title>Student Loan Payoff Calculator &mdash; See Your Debt-Free Date | DIY9lives</title>
+<meta name="description" content="Free student loan payoff calculator. See how long it takes to pay off your loan, total interest, and how much extra payments save you.">
+<link rel="canonical" href="https://diy9lives.com/student-loan-calculator.html">
+<style>
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.5;}
+a{color:inherit;text-decoration:none;}
+nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+.logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}.logo span{color:var(--yellow);}
+.nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
+main{max-width:960px;margin:0 auto;padding:90px 20px 60px;}
+.crumb{font-size:12px;color:var(--muted);margin-bottom:14px;}
+.crumb a:hover{color:var(--yellow);}
+h1{font-size:clamp(26px,4.5vw,38px);font-weight:800;letter-spacing:-1px;margin-bottom:8px;}
+h1 em{font-style:normal;color:var(--yellow);}
+.sub{color:var(--muted);font-size:15px;max-width:640px;margin-bottom:28px;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-bottom:20px;}
+.card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:5px;text-transform:uppercase;letter-spacing:.5px;background:var(--yellow);color:var(--black);}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.field label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);margin-bottom:6px;}
+input{width:100%;background:var(--black);color:var(--white);border:1px solid var(--border);border-radius:9px;padding:11px 12px;font-size:15px;font-weight:600;font-family:inherit;}
+input:focus{outline:none;border-color:var(--yellow);}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.method-card{background:var(--black);border:2px solid var(--border);border-radius:12px;padding:20px;}
+.method-card.winner{border-color:var(--green);}
+.method-name{font-size:14px;font-weight:800;margin-bottom:12px;}
+.method-stat{display:flex;justify-content:space-between;font-size:13px;padding:8px 0;border-top:1px solid #1a1a1a;}
+.method-stat b{font-size:16px;}
+.win-tag{display:inline-block;background:var(--green);color:#001a0a;font-size:10px;font-weight:800;padding:2px 8px;border-radius:5px;margin-left:8px;}
+.hint{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.6;}
+.hint b{color:var(--white);}
+details{border-top:1px solid var(--border);padding:14px 4px;}
+details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
+details summary::after{content:"+";color:var(--yellow);font-size:18px;font-weight:800;}
+details[open] summary::after{content:"\2212";}
+details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
+footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
+footer a{color:var(--yellow);}
+@media(max-width:680px){.grid3{grid-template-columns:1fr;}.compare{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
+<main>
+<div class="crumb"><a href="/">Home</a> / Finance &amp; Money / Student Loan Payoff Calculator</div>
+<h1>Student Loan Payoff <em>Calculator</em></h1>
+<p class="sub">Enter your loan balance and payment to see exactly when you'll be debt-free and how much total interest you'll pay &mdash; then see how much extra payments could save you.</p>
+
+<div class="card">
+<h2>Your loan <span class="badge">Free</span></h2>
+<div class="grid3">
+<div class="field"><label>Loan balance ($)</label><input type="number" id="inBalance" value="30000" oninput="calc()"/></div>
+<div class="field"><label>Interest rate (%)</label><input type="number" id="inRate" value="6.0" step="0.1" oninput="calc()"/></div>
+<div class="field"><label>Monthly payment ($)</label><input type="number" id="inPayment" value="350" oninput="calc()"/></div>
+</div>
+</div>
+
+<div class="card">
+<h2>Compare with extra payments</h2>
+<div class="field"><label>Extra amount per month ($)</label><input type="number" id="inExtra" value="100" oninput="calc()"/></div>
+</div>
+
+<div class="card">
+<h2>Payoff comparison</h2>
+<div class="compare" id="compareGrid"></div>
+<p class="hint" id="savingsSummary"></p>
+</div>
+
+<div class="card">
+<h2>Quick answers</h2>
+<details open>
+<summary>Should I pay extra on my student loans or invest instead?</summary>
+<p>If your loan's interest rate is above what you'd realistically expect from investing (commonly cited long-run stock market averages are often in the 7&ndash;10% range before inflation, though this isn't guaranteed), paying it down faster is the safer, mathematically certain "return." Below that rate, especially for federal loans with borrower protections, some people prefer investing instead &mdash; there's no single right answer, it depends on your risk tolerance and other financial goals.</p>
+</details>
+<details>
+<summary>Does this account for federal repayment plans?</summary>
+<p>No. This is a straightforward fixed-payment amortization calculator, similar to a standard 10-year federal repayment plan or a private loan. Income-driven repayment plans (which base your payment on income rather than balance, and can include forgiveness after a set number of years) work very differently &mdash; check studentaid.gov for federal plan specifics and how they'd apply to your situation.</p>
+</details>
+<details>
+<summary>Is refinancing my student loans a good idea?</summary>
+<p>Refinancing to a lower rate can save real money, but it's worth knowing that refinancing federal loans into a private loan means giving up federal protections (income-driven repayment, deferment, forgiveness programs). It can make sense for high-rate private loans or for federal loans you're confident you won't need those protections on &mdash; compare offers carefully first.</p>
+</details>
+</div>
+</main>
+<footer><p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all tools</a></p></footer>
+<script>
+function fmtMoney(n){ return '$'+Math.round(n).toLocaleString(); }
+function monthsToPayoff(balance, apr, payment){
+  var r = apr/100/12;
+  if(payment <= balance*r) return null;
+  if(r===0) return balance/payment;
+  var n = -Math.log(1-(balance*r)/payment)/Math.log(1+r);
+  return n;
+}
+function calc(){
+  var balance = parseFloat(document.getElementById('inBalance').value)||0;
+  var rate = parseFloat(document.getElementById('inRate').value)||0;
+  var payment = parseFloat(document.getElementById('inPayment').value)||0;
+  var extra = parseFloat(document.getElementById('inExtra').value)||0;
+
+  var months1 = monthsToPayoff(balance, rate, payment);
+  var months2 = monthsToPayoff(balance, rate, payment+extra);
+
+  function card(title, months, payment, isWinner){
+    if(months === null){
+      return '<div class="method-card"><div class="method-name">'+title+'</div>'+
+        '<p style="font-size:13px;color:var(--coral)">This payment is too low to ever pay off the loan &mdash; it doesn\\'t cover the monthly interest. Increase the payment.</p></div>';
+    }
+    var totalPaid = payment*months;
+    var totalInterest = totalPaid-balance;
+    var years = months/12;
+    return '<div class="method-card'+(isWinner?' winner':'')+'">'+
+      '<div class="method-name">'+title+(isWinner?'<span class="win-tag">Faster + cheaper</span>':'')+'</div>'+
+      '<div class="method-stat"><span>Debt-free in</span><b>'+months.toFixed(0)+' months ('+years.toFixed(1)+' yrs)</b></div>'+
+      '<div class="method-stat"><span>Total interest paid</span><b>'+fmtMoney(totalInterest)+'</b></div>'+
+      '<div class="method-stat"><span>Total paid</span><b>'+fmtMoney(totalPaid)+'</b></div>'+
+    '</div>';
+  }
+
+  document.getElementById('compareGrid').innerHTML =
+    card('Current payment', months1, payment, false) +
+    card('With extra $'+extra+'/mo', months2, payment+extra, months2!==null);
+
+  if(months1 !== null && months2 !== null){
+    var monthsSaved = months1-months2;
+    var interestSaved = (payment*months1-balance) - ((payment+extra)*months2-balance);
+    document.getElementById('savingsSummary').innerHTML =
+      'Adding <b>$'+extra+'/month</b> pays off your loan <b>'+monthsSaved.toFixed(0)+' months sooner</b> and saves <b>'+fmtMoney(interestSaved)+'</b> in total interest.';
+  } else {
+    document.getElementById('savingsSummary').textContent = '';
+  }
+}
+calc();
+</script>
+</body>
+</html>
