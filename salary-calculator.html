@@ -4,8 +4,8 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Free Salary & Take-Home Pay Calculator &mdash; DIY9lives</title>
-<meta name="description" content="Calculate your take-home pay after federal taxes, Social Security, and Medicare. See your hourly, weekly, monthly breakdown."/>
+<title>Free Salary & Take-Home Pay Calculator — DIY9lives</title>
+<meta name="description" content="Calculate your take-home pay after federal taxes, state taxes, Social Security, and Medicare. Preloaded state tax rates, supports multiple jobs."/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -39,15 +39,19 @@ input:focus,select:focus{border-color:var(--yellow)}
 .tip:last-child{margin:0;padding:0;border:none}
 .tip strong{color:var(--white)}
 .ti{font-size:18px;flex-shrink:0}
-.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:14px}
-.at{font-size:13px;color:#c4b5fd}.at strong{color:#fff}
-.ab{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
 .slider{width:100%;accent-color:var(--yellow);margin-top:6px;cursor:pointer}
 .slv{color:var(--yellow);font-weight:700}
-.tag{display:inline-block;padding:3px 10px;border-radius:99px;font-size:11px;font-weight:700;margin:2px}
-.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
 .big-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-@media(max-width:640px){.grid2,.grid3,.bkd,.big-grid{grid-template-columns:1fr}}
+.job-row{display:grid;grid-template-columns:1.4fr 1fr auto;gap:8px;margin-bottom:8px;align-items:end}
+.job-row input{font-size:13px}
+.job-row .rm{background:#2a1414;color:var(--coral);border:1px solid #3a1a1a;border-radius:8px;padding:10px;cursor:pointer;font-weight:700;height:38px}
+.add-job-btn{background:transparent;border:1px dashed var(--border);border-radius:9px;padding:10px;text-align:center;color:var(--muted);font-size:13px;font-weight:700;cursor:pointer;width:100%;margin-top:4px}
+.add-job-btn:hover{border-color:var(--yellow);color:var(--yellow)}
+.job-total{font-size:13px;color:var(--muted);margin-top:10px;text-align:right}
+.job-total b{color:var(--yellow)}
+.hint{font-size:12px;color:#666;line-height:1.6;margin-top:10px}
+.hint b{color:#999}
+@media(max-width:640px){.grid2,.grid3,.bkd,.big-grid{grid-template-columns:1fr}.job-row{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -56,7 +60,7 @@ input:focus,select:focus{border-color:var(--yellow)}
   <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
 </nav>
 <div class="page">
-<div class="hero"><div class="ey">Salary Calculator</div><h1>What is your paycheck<br>actually worth?</h1><p class="sub">Enter your salary and filing status. See exactly how much you take home after taxes.</p></div>
+<div class="hero"><div class="ey">Salary Calculator</div><h1>What is your paycheck<br>actually worth?</h1><p class="sub">Enter your salary, state, and filing status. See exactly how much you take home after taxes &mdash; supports multiple jobs.</p></div>
 
 <div class="result-big">
   <div class="rl">Monthly Take-Home Pay</div>
@@ -68,70 +72,179 @@ input:focus,select:focus{border-color:var(--yellow)}
     <div class="bk"><div class="bkl">Effective Rate</div><div class="bkv" id="thRate">0%</div></div>
   </div>
 </div>
+
 <div class="card">
-  <div class="ct">&#128181; Income Details</div>
+  <div class="ct">&#128188; Income Sources</div>
+  <div id="jobRows"></div>
+  <button type="button" class="add-job-btn" onclick="addJob('',0)">+ Add another job</button>
+  <div class="job-total">Combined gross income: <b id="jobTotal">$0</b>/year</div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128181; Filing &amp; Location</div>
   <div class="grid2" style="margin-bottom:12px">
-    <div><label>Annual salary ($)</label><input type="number" id="gross" value="65000" oninput="calcSal()"/></div>
     <div><label>Pay frequency</label><select id="freq" onchange="calcSal()"><option value="52">Weekly</option><option value="26">Bi-weekly</option><option value="24">Semi-monthly</option><option value="12" selected>Monthly</option></select></div>
     <div><label>Filing status</label><select id="filing" onchange="calcSal()"><option value="single" selected>Single</option><option value="married">Married filing jointly</option><option value="hoh">Head of household</option></select></div>
-    <div><label>State tax rate (%)</label><input type="number" id="stateTax" value="5" step="0.5" oninput="calcSal()"/></div>
   </div>
+  <div class="grid2">
+    <div>
+      <label>State</label>
+      <select id="stateSel" onchange="onStateChange()"></select>
+    </div>
+    <div><label>State tax rate (%) &mdash; editable</label><input type="number" id="stateTax" value="5" step="0.1" oninput="calcSal()"/></div>
+  </div>
+  <div class="hint">State rates are simplified single-rate estimates for a typical income &mdash; most states actually use progressive brackets, deductions, or credits, so your real rate may differ. Override the number above if you know your actual rate.</div>
+  <div class="grid2" style="margin-top:12px">
+    <div><label>Local/county tax (%) &mdash; optional</label><input type="number" id="localTax" value="0" step="0.1" oninput="calcSal()"/></div>
+    <div></div>
+  </div>
+  <div class="hint">Only some states have local income tax (e.g. Ohio, Pennsylvania, Maryland, Indiana, NYC). Check your city/county if unsure &mdash; defaults to 0.</div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128176; Deductions</div>
   <div class="grid2">
     <div><label>401k contribution (%)</label><input type="number" id="k401" value="6" step="1" min="0" max="100" oninput="calcSal()"/></div>
     <div><label>Health insurance ($/mo)</label><input type="number" id="health" value="150" oninput="calcSal()"/></div>
   </div>
 </div>
+
 <div class="card">
   <div class="ct">&#128200; Breakdown</div>
   <div id="breakdown" style="font-size:14px;line-height:2;color:#aaa"></div>
 </div>
+
 <div class="tips">
   <div style="font-size:14px;font-weight:800;margin-bottom:14px">Salary tips</div>
   <div class="tip"><span class="ti">&#128200;</span><div><strong>The 50/30/20 rule:</strong> 50% of take-home to needs, 30% to wants, 20% to savings. A simple starting budget for any income level.</div></div>
   <div class="tip"><span class="ti">&#128181;</span><div><strong>Max your 401k match first.</strong> A 6% employer match is a 100% return on investment. Never leave free money on the table before spending anywhere else.</div></div>
-  <div class="tip"><span class="ti">&#127919;</span><div><strong>Negotiating salary?</strong> Always negotiate. Studies show 85% of people who ask for more get it. The worst they can say is no.</div></div>
+  <div class="tip"><span class="ti">&#128188;</span><div><strong>Working multiple jobs?</strong> Each employer withholds Social Security separately up to the wage cap, so if your combined income exceeds it, you may get some of that back as a credit when you file. This calculator estimates the cap on your combined total, which can differ slightly from actual withholding.</div></div>
 </div>
+
 <script>
+var STATES = [
+["Alabama",5.0],["Alaska",0],["Arizona",2.5],["Arkansas",4.4],["California",8.0],
+["Colorado",4.4],["Connecticut",5.5],["Delaware",5.5],["District of Columbia",7.5],["Florida",0],
+["Georgia",5.19],["Hawaii",7.9],["Idaho",5.8],["Illinois",4.95],["Indiana",3.05],
+["Iowa",3.8],["Kansas",5.2],["Kentucky",4.5],["Louisiana",4.25],["Maine",6.5],
+["Maryland",5.0],["Massachusetts",5.0],["Michigan",4.25],["Minnesota",7.0],["Mississippi",4.7],
+["Missouri",4.8],["Montana",5.9],["Nebraska",5.2],["Nevada",0],["New Hampshire",0],
+["New Jersey",5.5],["New Mexico",4.5],["New York",6.0],["North Carolina",4.5],["North Dakota",2.0],
+["Ohio",3.0],["Oklahoma",4.5],["Oregon",8.5],["Pennsylvania",3.07],["Rhode Island",4.75],
+["South Carolina",6.2],["South Dakota",0],["Tennessee",0],["Texas",0],["Utah",4.55],
+["Vermont",6.6],["Virginia",5.5],["Washington",0],["West Virginia",4.8],["Wisconsin",5.3],
+["Wyoming",0]
+];
+
+function initStates(){
+  var sel = document.getElementById("stateSel");
+  var html = "";
+  for(var i=0;i<STATES.length;i++){
+    var sel2 = STATES[i][0]==="California" ? " selected" : "";
+    html += '<option value="'+STATES[i][1]+'"'+sel2+'>'+STATES[i][0]+' ('+STATES[i][1]+'%)</option>';
+  }
+  sel.innerHTML = html;
+}
+function onStateChange(){
+  var sel = document.getElementById("stateSel");
+  document.getElementById("stateTax").value = sel.value;
+  calcSal();
+}
+
+var jobIdCounter = 0;
+function addJob(name, amount){
+  jobIdCounter++;
+  var id = "job"+jobIdCounter;
+  var div = document.createElement("div");
+  div.className = "job-row";
+  div.id = id;
+  var isFirst = document.querySelectorAll(".job-row").length === 0;
+  div.innerHTML =
+    '<div><label>'+(isFirst?'Job 1 name (optional)':'Job name (optional)')+'</label><input type="text" placeholder="e.g. Main job" value="'+name+'" oninput="calcSal()"/></div>'+
+    '<div><label>Annual salary ($)</label><input type="number" value="'+amount+'" oninput="calcSal()"/></div>'+
+    (isFirst ? '<div></div>' : '<div><button type="button" class="rm" onclick="removeJob(\''+id+'\')">&times;</button></div>');
+  document.getElementById("jobRows").appendChild(div);
+  calcSal();
+}
+function removeJob(id){
+  var el = document.getElementById(id);
+  if(el) el.remove();
+  calcSal();
+}
+function getTotalGross(){
+  var rows = document.querySelectorAll(".job-row");
+  var total = 0;
+  rows.forEach(function(row){
+    var inputs = row.querySelectorAll("input");
+    total += parseFloat(inputs[1].value) || 0;
+  });
+  return total;
+}
+
+// 2024 IRS brackets by filing status
+var BRACKETS = {
+  single: [[0,0.10],[11000,0.12],[44725,0.22],[95375,0.24],[182050,0.32],[231250,0.35],[578125,0.37]],
+  married: [[0,0.10],[22000,0.12],[89450,0.22],[190750,0.24],[364200,0.32],[462500,0.35],[693750,0.37]],
+  hoh: [[0,0.10],[15700,0.12],[59850,0.22],[95350,0.24],[182100,0.32],[231250,0.35],[578100,0.37]]
+};
+function fedTax(taxable, status){
+  var b = BRACKETS[status] || BRACKETS.single;
+  var tax = 0;
+  for(var i=0;i<b.length;i++){
+    var lower = b[i][0];
+    var rate = b[i][1];
+    var upper = (i+1<b.length) ? b[i+1][0] : Infinity;
+    if(taxable > lower){
+      tax += (Math.min(taxable, upper) - lower) * rate;
+    } else break;
+  }
+  return tax;
+}
+
 function calcSal(){
-  var gross=parseFloat(document.getElementById("gross").value)||0;
+  var gross = getTotalGross();
   var freq=parseInt(document.getElementById("freq").value)||12;
+  var filing=document.getElementById("filing").value;
   var statePct=parseFloat(document.getElementById("stateTax").value)||0;
+  var localPct=parseFloat(document.getElementById("localTax").value)||0;
   var k401Pct=parseFloat(document.getElementById("k401").value)||0;
   var healthMo=parseFloat(document.getElementById("health").value)||0;
+
   var k401=gross*k401Pct/100;
-  var taxable=gross-k401;
-  // Simplified federal brackets 2024 (single)
-  var fed=0;
-  if(taxable>578125)fed=174238+(taxable-578125)*0.37;
-  else if(taxable>231250)fed=52832+(taxable-231250)*0.35;
-  else if(taxable>182050)fed=37104+(taxable-182050)*0.32;
-  else if(taxable>95375)fed=16290+(taxable-95375)*0.24;
-  else if(taxable>44725)fed=5147+(taxable-44725)*0.22;
-  else if(taxable>11000)fed=1100+(taxable-11000)*0.12;
-  else fed=taxable*0.10;
-  var ss=Math.min(gross,160200)*0.062;
+  var taxable=Math.max(0, gross-k401);
+  var fed=fedTax(taxable, filing);
+  var ssWageCap = 168600;
+  var ss=Math.min(gross,ssWageCap)*0.062;
   var medicare=gross*0.0145;
   var state=gross*statePct/100;
+  var local=gross*localPct/100;
   var healthAnnual=healthMo*12;
-  var totalDeductions=fed+ss+medicare+state+k401+healthAnnual;
+  var totalDeductions=fed+ss+medicare+state+local+k401+healthAnnual;
   var net=gross-totalDeductions;
-  var perPeriod=net/freq;
-  var effRate=(fed+ss+medicare+state)/gross*100;
+  var effRate = gross>0 ? (fed+ss+medicare+state+local)/gross*100 : 0;
+
   document.getElementById("thPay").textContent="$"+Math.round(net/12).toLocaleString();
   document.getElementById("thSub").textContent="$"+Math.round(net).toLocaleString()+"/year after all deductions | Effective tax rate: "+effRate.toFixed(1)+"%";
   document.getElementById("thAnnual").textContent="$"+Math.round(net).toLocaleString();
-  document.getElementById("thTax").textContent="$"+Math.round(fed+ss+medicare+state).toLocaleString();
+  document.getElementById("thTax").textContent="$"+Math.round(fed+ss+medicare+state+local).toLocaleString();
   document.getElementById("thRate").textContent=effRate.toFixed(1)+"%";
+  document.getElementById("jobTotal").textContent="$"+Math.round(gross).toLocaleString();
+
   document.getElementById("breakdown").innerHTML=
-    "Gross salary: <strong style=color:#FFE500>$"+gross.toLocaleString()+"</strong><br>"+
-    "Federal income tax: <strong style=color:#FF4D4D>-$"+Math.round(fed).toLocaleString()+"</strong> ("+((fed/gross)*100).toFixed(1)+"% marginal rate)<br>"+
-    "Social Security (6.2%): <strong style=color:#FF4D4D>-$"+Math.round(ss).toLocaleString()+"</strong><br>"+
+    "Combined gross income: <strong style=color:#FFE500>$"+Math.round(gross).toLocaleString()+"</strong><br>"+
+    "Federal income tax: <strong style=color:#FF4D4D>-$"+Math.round(fed).toLocaleString()+"</strong><br>"+
+    "Social Security (6.2%, capped at $"+ssWageCap.toLocaleString()+"): <strong style=color:#FF4D4D>-$"+Math.round(ss).toLocaleString()+"</strong><br>"+
     "Medicare (1.45%): <strong style=color:#FF4D4D>-$"+Math.round(medicare).toLocaleString()+"</strong><br>"+
     "State tax ("+statePct+"%): <strong style=color:#FF4D4D>-$"+Math.round(state).toLocaleString()+"</strong><br>"+
+    (local>0?"Local/county tax ("+localPct+"%): <strong style=color:#FF4D4D>-$"+Math.round(local).toLocaleString()+"</strong><br>":"")+
     (k401>0?"401k contribution: <strong style=color:#3b82f6>-$"+Math.round(k401).toLocaleString()+"</strong><br>":"")+
     (healthAnnual>0?"Health insurance: <strong style=color:#3b82f6>-$"+Math.round(healthAnnual).toLocaleString()+"</strong><br>":"")+
     "<strong style=color:#22c55e>Take-home: $"+Math.round(net).toLocaleString()+"/year | $"+Math.round(net/12).toLocaleString()+"/month | $"+Math.round(net/52/40).toLocaleString()+"/hr</strong>";
 }
+
+initStates();
+document.getElementById("stateTax").value = document.getElementById("stateSel").value;
+addJob("", 65000);
 calcSal();
 </script>
 
