@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free QR Code Generator &mdash; DIY9lives</title>
+<meta name="description" content="Generate a free QR code for any URL, text, or Wi-Fi login. No login, no watermark, download as PNG instantly."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select,textarea{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabbtn{background:#111;border:1px solid var(--border);color:#888;padding:8px 14px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+.tabbtn.active{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.field{margin-bottom:14px}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+#qrbox{display:flex;justify-content:center;padding:16px;background:#fff;border-radius:12px;margin:0 auto 16px;max-width:270px}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px;transition:all 0.2s}
+.btn:hover{background:#f5dc00;transform:translateY(-1px)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">QR Code Generator</div><h1>Turn anything into<br>a scannable QR code</h1><p class="sub">Links, plain text, or Wi-Fi logins. Generated instantly in your browser &mdash; nothing is sent anywhere.</p></div>
+
+<div class="card">
+  <div class="tabs">
+    <button class="tabbtn active" id="tab-url" onclick="setMode('url')">Website URL</button>
+    <button class="tabbtn" id="tab-text" onclick="setMode('text')">Plain Text</button>
+    <button class="tabbtn" id="tab-wifi" onclick="setMode('wifi')">Wi-Fi</button>
+  </div>
+
+  <div id="mode-url">
+    <div class="field"><label>Website URL</label><input type="text" id="urlInput" value="https://" oninput="genQR()"/></div>
+  </div>
+  <div id="mode-text" style="display:none">
+    <div class="field"><label>Text</label><textarea id="textInput" rows="3" oninput="genQR()" placeholder="Type anything..."></textarea></div>
+  </div>
+  <div id="mode-wifi" style="display:none">
+    <div class="grid2">
+      <div class="field"><label>Network Name (SSID)</label><input type="text" id="wifiSsid" oninput="genQR()" placeholder="MyHomeWiFi"/></div>
+      <div class="field"><label>Password</label><input type="text" id="wifiPass" oninput="genQR()" placeholder="password123"/></div>
+    </div>
+    <div class="field"><label>Security</label><select id="wifiSec" onchange="genQR()"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None (open network)</option></select></div>
+  </div>
+
+  <div class="field" style="margin-top:4px"><label>Size</label>
+    <select id="sizeSel" onchange="genQR()">
+      <option value="200">Small (200px)</option>
+      <option value="300" selected>Medium (300px)</option>
+      <option value="500">Large (500px)</option>
+    </select>
+  </div>
+</div>
+
+<div class="result-big">
+  <div id="qrbox"></div>
+  <button class="btn" onclick="downloadQR()">&#11015; Download PNG</button>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">How this works</div>
+  <div class="tip"><span class="ti">&#128274;</span><div><strong>100% client-side.</strong> The QR code is generated entirely in your browser. Nothing you type is ever sent to a server.</div></div>
+  <div class="tip"><span class="ti">&#128241;</span><div><strong>Wi-Fi QR codes</strong> let guests join your network by scanning &mdash; no typing a password out loud or spelling it over text.</div></div>
+  <div class="tip"><span class="ti">&#8734;</span><div><strong>QR codes don't expire.</strong> Once generated, the code works forever as long as the underlying link or data stays valid.</div></div>
+</div>
+
+<script>
+var mode="url";
+var qr=null;
+function setMode(m){
+  mode=m;
+  ["url","text","wifi"].forEach(function(k){
+    document.getElementById("mode-"+k).style.display = k===m?"block":"none";
+    document.getElementById("tab-"+k).classList.toggle("active",k===m);
+  });
+  genQR();
+}
+function buildWifiString(){
+  var ssid=document.getElementById("wifiSsid").value||"";
+  var pass=document.getElementById("wifiPass").value||"";
+  var sec=document.getElementById("wifiSec").value;
+  var esc=function(s){return s.replace(/([\\;,:"])/g,"\\$1");};
+  if(sec==="nopass") return "WIFI:T:nopass;S:"+esc(ssid)+";;";
+  return "WIFI:T:"+sec+";S:"+esc(ssid)+";P:"+esc(pass)+";;";
+}
+function genQR(){
+  var data="";
+  if(mode==="url") data=document.getElementById("urlInput").value||"https://diy9lives.com";
+  else if(mode==="text") data=document.getElementById("textInput").value||" ";
+  else data=buildWifiString();
+  var size=parseInt(document.getElementById("sizeSel").value)||300;
+  var box=document.getElementById("qrbox");
+  box.innerHTML="";
+  box.style.width=size+"px";
+  box.style.height=size+"px";
+  try{
+    new QRCode(box,{text:data,width:size,height:size,colorDark:"#000000",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.M});
+  }catch(e){}
+}
+function downloadQR(){
+  var img=document.querySelector("#qrbox img");
+  var canvas=document.querySelector("#qrbox canvas");
+  var url = img ? img.src : (canvas ? canvas.toDataURL("image/png") : null);
+  if(!url){return;}
+  var a=document.createElement("a");
+  a.href=url;
+  a.download="qrcode-diy9lives.png";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+window.addEventListener("load",genQR);
+</script>
+
+</div>
+</body>
+</html>

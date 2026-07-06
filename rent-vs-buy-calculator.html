@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Rent vs. Buy Calculator &mdash; DIY9lives</title>
+<meta name="description" content="See whether renting or buying wins financially over time, based on your real numbers: price, rent, rates, and how long you'll stay."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:40px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+.bkd{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:14px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.bkv{font-size:20px;font-weight:800}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:8px}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2,.grid3,.bkd{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Rent vs. Buy Calculator</div><h1>Should you rent<br>or buy?</h1><p class="sub">Compares the true net cost of both paths over time, including opportunity cost of your down payment.</p></div>
+
+<div class="result-big">
+  <div class="rl">After <span id="yearsLabel">7</span> years, the cheaper option is</div>
+  <div class="rv" id="winnerVal">--</div>
+  <div class="rs" id="winnerSub">Fill in your details below</div>
+  <div class="bkd">
+    <div class="bk"><div class="bkl">Net Cost to Rent</div><div class="bkv yellow" id="rentCost">--</div></div>
+    <div class="bk"><div class="bkl">Net Cost to Buy</div><div class="bkv yellow" id="buyCost">--</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">&#127968; Buying</div>
+  <div class="grid2" style="margin-bottom:14px">
+    <div><label>Home Price</label><input type="number" id="price" value="400000" oninput="calc()"/></div>
+    <div><label>Down Payment %</label><input type="number" id="downPct" value="20" oninput="calc()"/></div>
+    <div><label>Mortgage Rate %</label><input type="number" id="rate" step="0.1" value="6.5" oninput="calc()"/></div>
+    <div><label>Loan Term (years)</label><input type="number" id="term" value="30" oninput="calc()"/></div>
+    <div><label>Property Tax % / yr</label><input type="number" id="taxRate" step="0.1" value="1.1" oninput="calc()"/></div>
+    <div><label>Maintenance % / yr</label><input type="number" id="maintRate" step="0.1" value="1.0" oninput="calc()"/></div>
+    <div><label>Home Insurance / yr</label><input type="number" id="insurance" value="1600" oninput="calc()"/></div>
+    <div><label>Home Appreciation % / yr</label><input type="number" id="appreciation" step="0.1" value="3.5" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128188; Renting</div>
+  <div class="grid2" style="margin-bottom:14px">
+    <div><label>Monthly Rent</label><input type="number" id="rent" value="2200" oninput="calc()"/></div>
+    <div><label>Rent Increase % / yr</label><input type="number" id="rentIncrease" step="0.1" value="3" oninput="calc()"/></div>
+  </div>
+  <div class="grid2">
+    <div><label>Years You'll Stay</label><input type="number" id="years" value="7" oninput="calc()"/></div>
+    <div><label>Investment Return % / yr</label><input type="number" id="invReturn" step="0.1" value="7" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">How this is calculated</div>
+  <div class="tip"><span class="ti">&#128176;</span><div><strong>Cost to buy</strong> = down payment + total mortgage payments + taxes + insurance + maintenance &minus; equity built &minus; home appreciation, over your time horizon.</div></div>
+  <div class="tip"><span class="ti">&#128200;</span><div><strong>Cost to rent</strong> assumes your down payment is invested instead, growing at your chosen return rate &mdash; this "opportunity cost" is the key thing simple calculators miss.</div></div>
+  <div class="tip"><span class="ti">&#9203;</span><div><strong>Time horizon matters most.</strong> Buying usually wins the longer you stay, since closing costs and early mortgage interest get amortized over more years.</div></div>
+</div>
+
+<script>
+function fmt(n){ return "$"+Math.round(n).toLocaleString(); }
+function calc(){
+  var price=parseFloat(document.getElementById("price").value)||0;
+  var downPct=parseFloat(document.getElementById("downPct").value)||0;
+  var rate=parseFloat(document.getElementById("rate").value)||0;
+  var term=parseFloat(document.getElementById("term").value)||30;
+  var taxRate=parseFloat(document.getElementById("taxRate").value)||0;
+  var maintRate=parseFloat(document.getElementById("maintRate").value)||0;
+  var insurance=parseFloat(document.getElementById("insurance").value)||0;
+  var appreciation=parseFloat(document.getElementById("appreciation").value)||0;
+  var rent=parseFloat(document.getElementById("rent").value)||0;
+  var rentIncrease=parseFloat(document.getElementById("rentIncrease").value)||0;
+  var years=parseFloat(document.getElementById("years").value)||1;
+  var invReturn=parseFloat(document.getElementById("invReturn").value)||0;
+
+  document.getElementById("yearsLabel").textContent=years;
+
+  var down=price*downPct/100;
+  var loanAmt=price-down;
+  var mRate=rate/100/12;
+  var n=term*12;
+  var mPayment = mRate===0 ? loanAmt/n : loanAmt*(mRate*Math.pow(1+mRate,n))/(Math.pow(1+mRate,n)-1);
+
+  var monthsHeld=Math.min(years*12,n);
+  var balance=loanAmt;
+  var totalInterest=0;
+  var totalPrincipalPaid=0;
+  for(var m=0;m<monthsHeld;m++){
+    var interestPortion=balance*mRate;
+    var principalPortion=mPayment-interestPortion;
+    balance-=principalPortion;
+    totalInterest+=interestPortion;
+    totalPrincipalPaid+=principalPortion;
+  }
+  var totalMortgagePaid=mPayment*monthsHeld;
+  var totalTax=0, totalMaint=0, totalIns=0;
+  for(var y=0;y<years;y++){
+    var homeValYear=price*Math.pow(1+appreciation/100,y);
+    totalTax+=homeValYear*taxRate/100;
+    totalMaint+=homeValYear*maintRate/100;
+    totalIns+=insurance*Math.pow(1.02,y);
+  }
+  var futureHomeValue=price*Math.pow(1+appreciation/100,years);
+  var equity=futureHomeValue-balance;
+  var closingCostsBuy=price*0.03;
+  var sellingCostsBuy=futureHomeValue*0.06;
+  var netCostBuy = down+totalMortgagePaid+totalTax+totalMaint+totalIns+closingCostsBuy+sellingCostsBuy - (equity-down);
+
+  var totalRentPaid=0;
+  for(var ry=0;ry<years;ry++){
+    totalRentPaid+=rent*12*Math.pow(1+rentIncrease/100,ry);
+  }
+  var investedDown=down*Math.pow(1+invReturn/100,years);
+  var investmentGain=investedDown-down;
+  var netCostRent = totalRentPaid - investmentGain;
+
+  document.getElementById("rentCost").textContent=fmt(Math.max(0,netCostRent));
+  document.getElementById("buyCost").textContent=fmt(Math.max(0,netCostBuy));
+
+  var diff=Math.abs(netCostBuy-netCostRent);
+  if(netCostBuy<netCostRent){
+    document.getElementById("winnerVal").textContent="Buying";
+    document.getElementById("winnerVal").className="rv green";
+    document.getElementById("winnerSub").textContent="Buying saves you about "+fmt(diff)+" over "+years+" years";
+  } else {
+    document.getElementById("winnerVal").textContent="Renting";
+    document.getElementById("winnerVal").className="rv yellow";
+    document.getElementById("winnerSub").textContent="Renting saves you about "+fmt(diff)+" over "+years+" years";
+  }
+}
+calc();
+</script>
+
+</div>
+</body>
+</html>
