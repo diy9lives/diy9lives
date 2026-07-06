@@ -52,65 +52,76 @@ input:focus,select:focus{border-color:var(--yellow)}
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
-  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
-  <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
+<a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+<a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
 </nav>
 <div class="page">
 <div class="hero"><div class="ey">Tip Calculator</div><h1>Split the bill.<br>No arguments.</h1><p class="sub">Enter your bill, pick a tip percentage, and split it however many ways you need.</p></div>
 
 <div class="result-big">
-  <div class="rl">Tip Amount</div>
-  <div class="rv" id="tipAmt">$0.00</div>
-  <div class="rs" id="tipSub">Adjust the sliders below</div>
-  <div class="bkd">
-    <div class="bk"><div class="bkl">Bill Total</div><div class="bkv" id="tipBill">$0</div></div>
-    <div class="bk"><div class="bkl">Per Person</div><div class="bkv yellow" id="tipPer">$0</div></div>
-    <div class="bk"><div class="bkl">Total + Tip</div><div class="bkv" id="tipTotal">$0</div></div>
-  </div>
+<div class="rl">Tip Amount</div>
+<div class="rv" id="tipAmt">$0.00</div>
+<div class="rs" id="tipSub">Adjust the sliders below</div>
+<div class="bkd">
+<div class="bk"><div class="bkl">Bill Total</div><div class="bkv" id="tipBill">$0</div></div>
+<div class="bk"><div class="bkl">Per Person</div><div class="bkv yellow" id="tipPer">$0</div></div>
+<div class="bk"><div class="bkl">Total + Tip</div><div class="bkv" id="tipTotal">$0</div></div>
+</div>
 </div>
 <div class="card">
-  <div class="ct">&#127869; Bill Details</div>
-  <div class="field" style="margin-bottom:14px">
-    <label>Bill amount ($)</label>
-    <input type="number" id="bill" value="65.00" step="0.01" oninput="calcTip()"/>
-  </div>
-  <div class="field" style="margin-bottom:14px">
-    <label>Tip percentage: <span class="slv" id="tipPctLabel">18%</span></label>
-    <input type="range" class="slider" id="tipSlider" min="0" max="30" value="18" oninput="document.getElementById('tipPctLabel').textContent=this.value+'%';calcTip()"/>
-    <div style="display:flex;justify-content:space-between;font-size:11px;color:#555;margin-top:4px"><span>0%</span><span style="color:#22c55e">15% Good</span><span style="color:#FFE500">18% Great</span><span style="color:#f97316">20%+ Excellent</span><span>30%</span></div>
-  </div>
-  <div class="field">
-    <label>Split between: <span class="slv" id="splitLabel">2</span> people</label>
-    <input type="range" class="slider" id="splitSlider" min="1" max="20" value="2" oninput="document.getElementById('splitLabel').textContent=this.value;calcTip()"/>
-    <div style="display:flex;justify-content:space-between;font-size:11px;color:#555;margin-top:4px"><span>1</span><span>5</span><span>10</span><span>15</span><span>20</span></div>
-  </div>
+<div class="ct">&#127869; Bill Details</div>
+<div class="field" style="margin-bottom:14px">
+<label>Bill amount ($)</label>
+<input type="number" id="bill" value="65.00" step="0.01" oninput="calcTip()"/>
+</div>
+<div class="field" style="margin-bottom:14px">
+<label>Tip percentage: <span class="slv" id="tipPctLabel">18%</span></label>
+<input type="range" class="slider" id="tipSlider" min="0" max="30" value="18" oninput="document.getElementById('tipPctLabel').textContent=this.value+'%';calcTip()"/>
+<div style="display:flex;justify-content:space-between;font-size:11px;color:#555;margin-top:4px"><span>0%</span><span style="color:#22c55e">15% Good</span><span style="color:#FFE500">18% Great</span><span style="color:#f97316">20%+ Excellent</span><span>30%</span></div>
+</div>
+<div class="field">
+<label>Split between: <span class="slv" id="splitLabel">2</span> people</label>
+<input type="range" class="slider" id="splitSlider" min="1" max="20" value="2" oninput="document.getElementById('splitLabel').textContent=this.value;calcTip()"/>
+<div style="display:flex;justify-content:space-between;font-size:11px;color:#555;margin-top:4px"><span>1</span><span>5</span><span>10</span><span>15</span><span>20</span></div>
+</div>
 </div>
 <div class="card">
-  <div class="ct">&#9989; Quick Tip Guide</div>
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px" id="quickTips"></div>
+<div class="ct">&#9989; Quick Tip Guide</div>
+<div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px" id="quickTips"></div>
 </div>
 <script>
+function selectPct(p){
+  document.getElementById("tipSlider").value = p;
+  document.getElementById("tipPctLabel").textContent = p+"%";
+  calcTip();
+}
 function calcTip(){
-  var bill=parseFloat(document.getElementById("bill").value)||0;
-  var pct=parseFloat(document.getElementById("tipSlider").value)||0;
-  var split=parseInt(document.getElementById("splitSlider").value)||1;
-  var tipAmt=bill*pct/100;
-  var total=bill+tipAmt;
-  var perPerson=total/split;
-  document.getElementById("tipAmt").textContent="$"+tipAmt.toFixed(2);
-  document.getElementById("tipBill").textContent="$"+bill.toFixed(2);
-  document.getElementById("tipPer").textContent="$"+perPerson.toFixed(2);
-  document.getElementById("tipTotal").textContent="$"+total.toFixed(2);
-  document.getElementById("tipSub").textContent=pct+"% tip on $"+bill.toFixed(2)+" split "+split+" ways";
-  var pcts=[10,15,18,20,22,25];
-  document.getElementById("quickTips").innerHTML=pcts.map(function(p){
-    var t=bill*p/100;
-    var pp=(bill+t)/split;
-    return "<div style='background:#111;border-radius:8px;padding:10px;text-align:center;cursor:pointer;border:1px solid "+(p===pct?"#FFE500":"#222")+"' onclick='document.getElementById("tipSlider").value="+p+";document.getElementById("tipPctLabel").textContent=""+p+"%";calcTip()'>"+
-      "<div style='font-size:12px;color:#666;margin-bottom:3px'>"+p+"%</div>"+
-      "<div style='font-weight:800;color:#FFE500'>$"+t.toFixed(2)+"</div>"+
-      "<div style='font-size:11px;color:#555'>$"+pp.toFixed(2)+"/person</div></div>";
-  }).join("");
+var bill=parseFloat(document.getElementById("bill").value)||0;
+var pct=parseFloat(document.getElementById("tipSlider").value)||0;
+var split=parseInt(document.getElementById("splitSlider").value)||1;
+var tipAmt=bill*pct/100;
+var total=bill+tipAmt;
+var perPerson=total/split;
+document.getElementById("tipAmt").textContent="$"+tipAmt.toFixed(2);
+document.getElementById("tipBill").textContent="$"+bill.toFixed(2);
+document.getElementById("tipPer").textContent="$"+perPerson.toFixed(2);
+document.getElementById("tipTotal").textContent="$"+total.toFixed(2);
+document.getElementById("tipSub").textContent=pct+"% tip on $"+bill.toFixed(2)+" split "+split+" ways";
+var pcts=[10,15,18,20,22,25];
+var container = document.getElementById("quickTips");
+container.innerHTML = "";
+pcts.forEach(function(p){
+  var t=bill*p/100;
+  var pp=(bill+t)/split;
+  var div = document.createElement("div");
+  div.style.cssText = "background:#111;border-radius:8px;padding:10px;text-align:center;cursor:pointer;border:1px solid "+(p===pct?"#FFE500":"#222");
+  div.innerHTML =
+    "<div style='font-size:12px;color:#666;margin-bottom:3px'>"+p+"%</div>"+
+    "<div style='font-weight:800;color:#FFE500'>$"+t.toFixed(2)+"</div>"+
+    "<div style='font-size:11px;color:#555'>$"+pp.toFixed(2)+"/person</div>";
+  div.addEventListener("click", function(){ selectPct(p); });
+  container.appendChild(div);
+});
 }
 calcTip();
 </script>

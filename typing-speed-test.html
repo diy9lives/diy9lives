@@ -33,7 +33,7 @@ h1 em{font-style:normal;color:var(--yellow);}
 .stat{background:var(--black);border:1px solid var(--border);border-radius:10px;padding:12px 18px;text-align:center;flex:1;min-width:100px;}
 .stat .v{font-size:26px;font-weight:900;color:var(--yellow);letter-spacing:-1px;}
 .stat .k{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-top:3px;}
-.passage{font-size:19px;line-height:1.8;font-family:'SF Mono',Consolas,monospace;padding:20px;background:var(--black);border:1px solid var(--border);border-radius:10px;letter-spacing:.2px;user-select:none;}
+.passage{font-size:19px;line-height:1.8;font-family:'SF Mono',Consolas,monospace;padding:20px;background:var(--black);border:1px solid var(--border);border-radius:10px;letter-spacing:.2px;user-select:none;white-space:normal;word-wrap:break-word;overflow-wrap:break-word;}
 .passage span.correct{color:var(--green);}
 .passage span.incorrect{color:var(--coral);background:#2a1010;border-radius:2px;}
 .passage span.current{background:var(--yellow);color:var(--black);border-radius:2px;}
@@ -57,6 +57,7 @@ details[open] summary::after{content:"\2212";}
 details p{margin-top:10px;font-size:14px;color:var(--muted);line-height:1.65;}
 footer{border-top:1px solid var(--border);padding:26px 20px;text-align:center;font-size:12px;color:var(--muted);}
 footer a{color:var(--yellow);}
+@media(max-width:480px){.passage{font-size:16px;padding:16px;}}
 </style>
 </head>
 <body>
@@ -134,7 +135,7 @@ footer a{color:var(--yellow);}
       } else if(i === typed.length){
         cls = 'current';
       }
-      var displayCh = ch === ' ' ? '&nbsp;' : ch.replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      var displayCh = ch === ' ' ? ' ' : ch.replace(/</g,'&lt;').replace(/>/g,'&gt;');
       html += '<span class="'+cls+'">'+displayCh+'</span>';
     }
     passageEl.innerHTML = html;
