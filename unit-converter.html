@@ -89,10 +89,16 @@ var cats = {
 };
 var curCat="Length";
 function initCats(){
-  var btns=Object.keys(cats).map(function(c){
-    return "<button onclick="setCat('"+c+"')" id="cat_"+c+"" style='padding:7px 14px;border-radius:8px;border:1px solid "+(c===curCat?"#FFE500":"#222")+";background:"+(c===curCat?"#FFE50015":"transparent")+";color:"+(c===curCat?"#FFE500":"#666")+";cursor:pointer;font-family:inherit;font-size:13px;font-weight:700'>"+c+"</button>";
-  }).join("");
-  document.getElementById("catBtns").innerHTML=btns;
+  var container=document.getElementById("catBtns");
+  container.innerHTML="";
+  Object.keys(cats).forEach(function(c){
+    var btn=document.createElement("button");
+    btn.id="cat_"+c;
+    btn.textContent=c;
+    btn.style.cssText="padding:7px 14px;border-radius:8px;border:1px solid "+(c===curCat?"#FFE500":"#222")+";background:"+(c===curCat?"#FFE50015":"transparent")+";color:"+(c===curCat?"#FFE500":"#666")+";cursor:pointer;font-family:inherit;font-size:13px;font-weight:700";
+    btn.addEventListener("click", function(){ setCat(c); });
+    container.appendChild(btn);
+  });
   initUnits();
 }
 function setCat(c){

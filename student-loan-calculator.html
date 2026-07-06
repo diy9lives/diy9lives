@@ -119,7 +119,7 @@ function calc(){
   function card(title, months, payment, isWinner){
     if(months === null){
       return '<div class="method-card"><div class="method-name">'+title+'</div>'+
-        '<p style="font-size:13px;color:var(--coral)">This payment is too low to ever pay off the loan &mdash; it doesn\\'t cover the monthly interest. Increase the payment.</p></div>';
+        '<p style="font-size:13px;color:var(--coral)">This payment is too low to ever pay off the loan &mdash; it doesn&#39;t cover the monthly interest. Increase the payment.</p></div>';
     }
     var totalPaid = payment*months;
     var totalInterest = totalPaid-balance;
