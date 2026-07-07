@@ -103,6 +103,10 @@
   .aff p b{color:var(--white);}
   .aff a{background:var(--yellow);color:var(--black);font-weight:800;font-size:13px;padding:10px 18px;border-radius:8px;white-space:nowrap;}
 
+  /* CUSTOM COMPARE */
+  .cmp-btn{background:var(--yellow);color:var(--black);font-weight:800;font-size:14px;padding:12px 20px;border:none;border-radius:9px;cursor:pointer;font-family:inherit;}
+  .cmp-btn:hover{background:#ffe94d;}
+
   /* FAQ */
   details{border-top:1px solid var(--border);padding:14px 4px;}
   details summary{cursor:pointer;font-weight:700;font-size:14px;list-style:none;display:flex;justify-content:space-between;align-items:center;}
@@ -157,6 +161,28 @@
   <div class="card">
     <h2>Stock tire specs</h2>
     <div class="stats" id="stockStats"></div>
+  </div>
+
+  <!-- CUSTOM COMPARE -->
+  <div class="card">
+    <h2>Already have a size in mind?</h2>
+    <p class="hint" style="margin:0 0 14px;">Skip the suggestions below and compare your stock size directly against any specific size you're considering &mdash; useful if a tire shop quoted you something not shown in the common-sizes list.</p>
+    <div class="picker">
+      <div class="field">
+        <label>Width (mm)</label>
+        <select id="cmpWidth"></select>
+      </div>
+      <div class="field">
+        <label>Aspect ratio (%)</label>
+        <select id="cmpAspect"></select>
+      </div>
+      <div class="field">
+        <label>Wheel (in)</label>
+        <select id="cmpRim"></select>
+      </div>
+    </div>
+    <button class="cmp-btn" id="cmpBtn">Compare to stock &rarr;</button>
+    <p class="hint" style="margin-top:12px;">Note: this checks the math for any size, even ones tire makers don't actually produce. The suggestions below only show sizes commonly stocked by major retailers.</p>
   </div>
 
   <!-- RESULTS -->
@@ -268,6 +294,17 @@
     }
   }
   fill(elW,widths,225); fill(elA,aspects,60); fill(elR,rims,16);
+
+  var elCmpW = document.getElementById('cmpWidth');
+  var elCmpA = document.getElementById('cmpAspect');
+  var elCmpR = document.getElementById('cmpRim');
+  fill(elCmpW,widths,235); fill(elCmpA,aspects,55); fill(elCmpR,rims,18);
+
+  document.getElementById('cmpBtn').addEventListener('click',function(){
+    var w=+elCmpW.value, a=+elCmpA.value, r=+elCmpR.value;
+    var key='custom-'+w+'-'+a+'-'+r;
+    showDetail(w,a,r,key);
+  });
 
   function diameterIn(w,a,r){ return r + 2*(w*(a/100))/MM_PER_IN; }
   function sizeLabel(w,a,r){ return w + '/' + a + 'R' + r; }
