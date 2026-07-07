@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Text Diff Checker &mdash; Compare Two Texts | DIY9lives</title>
+<meta name="description" content="Compare two blocks of text and see exactly what changed, word by word. Free, no login, runs entirely in your browser."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:900px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+textarea{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:12px;color:var(--white);font-family:inherit;font-size:13px;outline:none;transition:border-color 0.2s;resize:vertical;line-height:1.6}
+textarea:focus{border-color:var(--yellow)}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:14px}
+.result-box{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px;font-size:14px;line-height:2}
+.added{background:#003a18;color:#7fe0a8;padding:1px 3px;border-radius:3px}
+.removed{background:#3a1010;color:#ff9d9d;padding:1px 3px;border-radius:3px;text-decoration:line-through}
+.legend{display:flex;gap:16px;font-size:12px;color:var(--muted);margin-bottom:14px}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Text Diff Checker</div><h1>What actually<br>changed?</h1><p class="sub">Paste an original and a revised version to see exactly what was added or removed, word by word.</p></div>
+
+<div class="card">
+  <div class="grid2">
+    <div>
+      <label>Original Text</label>
+      <textarea id="textA" rows="8">The quick brown fox jumps over the lazy dog.</textarea>
+    </div>
+    <div>
+      <label>Revised Text</label>
+      <textarea id="textB" rows="8">The quick brown fox leaps over the sleepy dog today.</textarea>
+    </div>
+  </div>
+  <button class="btn" onclick="runDiff()">Compare Text</button>
+</div>
+
+<div class="result-box" id="diffResult" style="display:none">
+  <div class="legend"><span><span class="added">added</span> = new</span><span><span class="removed">removed</span> = deleted</span></div>
+  <div id="diffOutput"></div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Notes</div>
+  <div class="tip"><span class="ti">&#128273;</span><div><strong>Everything runs in your browser.</strong> Neither text is sent to a server.</div></div>
+  <div class="tip"><span class="ti">&#9878;</span><div><strong>This compares word by word,</strong> not character by character, which makes the output more readable for prose, contracts, or essays than a strict code-diff tool.</div></div>
+  <div class="tip"><span class="ti">&#9888;</span><div><strong>Very long texts (thousands of words) may take a moment</strong> since word-level comparison checks every possible match.</div></div>
+</div>
+
+<script>
+function diffWords(a,b){
+  var m=a.length, n=b.length;
+  var dp=[];
+  for(var i=0;i<=m;i++){ dp.push(new Array(n+1).fill(0)); }
+  for(var i=1;i<=m;i++){
+    for(var j=1;j<=n;j++){
+      if(a[i-1]===b[j-1]) dp[i][j]=dp[i-1][j-1]+1;
+      else dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1]);
+    }
+  }
+  var result=[];
+  var i=m,j=n;
+  while(i>0 && j>0){
+    if(a[i-1]===b[j-1]){ result.unshift({type:'same',word:a[i-1]}); i--; j--; }
+    else if(dp[i-1][j]>=dp[i][j-1]){ result.unshift({type:'removed',word:a[i-1]}); i--; }
+    else { result.unshift({type:'added',word:b[j-1]}); j--; }
+  }
+  while(i>0){ result.unshift({type:'removed',word:a[i-1]}); i--; }
+  while(j>0){ result.unshift({type:'added',word:b[j-1]}); j--; }
+  return result;
+}
+function runDiff(){
+  var a=document.getElementById('textA').value.trim().split(/\s+/).filter(Boolean);
+  var b=document.getElementById('textB').value.trim().split(/\s+/).filter(Boolean);
+  if(a.length>3000||b.length>3000){
+    document.getElementById('diffOutput').innerHTML='<p style="color:#ff9d9d">Text is too long for this tool (max ~3000 words per side). Try a shorter section.</p>';
+    document.getElementById('diffResult').style.display='block';
+    return;
+  }
+  var diff=diffWords(a,b);
+  var html='';
+  for(var k=0;k<diff.length;k++){
+    var d=diff[k];
+    if(d.type==='same') html+=escapeHtml(d.word)+' ';
+    else if(d.type==='added') html+='<span class="added">'+escapeHtml(d.word)+'</span> ';
+    else html+='<span class="removed">'+escapeHtml(d.word)+'</span> ';
+  }
+  document.getElementById('diffOutput').innerHTML=html;
+  document.getElementById('diffResult').style.display='block';
+}
+function escapeHtml(s){
+  var div=document.createElement('div');
+  div.textContent=s;
+  return div.innerHTML;
+}
+runDiff();
+</script>
+
+</div>
+</body>
+</html>

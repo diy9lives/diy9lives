@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Readability Checker &mdash; Flesch Score &amp; Grade Level | DIY9lives</title>
+<meta name="description" content="Check how easy your writing is to read. Free Flesch Reading Ease and Flesch-Kincaid Grade Level calculator, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+textarea{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:14px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s;resize:vertical;line-height:1.6}
+textarea:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:48px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+.bkd{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bkv{font-size:16px;font-weight:800}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.bkd{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Readability Checker</div><h1>How easy is your<br>writing to read?</h1><p class="sub">Paste your text to get a Flesch Reading Ease score and estimated grade level.</p></div>
+
+<div class="card">
+  <div class="ct">&#9997; Your Text</div>
+  <textarea id="textInput" rows="10" placeholder="Paste your text here..." oninput="analyze()">The quick brown fox jumps over the lazy dog. This sentence is a classic example used to test typefaces and keyboards because it contains every letter of the alphabet.</textarea>
+</div>
+
+<div class="result-big">
+  <div class="rl">Flesch Reading Ease</div>
+  <div class="rv" id="scoreVal">--</div>
+  <div class="rs" id="scoreLabel">--</div>
+  <div class="bkd">
+    <div class="bk"><div class="bkl">Grade Level</div><div class="bkv" id="gradeVal">--</div></div>
+    <div class="bk"><div class="bkl">Avg Words/Sentence</div><div class="bkv" id="wpsVal">--</div></div>
+    <div class="bk"><div class="bkl">Avg Syllables/Word</div><div class="bkv" id="spwVal">--</div></div>
+  </div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">How to read the score</div>
+  <div class="tip"><span class="ti">&#128200;</span><div><strong>90&ndash;100:</strong> Very easy, understood by an average 11-year-old. <strong>60&ndash;70:</strong> Plain English, easily understood by 13&ndash;15 year olds. <strong>0&ndash;30:</strong> Very difficult, best understood by university graduates.</div></div>
+  <div class="tip"><span class="ti">&#128172;</span><div><strong>Most web and marketing copy targets 60&ndash;70</strong> &mdash; conversational and widely accessible. Academic and legal writing often scores much lower, which isn't necessarily bad, just denser.</div></div>
+  <div class="tip"><span class="ti">&#9888;</span><div><strong>Syllable counting is approximate</strong> (based on vowel-group patterns), so scores are a close estimate, not a certified linguistic measurement.</div></div>
+</div>
+
+<script>
+function countSyllables(word){
+  word=word.toLowerCase().replace(/[^a-z]/g,'');
+  if(word.length===0) return 0;
+  if(word.length<=3) return 1;
+  word=word.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/,'');
+  word=word.replace(/^y/,'');
+  var matches=word.match(/[aeiouy]{1,2}/g);
+  return matches ? matches.length : 1;
+}
+function analyze(){
+  var text=document.getElementById('textInput').value;
+  var words=text.trim()===''? [] : text.trim().split(/\s+/).filter(function(w){return /[a-zA-Z]/.test(w);});
+  var wordCount=words.length;
+  var sentences=text.split(/[.!?]+/).filter(function(s){return s.trim().length>0;});
+  var sentenceCount=Math.max(1,sentences.length);
+  var totalSyllables=0;
+  for(var i=0;i<words.length;i++){ totalSyllables+=countSyllables(words[i]); }
+
+  if(wordCount===0){
+    document.getElementById('scoreVal').textContent='--';
+    document.getElementById('scoreLabel').textContent='Enter some text to analyze';
+    document.getElementById('gradeVal').textContent='--';
+    document.getElementById('wpsVal').textContent='--';
+    document.getElementById('spwVal').textContent='--';
+    return;
+  }
+
+  var wordsPerSentence=wordCount/sentenceCount;
+  var syllablesPerWord=totalSyllables/wordCount;
+
+  var flesch=206.835 - (1.015*wordsPerSentence) - (84.6*syllablesPerWord);
+  flesch=Math.max(0,Math.min(100,flesch));
+  var grade=(0.39*wordsPerSentence) + (11.8*syllablesPerWord) - 15.59;
+  grade=Math.max(0,grade);
+
+  var label;
+  if(flesch>=90) label='Very easy \u2014 5th grade level';
+  else if(flesch>=80) label='Easy \u2014 6th grade level';
+  else if(flesch>=70) label='Fairly easy \u2014 7th grade level';
+  else if(flesch>=60) label='Plain English \u2014 8th\u20139th grade';
+  else if(flesch>=50) label='Fairly difficult \u2014 10th\u201312th grade';
+  else if(flesch>=30) label='Difficult \u2014 college level';
+  else label='Very difficult \u2014 college graduate level';
+
+  document.getElementById('scoreVal').textContent=flesch.toFixed(1);
+  document.getElementById('scoreLabel').textContent=label;
+  document.getElementById('gradeVal').textContent=grade.toFixed(1);
+  document.getElementById('wpsVal').textContent=wordsPerSentence.toFixed(1);
+  document.getElementById('spwVal').textContent=syllablesPerWord.toFixed(2);
+}
+analyze();
+</script>
+
+</div>
+</body>
+</html>

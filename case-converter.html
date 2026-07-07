@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Case Converter &mdash; UPPERCASE, lowercase, Title Case | DIY9lives</title>
+<meta name="description" content="Convert text between uppercase, lowercase, title case, sentence case, camelCase and snake_case instantly. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+textarea{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:14px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s;resize:vertical;line-height:1.6}
+textarea:focus{border-color:var(--yellow)}
+.btns{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}
+.cbtn{background:#111;border:1px solid var(--border);color:#ddd;padding:11px 8px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center}
+.cbtn:hover{border-color:var(--yellow);color:var(--yellow)}
+.copybtn{background:var(--yellow);color:#000;border:none;padding:10px 18px;border-radius:8px;font-size:13px;font-weight:800;cursor:pointer;font-family:inherit;margin-top:10px}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.btns{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Case Converter</div><h1>Change text case<br>in one click</h1><p class="sub">UPPERCASE, lowercase, Title Case, Sentence case, camelCase, or snake_case &mdash; pick your format.</p></div>
+
+<div class="card">
+  <div class="ct">&#9997; Input Text</div>
+  <textarea id="textInput" rows="6" placeholder="Type or paste text here...">the quick brown fox jumps over the lazy dog</textarea>
+  <div class="btns">
+    <button class="cbtn" onclick="convertCase('upper')">UPPERCASE</button>
+    <button class="cbtn" onclick="convertCase('lower')">lowercase</button>
+    <button class="cbtn" onclick="convertCase('title')">Title Case</button>
+    <button class="cbtn" onclick="convertCase('sentence')">Sentence case</button>
+    <button class="cbtn" onclick="convertCase('camel')">camelCase</button>
+    <button class="cbtn" onclick="convertCase('snake')">snake_case</button>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">&#10024; Result</div>
+  <textarea id="textOutput" rows="6" readonly></textarea>
+  <button class="copybtn" onclick="copyOutput()">Copy to clipboard</button>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Notes</div>
+  <div class="tip"><span class="ti">&#128273;</span><div><strong>Everything runs in your browser.</strong> Your text is never sent to a server.</div></div>
+  <div class="tip"><span class="ti">&#128187;</span><div><strong>camelCase and snake_case</strong> are common in programming for variable names &mdash; camelCase has no spaces and capitalizes each word after the first; snake_case replaces spaces with underscores, all lowercase.</div></div>
+</div>
+
+<script>
+function toTitleCase(s){
+  var minorWords=['a','an','the','and','but','or','for','nor','on','at','to','from','by','of','in','with'];
+  var words=s.toLowerCase().split(' ');
+  return words.map(function(w,i){
+    if(i!==0 && i!==words.length-1 && minorWords.indexOf(w)>-1) return w;
+    return w.charAt(0).toUpperCase()+w.slice(1);
+  }).join(' ');
+}
+function toSentenceCase(s){
+  var lower=s.toLowerCase();
+  return lower.replace(/(^\s*\w|[.!?]\s*\w)/g, function(c){ return c.toUpperCase(); });
+}
+function toCamelCase(s){
+  var words=s.trim().split(/\s+/);
+  return words.map(function(w,i){
+    w=w.toLowerCase();
+    if(i===0) return w;
+    return w.charAt(0).toUpperCase()+w.slice(1);
+  }).join('');
+}
+function toSnakeCase(s){
+  return s.trim().toLowerCase().replace(/\s+/g,'_');
+}
+function convertCase(mode){
+  var input=document.getElementById('textInput').value;
+  var out='';
+  if(mode==='upper') out=input.toUpperCase();
+  else if(mode==='lower') out=input.toLowerCase();
+  else if(mode==='title') out=toTitleCase(input);
+  else if(mode==='sentence') out=toSentenceCase(input);
+  else if(mode==='camel') out=toCamelCase(input);
+  else if(mode==='snake') out=toSnakeCase(input);
+  document.getElementById('textOutput').value=out;
+}
+function copyOutput(){
+  var text=document.getElementById('textOutput').value;
+  if(navigator.clipboard && text){ navigator.clipboard.writeText(text); }
+}
+convertCase('title');
+</script>
+
+</div>
+</body>
+</html>

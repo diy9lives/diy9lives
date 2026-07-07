@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free One-Rep Max Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Estimate your one-rep max from any weight and rep count, plus a training percentage table. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:48px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:8px 6px;font-weight:700;border-bottom:1px solid var(--border)}
+td{padding:9px 6px;border-top:1px solid #1b1b1b}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">One-Rep Max Calculator</div><h1>Estimate your<br>true 1RM</h1><p class="sub">Enter any weight and rep count &mdash; no need to actually max out to know roughly where you stand.</p></div>
+
+<div class="card">
+  <div class="ct">&#127997; Your Lift</div>
+  <div class="grid2">
+    <div><label>Weight Lifted</label><input type="number" id="weight" value="185" oninput="calc()"/></div>
+    <div><label>Reps Performed</label><input type="number" id="reps" value="5" oninput="calc()" max="15"/></div>
+  </div>
+</div>
+
+<div class="result-big">
+  <div class="rl">Estimated One-Rep Max</div>
+  <div class="rv" id="oneRepVal">--</div>
+  <div class="rs" id="oneRepSub">--</div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128202; Training Percentages</div>
+  <table>
+    <thead><tr><th>% of 1RM</th><th>Weight</th><th>Typical Use</th></tr></thead>
+    <tbody id="pctTable"></tbody>
+  </table>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Notes</div>
+  <div class="tip"><span class="ti">&#128202;</span><div><strong>This uses the Epley and Brzycki formulas averaged together</strong> &mdash; both are widely used estimates, and they tend to agree closely for rep ranges under 10.</div></div>
+  <div class="tip"><span class="ti">&#9888;</span><div><strong>Accuracy drops above 10 reps.</strong> These formulas are calibrated for lower rep ranges (1&ndash;10); a set of 20 reps won't estimate your max reliably.</div></div>
+  <div class="tip"><span class="ti">&#127939;</span><div><strong>This is an estimate for programming purposes,</strong> not a substitute for testing your actual max under proper supervision if you need a certified number.</div></div>
+</div>
+
+<script>
+function calc(){
+  var weight=parseFloat(document.getElementById('weight').value)||0;
+  var reps=Math.max(1,Math.min(15,parseInt(document.getElementById('reps').value)||1));
+
+  var epley = weight*(1+reps/30);
+  var brzycki = reps<37 ? weight*(36/(37-reps)) : weight;
+  var oneRM = (epley+brzycki)/2;
+
+  document.getElementById('oneRepVal').textContent=Math.round(oneRM)+' lb';
+  document.getElementById('oneRepSub').textContent='Based on '+weight+' lb \u00d7 '+reps+' reps (Epley/Brzycki average)';
+
+  var pcts=[
+    [100,'True max, rarely trained directly'],
+    [90,'1\u20133 rep strength work'],
+    [85,'3\u20135 rep strength work'],
+    [80,'5\u20136 rep hypertrophy/strength'],
+    [70,'8\u201310 rep hypertrophy'],
+    [60,'12\u201315 rep volume/endurance'],
+    [50,'Warm-up sets']
+  ];
+  var rows='';
+  for(var i=0;i<pcts.length;i++){
+    var w=oneRM*(pcts[i][0]/100);
+    rows+='<tr><td>'+pcts[i][0]+'%</td><td>'+Math.round(w)+' lb</td><td>'+pcts[i][1]+'</td></tr>';
+  }
+  document.getElementById('pctTable').innerHTML=rows;
+}
+calc();
+</script>
+
+</div>
+</body>
+</html>
