@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free True Cost of Ownership Calculator &mdash; DIY9lives</title>
+<meta name="description" content="See the real annual cost of owning a car: depreciation, fuel, insurance, maintenance, and financing combined into one number."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:44px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+.breakdown{margin-top:18px}
+.brow{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-top:1px solid var(--border)}
+.brow:first-child{border-top:none}
+.blabel{display:flex;align-items:center;gap:8px;font-size:13px;color:#ccc}
+.dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.bval{font-size:14px;font-weight:800}
+.bar{height:22px;border-radius:8px;background:#111;overflow:hidden;display:flex;margin-top:14px}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">True Cost of Ownership</div><h1>What does your car<br>really cost per year?</h1><p class="sub">Depreciation, fuel, insurance, maintenance, and loan interest &mdash; combined into one honest number.</p></div>
+
+<div class="result-big">
+  <div class="rl">Estimated Cost Per Year</div>
+  <div class="rv" id="perYearVal">--</div>
+  <div class="rs" id="perMonthSub">--</div>
+  <div class="breakdown" id="breakdownList"></div>
+  <div class="bar" id="costBar"></div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128663; Vehicle &amp; Financing</div>
+  <div class="grid2" style="margin-bottom:14px">
+    <div><label>Purchase Price</label><input type="number" id="price" value="35000" oninput="calc()"/></div>
+    <div><label>Down Payment</label><input type="number" id="down" value="5000" oninput="calc()"/></div>
+    <div><label>Loan APR %</label><input type="number" id="rate" step="0.1" value="6.5" oninput="calc()"/></div>
+    <div><label>Loan Term (months)</label><input type="number" id="term" value="60" oninput="calc()"/></div>
+  </div>
+  <div class="grid2">
+    <div><label>Years You'll Own It</label><input type="number" id="years" value="5" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">&#9981; Running Costs (per year)</div>
+  <div class="grid3">
+    <div><label>Insurance / yr</label><input type="number" id="insurance" value="1400" oninput="calc()"/></div>
+    <div><label>Maintenance / yr</label><input type="number" id="maintenance" value="900" oninput="calc()"/></div>
+    <div><label>Fuel / yr</label><input type="number" id="fuel" value="1800" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">How this is calculated</div>
+  <div class="tip"><span class="ti">&#128200;</span><div><strong>Depreciation</strong> uses the same rule-of-thumb curve as our depreciation calculator &mdash; it's usually the single biggest cost of owning a car, and the one people forget to count since it's invisible on a bank statement.</div></div>
+  <div class="tip"><span class="ti">&#128176;</span><div><strong>Loan interest</strong> is the extra you pay beyond the car's price for financing it &mdash; separate from the principal, which isn't really a "cost" since it converts to equity.</div></div>
+  <div class="tip"><span class="ti">&#9878;</span><div><strong>This total is what actually matters when comparing cars</strong> &mdash; a cheaper purchase price can still be the more expensive car to own if it depreciates fast or costs more to insure and maintain.</div></div>
+</div>
+
+<script>
+function fmt(n){ return "$"+Math.round(n).toLocaleString(); }
+var depRates=[0.20,0.15,0.13,0.12,0.10,0.09,0.08,0.08];
+function calc(){
+  var price=parseFloat(document.getElementById("price").value)||0;
+  var down=parseFloat(document.getElementById("down").value)||0;
+  var rate=parseFloat(document.getElementById("rate").value)||0;
+  var term=parseFloat(document.getElementById("term").value)||60;
+  var years=Math.max(1,parseFloat(document.getElementById("years").value)||5);
+  var insurance=parseFloat(document.getElementById("insurance").value)||0;
+  var maintenance=parseFloat(document.getElementById("maintenance").value)||0;
+  var fuel=parseFloat(document.getElementById("fuel").value)||0;
+
+  var loanAmt=price-down;
+  var mRate=rate/100/12;
+  var n=term;
+  var mPayment= mRate===0 ? loanAmt/n : loanAmt*(mRate*Math.pow(1+mRate,n))/(Math.pow(1+mRate,n)-1);
+  var monthsHeld=Math.min(years*12,n);
+  var balance=loanAmt;
+  var totalInterest=0;
+  for(var m=0;m<monthsHeld;m++){
+    var interestPortion=balance*mRate;
+    var principalPortion=mPayment-interestPortion;
+    balance-=principalPortion;
+    totalInterest+=interestPortion;
+  }
+
+  var value=price;
+  for(var y=0;y<years;y++){ value=value*(1-depRates[Math.min(y,depRates.length-1)]); }
+  var totalDepreciation=price-value;
+
+  var totalInsurance=insurance*years;
+  var totalMaintenance=maintenance*years;
+  var totalFuel=fuel*years;
+
+  var totalCost=totalDepreciation+totalInterest+totalInsurance+totalMaintenance+totalFuel;
+  var perYear=totalCost/years;
+  var perMonth=perYear/12;
+
+  document.getElementById("perYearVal").textContent=fmt(perYear);
+  document.getElementById("perMonthSub").textContent="about "+fmt(perMonth)+"/month, or "+fmt(totalCost)+" total over "+years+" years";
+
+  var items=[
+    ["Depreciation", totalDepreciation/years, "#FFE500"],
+    ["Loan interest", totalInterest/years, "#FF8800"],
+    ["Insurance", totalInsurance/years, "#3b82f6"],
+    ["Maintenance", totalMaintenance/years, "#00C851"],
+    ["Fuel", totalFuel/years, "#FF4D4D"]
+  ];
+  var listHtml="";
+  var barHtml="";
+  for(var i=0;i<items.length;i++){
+    var pct = perYear>0 ? (items[i][1]/perYear*100) : 0;
+    listHtml+='<div class="brow"><div class="blabel"><span class="dot" style="background:'+items[i][2]+'"></span>'+items[i][0]+'</div><div class="bval">'+fmt(items[i][1])+'/yr</div></div>';
+    barHtml+='<div style="width:'+pct+'%;background:'+items[i][2]+'"></div>';
+  }
+  document.getElementById("breakdownList").innerHTML=listHtml;
+  document.getElementById("costBar").innerHTML=barHtml;
+}
+calc();
+</script>
+
+</div>
+</body>
+</html>

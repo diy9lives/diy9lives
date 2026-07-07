@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Out-the-Door Car Price Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Calculate the real total price you'll pay for a car including sales tax by state, doc fees, and registration. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:48px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+.breakdown{margin-top:18px;text-align:left}
+.brow{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid var(--border);font-size:13px}
+.brow:first-child{border-top:none}
+.brow .l{color:#aaa}
+.brow .v{font-weight:700}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Out-the-Door Price Calculator</div><h1>What will you<br>actually pay?</h1><p class="sub">The sticker price isn't the price. See your real total with sales tax, trade-in credit, and fees included.</p></div>
+
+<div class="result-big">
+  <div class="rl">Out-the-Door Price</div>
+  <div class="rv" id="totalVal">--</div>
+  <div class="rs" id="totalSub">Fill in your details below</div>
+  <div class="breakdown" id="breakdownList"></div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128663; Vehicle &amp; Trade-In</div>
+  <div class="grid2">
+    <div><label>Vehicle Price</label><input type="number" id="price" value="32000" oninput="calc()"/></div>
+    <div><label>Trade-In Value</label><input type="number" id="tradeIn" value="0" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128181; Taxes &amp; Fees</div>
+  <div class="grid2" style="margin-bottom:14px">
+    <div><label>State</label><select id="state" onchange="onStateChange()"></select></div>
+    <div><label>Sales Tax Rate %</label><input type="number" id="taxRate" step="0.01" value="6.00" oninput="calc()"/></div>
+  </div>
+  <div class="grid2">
+    <div><label>Dealer Doc Fee</label><input type="number" id="docFee" value="500" oninput="calc()"/></div>
+    <div><label>Registration / Title Fees</label><input type="number" id="regFee" value="250" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">How this is calculated</div>
+  <div class="tip"><span class="ti">&#128181;</span><div><strong>Sales tax is usually charged on price minus trade-in</strong> in most states, which is what this calculator assumes. A few states tax the full price regardless of trade-in &mdash; check your state DMV if your trade-in value is significant.</div></div>
+  <div class="tip"><span class="ti">&#9888;</span><div><strong>Tax rates shown are statewide base rates</strong> as of January 2026 &mdash; many states add county or city sales tax on top, which can add another 1&ndash;5%. Check your local rate before finalizing a budget.</div></div>
+  <div class="tip"><span class="ti">&#128203;</span><div><strong>Doc fees vary a lot by dealer and state</strong> &mdash; some states cap them by law, others don't regulate them at all. It's a legitimate, negotiable-in-some-states line item, not a scam by itself, but it's worth asking about upfront.</div></div>
+</div>
+
+<script>
+var STATES = [
+["Alabama",4.00],["Alaska",0.00],["Arizona",5.60],["Arkansas",6.50],["California",7.25],
+["Colorado",2.90],["Connecticut",6.35],["Delaware",0.00],["Florida",6.00],["Georgia",4.00],
+["Hawaii",4.00],["Idaho",6.00],["Illinois",6.25],["Indiana",7.00],["Iowa",6.00],
+["Kansas",6.50],["Kentucky",6.00],["Louisiana",5.00],["Maine",5.50],["Maryland",6.00],
+["Massachusetts",6.25],["Michigan",6.00],["Minnesota",6.875],["Mississippi",7.00],["Missouri",4.225],
+["Montana",0.00],["Nebraska",5.50],["Nevada",6.85],["New Hampshire",0.00],["New Jersey",6.625],
+["New Mexico",4.875],["New York",4.00],["North Carolina",4.75],["North Dakota",5.00],["Ohio",5.75],
+["Oklahoma",4.50],["Oregon",0.00],["Pennsylvania",6.00],["Rhode Island",7.00],["South Carolina",6.00],
+["South Dakota",4.20],["Tennessee",7.00],["Texas",6.25],["Utah",6.10],["Vermont",6.00],
+["Virginia",5.30],["Washington",6.50],["West Virginia",6.00],["Wisconsin",5.00],["Wyoming",4.00],
+["District of Columbia",6.00]
+];
+var stateSel=document.getElementById("state");
+for(var i=0;i<STATES.length;i++){
+  var o=document.createElement("option");
+  o.value=STATES[i][1];
+  o.textContent=STATES[i][0];
+  if(STATES[i][0]==="Ohio") o.selected=true;
+  stateSel.appendChild(o);
+}
+function onStateChange(){
+  document.getElementById("taxRate").value=parseFloat(stateSel.value).toFixed(2);
+  calc();
+}
+function fmt(n){ return "$"+Math.round(n).toLocaleString(); }
+function calc(){
+  var price=parseFloat(document.getElementById("price").value)||0;
+  var tradeIn=parseFloat(document.getElementById("tradeIn").value)||0;
+  var taxRate=parseFloat(document.getElementById("taxRate").value)||0;
+  var docFee=parseFloat(document.getElementById("docFee").value)||0;
+  var regFee=parseFloat(document.getElementById("regFee").value)||0;
+
+  var taxableAmount=Math.max(0,price-tradeIn);
+  var salesTax=taxableAmount*(taxRate/100);
+  var total=price - tradeIn + salesTax + docFee + regFee;
+
+  document.getElementById("totalVal").textContent=fmt(Math.max(0,total));
+  document.getElementById("totalSub").textContent="This is what you'd owe at signing (before any loan financing)";
+
+  var rows=[
+    ["Vehicle price", fmt(price)],
+    ["Trade-in credit", tradeIn>0 ? "&minus;"+fmt(tradeIn) : fmt(0)],
+    ["Sales tax ("+taxRate.toFixed(2)+"%)", fmt(salesTax)],
+    ["Doc fee", fmt(docFee)],
+    ["Registration / title", fmt(regFee)]
+  ];
+  var html="";
+  for(var i=0;i<rows.length;i++){
+    html+='<div class="brow"><div class="l">'+rows[i][0]+'</div><div class="v">'+rows[i][1]+'</div></div>';
+  }
+  document.getElementById("breakdownList").innerHTML=html;
+}
+document.getElementById("taxRate").value="5.75";
+calc();
+</script>
+
+</div>
+</body>
+</html>

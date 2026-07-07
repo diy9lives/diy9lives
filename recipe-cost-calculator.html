@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Recipe Cost Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Find out exactly what a recipe costs per serving. Add ingredients and prices, get cost per serving instantly. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus{border-color:var(--yellow)}
+.ing-row{display:grid;grid-template-columns:2fr 1fr auto;gap:10px;margin-bottom:10px;align-items:center}
+.rmbtn{background:#1a1010;border:1px solid #3a1010;color:var(--coral);width:38px;height:38px;border-radius:8px;cursor:pointer;font-size:16px;font-family:inherit}
+.addbtn{background:#111;border:1px dashed var(--border);color:var(--yellow);width:100%;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:4px}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:48px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+.bkd{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:14px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.bkv{font-size:20px;font-weight:800}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.bkd{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Recipe Cost Calculator</div><h1>What does this<br>recipe actually cost?</h1><p class="sub">Add each ingredient's price, and see your total cost and cost per serving &mdash; useful for budgeting, meal prep, or pricing something you sell.</p></div>
+
+<div class="result-big">
+  <div class="rl">Cost Per Serving</div>
+  <div class="rv" id="perServingVal">--</div>
+  <div class="rs" id="perServingSub">Add ingredients below</div>
+  <div class="bkd">
+    <div class="bk"><div class="bkl">Total Recipe Cost</div><div class="bkv" id="totalVal">--</div></div>
+    <div class="bk"><div class="bkl">Servings</div><div class="bkv" id="servingsDisplay">--</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">&#127860; Ingredients</div>
+  <div id="ingList"></div>
+  <button class="addbtn" onclick="addRow()">+ Add ingredient</button>
+</div>
+
+<div class="card">
+  <div class="ct">&#127860; Servings</div>
+  <label>How many servings does this recipe make?</label>
+  <input type="number" id="servings" value="6" oninput="calc()"/>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Tips</div>
+  <div class="tip"><span class="ti">&#128179;</span><div><strong>Enter the cost of what you actually used,</strong> not the whole package &mdash; e.g. if a $4 bag of flour has 8 cups and you used 2, enter $1 for that ingredient.</div></div>
+  <div class="tip"><span class="ti">&#128202;</span><div><strong>This doesn't include your time, utilities, or overhead</strong> &mdash; it's pure ingredient cost. If you're pricing something to sell, you'll want to add labor and a margin on top.</div></div>
+  <div class="tip"><span class="ti">&#128200;</span><div><strong>Comparing cost-per-serving across recipes</strong> is one of the fastest ways to spot which meals are actually saving you money versus which just feel cheap.</div></div>
+</div>
+
+<script>
+var rowCount=0;
+function addRow(name,cost){
+  rowCount++;
+  var id='row'+rowCount;
+  var div=document.createElement('div');
+  div.className='ing-row';
+  div.id=id;
+  div.innerHTML=
+    '<input type="text" placeholder="Ingredient (e.g. flour)" value="'+(name||'')+'" oninput="calc()"/>'+
+    '<input type="number" placeholder="Cost $" value="'+(cost!==undefined?cost:'')+'" oninput="calc()"/>'+
+    '<button class="rmbtn" onclick="removeRow(\''+id+'\')">&times;</button>';
+  document.getElementById('ingList').appendChild(div);
+  calc();
+}
+function removeRow(id){
+  var el=document.getElementById(id);
+  if(el) el.remove();
+  calc();
+}
+function fmt(n){ return "$"+n.toFixed(2); }
+function calc(){
+  var rows=document.querySelectorAll('.ing-row');
+  var total=0;
+  for(var i=0;i<rows.length;i++){
+    var inputs=rows[i].querySelectorAll('input');
+    var cost=parseFloat(inputs[1].value)||0;
+    total+=cost;
+  }
+  var servings=Math.max(1,parseFloat(document.getElementById('servings').value)||1);
+  var perServing=total/servings;
+
+  document.getElementById('totalVal').textContent=fmt(total);
+  document.getElementById('servingsDisplay').textContent=servings;
+  document.getElementById('perServingVal').textContent=fmt(perServing);
+  document.getElementById('perServingSub').textContent=rows.length+' ingredient'+(rows.length!==1?'s':'')+' &middot; '+fmt(total)+' total';
+}
+addRow('Flour',1.20);
+addRow('Sugar',0.80);
+addRow('Butter',2.50);
+addRow('Eggs',1.00);
+addRow('Chocolate chips',3.50);
+calc();
+</script>
+
+</div>
+</body>
+</html>

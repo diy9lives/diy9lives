@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Oven Temperature Converter &mdash; F, C &amp; Gas Mark | DIY9lives</title>
+<meta name="description" content="Convert oven temperatures between Fahrenheit, Celsius, and gas mark, with a fan/convection adjustment. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:760px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:440px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.toggle-row{display:flex;align-items:center;gap:10px;margin-top:14px}
+.toggle-row input[type=checkbox]{width:18px;height:18px;accent-color:var(--yellow)}
+.toggle-row label{margin:0;font-size:13px;color:#ccc;text-transform:none;letter-spacing:0;font-weight:600}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:44px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:14px;margin-top:8px}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:8px 6px;font-weight:700;border-bottom:1px solid var(--border)}
+td{padding:9px 6px;border-top:1px solid #1b1b1b}
+tr.active-row{background:#1e1c00}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Oven Temperature Converter</div><h1>F, C, and gas mark<br>&mdash; all at once</h1><p class="sub">Convert oven temperatures for international recipes, with an optional fan/convection adjustment.</p></div>
+
+<div class="card">
+  <div class="grid2">
+    <div><label>Temperature</label><input type="number" id="temp" value="350" oninput="convert()"/></div>
+    <div><label>Unit</label><select id="unit" onchange="convert()">
+      <option value="f">Fahrenheit</option>
+      <option value="c">Celsius</option>
+    </select></div>
+  </div>
+  <div class="toggle-row">
+    <input type="checkbox" id="fanAdjust" onchange="convert()"/>
+    <label for="fanAdjust">This is a fan/convection oven temperature (adjust by 20&deg;C / 25&deg;F)</label>
+  </div>
+</div>
+
+<div class="result-big">
+  <div class="rl" id="resultLabel">350&deg;F equals</div>
+  <div class="rv" id="mainResult">--</div>
+  <div class="rs" id="resultSub">--</div>
+</div>
+
+<div class="card">
+  <div class="ct" style="font-size:14px;font-weight:800;margin-bottom:14px">Full reference table</div>
+  <table>
+    <thead><tr><th>Fahrenheit</th><th>Celsius</th><th>Gas Mark</th><th>Description</th></tr></thead>
+    <tbody id="refTable"></tbody>
+  </table>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Notes</div>
+  <div class="tip"><span class="ti">&#128168;</span><div><strong>Fan/convection ovens run hotter</strong> for a given dial setting because the fan circulates heat more efficiently. Recipes written for conventional ovens usually need the temperature lowered by about 20&deg;C (25&deg;F), or the fan setting reduced, if you're using convection.</div></div>
+  <div class="tip"><span class="ti">&#127777;</span><div><strong>Gas mark is a UK/Commonwealth scale</strong> still printed on many older cookers and used in British recipes. It doesn't map perfectly to exact Fahrenheit/Celsius values &mdash; the table shows the standard rounded equivalents.</div></div>
+</div>
+
+<script>
+var GAS_MARK_TABLE = [
+  [225,110,"1/4","Very cool"],
+  [250,130,"1/2","Very cool"],
+  [275,140,"1","Cool"],
+  [300,150,"2","Cool"],
+  [325,160,"3","Warm"],
+  [350,180,"4","Moderate"],
+  [375,190,"5","Moderately hot"],
+  [400,200,"6","Moderately hot"],
+  [425,220,"7","Hot"],
+  [450,230,"8","Hot"],
+  [475,240,"9","Very hot"]
+];
+
+function convert(){
+  var temp=parseFloat(document.getElementById('temp').value)||0;
+  var unit=document.getElementById('unit').value;
+  var fanAdjust=document.getElementById('fanAdjust').checked;
+
+  var f,c;
+  if(unit==='f'){ f=temp; c=(temp-32)*5/9; }
+  else { c=temp; f=temp*9/5+32; }
+
+  document.getElementById('resultLabel').textContent=temp+'\u00b0'+unit.toUpperCase()+' equals';
+
+  var displayF=f, displayC=c;
+  var note='';
+  if(fanAdjust){
+    displayF=f-25; displayC=c-20;
+    note='Adjusted down for fan/convection. Unadjusted: '+Math.round(f)+'\u00b0F / '+Math.round(c)+'\u00b0C';
+  }
+
+  document.getElementById('mainResult').textContent=Math.round(displayF)+'\u00b0F / '+Math.round(displayC)+'\u00b0C';
+  document.getElementById('resultSub').textContent=note || 'Standard (non-fan) oven temperature';
+
+  var rows='';
+  for(var i=0;i<GAS_MARK_TABLE.length;i++){
+    var row=GAS_MARK_TABLE[i];
+    var isActive=Math.abs(row[0]-f)<13;
+    rows+='<tr'+(isActive?' class="active-row"':'')+'><td>'+row[0]+'\u00b0F</td><td>'+row[1]+'\u00b0C</td><td>Gas '+row[2]+'</td><td>'+row[3]+'</td></tr>';
+  }
+  document.getElementById('refTable').innerHTML=rows;
+}
+convert();
+</script>
+
+</div>
+</body>
+</html>

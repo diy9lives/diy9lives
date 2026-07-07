@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Car Depreciation Calculator &mdash; DIY9lives</title>
+<meta name="description" content="See how much a car will be worth in 1, 5, or 10 years. Free depreciation calculator for new and used vehicles, no login required."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.tabs{display:flex;gap:8px;margin-bottom:16px}
+.tabbtn{flex:1;background:#111;border:1px solid var(--border);color:#888;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center}
+.tabbtn.active{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:48px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:8px 6px;font-weight:700;border-bottom:1px solid var(--border)}
+td{padding:9px 6px;border-top:1px solid #1b1b1b}
+.bar-cell{width:40%}
+.bar-bg{background:#111;border-radius:99px;height:8px;overflow:hidden}
+.bar-fill{height:100%;background:var(--yellow);border-radius:99px}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Car Depreciation Calculator</div><h1>What will your car<br>be worth later?</h1><p class="sub">See a year-by-year estimate of value loss for a new or used vehicle, based on typical depreciation curves.</p></div>
+
+<div class="card">
+  <div class="ct">&#128663; Vehicle Details</div>
+  <div class="tabs">
+    <button class="tabbtn active" id="tab-new" onclick="setCondition('new')">New Car</button>
+    <button class="tabbtn" id="tab-used" onclick="setCondition('used')">Used Car</button>
+  </div>
+  <div class="grid2">
+    <div><label>Purchase Price</label><input type="number" id="price" value="35000" oninput="calc()"/></div>
+    <div><label>Years to Project</label><input type="number" id="years" value="10" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="result-big">
+  <div class="rl">Estimated Value After <span id="yrLabel">10</span> Years</div>
+  <div class="rv" id="finalVal">--</div>
+  <div class="rs" id="finalSub">--</div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128202; Year-by-Year Breakdown</div>
+  <table>
+    <thead><tr><th>Year</th><th>Est. Value</th><th>Retained</th><th class="bar-cell"></th></tr></thead>
+    <tbody id="depTable"></tbody>
+  </table>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">How this is calculated</div>
+  <div class="tip"><span class="ti">&#128200;</span><div><strong>New cars lose the most value in year one</strong> &mdash; typically around 20%, since the first owner absorbs the "off the lot" hit. Used cars have already taken that loss, so their curve is gentler from the start.</div></div>
+  <div class="tip"><span class="ti">&#9888;</span><div><strong>This is a generic rule-of-thumb curve, not brand-specific.</strong> Reliable brands with strong resale reputations (Toyota, Honda, Subaru) depreciate slower than average; luxury brands and EVs often depreciate faster.</div></div>
+  <div class="tip"><span class="ti">&#128295;</span><div><strong>Mileage and condition matter more than age alone.</strong> A well-maintained car with average mileage will hold value better than this curve suggests; heavy mileage or a rough condition will fall faster.</div></div>
+</div>
+
+<script>
+var condition="new";
+var newRates=[0.20,0.15,0.13,0.12,0.10,0.09,0.08,0.08,0.08,0.08,0.07,0.07,0.07,0.07,0.07];
+var usedRates=[0.15,0.12,0.11,0.10,0.09,0.09,0.08,0.08,0.08,0.08,0.07,0.07,0.07,0.07,0.07];
+function setCondition(c){
+  condition=c;
+  document.getElementById("tab-new").classList.toggle("active",c==="new");
+  document.getElementById("tab-used").classList.toggle("active",c==="used");
+  calc();
+}
+function fmt(n){ return "$"+Math.round(n).toLocaleString(); }
+function calc(){
+  var price=parseFloat(document.getElementById("price").value)||0;
+  var years=Math.min(15,Math.max(1,parseInt(document.getElementById("years").value)||10));
+  document.getElementById("yrLabel").textContent=years;
+  var rates = condition==="new" ? newRates : usedRates;
+  var value=price;
+  var rows="";
+  for(var y=1;y<=years;y++){
+    var rate=rates[Math.min(y-1,rates.length-1)];
+    value=value*(1-rate);
+    var pct=(value/price*100);
+    rows+='<tr><td>Year '+y+'</td><td>'+fmt(value)+'</td><td>'+pct.toFixed(0)+'%</td><td class="bar-cell"><div class="bar-bg"><div class="bar-fill" style="width:'+pct.toFixed(0)+'%"></div></div></td></tr>';
+  }
+  document.getElementById("depTable").innerHTML=rows;
+  document.getElementById("finalVal").textContent=fmt(value);
+  document.getElementById("finalSub").textContent="That's a loss of "+fmt(price-value)+" ("+((1-value/price)*100).toFixed(0)+"% of original price)";
+}
+calc();
+</script>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Recipe Scaler &mdash; DIY9lives</title>
+<meta name="description" content="Scale any recipe up or down to a new serving size instantly. Paste your ingredient list, get the math done for you. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+textarea,input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s;resize:vertical}
+textarea:focus,input:focus,select:focus{border-color:var(--yellow)}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px}
+.scalebtns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.sbtn{background:#111;border:1px solid var(--border);color:#ccc;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit}
+.sbtn.active{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:4px}
+.result-box{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:24px;margin-bottom:16px;display:none}
+.result-box pre{white-space:pre-wrap;font-family:inherit;font-size:14px;line-height:1.9;color:#f0f0f0}
+.copybtn{background:#111;border:1px solid var(--border);color:var(--yellow);padding:8px 16px;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:12px}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid3{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Recipe Scaler</div><h1>Scale any recipe<br>up or down</h1><p class="sub">Paste your ingredient list, pick a multiplier or new serving size, and get every quantity recalculated instantly.</p></div>
+
+<div class="card">
+  <div class="ct">&#127860; Your Recipe</div>
+  <label>Ingredients (one per line, e.g. "2 cups flour")</label>
+  <textarea id="recipeInput" rows="8" oninput="scale()">2 cups flour
+1 cup sugar
+1/2 cup butter
+2 eggs
+1 tsp vanilla extract
+1/2 tsp salt
+1 cup milk</textarea>
+</div>
+
+<div class="card">
+  <div class="ct">&#128290; Scale By</div>
+  <div class="scalebtns">
+    <button class="sbtn" onclick="setMultiplier(0.5)">&frac12;&times;</button>
+    <button class="sbtn active" onclick="setMultiplier(1)">1&times;</button>
+    <button class="sbtn" onclick="setMultiplier(2)">2&times;</button>
+    <button class="sbtn" onclick="setMultiplier(3)">3&times;</button>
+    <button class="sbtn" onclick="setMultiplier(4)">4&times;</button>
+  </div>
+  <div class="grid3">
+    <div><label>Custom Multiplier</label><input type="number" id="customMult" step="0.1" value="1" oninput="setMultiplier(parseFloat(this.value)||1,true)"/></div>
+    <div><label>Original Servings</label><input type="number" id="origServings" value="4" oninput="scale()"/></div>
+    <div><label>Desired Servings</label><input type="number" id="newServings" value="4" oninput="scaleByServings()"/></div>
+  </div>
+</div>
+
+<div class="result-box" id="resultBox">
+  <div class="ct" style="margin-bottom:12px">&#10024; Scaled Recipe</div>
+  <pre id="resultText"></pre>
+  <button class="copybtn" onclick="copyResult()">Copy to clipboard</button>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Tips</div>
+  <div class="tip"><span class="ti">&#128221;</span><div><strong>Format each line as "amount unit ingredient"</strong> &mdash; e.g. "1 1/2 cups sugar" or "3 tbsp olive oil". Fractions like 1/2 and 1 1/2 both work.</div></div>
+  <div class="tip"><span class="ti">&#9203;</span><div><strong>This scales quantities, not cooking time or pan size.</strong> Doubling a cake recipe usually means a bigger pan or longer bake time, not just more batter in the same pan.</div></div>
+  <div class="tip"><span class="ti">&#129504;</span><div><strong>Very small scaled amounts get rounded to practical fractions</strong> (eighths) since most measuring spoons and cups don't do decimals.</div></div>
+</div>
+
+<script>
+var multiplier=1;
+function parseFraction(str){
+  str=str.trim();
+  if(str.indexOf(' ')>-1 && str.indexOf('/')>-1){
+    var parts=str.split(' ');
+    var whole=parseFloat(parts[0]);
+    var fracParts=parts[1].split('/');
+    return whole + (parseFloat(fracParts[0])/parseFloat(fracParts[1]));
+  }
+  if(str.indexOf('/')>-1){
+    var fp=str.split('/');
+    return parseFloat(fp[0])/parseFloat(fp[1]);
+  }
+  return parseFloat(str);
+}
+function toFraction(n){
+  if(isNaN(n)) return '';
+  var whole=Math.floor(n);
+  var rem=n-whole;
+  if(rem<0.0625) return whole===0 ? '0' : String(whole);
+  var denominators=[2,3,4,8];
+  var best=null,bestDiff=1;
+  for(var i=0;i<denominators.length;i++){
+    var d=denominators[i];
+    var num=Math.round(rem*d);
+    if(num===0||num===d) continue;
+    var diff=Math.abs(rem-(num/d));
+    if(diff<bestDiff){ bestDiff=diff; best=[num,d]; }
+  }
+  if(!best) return String(Math.round(n*100)/100);
+  var g=gcd(best[0],best[1]);
+  var fracStr=(best[0]/g)+'/'+(best[1]/g);
+  return whole>0 ? whole+' '+fracStr : fracStr;
+}
+function gcd(a,b){ return b===0?a:gcd(b,a%b); }
+
+function setMultiplier(m,fromCustom){
+  multiplier=m;
+  document.querySelectorAll('.sbtn').forEach(function(b){ b.classList.remove('active'); });
+  if(!fromCustom){
+    document.getElementById('customMult').value=m;
+    var btns=document.querySelectorAll('.sbtn');
+    for(var i=0;i<btns.length;i++){
+      if(btns[i].textContent.indexOf(m===0.5?'\u00bd':m+'\u00d7')>-1) btns[i].classList.add('active');
+    }
+  }
+  var orig=parseFloat(document.getElementById('origServings').value)||4;
+  document.getElementById('newServings').value=(orig*m).toFixed(1).replace(/\.0$/,'');
+  scale();
+}
+function scaleByServings(){
+  var orig=parseFloat(document.getElementById('origServings').value)||4;
+  var desired=parseFloat(document.getElementById('newServings').value)||orig;
+  multiplier=desired/orig;
+  document.getElementById('customMult').value=Math.round(multiplier*100)/100;
+  scale();
+}
+function scale(){
+  var text=document.getElementById('recipeInput').value;
+  var lines=text.split('\n').filter(function(l){return l.trim().length>0;});
+  var out=[];
+  var re=/^(\d+\s+\d+\/\d+|\d+\/\d+|\d*\.?\d+)\s+(.*)$/;
+  for(var i=0;i<lines.length;i++){
+    var line=lines[i].trim();
+    var m=line.match(re);
+    if(m){
+      var amount=parseFraction(m[1]);
+      var rest=m[2];
+      if(!isNaN(amount)){
+        var scaled=amount*multiplier;
+        out.push(toFraction(scaled)+' '+rest);
+        continue;
+      }
+    }
+    out.push(line);
+  }
+  document.getElementById('resultText').textContent=out.join('\n');
+  document.getElementById('resultBox').style.display = lines.length ? 'block' : 'none';
+}
+function copyResult(){
+  var text=document.getElementById('resultText').textContent;
+  if(navigator.clipboard){ navigator.clipboard.writeText(text); }
+}
+scale();
+</script>
+
+</div>
+</body>
+</html>

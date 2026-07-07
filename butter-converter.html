@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Butter Converter &mdash; Sticks, Cups, Grams &amp; Tablespoons | DIY9lives</title>
+<meta name="description" content="Convert butter between sticks, cups, tablespoons, grams, and ounces instantly. Free, no login required."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:760px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:440px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:44px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.allunits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:18px}
+.au{background:#111;border-radius:10px;padding:12px;text-align:center}
+.aul{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.auv{font-size:15px;font-weight:800}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}.allunits{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Butter Converter</div><h1>Sticks, cups, grams,<br>tablespoons</h1><p class="sub">The one conversion every baker looks up mid-recipe. Enter any amount, see it in every unit at once.</p></div>
+
+<div class="card">
+  <div class="grid2">
+    <div><label>Amount</label><input type="number" id="amount" value="1" oninput="convert()"/></div>
+    <div><label>Unit</label><select id="unit" onchange="convert()">
+      <option value="stick">Sticks</option>
+      <option value="cup">Cups</option>
+      <option value="tbsp">Tablespoons</option>
+      <option value="tsp">Teaspoons</option>
+      <option value="g">Grams</option>
+      <option value="kg">Kilograms</option>
+      <option value="oz">Ounces</option>
+      <option value="lb">Pounds</option>
+    </select></div>
+  </div>
+</div>
+
+<div class="result-big">
+  <div class="rl" id="resultLabel">1 stick of butter equals</div>
+  <div class="rv" id="mainResult">--</div>
+  <div class="allunits" id="allUnits"></div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Quick reference</div>
+  <div class="tip"><span class="ti">&#129472;</span><div><strong>1 US stick of butter</strong> = 1/2 cup = 8 tablespoons = 113g = 4oz. This is the standard US wrapper marking &mdash; if your butter came in stick form, you can just count the printed tablespoon lines instead of measuring.</div></div>
+  <div class="tip"><span class="ti">&#127850;</span><div><strong>A full box of butter (4 sticks)</strong> = 1 pound = 2 cups = 454g. This is the standard US retail butter box.</div></div>
+  <div class="tip"><span class="ti">&#127484;</span><div><strong>UK/EU butter is usually sold by weight, not sticks,</strong> so grams are the most reliable unit for international recipes. 250g is a common European butter block size.</div></div>
+</div>
+
+<script>
+var GRAMS_PER = {stick:113.4, cup:226.8, tbsp:14.175, tsp:4.725, g:1, kg:1000, oz:28.3495, lb:453.592};
+var UNIT_LABEL = {stick:"stick(s)", cup:"cup(s)", tbsp:"tbsp", tsp:"tsp", g:"g", kg:"kg", oz:"oz", lb:"lb"};
+var DISPLAY_ORDER=["stick","cup","tbsp","tsp","g","oz","lb","kg"];
+
+function fmtClean(n){
+  var r=Math.round(n*100)/100;
+  return r % 1 === 0 ? String(r) : String(r);
+}
+
+function convert(){
+  var amount=parseFloat(document.getElementById('amount').value)||0;
+  var unit=document.getElementById('unit').value;
+  var grams=amount*GRAMS_PER[unit];
+
+  document.getElementById('resultLabel').textContent=amount+' '+UNIT_LABEL[unit].replace('(s)','')+' of butter equals';
+  document.getElementById('mainResult').textContent=fmtClean(grams)+'g';
+
+  var html='';
+  for(var i=0;i<DISPLAY_ORDER.length;i++){
+    var u=DISPLAY_ORDER[i];
+    if(u===unit) continue;
+    var val=grams/GRAMS_PER[u];
+    html+='<div class="au"><div class="aul">'+UNIT_LABEL[u]+'</div><div class="auv">'+fmtClean(val)+'</div></div>';
+  }
+  document.getElementById('allUnits').innerHTML=html;
+}
+convert();
+</script>
+
+</div>
+</body>
+</html>

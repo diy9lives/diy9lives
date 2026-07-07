@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Cooking Measurement Converter &mdash; DIY9lives</title>
+<meta name="description" content="Convert cups, tablespoons, grams, and ounces for real ingredients &mdash; flour, sugar, butter and more, each with correct density. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:44px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+.swapbtn{background:#111;border:1px solid var(--border);color:var(--yellow);width:40px;height:40px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Cooking Measurement Converter</div><h1>Cups, grams, ounces &mdash;<br>done right</h1><p class="sub">Real ingredients aren't all the same density. A cup of flour and a cup of honey don't weigh the same &mdash; this converter accounts for that.</p></div>
+
+<div class="card">
+  <div class="ct">&#127850; Ingredient</div>
+  <select id="ingredient" onchange="convert()">
+    <option value="1.000">Water</option>
+    <option value="0.507" selected>Flour (all-purpose)</option>
+    <option value="0.845">Sugar (granulated)</option>
+    <option value="0.930">Brown sugar (packed)</option>
+    <option value="0.507">Powdered sugar</option>
+    <option value="0.959">Butter</option>
+    <option value="1.437">Honey</option>
+    <option value="1.036">Milk</option>
+    <option value="0.782">Rice (uncooked)</option>
+    <option value="0.380">Rolled oats</option>
+    <option value="0.380">Cocoa powder</option>
+    <option value="1.217">Salt (table)</option>
+    <option value="0.921">Vegetable oil</option>
+  </select>
+</div>
+
+<div class="card">
+  <div class="grid2">
+    <div>
+      <label>From</label>
+      <input type="number" id="fromAmount" value="1" oninput="convert()" style="margin-bottom:8px"/>
+      <select id="fromUnit" onchange="convert()">
+        <option value="cup">Cups</option>
+        <option value="tbsp">Tablespoons</option>
+        <option value="tsp">Teaspoons</option>
+        <option value="floz">Fluid ounces</option>
+        <option value="ml">Milliliters</option>
+        <option value="l">Liters</option>
+        <option value="g">Grams</option>
+        <option value="kg">Kilograms</option>
+        <option value="oz">Ounces (weight)</option>
+        <option value="lb">Pounds</option>
+      </select>
+    </div>
+    <div>
+      <label>To</label>
+      <div style="height:14px"></div>
+      <select id="toUnit" onchange="convert()">
+        <option value="cup">Cups</option>
+        <option value="tbsp">Tablespoons</option>
+        <option value="tsp">Teaspoons</option>
+        <option value="floz">Fluid ounces</option>
+        <option value="ml">Milliliters</option>
+        <option value="l">Liters</option>
+        <option value="g" selected>Grams</option>
+        <option value="kg">Kilograms</option>
+        <option value="oz">Ounces (weight)</option>
+        <option value="lb">Pounds</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="result-big">
+  <div class="rl" id="resultLabel">1 cup flour equals</div>
+  <div class="rv" id="resultVal">--</div>
+  <div class="rs" id="resultSub">Based on standard ingredient density</div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Why ingredient matters</div>
+  <div class="tip"><span class="ti">&#9878;</span><div><strong>1 cup of flour weighs about 120g, but 1 cup of honey weighs about 340g.</strong> Volume converters that ignore this give you wrong weights for anything except water.</div></div>
+  <div class="tip"><span class="ti">&#128221;</span><div><strong>How you measure flour changes its weight</strong> &mdash; spooned-and-leveled flour is lighter than scooped-and-packed. This tool assumes the spooned method, standard in most modern recipes.</div></div>
+  <div class="tip"><span class="ti">&#9888;</span><div><strong>These are standard approximations,</strong> not brand-specific. If a recipe gives both a volume and a gram weight, trust the gram weight &mdash; it's always more precise.</div></div>
+</div>
+
+<script>
+var VOLUME_TO_ML={cup:236.588,tbsp:14.787,tsp:4.929,floz:29.574,ml:1,l:1000};
+var WEIGHT_TO_G={g:1,kg:1000,oz:28.3495,lb:453.592};
+var UNIT_NAMES={cup:"cup",tbsp:"tbsp",tsp:"tsp",floz:"fl oz",ml:"ml",l:"L",g:"g",kg:"kg",oz:"oz",lb:"lb"};
+
+function isVolume(u){ return VOLUME_TO_ML.hasOwnProperty(u); }
+
+function convert(){
+  var amount=parseFloat(document.getElementById('fromAmount').value)||0;
+  var fromUnit=document.getElementById('fromUnit').value;
+  var toUnit=document.getElementById('toUnit').value;
+  var density=parseFloat(document.getElementById('ingredient').value);
+  var ingName=document.getElementById('ingredient').options[document.getElementById('ingredient').selectedIndex].text;
+
+  var grams;
+  if(isVolume(fromUnit)){
+    var ml=amount*VOLUME_TO_ML[fromUnit];
+    grams=ml*density;
+  } else {
+    grams=amount*WEIGHT_TO_G[fromUnit];
+  }
+
+  var result;
+  if(isVolume(toUnit)){
+    var mlOut=grams/density;
+    result=mlOut/VOLUME_TO_ML[toUnit];
+  } else {
+    result=grams/WEIGHT_TO_G[toUnit];
+  }
+
+  var display = result>=100 ? result.toFixed(0) : (result>=10 ? result.toFixed(1) : result.toFixed(2));
+  document.getElementById('resultVal').textContent=display+' '+UNIT_NAMES[toUnit];
+  document.getElementById('resultLabel').textContent=amount+' '+UNIT_NAMES[fromUnit]+' '+ingName.toLowerCase()+' equals';
+}
+convert();
+</script>
+
+</div>
+</body>
+</html>

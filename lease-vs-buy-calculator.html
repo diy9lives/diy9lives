@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Lease vs. Buy Car Calculator &mdash; DIY9lives</title>
+<meta name="description" content="Should you lease or buy your next car? Compare true net cost of both paths side by side, free and no login required."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:40px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#666;margin-top:8px}
+.bkd{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:14px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.bkv{font-size:20px;font-weight:800}
+.green{color:var(--green)}.yellow{color:var(--yellow)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.grid2,.bkd{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Lease vs. Buy Calculator</div><h1>Should you lease<br>or buy your car?</h1><p class="sub">Compares your total net cost over the same time period &mdash; including the equity you'd build by buying.</p></div>
+
+<div class="result-big">
+  <div class="rl">Over <span id="yearsLabel">3</span> years, the cheaper option is</div>
+  <div class="rv" id="winnerVal">--</div>
+  <div class="rs" id="winnerSub">Fill in your details below</div>
+  <div class="bkd">
+    <div class="bk"><div class="bkl">Net Cost to Lease</div><div class="bkv yellow" id="leaseCost">--</div></div>
+    <div class="bk"><div class="bkl">Net Cost to Buy</div><div class="bkv yellow" id="buyCost">--</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128188; Leasing</div>
+  <div class="grid2">
+    <div><label>Monthly Lease Payment</label><input type="number" id="leasePayment" value="450" oninput="calc()"/></div>
+    <div><label>Due at Signing (cap cost reduction)</label><input type="number" id="leaseDown" value="2000" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">&#128663; Buying</div>
+  <div class="grid2" style="margin-bottom:14px">
+    <div><label>Vehicle Price</label><input type="number" id="price" value="35000" oninput="calc()"/></div>
+    <div><label>Down Payment</label><input type="number" id="buyDown" value="3500" oninput="calc()"/></div>
+    <div><label>Loan APR %</label><input type="number" id="rate" step="0.1" value="6.5" oninput="calc()"/></div>
+    <div><label>Loan Term (months)</label><input type="number" id="loanTerm" value="60" oninput="calc()"/></div>
+  </div>
+  <div class="grid2">
+    <div><label>Years You'll Keep the Car</label><input type="number" id="years" value="3" oninput="calc()"/></div>
+    <div><label>Est. Resale Value at End (optional)</label><input type="number" id="resale" value="" placeholder="auto-estimated" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">How this is calculated</div>
+  <div class="tip"><span class="ti">&#128176;</span><div><strong>Cost to lease</strong> = money due at signing + all monthly payments over the term. You never build equity, and you hand the car back at the end.</div></div>
+  <div class="tip"><span class="ti">&#128200;</span><div><strong>Cost to buy</strong> = down payment + loan payments made during your hold period, minus the equity you've built (resale value minus remaining loan balance) when you sell or trade in.</div></div>
+  <div class="tip"><span class="ti">&#9878;</span><div><strong>Leasing usually wins for shorter terms (2&ndash;3 years)</strong> since you avoid the steepest depreciation years. Buying usually wins if you keep the car 5+ years, since the loan gets paid off and the car still has value.</div></div>
+</div>
+
+<script>
+function fmt(n){ return "$"+Math.round(n).toLocaleString(); }
+function calc(){
+  var leasePayment=parseFloat(document.getElementById("leasePayment").value)||0;
+  var leaseDown=parseFloat(document.getElementById("leaseDown").value)||0;
+  var price=parseFloat(document.getElementById("price").value)||0;
+  var buyDown=parseFloat(document.getElementById("buyDown").value)||0;
+  var rate=parseFloat(document.getElementById("rate").value)||0;
+  var loanTerm=parseFloat(document.getElementById("loanTerm").value)||60;
+  var years=parseFloat(document.getElementById("years").value)||1;
+  var resaleInput=document.getElementById("resale").value;
+
+  document.getElementById("yearsLabel").textContent=years;
+
+  var totalLeaseCost = leaseDown + (leasePayment*12*years);
+
+  var loanAmt = price - buyDown;
+  var mRate = rate/100/12;
+  var n = loanTerm;
+  var mPayment = mRate===0 ? loanAmt/n : loanAmt*(mRate*Math.pow(1+mRate,n))/(Math.pow(1+mRate,n)-1);
+  var monthsHeld = Math.min(years*12, n);
+
+  var balance=loanAmt;
+  for(var m=0;m<monthsHeld;m++){
+    var interestPortion=balance*mRate;
+    var principalPortion=mPayment-interestPortion;
+    balance-=principalPortion;
+  }
+  var totalLoanPaid = mPayment*monthsHeld;
+
+  var resaleValue;
+  if(resaleInput!==""){
+    resaleValue=parseFloat(resaleInput)||0;
+  } else {
+    var rates=[0.20,0.15,0.13,0.12,0.10,0.09,0.08,0.08];
+    var v=price;
+    for(var y=0;y<years;y++){ v=v*(1-rates[Math.min(y,rates.length-1)]); }
+    resaleValue=v;
+  }
+
+  var equity = resaleValue - Math.max(0,balance);
+  var totalBuyCost = buyDown + totalLoanPaid - equity;
+
+  document.getElementById("leaseCost").textContent=fmt(Math.max(0,totalLeaseCost));
+  document.getElementById("buyCost").textContent=fmt(Math.max(0,totalBuyCost));
+
+  var diff=Math.abs(totalBuyCost-totalLeaseCost);
+  if(totalBuyCost<totalLeaseCost){
+    document.getElementById("winnerVal").textContent="Buying";
+    document.getElementById("winnerVal").className="rv green";
+    document.getElementById("winnerSub").textContent="Buying saves you about "+fmt(diff)+" over "+years+" years";
+  } else {
+    document.getElementById("winnerVal").textContent="Leasing";
+    document.getElementById("winnerVal").className="rv yellow";
+    document.getElementById("winnerSub").textContent="Leasing saves you about "+fmt(diff)+" over "+years+" years";
+  }
+}
+calc();
+</script>
+
+</div>
+</body>
+</html>
