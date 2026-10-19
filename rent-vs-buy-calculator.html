@@ -41,6 +41,7 @@ input:focus,select:focus{border-color:var(--yellow)}
 @media(max-width:640px){.grid2,.grid3,.bkd{grid-template-columns:1fr}}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}</style>
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
@@ -88,7 +89,7 @@ input:focus,select:focus{border-color:var(--yellow)}
 
 <div class="tips">
   <div style="font-size:14px;font-weight:800;margin-bottom:14px">How this is calculated</div>
-  <div class="tip"><span class="ti">&#128176;</span><div><strong>Cost to buy</strong> = down payment + total mortgage payments + taxes + insurance + maintenance &minus; equity built &minus; home appreciation, over your time horizon.</div></div>
+  <div class="tip"><span class="ti">&#128176;</span><div><strong>Cost to buy</strong> = everything you pay (down payment, mortgage payments, property tax, insurance, maintenance, about 3% closing costs, and about 6% selling costs) minus the equity you own when you sell, which is the home&#39;s future value minus your remaining loan balance.</div></div>
   <div class="tip"><span class="ti">&#128200;</span><div><strong>Cost to rent</strong> assumes your down payment is invested instead, growing at your chosen return rate &mdash; this "opportunity cost" is the key thing simple calculators miss.</div></div>
   <div class="tip"><span class="ti">&#9203;</span><div><strong>Time horizon matters most.</strong> Buying usually wins the longer you stay, since closing costs and early mortgage interest get amortized over more years.</div></div>
 </div>
@@ -140,7 +141,7 @@ function calc(){
   var equity=futureHomeValue-balance;
   var closingCostsBuy=price*0.03;
   var sellingCostsBuy=futureHomeValue*0.06;
-  var netCostBuy = down+totalMortgagePaid+totalTax+totalMaint+totalIns+closingCostsBuy+sellingCostsBuy - (equity-down);
+  var netCostBuy = down+totalMortgagePaid+totalTax+totalMaint+totalIns+closingCostsBuy+sellingCostsBuy - equity;
 
   var totalRentPaid=0;
   for(var ry=0;ry<years;ry++){
@@ -168,5 +169,11 @@ calc();
 </script>
 
 </div>
+<section class="dy9-info">
+<div class="dy9-card"><h2>How it works</h2><p>The buying side adds up everything you pay over your time horizon: the down payment, mortgage payments, property tax and maintenance (both a percentage of the home&#39;s value as it appreciates), insurance that rises about 2% a year, about 3% of the price in closing costs, and about 6% of the future value in selling costs. From that it subtracts the equity you own at the end, which is the home&#39;s future value minus your remaining loan balance.</p><p>The renting side adds up your rent, which grows by your annual increase, and subtracts the investment gain you would earn by investing the down payment instead. Whichever net cost is lower wins.</p></div>
+<div class="dy9-card"><h2>Frequently asked questions</h2><h3>What does this leave out?</h3><p>Mortgage interest and property tax deductions, mortgage insurance, HOA dues, moving costs, and the value of stability or flexibility. It also assumes steady appreciation and investment returns, which real markets do not deliver.</p><h3>How long do I need to stay for buying to win?</h3><p>Try different values for the years you will stay. Buying costs are heavily front-loaded by closing costs and early interest, so shorter stays often favor renting and longer stays favor buying.</p><h3>Why does the investment return matter?</h3><p>Money used for a down payment could be invested instead. A higher assumed return makes renting more attractive, and a lower one makes buying more attractive.</p><h3>Is renting &ldquo;throwing money away&rdquo;?</h3><p>Not necessarily. Owners also pay interest, taxes, insurance, and upkeep that they never get back. The calculator shows which path costs less on your numbers.</p></div>
+<div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/concrete-calculator.html">Concrete Calculator</a></li><li><a href="/mulch-soil-gravel-calculator.html">Mulch, Soil &amp; Gravel Calculator</a></li><li><a href="/flooring-calculator.html">Flooring Calculator</a></li><li><a href="/btu-calculator.html">AC Size (BTU) Calculator</a></li></ul></div>
+</section>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
 </html>

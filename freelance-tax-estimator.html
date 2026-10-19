@@ -4,9 +4,11 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Free Freelance &amp; 1099 Tax Estimator &mdash; DIY9lives</title>
-<meta name="description" content="Estimate self-employment tax and quarterly payments on your 1099 or freelance income. See what to actually set aside."/>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<title>Free Freelance &amp; 1099 Tax Estimator (2026) &mdash; Self-Employment Tax | DIY9lives</title>
+<meta name="description" content="Estimate self-employment tax and federal income tax on your 1099 or freelance income using 2026 brackets, and see what to set aside each quarter. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
@@ -15,140 +17,198 @@ body{background:var(--black);color:var(--white);font-family:system-ui,-apple-sys
 .hero{text-align:center;margin-bottom:36px}
 .ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
 h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
-.sub{font-size:15px;color:#888;max-width:460px;margin:0 auto;line-height:1.6}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
 .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
 .ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.gap{margin-bottom:14px}
 label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
-input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
-input:focus,select:focus{border-color:var(--yellow)}
+input,select,textarea{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
+.check{display:flex;align-items:center;gap:10px;margin-top:14px}
+.check input{width:18px;height:18px;accent-color:#FFE500;display:inline-block;padding:0}
+.check label{margin:0;text-transform:none;letter-spacing:0;font-size:13px;color:#ccc;font-weight:600}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabbtn{flex:1;background:#111;border:1px solid var(--border);color:#888;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center}
+.tabbtn.active{background:var(--yellow);color:#000;border-color:var(--yellow)}
 .result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
 .rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
-.rv{font-size:48px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
-.rs{font-size:13px;color:#666;margin-top:8px}
-.bkd{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
-.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
-.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
-.bkv{font-size:15px;font-weight:800}
+.rv{font-size:46px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#777;margin-top:8px}
+.bkd{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.bkd.c3{grid-template-columns:repeat(3,1fr)}
+.bkd.c4{grid-template-columns:repeat(4,1fr)}
+.bk{background:#111;border-radius:10px;padding:14px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.bkv{font-size:20px;font-weight:800}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:8px 6px;font-weight:700;border-bottom:1px solid var(--border)}
+td{padding:9px 6px;border-top:1px solid #1b1b1b}
+.room-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:center}
+.rmbtn{background:#1a1010;border:1px solid #3a1010;color:var(--coral);width:38px;height:38px;border-radius:8px;cursor:pointer;font-size:16px;font-family:inherit}
+.addbtn{background:#111;border:1px dashed var(--border);color:var(--yellow);width:100%;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:4px}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:12px}
+.green{color:var(--green)}.yellow{color:var(--yellow)}
 .tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
 .tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
 .tip:last-child{margin:0;padding:0;border:none}
 .tip strong{color:var(--white)}
 .ti{font-size:18px;flex-shrink:0}
-.breakdown{font-size:13px;color:#aaa;line-height:2}
-.breakdown strong{color:#fff}
-@media(max-width:640px){.grid2,.bkd{grid-template-columns:1fr 1fr}}
+.prose h2{font-size:18px;font-weight:800;margin:24px 0 8px}
+.prose h2:first-child{margin-top:0}
+.prose p{color:#aaa;margin-bottom:10px;font-size:14px;line-height:1.75}
+.prose ul{margin:0 0 10px 20px;color:#aaa;font-size:14px;line-height:1.75}
+.prose a{color:#FFE500}
+.prose strong{color:#fff}
+@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}.bkd,.bkd.c3,.bkd.c4{grid-template-columns:1fr 1fr}.room-row{grid-template-columns:1fr 1fr auto}.room-row input:first-child{grid-column:1/-1}}
 </style>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}</style>
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
   <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
-  <a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
 </nav>
 <div class="page">
-<div class="hero"><div class="ey">Freelance &amp; 1099 Tax Estimator</div><h1>What should you<br>set aside for taxes?</h1><p class="sub">Estimate self-employment tax plus federal income tax on your 1099/freelance income, and your quarterly payment.</p></div>
+
+<div class="hero"><div class="ey">Freelance &amp; 1099 Tax Estimator &middot; Tax Year 2026</div><h1>What should you<br>set aside for taxes?</h1><p class="sub">Estimate self-employment tax plus the federal income tax your freelance income adds, and what that means per quarter.</p></div>
 
 <div class="result-big">
-  <div class="rl">Set Aside for Taxes</div>
+  <div class="rl">Set aside for taxes</div>
   <div class="rv" id="totalTaxVal">--</div>
   <div class="rs" id="totalTaxSub">Fill in your details below</div>
-  <div class="bkd">
-    <div class="bk"><div class="bkl">Self-Employ. Tax</div><div class="bkv" id="seTaxVal">--</div></div>
-    <div class="bk"><div class="bkl">Federal Income Tax</div><div class="bkv" id="fedTaxVal">--</div></div>
-    <div class="bk"><div class="bkl">Effective Rate</div><div class="bkv yellow" id="effRateVal">--</div></div>
-    <div class="bk"><div class="bkl">Per Quarter</div><div class="bkv green" id="quarterVal">--</div></div>
+  <div class="bkd c4">
+    <div class="bk"><div class="bkl">Self-employment tax</div><div class="bkv" id="seTaxVal">--</div></div>
+    <div class="bk"><div class="bkl">Federal income tax</div><div class="bkv" id="fedTaxVal">--</div></div>
+    <div class="bk"><div class="bkl">Of net profit</div><div class="bkv yellow" id="effRateVal">--</div></div>
+    <div class="bk"><div class="bkl">Per quarter</div><div class="bkv green" id="quarterVal">--</div></div>
   </div>
 </div>
 
 <div class="card">
-  <div class="ct">&#128188; Your Numbers</div>
-  <div class="grid2" style="margin-bottom:14px">
-    <div><label>Annual 1099/Freelance Income</label><input type="number" id="income" value="80000" oninput="calc()"/></div>
-    <div><label>Business Expenses (deductible)</label><input type="number" id="expenses" value="8000" oninput="calc()"/></div>
-    <div><label>Filing Status</label><select id="filing" onchange="calc()">
+  <div class="ct">&#128188; Your numbers</div>
+  <div class="grid2 gap">
+    <div><label>Freelance / 1099 income (year)</label><input type="number" id="income" value="80000" oninput="calc()"/></div>
+    <div><label>Business expenses (deductible)</label><input type="number" id="expenses" value="8000" oninput="calc()"/></div>
+    <div><label>Filing status</label><select id="filing" onchange="calc()">
       <option value="single" selected>Single</option>
-      <option value="mfj">Married Filing Jointly</option>
-      <option value="hoh">Head of Household</option>
+      <option value="mfj">Married filing jointly</option>
+      <option value="hoh">Head of household</option>
     </select></div>
-    <div><label>Other W-2 Income (if any)</label><input type="number" id="otherIncome" value="0" oninput="calc()"/></div>
+    <div><label>Other income (W-2 wages, spouse's income)</label><input type="number" id="otherIncome" value="0" oninput="calc()"/></div>
+  </div>
+  <div class="check">
+    <input type="checkbox" id="qbi" checked onchange="calc()"/>
+    <label for="qbi">Include the 20% qualified business income (QBI) deduction</label>
   </div>
 </div>
 
 <div class="card">
   <div class="ct">&#128202; Breakdown</div>
-  <div class="breakdown" id="breakdownText"></div>
+  <div id="breakdownText" style="font-size:13px;color:#aaa;line-height:2"></div>
 </div>
 
 <div class="tips">
-  <div style="font-size:14px;font-weight:800;margin-bottom:14px">How this works</div>
-  <div class="tip"><span class="ti">&#128179;</span><div><strong>Self-employment tax is 15.3%</strong> of 92.35% of your net profit (Social Security + Medicare) &mdash; this is on top of regular income tax, and it's the part W-2 employees don't see because employers split it with them.</div></div>
-  <div class="tip"><span class="ti">&#128197;</span><div><strong>Quarterly estimated payments</strong> are due mid-April, June, September, and January. Missing them can trigger IRS underpayment penalties even if you pay in full by April.</div></div>
-  <div class="tip"><span class="ti">&#9888;</span><div><strong>This is an estimate, not tax advice.</strong> It uses simplified 2024 federal brackets and the standard deduction. A CPA can find deductions this tool can't account for.</div></div>
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Good to know</div>
+  <div class="tip"><span class="ti">&#128197;</span><div><strong>Built on 2026 figures:</strong> IRS tax brackets and standard deductions from Rev. Proc. 2025-32, and the $184,500 Social Security wage base. State income tax is not included, so add your state's rate if it has one.</div></div>
+  <div class="tip"><span class="ti">&#128179;</span><div><strong>Self-employment tax</strong> is 15.3% of 92.35% of your net profit: 12.4% for Social Security (only up to the wage base) plus 2.9% for Medicare. It's on top of income tax, because you pay both the employee and employer halves.</div></div>
+  <div class="tip"><span class="ti">&#9888;</span><div><strong>This is an estimate, not tax advice.</strong> It assumes the standard deduction and no other credits. If you also have a job, tax already withheld from your paychecks is not counted here, only the extra tax your freelance income creates.</div></div>
 </div>
 
+</div>
+<section class="dy9-info">
+<div class="dy9-card"><h2>How it works</h2><p>Net profit is your income minus business expenses. Self-employment tax is 15.3% of 92.35% of that profit: 12.4% for Social Security, applied only up to the $184,500 wage base (reduced by any W-2 wages you also earn), plus 2.9% for Medicare. A 0.9% Medicare surtax applies above $200,000 for single and head-of-household filers and $250,000 for joint filers.</p><p>Half of the self-employment tax is deductible. The tool then subtracts the 2026 standard deduction and, if you leave it checked, the 20% qualified business income (QBI) deduction when your taxable income is below $201,750 (single or head of household) or $403,500 (joint). Brackets come from IRS Rev. Proc. 2025-32. The federal figure shown is only the extra income tax your freelance income creates, compared with your other income alone.</p></div>
+<div class="dy9-card"><h2>Frequently asked questions</h2><h3>How much should I set aside from each payment?</h3><p>The &ldquo;of net profit&rdquo; percentage shows what share of your freelance profit this estimate sets aside. Many freelancers move that percentage into a separate savings account every time they get paid.</p><h3>When are quarterly estimated taxes due?</h3><p>Estimated payments are generally due in mid-April, mid-June, mid-September, and mid-January. If you are reading this late in the year, the final payment for the year is typically due in January.</p><h3>What is the QBI deduction?</h3><p>It lets many self-employed people deduct up to 20% of their qualified business income. This tool applies it only below the income thresholds, because above them extra limits apply that need a tax professional.</p><h3>Does this include state income tax?</h3><p>No. This is federal only. If your state taxes income, add your state&#39;s rate on top of the amount shown.</p><h3>Can I avoid underpayment penalties?</h3><p>The IRS has safe-harbor rules based on paying a share of this year&#39;s tax or of last year&#39;s tax through the year. Ask a tax professional which applies to you, since it depends on your income and prior-year return.</p></div>
+<div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/proposal.html">Proposal Generator</a></li><li><a href="/invoice.html">Invoice Builder</a></li><li><a href="/rate-calculator.html">Hourly Rate Calculator</a></li><li><a href="/cold-email.html">Cold Email Writer</a></li></ul></div>
+</section>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>
-function fmt(n){ return "$"+Math.round(n).toLocaleString(); }
-var stdDeduction={single:14600,mfj:29200,hoh:21900};
-var brackets={
-  single:[[0,0.10],[11600,0.12],[47150,0.22],[100525,0.24],[191950,0.32],[243725,0.35],[609350,0.37]],
-  mfj:[[0,0.10],[23200,0.12],[94300,0.22],[201050,0.24],[383900,0.32],[487450,0.35],[731200,0.37]],
-  hoh:[[0,0.10],[16550,0.12],[63100,0.22],[100500,0.24],[191950,0.32],[243700,0.35],[609350,0.37]]
+var STD={single:16100,mfj:32200,hoh:24150};
+var BR={
+  single:[[0,0.10],[12400,0.12],[50400,0.22],[105700,0.24],[201775,0.32],[256225,0.35],[640600,0.37]],
+  mfj:[[0,0.10],[24800,0.12],[100800,0.22],[211400,0.24],[403550,0.32],[512450,0.35],[768700,0.37]],
+  hoh:[[0,0.10],[17700,0.12],[67450,0.22],[105700,0.24],[201750,0.32],[256200,0.35],[640600,0.37]]
 };
-function progressiveTax(taxable,status){
-  var b=brackets[status];
+var QBI_THR={single:201750,mfj:403500,hoh:201750};
+var ADDL_THR={single:200000,mfj:250000,hoh:200000};
+var SS_BASE=184500;
+var NAMES={single:'Single',mfj:'Married filing jointly',hoh:'Head of household'};
+
+function money(n){ return '$'+Math.round(n).toLocaleString(); }
+function num(id){ return parseFloat(document.getElementById(id).value)||0; }
+function taxFrom(taxable,status){
+  var b=BR[status];
   var tax=0;
   for(var i=0;i<b.length;i++){
-    var lower=b[i][0];
+    var lo=b[i][0];
     var rate=b[i][1];
-    var upper = i+1<b.length ? b[i+1][0] : Infinity;
-    if(taxable>lower){
-      tax += (Math.min(taxable,upper)-lower)*rate;
-    } else break;
+    var hi=(i+1<b.length) ? b[i+1][0] : Infinity;
+    if(taxable>lo){ tax+=(Math.min(taxable,hi)-lo)*rate; } else { break; }
   }
   return tax;
 }
+function estimate(income,expenses,status,other,useQbi){
+  var profit=Math.max(0,income-expenses);
+  var seBase=profit*0.9235;
+  var seApplies=seBase>=400;
+  var ssRoom=Math.max(0,SS_BASE-other);
+  var ss=seApplies ? 0.124*Math.min(seBase,ssRoom) : 0;
+  var med=seApplies ? 0.029*seBase : 0;
+  var addl=seApplies ? 0.009*Math.max(0,seBase-Math.max(0,ADDL_THR[status]-other)) : 0;
+  var seTax=ss+med;
+  var halfSe=seTax/2;
+  var std=STD[status];
+  var agi=profit-halfSe+other;
+  var beforeQbi=Math.max(0,agi-std);
+  var qbi=0;
+  var qbiNote='';
+  if(useQbi && profit>0){
+    if(beforeQbi<=QBI_THR[status]){
+      qbi=Math.min(0.2*Math.max(0,profit-halfSe),0.2*beforeQbi);
+    } else {
+      qbiNote='QBI deduction not applied: your taxable income is above '+money(QBI_THR[status])+', where extra limits apply. Ask a tax pro.';
+    }
+  }
+  var taxable=beforeQbi-qbi;
+  var fedWith=taxFrom(taxable,status);
+  var fedBase=taxFrom(Math.max(0,other-std),status);
+  var fedInc=fedWith-fedBase;
+  var total=seTax+addl+fedInc;
+  return {profit:profit,seBase:seBase,ss:ss,med:med,addl:addl,seTax:seTax,halfSe:halfSe,std:std,beforeQbi:beforeQbi,qbi:qbi,qbiNote:qbiNote,taxable:taxable,fedInc:fedInc,total:total};
+}
 function calc(){
-  var income=parseFloat(document.getElementById("income").value)||0;
-  var expenses=parseFloat(document.getElementById("expenses").value)||0;
-  var status=document.getElementById("filing").value;
-  var otherIncome=parseFloat(document.getElementById("otherIncome").value)||0;
-
-  var netProfit=Math.max(0,income-expenses);
-  var seTaxableBase=netProfit*0.9235;
-  var seTax=seTaxableBase*0.153;
-  var seTaxDeduction=seTax/2;
-
-  var totalGross=netProfit+otherIncome;
-  var agi=totalGross-seTaxDeduction;
-  var stdDed=stdDeduction[status];
-  var taxable=Math.max(0,agi-stdDed);
-  var fedTax=progressiveTax(taxable,status);
-
-  var totalTax=seTax+fedTax;
-  var effRate = totalGross>0 ? (totalTax/totalGross*100) : 0;
-
-  document.getElementById("totalTaxVal").textContent=fmt(totalTax);
-  document.getElementById("totalTaxSub").textContent="Estimated total tax owed on "+fmt(netProfit)+" net profit";
-  document.getElementById("seTaxVal").textContent=fmt(seTax);
-  document.getElementById("fedTaxVal").textContent=fmt(fedTax);
-  document.getElementById("effRateVal").textContent=effRate.toFixed(1)+"%";
-  document.getElementById("quarterVal").textContent=fmt(totalTax/4);
-
-  document.getElementById("breakdownText").innerHTML=
-    "Gross freelance income: <strong>"+fmt(income)+"</strong><br>"+
-    "Business expenses: <strong>-"+fmt(expenses)+"</strong><br>"+
-    "Net profit: <strong>"+fmt(netProfit)+"</strong><br>"+
-    "Self-employment tax (15.3% of 92.35% of profit): <strong>"+fmt(seTax)+"</strong><br>"+
-    "Half of SE tax deducted from income: <strong>-"+fmt(seTaxDeduction)+"</strong><br>"+
-    "Standard deduction ("+status.toUpperCase()+"): <strong>-"+fmt(stdDed)+"</strong><br>"+
-    "Taxable income: <strong>"+fmt(taxable)+"</strong><br>"+
-    "Federal income tax: <strong>"+fmt(fedTax)+"</strong><br><br>"+
-    "<span style='color:#FFE500;font-weight:800'>Total to set aside: "+fmt(totalTax)+" ("+effRate.toFixed(1)+"% of gross)</span>";
+  var income=num('income');
+  var expenses=num('expenses');
+  var status=document.getElementById('filing').value;
+  var other=num('otherIncome');
+  var useQbi=document.getElementById('qbi').checked;
+  var r=estimate(income,expenses,status,other,useQbi);
+  var seShown=r.seTax+r.addl;
+  document.getElementById('totalTaxVal').textContent=money(r.total);
+  document.getElementById('totalTaxSub').textContent='Estimated extra tax on '+money(r.profit)+' of net freelance profit';
+  document.getElementById('seTaxVal').textContent=money(seShown);
+  document.getElementById('fedTaxVal').textContent=money(r.fedInc);
+  document.getElementById('effRateVal').textContent=(r.profit>0 ? (r.total/r.profit*100).toFixed(1) : '0.0')+'%';
+  document.getElementById('quarterVal').textContent=money(r.total/4);
+  var h='Freelance income: <strong>'+money(income)+'</strong><br>';
+  h+='Business expenses: <strong>-'+money(expenses)+'</strong><br>';
+  h+='Net profit: <strong>'+money(r.profit)+'</strong><br>';
+  h+='Social Security tax (12.4%, up to the $184,500 wage base): <strong>'+money(r.ss)+'</strong><br>';
+  h+='Medicare tax (2.9%): <strong>'+money(r.med)+'</strong><br>';
+  if(r.addl>0){ h+='Additional Medicare tax (0.9% over the threshold): <strong>'+money(r.addl)+'</strong><br>'; }
+  h+='Half of self-employment tax, deducted from income: <strong>-'+money(r.halfSe)+'</strong><br>';
+  if(other>0){ h+='Other income: <strong>'+money(other)+'</strong><br>'; }
+  h+='Standard deduction ('+NAMES[status]+'): <strong>-'+money(r.std)+'</strong><br>';
+  if(r.qbi>0){ h+='QBI deduction (20%): <strong>-'+money(r.qbi)+'</strong><br>'; }
+  h+='Taxable income: <strong>'+money(r.taxable)+'</strong><br>';
+  h+='Federal income tax added by your freelance income: <strong>'+money(r.fedInc)+'</strong><br>';
+  if(r.qbiNote){ h+='<span style="color:#FF8800">'+r.qbiNote+'</span><br>'; }
+  h+='<br><span style="color:#FFE500;font-weight:800">Total to set aside: '+money(r.total)+'</span>';
+  document.getElementById('breakdownText').innerHTML=h;
 }
 calc();
 </script>
 
-</div>
 </body>
 </html>

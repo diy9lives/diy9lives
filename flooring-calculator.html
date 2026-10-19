@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Flooring Calculator &mdash; How Many Boxes Do I Need? | DIY9lives</title>
+<meta name="description" content="Calculate how many boxes of flooring you need for one or more rooms, including waste for cuts and layout. Estimates cost too. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.gap{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select,textarea{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
+.check{display:flex;align-items:center;gap:10px;margin-top:14px}
+.check input{width:18px;height:18px;accent-color:#FFE500;display:inline-block;padding:0}
+.check label{margin:0;text-transform:none;letter-spacing:0;font-size:13px;color:#ccc;font-weight:600}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabbtn{flex:1;background:#111;border:1px solid var(--border);color:#888;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center}
+.tabbtn.active{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:46px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#777;margin-top:8px}
+.bkd{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.bkd.c3{grid-template-columns:repeat(3,1fr)}
+.bkd.c4{grid-template-columns:repeat(4,1fr)}
+.bk{background:#111;border-radius:10px;padding:14px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.bkv{font-size:20px;font-weight:800}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:8px 6px;font-weight:700;border-bottom:1px solid var(--border)}
+td{padding:9px 6px;border-top:1px solid #1b1b1b}
+.room-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:center}
+.rmbtn{background:#1a1010;border:1px solid #3a1010;color:var(--coral);width:38px;height:38px;border-radius:8px;cursor:pointer;font-size:16px;font-family:inherit}
+.addbtn{background:#111;border:1px dashed var(--border);color:var(--yellow);width:100%;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:4px}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:12px}
+.green{color:var(--green)}.yellow{color:var(--yellow)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+.prose h2{font-size:18px;font-weight:800;margin:24px 0 8px}
+.prose h2:first-child{margin-top:0}
+.prose p{color:#aaa;margin-bottom:10px;font-size:14px;line-height:1.75}
+.prose ul{margin:0 0 10px 20px;color:#aaa;font-size:14px;line-height:1.75}
+.prose a{color:#FFE500}
+.prose strong{color:#fff}
+@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}.bkd,.bkd.c3,.bkd.c4{grid-template-columns:1fr 1fr}.room-row{grid-template-columns:1fr 1fr auto}.room-row input:first-child{grid-column:1/-1}}
+</style>
+<style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+
+<div class="hero"><div class="ey">Flooring Calculator</div><h1>How many boxes<br>of flooring?</h1><p class="sub">Add your rooms, pick a layout for waste, and see exactly how many boxes to buy and what it'll cost.</p></div>
+
+<div class="card">
+  <div class="ct">&#128208; Rooms</div>
+  <div id="roomList"></div>
+  <button class="addbtn" id="addRoomBtn">+ Add another room</button>
+</div>
+
+<div class="card">
+  <div class="ct">&#129529; Waste, boxes &amp; price</div>
+  <label>Extra for cuts and waste (%)</label>
+  <div class="tabs">
+    <button class="tabbtn wbtn" data-w="5">5% &middot; simple</button>
+    <button class="tabbtn wbtn" data-w="10">10% &middot; straight</button>
+    <button class="tabbtn wbtn" data-w="15">15% &middot; diagonal</button>
+    <button class="tabbtn wbtn" data-w="20">20% &middot; pattern</button>
+  </div>
+  <div class="grid3">
+    <div><label>Waste %</label><input type="number" id="waste" value="10" oninput="calc()"/></div>
+    <div><label>Sq ft per box</label><input type="number" id="cover" value="20" step="0.1" oninput="calc()"/></div>
+    <div><label>Price per sq ft ($)</label><input type="number" id="price" value="3.00" step="0.01" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="result-big">
+  <div class="rl">Boxes to buy</div>
+  <div class="rv" id="boxVal">--</div>
+  <div class="rs" id="boxSub">--</div>
+  <div class="bkd c3">
+    <div class="bk"><div class="bkl">Room area</div><div class="bkv" id="areaVal">--</div></div>
+    <div class="bk"><div class="bkl">With waste</div><div class="bkv" id="wasteVal">--</div></div>
+    <div class="bk"><div class="bkl">Estimated cost</div><div class="bkv" id="costVal">--</div></div>
+  </div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Good to know</div>
+  <div class="tip"><span class="ti">&#9986;</span><div><strong>Why waste matters:</strong> cuts at walls and mistakes eat material. Straight layouts need about 10%, diagonal about 15%, and herringbone or patterned layouts 20% or more.</div></div>
+  <div class="tip"><span class="ti">&#128230;</span><div><strong>You buy whole boxes,</strong> so cost is based on boxes times coverage, not just your square footage. Buying one spare box is cheap insurance for future repairs.</div></div>
+  <div class="tip"><span class="ti">&#127912;</span><div><strong>Dye lots vary.</strong> Buy everything from the same batch, and don't count closets or other areas unless you're flooring them too.</div></div>
+</div>
+
+</div>
+<section class="dy9-info">
+<div class="dy9-card"><h2>How it works</h2><p>Each room&#39;s area is length &times; width, and the tool adds all rooms together. Your waste percentage increases that total to cover cuts and mistakes. Boxes needed are the total with waste divided by the square feet per box, rounded up, because flooring is sold by the whole box. Estimated cost is boxes &times; square feet per box &times; price per square foot, so it reflects the full boxes you actually buy.</p></div>
+<div class="dy9-card"><h2>Frequently asked questions</h2><h3>How much waste should I plan for?</h3><p>Straight layouts usually need about 10%, diagonal about 15%, and herringbone or other patterns 20% or more. Rooms with many corners or angles need extra.</p><h3>Should I buy an extra box?</h3><p>It is a good idea. Dye lots vary between batches and a spare box makes future repairs far easier.</p><h3>Should I include closets and hallways?</h3><p>Only the spaces that will actually get new flooring. Add each as its own room so the total is right.</p><h3>Does cost include underlayment and installation?</h3><p>No. The cost covers the flooring boxes only. Underlayment, trim, adhesive, tools, and labor are extra.</p></div>
+<div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/btu-calculator.html">AC Size (BTU) Calculator</a></li><li><a href="/home-renovation-roi.html">Home Renovation ROI</a></li><li><a href="/paint-calculator.html">Paint Calculator</a></li><li><a href="/solar-savings-calculator.html">Solar Panel Savings Calculator</a></li></ul></div>
+</section>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<script>
+function num(id){ return parseFloat(document.getElementById(id).value)||0; }
+function addRoom(name,l,w){
+  var wrap=document.createElement('div');
+  wrap.className='room-row';
+  var n=document.createElement('input'); n.type='text'; n.placeholder='Room name'; n.value=name||'';
+  var a=document.createElement('input'); a.type='number'; a.placeholder='Length ft'; a.value=(l===undefined?'':l);
+  var b=document.createElement('input'); b.type='number'; b.placeholder='Width ft'; b.value=(w===undefined?'':w);
+  var x=document.createElement('button'); x.className='rmbtn'; x.textContent='\u00d7';
+  n.addEventListener('input',calc);
+  a.addEventListener('input',calc);
+  b.addEventListener('input',calc);
+  x.addEventListener('click',function(){ wrap.remove(); calc(); });
+  wrap.appendChild(n); wrap.appendChild(a); wrap.appendChild(b); wrap.appendChild(x);
+  document.getElementById('roomList').appendChild(wrap);
+  calc();
+}
+function calc(){
+  var total=0;
+  var rows=document.querySelectorAll('.room-row');
+  for(var i=0;i<rows.length;i++){
+    var inp=rows[i].querySelectorAll('input');
+    total+=(parseFloat(inp[1].value)||0)*(parseFloat(inp[2].value)||0);
+  }
+  var waste=num('waste');
+  var withWaste=total*(1+waste/100);
+  var cover=num('cover')||20;
+  var boxes=withWaste>0 ? Math.ceil(withWaste/cover-1e-9) : 0;
+  var price=num('price');
+  var cost=boxes*cover*price;
+  document.getElementById('boxVal').textContent=boxes;
+  document.getElementById('boxSub').textContent=boxes+' box'+(boxes===1?'':'es')+' cover '+(boxes*cover).toFixed(0)+' sq ft, leaving about '+Math.max(0,boxes*cover-withWaste).toFixed(0)+' sq ft spare';
+  document.getElementById('areaVal').textContent=total.toFixed(0)+' sq ft';
+  document.getElementById('wasteVal').textContent=withWaste.toFixed(0)+' sq ft';
+  document.getElementById('costVal').textContent='$'+Math.round(cost).toLocaleString();
+  var btns=document.querySelectorAll('.wbtn');
+  for(var j=0;j<btns.length;j++){
+    btns[j].classList.toggle('active', parseFloat(btns[j].getAttribute('data-w'))===waste);
+  }
+}
+var wb=document.querySelectorAll('.wbtn');
+for(var k=0;k<wb.length;k++){
+  wb[k].addEventListener('click',function(){
+    document.getElementById('waste').value=this.getAttribute('data-w');
+    calc();
+  });
+}
+document.getElementById('addRoomBtn').addEventListener('click',function(){ addRoom('',undefined,undefined); });
+addRoom('Living room',16,14);
+addRoom('Hallway',12,4);
+</script>
+
+</body>
+</html>

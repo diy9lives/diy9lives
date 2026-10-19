@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Free Road Trip Cost Calculator &mdash; Gas, Tolls &amp; Hotels | DIY9lives</title>
+<meta name="description" content="Estimate the total cost of a road trip including fuel, tolls, lodging, and food, and see what each traveler owes. Free, no login."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;--blue:#3b82f6}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.ct{font-size:14px;font-weight:800;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.gap{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select,textarea{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
+.check{display:flex;align-items:center;gap:10px;margin-top:14px}
+.check input{width:18px;height:18px;accent-color:#FFE500;display:inline-block;padding:0}
+.check label{margin:0;text-transform:none;letter-spacing:0;font-size:13px;color:#ccc;font-weight:600}
+.tabs{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tabbtn{flex:1;background:#111;border:1px solid var(--border);color:#888;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;text-align:center}
+.tabbtn.active{background:var(--yellow);color:#000;border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:28px;text-align:center;margin-bottom:16px}
+.rl{font-size:11px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.rv{font-size:46px;font-weight:900;color:var(--yellow);letter-spacing:-0.03em;line-height:1.1}
+.rs{font-size:13px;color:#777;margin-top:8px}
+.bkd{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.bkd.c3{grid-template-columns:repeat(3,1fr)}
+.bkd.c4{grid-template-columns:repeat(4,1fr)}
+.bk{background:#111;border-radius:10px;padding:14px;text-align:center}
+.bkl{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
+.bkv{font-size:20px;font-weight:800}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}
+th{font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);text-align:left;padding:8px 6px;font-weight:700;border-bottom:1px solid var(--border)}
+td{padding:9px 6px;border-top:1px solid #1b1b1b}
+.room-row{display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:10px;margin-bottom:10px;align-items:center}
+.rmbtn{background:#1a1010;border:1px solid #3a1010;color:var(--coral);width:38px;height:38px;border-radius:8px;cursor:pointer;font-size:16px;font-family:inherit}
+.addbtn{background:#111;border:1px dashed var(--border);color:var(--yellow);width:100%;padding:10px;border-radius:8px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:4px}
+.btn{width:100%;padding:13px;border-radius:10px;border:none;background:var(--yellow);color:#000;font-family:inherit;font-size:15px;font-weight:800;cursor:pointer;margin-top:12px}
+.green{color:var(--green)}.yellow{color:var(--yellow)}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:22px;margin-top:14px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip strong{color:var(--white)}
+.ti{font-size:18px;flex-shrink:0}
+.prose h2{font-size:18px;font-weight:800;margin:24px 0 8px}
+.prose h2:first-child{margin-top:0}
+.prose p{color:#aaa;margin-bottom:10px;font-size:14px;line-height:1.75}
+.prose ul{margin:0 0 10px 20px;color:#aaa;font-size:14px;line-height:1.75}
+.prose a{color:#FFE500}
+.prose strong{color:#fff}
+@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}.bkd,.bkd.c3,.bkd.c4{grid-template-columns:1fr 1fr}.room-row{grid-template-columns:1fr 1fr auto}.room-row input:first-child{grid-column:1/-1}}
+</style>
+<style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a>
+</nav>
+<div class="page">
+
+<div class="hero"><div class="ey">Road Trip Cost Calculator</div><h1>What will the trip<br>really cost?</h1><p class="sub">Fuel, tolls, and lodging for the whole drive, plus what each traveler owes.</p></div>
+
+<div class="card">
+  <div class="ct">&#128739; The drive</div>
+  <div class="grid3">
+    <div><label>One-way distance (miles)</label><input type="number" id="dist" value="350" oninput="calc()"/></div>
+    <div><label>Your car's MPG</label><input type="number" id="mpg" value="28" oninput="calc()"/></div>
+    <div><label>Gas price ($/gal)</label><input type="number" id="gas" value="3.50" step="0.01" oninput="calc()"/></div>
+  </div>
+  <div class="check">
+    <input type="checkbox" id="round" checked onchange="calc()"/>
+    <label for="round">Round trip (drive back too)</label>
+  </div>
+</div>
+
+<div class="card">
+  <div class="ct">&#127976; Other costs</div>
+  <div class="grid3 gap">
+    <div><label>Tolls &amp; parking ($)</label><input type="number" id="tolls" value="0" oninput="calc()"/></div>
+    <div><label>Hotel nights</label><input type="number" id="nights" value="2" oninput="calc()"/></div>
+    <div><label>Cost per night ($)</label><input type="number" id="rate" value="120" oninput="calc()"/></div>
+  </div>
+  <div class="grid2">
+    <div><label>Food &amp; extras, total ($)</label><input type="number" id="other" value="150" oninput="calc()"/></div>
+    <div><label>Travelers splitting costs</label><input type="number" id="people" value="2" oninput="calc()"/></div>
+  </div>
+</div>
+
+<div class="result-big">
+  <div class="rl">Total trip cost</div>
+  <div class="rv" id="totalVal">--</div>
+  <div class="rs" id="totalSub">--</div>
+  <div class="bkd c4">
+    <div class="bk"><div class="bkl">Fuel</div><div class="bkv" id="fuelVal">--</div></div>
+    <div class="bk"><div class="bkl">Tolls</div><div class="bkv" id="tollVal">--</div></div>
+    <div class="bk"><div class="bkl">Lodging</div><div class="bkv" id="lodgeVal">--</div></div>
+    <div class="bk"><div class="bkl">Food &amp; extras</div><div class="bkv" id="otherVal">--</div></div>
+  </div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Tips</div>
+  <div class="tip"><span class="ti">&#9981;</span><div><strong>Real-world MPG is usually lower than the sticker,</strong> especially on highways at higher speeds, with a loaded car, or with the AC running. If unsure, subtract a few MPG for a safer budget.</div></div>
+  <div class="tip"><span class="ti">&#128178;</span><div><strong>Splitting costs:</strong> the per-person number divides the whole trip evenly, including the driver's share. Adjust the traveler count if some people are only along for part of it.</div></div>
+</div>
+
+</div>
+<section class="dy9-info">
+<div class="dy9-card"><h2>How it works</h2><p>Total miles are your one-way distance, doubled if you check round trip. Gallons are miles &divide; MPG, and fuel cost is gallons &times; the gas price. Lodging is hotel nights &times; the nightly rate. Fuel, tolls and parking, lodging, and food and extras are added into a trip total, which is divided by the number of travelers to get what each person owes.</p></div>
+<div class="dy9-card"><h2>Frequently asked questions</h2><h3>Should I use highway MPG or the combined rating?</h3><p>Use a figure that reflects your trip. Highway driving at high speeds, a full car, and air conditioning all lower real MPG, so subtracting a few MPG makes a safer budget.</p><h3>How do I split costs fairly?</h3><p>The per-person number divides everything evenly, including the driver&#39;s share. If someone joins for only part of the trip or skips the hotel, adjust the traveler count or work out those costs separately.</p><h3>What should I include in the food and extras box?</h3><p>Meals, snacks, activities, parking, and a small cushion for surprises. Many travelers add 10% to 15% for unexpected costs.</p><h3>Does this include wear and tear on my car?</h3><p>No. If you want to count it, add the IRS-style per-mile cost of operating a car or an amount of your own into the extras box.</p></div>
+<div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/car-payment-calculator.html">Car Payment Calculator</a></li><li><a href="/gas-calculator.html">Gas &amp; MPG Calculator</a></li><li><a href="/tire-size-calculator.html">Tire Size Calculator</a></li><li><a href="/vin-decoder.html">VIN Decoder</a></li></ul></div>
+</section>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<script>
+function num(id){ return parseFloat(document.getElementById(id).value)||0; }
+function money(n){ return '$'+Math.round(n).toLocaleString(); }
+function calc(){
+  var dist=num('dist');
+  var mpg=num('mpg')||1;
+  var gas=num('gas');
+  var round=document.getElementById('round').checked;
+  var miles=round ? dist*2 : dist;
+  var gallons=miles/mpg;
+  var fuel=gallons*gas;
+  var tolls=num('tolls');
+  var lodge=num('nights')*num('rate');
+  var other=num('other');
+  var total=fuel+tolls+lodge+other;
+  var people=Math.max(1,num('people'));
+  document.getElementById('totalVal').textContent=money(total);
+  document.getElementById('totalSub').textContent=money(total/people)+' per person for '+people+' traveler'+(people===1?'':'s')+' ('+Math.round(miles).toLocaleString()+' miles, about '+gallons.toFixed(1)+' gallons)';
+  document.getElementById('fuelVal').textContent=money(fuel);
+  document.getElementById('tollVal').textContent=money(tolls);
+  document.getElementById('lodgeVal').textContent=money(lodge);
+  document.getElementById('otherVal').textContent=money(other);
+}
+calc();
+</script>
+
+</body>
+</html>

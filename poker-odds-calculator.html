@@ -55,6 +55,7 @@ select{display:block;width:100%;background:#111;border:1px solid var(--border);b
 @media(max-width:680px){.layout{grid-template-columns:1fr}}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}</style>
 </head>
 <body>
 <nav>
@@ -65,7 +66,7 @@ select{display:block;width:100%;background:#111;border:1px solid var(--border);b
   <div class="hero">
     <div class="ey">&#9824; Poker Odds Calculator</div>
     <h1>Know your odds<br>before you bet.</h1>
-    <p class="sub">Enter your hole cards and board cards. Get instant win probability, pot odds, and hand equity.</p>
+    <p class="sub">Enter your hole cards and board cards. Get win probability from a real simulation, plus outs and pot odds.</p>
   </div>
 
   <div class="result-big">
@@ -88,6 +89,7 @@ select{display:block;width:100%;background:#111;border:1px solid var(--border);b
           <div class="card-slot" id="hole2" onclick="selectSlot('hole2')">Card 2</div>
         </div>
         <div style="margin-top:4px;font-size:11px;color:var(--muted)">Click a slot, then pick a card below</div>
+        <div style="margin-top:14px"><label>Opponents (each holding a random hand)</label><select id="opps" onchange="calcOdds()" style="background:#111;border:1px solid #222;border-radius:8px;padding:10px;color:#FAFAFA;width:100%;font-family:inherit;font-size:14px;outline:none"><option value="1" selected>1 opponent (heads-up)</option><option value="2">2 opponents</option><option value="3">3 opponents</option><option value="4">4 opponents</option><option value="5">5 opponents</option></select></div>
       </div>
       <div class="card">
         <div class="ct">Board Cards (optional)</div>
@@ -226,13 +228,13 @@ function calcOdds() {
   var board=[cards.board1,cards.board2,cards.board3,cards.board4,cards.board5].filter(Boolean);
   var streetName = board.length===0?'pre-flop':board.length===3?'post-flop':board.length===4?'post-turn':'post-river';
   
-  // Simplified equity estimation based on hand type
+  // Monte Carlo equity against random opponent hands
   var equity = estimateEquity(h1, h2, board);
   document.getElementById('winPct').textContent = equity.win+'%';
   document.getElementById('winPct').style.color = equity.win > 50 ? '#00C851' : equity.win > 35 ? '#FFE500' : '#FF4D4D';
   document.getElementById('tiePct').textContent = equity.tie+'%';
   document.getElementById('outsCount').textContent = equity.outs;
-  document.getElementById('resSub').textContent = 'vs average opponent hand ' + streetName + ' | ' + equity.desc;
+  document.getElementById('resSub').textContent = 'vs '+equity.opps+' random hand'+(equity.opps>1?'s':'')+' | '+streetName+' | '+equity.desc;
   calcPotOdds();
 }
 
@@ -241,60 +243,163 @@ function getVal(r) {
   return m[r]||0;
 }
 
-function estimateEquity(h1, h2, board) {
-  var r1=h1[0],s1=h1[1],r2=h2[0],s2=h2[1];
-  var v1=getVal(r1),v2=getVal(r2);
-  var isPair=r1===r2;
-  var isSuited=s1===s2;
-  var gap=Math.abs(v1-v2);
-  var highCard=Math.max(v1,v2);
-  
-  // Base equity pre-flop
-  var base;
-  if(isPair){
-    if(highCard>=14)base=85;
-    else if(highCard>=12)base=80;
-    else if(highCard>=10)base=75;
-    else if(highCard>=8)base=70;
-    else base=65;
-  } else if(highCard===14 && Math.min(v1,v2)>=12){
-    base=isSuited?68:66;
-  } else if(highCard>=12&&gap<=1){
-    base=isSuited?60:57;
-  } else if(highCard>=10&&gap<=2){
-    base=isSuited?55:52;
-  } else if(isSuited&&gap<=2){
-    base=50;
-  } else if(gap<=1){
-    base=48;
-  } else {
-    base=40+highCard/2;
+var RANK_VAL={'2':2,'3':3,'4':4,'5':5,'6':6,'7':7,'8':8,'9':9,'T':10,'J':11,'Q':12,'K':13,'A':14};
+var SUIT_IDX={'s':0,'h':1,'d':2,'c':3};
+var CAT_NAMES=['High card','Pair','Two pair','Three of a kind','Straight','Flush','Full house','Four of a kind','Straight flush'];
+function toCard(str){ return {r:RANK_VAL[str.charAt(0)], s:SUIT_IDX[str.charAt(1)]}; }
+function straightHigh(mask){
+  if(mask & (1<<14)){ mask |= 2; }
+  for(var hi=14; hi>=5; hi--){
+    var need=(31<<(hi-4));
+    if((mask & need)===need){ return hi; }
   }
-  
-  // Adjust for board
-  if(board.length>0){
-    var boardRanks=board.map(function(c){return c[0];});
-    var boardSuits=board.map(function(c){return c[1];});
-    // Pair on board helps pair hands
-    if(boardRanks.includes(r1)||boardRanks.includes(r2)) base=Math.min(base+8,90);
-    // Flush draw
-    var suitCount=[s1,s2].concat(boardSuits).filter(function(s){return s===s1||s===s2;});
-    if(isSuited&&suitCount.filter(function(s){return s===s1;}).length>=3) base=Math.min(base+5,88);
-  }
-  
-  var outs = estimateOuts(h1, h2, board);
-  return {win:Math.min(Math.round(base),97),tie:Math.round(base/20),outs:outs,desc:isPair?'Pocket pair':isSuited?'Suited hand':'Offsuit hand'};
+  return 0;
 }
-
-function estimateOuts(h1,h2,board){
-  if(!board.length) return '--';
-  var r1=h1[0],s1=h1[1],r2=h2[0],s2=h2[1];
-  var bRanks=board.map(function(c){return c[0];});
-  var bSuits=board.map(function(c){return c[1];});
+function packRanks(arr){
+  var v=0;
+  for(var i=0;i<5;i++){ v=(v<<4)|(arr[i]||0); }
+  return v;
+}
+function evalHand(cards){
+  var rc=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+  var sm=[0,0,0,0];
+  var sr=[[],[],[],[]];
+  var mask=0;
+  var i,r,s;
+  for(i=0;i<cards.length;i++){
+    var c=cards[i];
+    rc[c.r]++; sm[c.s]|=(1<<c.r); sr[c.s].push(c.r); mask|=(1<<c.r);
+  }
+  var flushSuit=-1;
+  for(s=0;s<4;s++){ if(sr[s].length>=5){ flushSuit=s; } }
+  if(flushSuit>=0){
+    var sh=straightHigh(sm[flushSuit]);
+    if(sh){ return (8<<20)|packRanks([sh]); }
+  }
+  var quad=0, trips=[], pairs=[];
+  for(r=14;r>=2;r--){
+    if(rc[r]===4){ quad=r; }
+    else if(rc[r]===3){ trips.push(r); }
+    else if(rc[r]===2){ pairs.push(r); }
+  }
+  if(quad){
+    var k=0;
+    for(r=14;r>=2;r--){ if(r!==quad && rc[r]>0){ k=r; break; } }
+    return (7<<20)|packRanks([quad,k]);
+  }
+  if(trips.length>=1 && (trips.length>=2 || pairs.length>=1)){
+    var t=trips[0];
+    var p=(trips.length>=2) ? Math.max(trips[1], pairs.length?pairs[0]:0) : pairs[0];
+    return (6<<20)|packRanks([t,p]);
+  }
+  if(flushSuit>=0){
+    var fr=sr[flushSuit].slice().sort(function(a,b){return b-a;}).slice(0,5);
+    return (5<<20)|packRanks(fr);
+  }
+  var st=straightHigh(mask);
+  if(st){ return (4<<20)|packRanks([st]); }
+  if(trips.length){
+    var ks=[];
+    for(r=14;r>=2 && ks.length<2;r--){ if(r!==trips[0] && rc[r]>0){ ks.push(r); } }
+    return (3<<20)|packRanks([trips[0],ks[0],ks[1]]);
+  }
+  if(pairs.length>=2){
+    var kk=0;
+    for(r=14;r>=2;r--){ if(r!==pairs[0] && r!==pairs[1] && rc[r]>0){ kk=r; break; } }
+    return (2<<20)|packRanks([pairs[0],pairs[1],kk]);
+  }
+  if(pairs.length===1){
+    var k2=[];
+    for(r=14;r>=2 && k2.length<3;r--){ if(r!==pairs[0] && rc[r]>0){ k2.push(r); } }
+    return (1<<20)|packRanks([pairs[0],k2[0],k2[1],k2[2]]);
+  }
+  var hs=[];
+  for(r=14;r>=2 && hs.length<5;r--){ if(rc[r]>0){ hs.push(r); } }
+  return packRanks(hs);
+}
+function mulberry32(a){
+  return function(){
+    a|=0; a=a+0x6D2B79F5|0;
+    var t=Math.imul(a^a>>>15,1|a);
+    t=t+Math.imul(t^t>>>7,61|t)^t;
+    return ((t^t>>>14)>>>0)/4294967296;
+  };
+}
+function buildDeck(usedStrs){
+  var used={};
+  for(var i=0;i<usedStrs.length;i++){ used[usedStrs[i]]=true; }
+  var names='23456789TJQKA';
+  var suits='shdc';
+  var deck=[];
+  for(var s=0;s<4;s++){
+    for(var r=0;r<13;r++){
+      var str=names.charAt(r)+suits.charAt(s);
+      if(!used[str]){ deck.push({r:r+2,s:s}); }
+    }
+  }
+  return deck;
+}
+function simulateEquity(hole,board,opps,trials,seed){
+  var usedStrs=hole.concat(board);
+  var deck=buildDeck(usedStrs);
+  var heroCards=hole.map(toCard);
+  var boardCards=board.map(toCard);
+  var need=5-boardCards.length;
+  var rnd=mulberry32(seed);
+  var n=deck.length;
+  var win=0, tie=0;
+  for(var t=0;t<trials;t++){
+    var draw=need+2*opps;
+    for(var i=0;i<draw;i++){
+      var j=i+Math.floor(rnd()*(n-i));
+      var tmp=deck[i]; deck[i]=deck[j]; deck[j]=tmp;
+    }
+    var full=boardCards.slice();
+    for(var k=0;k<need;k++){ full.push(deck[k]); }
+    var hs=evalHand(heroCards.concat(full));
+    var best=-1;
+    for(var o=0;o<opps;o++){
+      var oc=[deck[need+2*o],deck[need+2*o+1]];
+      var os=evalHand(oc.concat(full));
+      if(os>best){ best=os; }
+    }
+    if(hs>best){ win++; } else if(hs===best){ tie++; }
+  }
+  return {win:win/trials*100, tie:tie/trials*100};
+}
+function countOuts(hole,board){
+  if(board.length<3 || board.length>4){ return '--'; }
+  var heroCards=hole.map(toCard);
+  var boardCards=board.map(toCard);
+  var deck=buildDeck(hole.concat(board));
+  var before=evalHand(heroCards.concat(boardCards))>>20;
   var outs=0;
-  if(bRanks.includes(r1)||bRanks.includes(r2)) outs=2;
-  if(s1===s2){var fc=bSuits.filter(function(s){return s===s1;}).length;if(fc>=2)outs=Math.max(outs,9);}
-  return outs||'1-4';
+  for(var i=0;i<deck.length;i++){
+    var nb=boardCards.concat([deck[i]]);
+    var after=evalHand(heroCards.concat(nb))>>20;
+    var boardOnly=evalHand(nb)>>20;
+    if(after>before && after>boardOnly){ outs++; }
+  }
+  return outs;
+}
+function estimateEquity(h1, h2, board) {
+  var oppEl=document.getElementById('opps');
+  var opps=oppEl ? (parseInt(oppEl.value)||1) : 1;
+  var hole=[h1,h2];
+  var seedStr=hole.concat(board).join('')+'|'+opps;
+  var seed=0;
+  for(var i=0;i<seedStr.length;i++){ seed=(Math.imul(seed,31)+seedStr.charCodeAt(i))|0; }
+  var trials = opps<=2 ? 30000 : 15000;
+  var res=simulateEquity(hole,board,opps,trials,seed);
+  var desc;
+  if(board.length===0){
+    var isPair=h1.charAt(0)===h2.charAt(0);
+    var isSuited=h1.charAt(1)===h2.charAt(1);
+    desc=isPair?'Pocket pair':isSuited?'Suited hand':'Offsuit hand';
+  } else {
+    desc=CAT_NAMES[evalHand(hole.map(toCard).concat(board.map(toCard)))>>20];
+  }
+  return {win:Math.round(res.win), tie:Math.round(res.tie*10)/10, outs:countOuts(hole,board), desc:desc, opps:opps};
 }
 
 function calcPotOdds() {
@@ -312,5 +417,11 @@ function calcPotOdds() {
 }
 calcPotOdds();
 </script>
+<section class="dy9-info">
+<div class="dy9-card"><h2>How it works</h2><p>Win probability comes from a simulation. The tool takes your hole cards and any board cards, then repeatedly deals the rest of the board and random hands to your opponents from the remaining deck, scoring everyone&#39;s best five-card hand each time. It runs 15,000 to 30,000 trials and reports how often you win outright and how often you tie. The same inputs always give the same answer.</p><p>Outs are the unseen cards that would improve your hand category and make it stronger than the board alone, shown on the flop and turn. Pot odds compare your call to the pot: the equity you need is the bet &divide; (pot + bet).</p></div>
+<div class="dy9-card"><h2>Frequently asked questions</h2><h3>Why does my win probability drop with more opponents?</h3><p>You have to beat every other hand, so each extra opponent lowers your chances. For example, pocket aces win roughly 85% of the time against one random hand and under half the time against five.</p><h3>What does &ldquo;random hand&rdquo; mean?</h3><p>Each opponent is assumed to hold any two cards from the remaining deck. Real opponents usually play stronger hands than random ones, so your actual chances against a real table are lower than shown.</p><h3>How should I use pot odds?</h3><p>If your win probability is higher than the equity needed to call, calling is profitable on average. Pot odds ignore later betting, so treat it as a guide.</p><h3>How are outs counted?</h3><p>An out is a card that moves your hand to a higher category (for example, pair to trips, or any four cards to a flush) and beats what the board alone could make. Counting outs is partly a matter of judgment, so this is a consistent rule, not the only possible one.</p></div>
+<div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/typing-speed-test.html">Typing Speed Test</a></li><li><a href="/gambling-odds-calculator.html">Gambling Odds Calculator</a></li></ul></div>
+</section>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
 </html>

@@ -12,7 +12,7 @@ gtag('config', 'G-0D6KZ606DX');
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
 <title>Solar Panel Savings Calculator &mdash; Payback Period &amp; ROI | DIY9lives</title>
-<meta name="description" content="Free solar savings calculator. Estimate system size, cost after tax credit, payback period, and 25-year savings based on your electric bill.">
+<meta name="description" content="Free solar savings calculator. Estimate system size, upfront cost, payback period, and 25-year savings based on your electric bill.">
 <link rel="canonical" href="https://diy9lives.com/solar-savings-calculator.html">
 <style>
 :root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;}
@@ -58,13 +58,14 @@ footer a{color:var(--green);}
 @media(max-width:680px){.grid2{grid-template-columns:1fr;}}
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}</style>
 </head>
 <body>
 <nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
 <main>
 <div class="crumb"><a href="/">Home</a> / Home &amp; Real Estate / Solar Panel Savings Calculator</div>
 <h1>Solar Panel Savings <em>Calculator</em></h1>
-<p class="sub">Enter your electric bill and location details to estimate system size, upfront cost after the federal tax credit, payback period, and 25-year savings.</p>
+<p class="sub">Enter your electric bill and location details to estimate system size, upfront cost, payback period, and 25-year savings. Add any incentives you qualify for.</p>
 
 <div class="card">
 <h2>Your electricity use <span class="badge">Free</span></h2>
@@ -86,8 +87,9 @@ footer a{color:var(--green);}
 <h2>System &amp; incentive assumptions</h2>
 <div class="grid2">
 <div class="field"><label>Installed cost per watt ($)</label><input type="number" id="inCostW" value="2.80" step="0.05" oninput="calc()"/></div>
-<div class="field"><label>Federal tax credit (%)</label><input type="number" id="inCredit" value="30" oninput="calc()"/></div>
+<div class="field"><label>Incentive / tax credit (%)</label><input type="number" id="inCredit" value="0" oninput="calc()"/></div>
 </div>
+<p class="hint" style="margin-top:10px;">The 30% federal homeowner solar credit ended for systems installed after December 31, 2025, so this starts at 0%. Enter a percentage only if you have a system placed in service by then, a carried-forward credit, or another incentive (state, local, or utility) you want to include.</p>
 <div class="field" style="margin-top:14px;"><label>Expected annual utility rate increase (%)</label><input type="number" id="inInfl" value="3" step="0.1" oninput="calc()"/></div>
 </div>
 
@@ -98,7 +100,7 @@ footer a{color:var(--green);}
 <div class="stats">
 <div class="stat"><div class="v" id="systemSize">0 kW</div><div class="k">System size needed</div></div>
 <div class="stat"><div class="v" id="systemCost">$0</div><div class="k">Cost before credit</div></div>
-<div class="stat"><div class="v" id="netCost">$0</div><div class="k">Cost after tax credit</div></div>
+<div class="stat"><div class="v" id="netCost">$0</div><div class="k">Cost after incentives</div></div>
 </div>
 </div>
 
@@ -108,7 +110,7 @@ footer a{color:var(--green);}
 <thead><tr><th>Year</th><th>Est. annual utility savings</th><th>Cumulative savings</th><th>Net position</th></tr></thead>
 <tbody id="yearBody"></tbody>
 </table>
-<p class="hint">"Net position" is cumulative savings minus your system cost after the tax credit &mdash; once it turns positive, the system has paid for itself.</p>
+<p class="hint">"Net position" is cumulative savings minus your system cost after any incentives &mdash; once it turns positive, the system has paid for itself.</p>
 </div>
 
 <div class="card">
@@ -119,7 +121,7 @@ footer a{color:var(--green);}
 </details>
 <details>
 <summary>What is the federal solar tax credit?</summary>
-<p>Officially the Residential Clean Energy Credit, it lets you deduct a percentage of your total system cost from your federal taxes owed that year (not a rebate check &mdash; it reduces what you owe). Confirm the current percentage and eligibility rules on IRS.gov or with a tax professional, since federal incentive programs can change.</p>
+<p>The Residential Clean Energy Credit let homeowners claim 30% of their solar system cost on their federal taxes. Under the One Big Beautiful Bill Act, that credit ended for systems installed after December 31, 2025, so buying solar with cash or a loan now carries no federal credit. Exceptions include systems placed in service by the end of 2025 (any unused credit can carry forward) and solar leases or power purchase agreements, where the installer owns the system and may claim business tax credits instead. State, local, and utility incentives may still exist, so check your area. This calculator starts at 0% and lets you enter any incentive you qualify for.</p>
 </details>
 <details>
 <summary>What if I don't own my roof, or I'm renting?</summary>
@@ -127,7 +129,11 @@ footer a{color:var(--green);}
 </details>
 </div>
 </main>
-<footer><p>DIY9lives &mdash; free tools, no login, no nonsense. <a href="/">Browse all tools</a></p></footer>
+<section class="dy9-info">
+<div class="dy9-card"><h2>How it works</h2><p>Your monthly electricity use is your bill divided by your price per kWh. Dividing daily use by your peak sun hours times 0.8 (an allowance for real-world system losses) gives the system size in kW. System cost is size &times; 1,000 &times; your cost per watt. Any incentive percentage you enter reduces that cost. Year one savings are assumed to equal your current yearly electric bill, then grow with your expected utility rate increase. Payback is net cost divided by year-one savings, and the table shows cumulative savings minus net cost over 25 years.</p></div>
+<div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/rent-vs-buy-calculator.html">Rent vs. Buy Calculator</a></li><li><a href="/concrete-calculator.html">Concrete Calculator</a></li><li><a href="/mulch-soil-gravel-calculator.html">Mulch, Soil &amp; Gravel Calculator</a></li><li><a href="/flooring-calculator.html">Flooring Calculator</a></li></ul></div>
+</section>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>
 function fmtMoney(n){ return '$'+Math.round(n).toLocaleString(); }
 function calc(){
@@ -135,8 +141,10 @@ function calc(){
   var kwhCost=parseFloat(document.getElementById('inKwh').value)||0.16;
   var sunHours=parseFloat(document.getElementById('inSun').value)||4.5;
   var costPerWatt=parseFloat(document.getElementById('inCostW').value)||2.80;
-  var creditPct=parseFloat(document.getElementById('inCredit').value)||30;
-  var inflPct=parseFloat(document.getElementById('inInfl').value)||3;
+  var creditPct=parseFloat(document.getElementById('inCredit').value);
+  if(isNaN(creditPct)){creditPct=0;}
+  var inflPct=parseFloat(document.getElementById('inInfl').value);
+  if(isNaN(inflPct)){inflPct=3;}
 
   var monthlyKwh = kwhCost>0 ? bill/kwhCost : 0;
   var dailyKwh = monthlyKwh/30;
