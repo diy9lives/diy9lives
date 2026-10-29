@@ -4,8 +4,8 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>DIY9lives - 69 Free Tools: Finance, Health, Cars, Career &amp; More</title>
-<meta name="description" content="69 free online tools covering finance, health, careers, cars, home improvement, and everyday math. No login, no paywall. Mortgage calculator, BMI, tip calculator, tire size calculator and more."/>
+<title>DIY9lives &mdash; Free calculators for paychecks, cars, home projects, and everyday math</title>
+<meta name="description" content="Free calculators for freelancers, homeowners, and anyone comparing a paycheck, a car, or a home project. Each tool shows the formula. No account."/>
 <meta name="keywords" content="free online tools, BMI calculator, mortgage calculator, tip calculator, percentage calculator, salary calculator, unit converter, sleep calculator, calorie calculator"/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
@@ -27,7 +27,18 @@ body{background:var(--black);color:var(--white);font-family:system-ui,-apple-sys
 .hero-badge span{color:var(--green);font-weight:700}
 h1{font-size:clamp(34px,6vw,70px);font-weight:900;letter-spacing:-0.04em;line-height:0.95;margin-bottom:18px}
 .y{color:var(--yellow)}.r{color:var(--coral)}
-.hero-sub{font-size:clamp(14px,2vw,17px);color:#888;max-width:500px;margin:0 auto 28px;line-height:1.6}
+.hero-sub{font-size:clamp(15px,2vw,17px);color:#aaa;max-width:680px;margin:0 auto 14px;line-height:1.65}
+.hero-note{font-size:14px;color:#888;max-width:680px;margin:0 auto 18px;line-height:1.65}
+.hero-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 16px;margin:0 auto 22px;font-size:13px}
+.hero-links a{color:#FFE500;text-decoration:none}
+.hero-links a:hover{text-decoration:underline}
+.updates{max-width:720px;margin:0 auto 8px;padding:0 32px 22px;text-align:left}
+.updates-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px}
+.updates-card h2{font-size:15px;font-weight:800;margin-bottom:8px}
+.updates-card p,.updates-card li{font-size:13px;color:#aaa;line-height:1.6}
+.updates-card ul{margin:0 0 0 18px}
+.updates-card a{color:#FFE500;text-decoration:none}
+.cat-blurb{font-size:13px;color:#888;margin:-6px 0 14px;max-width:680px;line-height:1.5}
 .search-wrap{max-width:540px;margin:0 auto 12px;position:relative}
 .search-input{width:100%;padding:15px 20px 15px 46px;background:#141414;border:2px solid var(--border);border-radius:13px;color:var(--white);font-family:inherit;font-size:16px;outline:none;transition:border-color 0.2s}
 .search-input:focus{border-color:var(--yellow)}
@@ -99,7 +110,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 .toast.show{display:block}
 .no-results{text-align:center;padding:48px;color:var(--muted);display:none}
 .no-results.show{display:block}
-@media(max-width:768px){.topnav{padding:12px 16px}.nav-r a:not(.nav-cta){display:none}.hero{padding:76px 16px 36px}.cat-bar{padding:0 16px}.tools-wrap{padding:24px 16px 60px}.aff-row{grid-template-columns:1fr;margin:0 16px;padding:0}.cta-band{margin:28px 16px;padding:28px 20px}.stats-row{gap:16px}footer{padding:20px 16px;flex-direction:column;text-align:center}}
+@media(max-width:768px){.topnav{padding:12px 16px}.nav-r a:not(.nav-cta){display:none}.hero{padding:76px 16px 28px}.cat-bar{padding:0 16px}.tools-wrap{padding:24px 16px 60px}.aff-row{grid-template-columns:1fr;margin:0 16px;padding:0}.cta-band{margin:28px 16px;padding:28px 20px}.stats-row{gap:16px}.updates{padding:0 16px 18px}footer{padding:20px 16px;flex-direction:column;text-align:center}}
 </style>
 <link rel="canonical" href="https://www.diy9lives.com/"/>
 <link rel="icon" href="/favicon.ico" sizes="48x48"/>
@@ -107,8 +118,8 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48"/>
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-<meta property="og:title" content="DIY9lives - 69 Free Tools for Everyone"/>
-<meta property="og:description" content="69 free online tools covering finance, health, careers, cars, home improvement, and everyday math. No login, no paywall. Mortgage calculator, BMI, tip calculator, tire size calculator and more."/>
+<meta property="og:title" content="DIY9lives — Free calculators for real decisions"/>
+<meta property="og:description" content="Free calculators for freelancers, homeowners, and anyone comparing a paycheck, a car, or a home project. No account."/>
 <meta property="og:url" content="https://www.diy9lives.com/"/>
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
@@ -117,26 +128,31 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="DIY9lives - 69 Free Tools for Everyone"/>
-<meta name="twitter:description" content="69 free online tools covering finance, health, careers, cars, home improvement, and everyday math. No login, no paywall. Mortgage calculator, BMI, tip calculator, tire size calculator and more."/>
+<meta name="twitter:title" content="DIY9lives — Free calculators for real decisions"/>
+<meta name="twitter:description" content="Free calculators for freelancers, homeowners, and anyone comparing a paycheck, a car, or a home project. No account."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.diy9lives.com/#website","name":"DIY9lives","url":"https://www.diy9lives.com/","description":"69 free online tools covering finance, health, careers, cars, home improvement, and everyday math. No login, no paywall. Mortgage calculator, BMI, tip calculator, tire size calculator and more.","inLanguage":"en","publisher":{"@id":"https://www.diy9lives.com/#organization"}},{"@type":"Organization","@id":"https://www.diy9lives.com/#organization","name":"DIY9lives","url":"https://www.diy9lives.com/","logo":"https://www.diy9lives.com/logo.png","email":"diy9lives@gmail.com"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://www.diy9lives.com/#website","name":"DIY9lives","url":"https://www.diy9lives.com/","description":"Free calculators for freelancers, homeowners, and anyone comparing a paycheck, a car, or a home project. No account.","inLanguage":"en","publisher":{"@id":"https://www.diy9lives.com/#organization"}},{"@type":"Organization","@id":"https://www.diy9lives.com/#organization","name":"DIY9lives","url":"https://www.diy9lives.com/","logo":"https://www.diy9lives.com/logo.png","email":"diy9lives@gmail.com"}]}</script>
 </head>
 <body>
 <nav class="topnav" id="topnav">
 <a class="logo" href="#">DIY<span>9</span>lives</a>
 <div class="nav-r">
 <a href="#tools">Tools</a>
+<a href="/guides.html">Guides</a>
 <a href="/about.html">About</a>
+<a href="/contact.html">Contact</a>
+<a href="/privacy.html">Privacy</a>
 <a href="#tools" class="nav-cta">Try free</a>
 </div>
 </nav>
 
 <section class="hero">
 <div class="hero-bg"></div>
-<div class="hero-badge">&#127381; <span>69 free tools live</span> &mdash; No login. No paywall. No BS.</div>
-<h1>Stop paying.<br><span class="y">Fix it</span> <span class="r">yourself.</span></h1>
-<p class="hero-sub">Free tools for freelancers, homeowners, car buyers, and anyone who wants to figure things out without paying $40/month.</p>
+<div class="hero-badge">Calculators &middot; <span>no account</span> &middot; Last updated October 29, 2026</div>
+<h1>Free calculators<br>for the <span class="y">job</span> in <span class="r">front of you.</span></h1>
+<p class="hero-sub">DIY9lives is a set of free calculators for freelancers pricing a job, homeowners measuring a room, and anyone comparing a paycheck, a car, or a loan. Open a tool, read how the number is made, and leave. Nothing asks you to sign up.</p>
+<p class="hero-note">Most of the math runs in your browser. The VIN decoder and the currency converter are the exceptions; they call a public database and a daily exchange-rate feed. That is spelled out on the <a href="/privacy.html" style="color:#FFE500">privacy page</a>.</p>
+<div class="hero-links"><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/guides.html">Guides</a><a href="#tools">All tools</a></div>
 <div class="search-wrap">
 <span class="search-icon">&#128269;</span>
 <input class="search-input" id="searchInput" type="text" placeholder="Search 69 free tools..." oninput="doSearch(this.value)" autocomplete="off"/>
@@ -149,6 +165,17 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 <div class="stat"><div class="stat-n">$0</div><div class="stat-l">To get started</div></div>
 <div class="stat"><div class="stat-n">No login</div><div class="stat-l">Just open &amp; use</div></div>
 <div class="stat"><div class="stat-n">Any device</div><div class="stat-l">Phone, tablet, desktop</div></div>
+</div>
+
+<div class="updates">
+<div class="updates-card">
+<h2>What changed &middot; October 29, 2026</h2>
+<ul>
+<li>Every calculator page now has a worked example and a sources list under the original how-it-works note. The formulas in the tools were not changed.</li>
+<li>Six <a href="/guides.html">guides</a> tie the tools together: a Pennsylvania paycheck and car tax, reading a car deal, freelance taxes and rates, household money, home-project quantities, and solar payback.</li>
+<li>Nothing new was added to the tool count. If a calculator you need is missing, use the suggest-a-tool form at the bottom of the list.</li>
+</ul>
+</div>
 </div>
 
 <div class="mq"><div class="mq-track">
@@ -201,6 +228,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="health">
 <div class="cat-header"><span class="cat-icon">&#129338;</span><span class="cat-title">Health &amp; Body</span><span class="cat-count">9 tools</span></div>
+<p class="cat-blurb">Body size, calories, sleep, cycle dates, and training zones. These are screening estimates, not a diagnosis.</p>
 <div class="grid">
 <a class="tc" href="/bmi-calculator.html" data-name="bmi body mass index weight health" data-cat="health"><div class="tc-top"><div class="tc-icon" style="background:#22c55e18">&#9878;</div><span class="badge b-hot">Hot</span></div><div class="tc-name">BMI Calculator</div><div class="tc-desc">Calculate your Body Mass Index and see your healthy weight range instantly.</div><div class="tc-ft"><span class="tc-cat">Health</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/calorie-calculator.html" data-name="calorie tdee calculator weight loss diet nutrition" data-cat="health"><div class="tc-top"><div class="tc-icon" style="background:#f97316,18;background:#f9731618">&#127815;</div><span class="badge b-hot">Hot</span></div><div class="tc-name">Calorie &amp; TDEE Calculator</div><div class="tc-desc">Find your daily calorie needs for weight loss, maintenance, or muscle gain. With macro targets.</div><div class="tc-ft"><span class="tc-cat">Nutrition</span><span class="tc-arr">&rarr;</span></div></a>
@@ -216,6 +244,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="everyday">
 <div class="cat-header"><span class="cat-icon">&#127775;</span><span class="cat-title">Everyday Math</span><span class="cat-count">10 tools</span></div>
+<p class="cat-blurb">Tips, percentages, ages, units, dates, and a password check that stays on your device.</p>
 <div class="grid">
 <a class="tc" href="/tip-calculator.html" data-name="tip calculator restaurant bill split" data-cat="everyday"><div class="tc-top"><div class="tc-icon" style="background:#22c55e18">&#127869;</div><span class="badge b-hot">Hot</span></div><div class="tc-name">Tip Calculator</div><div class="tc-desc">Calculate tips and split the bill. Adjustable percentage with per-person breakdown.</div><div class="tc-ft"><span class="tc-cat">Everyday</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/percentage-calculator.html" data-name="percentage calculator math percent change" data-cat="everyday"><div class="tc-top"><div class="tc-icon" style="background:#3b82f618">&#128221;</div><span class="badge b-hot">Hot</span></div><div class="tc-name">Percentage Calculator</div><div class="tc-desc">4 types of percentage math solved instantly. What is X% of Y? Percentage change? And more.</div><div class="tc-ft"><span class="tc-cat">Math</span><span class="tc-arr">&rarr;</span></div></a>
@@ -232,6 +261,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="finance">
 <div class="cat-header"><span class="cat-icon">&#128200;</span><span class="cat-title">Finance &amp; Money</span><span class="cat-count">9 tools</span></div>
+<p class="cat-blurb">Take-home pay, loan payments, what house a salary supports, and a retirement balance in today&rsquo;s dollars.</p>
 <div class="grid">
 <a class="tc" href="/mortgage-calculator.html" data-name="mortgage calculator home loan payment amortization" data-cat="finance"><div class="tc-top"><div class="tc-icon" style="background:#22c55e18">&#127968;</div><span class="badge b-pop">Popular</span></div><div class="tc-name">Mortgage Calculator</div><div class="tc-desc">Monthly payment, total interest, and full amortization schedule. Includes tax and insurance.</div><div class="tc-ft"><span class="tc-cat">Home buying</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/loan-calculator.html" data-name="loan calculator personal payment interest" data-cat="finance"><div class="tc-top"><div class="tc-icon" style="background:#f59e0b18">&#128181;</div><span class="badge b-live">Live</span></div><div class="tc-name">Personal Loan Calculator</div><div class="tc-desc">Any loan type. See monthly payments and total interest. Compare different term lengths.</div><div class="tc-ft"><span class="tc-cat">Finance</span><span class="tc-arr">&rarr;</span></div></a>
@@ -247,6 +277,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="freelance">
 <div class="cat-header"><span class="cat-icon">&#128188;</span><span class="cat-title">Freelance &amp; Career</span><span class="cat-count">7 tools</span></div>
+<p class="cat-blurb">What to charge, what to set aside for 1099 tax, and a proposal or invoice you can print.</p>
 <div class="grid">
 <a class="tc" href="/proposal.html" data-name="proposal generator freelance client" data-cat="freelance"><div class="tc-top"><div class="tc-icon" style="background:#FFE50018">&#128196;</div><span class="badge b-pop">Popular</span></div><div class="tc-name">Proposal Generator</div><div class="tc-desc">Polished project proposal in 2 minutes. Fill, live preview, download as PDF.</div><div class="tc-ft"><span class="tc-cat">Freelance</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/invoice.html" data-name="invoice builder generator freelance" data-cat="freelance"><div class="tc-top"><div class="tc-icon" style="background:#FF4D4D18">&#129534;</div><span class="badge b-free">Free</span></div><div class="tc-name">Invoice Builder</div><div class="tc-desc">Professional invoices with line items, tax, and due dates. Print or save as PDF.</div><div class="tc-ft"><span class="tc-cat">Freelance</span><span class="tc-arr">&rarr;</span></div></a>
@@ -260,6 +291,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="cars">
 <div class="cat-header"><span class="cat-icon">&#128663;</span><span class="cat-title">Cars &amp; Driving</span><span class="cat-count">10 tools</span></div>
+<p class="cat-blurb">Price after tax, the loan, fuel, tire size, and what the car is likely to be worth later.</p>
 <div class="grid">
 <a class="tc" href="/car-payment-calculator.html" data-name="car payment calculator auto loan monthly" data-cat="cars"><div class="tc-top"><div class="tc-icon" style="background:#FF4D4D18">&#128663;</div><span class="badge b-pop">Popular</span></div><div class="tc-name">Car Payment Calculator</div><div class="tc-desc">Monthly payments, total interest, and true ownership costs including gas and insurance.</div><div class="tc-ft"><span class="tc-cat">Auto</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/gas-calculator.html" data-name="gas mpg fuel cost savings calculator" data-cat="cars"><div class="tc-top"><div class="tc-icon" style="background:#f59e0b18">&#9981;</div><span class="badge b-live">Live</span></div><div class="tc-name">Gas &amp; MPG Calculator</div><div class="tc-desc">Real monthly fuel cost and how much a more efficient car would save you per year.</div><div class="tc-ft"><span class="tc-cat">Auto</span><span class="tc-arr">&rarr;</span></div></a>
@@ -276,6 +308,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="home">
 <div class="cat-header"><span class="cat-icon">&#127968;</span><span class="cat-title">Home &amp; Real Estate</span><span class="cat-count">8 tools</span></div>
+<p class="cat-blurb">Paint, concrete, flooring, rent versus buy, and whether a solar array pays for itself.</p>
 <div class="grid">
 <a class="tc" href="/home-renovation-roi.html" data-name="home renovation roi return investment remodel" data-cat="home"><div class="tc-top"><div class="tc-icon" style="background:#10b98118">&#128296;</div><span class="badge b-live">Live</span></div><div class="tc-name">Home Renovation ROI</div><div class="tc-desc">Which renovations pay off? Return rates for kitchens, baths, roofs, decks, and 14 more.</div><div class="tc-ft"><span class="tc-cat">Home improvement</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/paint-calculator.html" data-name="paint calculator gallons room walls" data-cat="home"><div class="tc-top"><div class="tc-icon" style="background:#6366f118">&#127912;</div><span class="badge b-live">Live</span></div><div class="tc-name">Paint Calculator</div><div class="tc-desc">Exact gallons for any room. Multi-room support with automatic shopping list generator.</div><div class="tc-ft"><span class="tc-cat">Home improvement</span><span class="tc-arr">&rarr;</span></div></a>
@@ -290,6 +323,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="fun">
 <div class="cat-header"><span class="cat-icon">&#127922;</span><span class="cat-title">Fun &amp; Entertainment</span><span class="cat-count">3 tools</span></div>
+<p class="cat-blurb">Poker equity, the expected value of a bet, and a typing-speed test.</p>
 <div class="grid">
 <a class="tc" href="/gambling-odds-calculator.html" data-name="gambling odds expected value house edge casino" data-cat="fun"><div class="tc-top"><div class="tc-icon" style="background:#ef444418">&#127920;</div><span class="badge b-live">Live</span></div><div class="tc-name">Gambling Odds Calculator</div><div class="tc-desc">Expected value, house edge, and session projections. Know the math before you bet.</div><div class="tc-ft"><span class="tc-cat">Entertainment</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/poker-odds-calculator.html" data-name="poker odds win probability equity pot odds" data-cat="fun"><div class="tc-top"><div class="tc-icon" style="background:#a855f718">&#9824;</div><span class="badge b-live">Live</span></div><div class="tc-name">Poker Odds Calculator</div><div class="tc-desc">Enter hole cards and board. Win probability, pot odds, and hand equity instantly.</div><div class="tc-ft"><span class="tc-cat">Poker</span><span class="tc-arr">&rarr;</span></div></a>
@@ -299,6 +333,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="cooking">
 <div class="cat-header"><span class="cat-icon">&#127860;</span><span class="cat-title">Cooking &amp; Kitchen</span><span class="cat-count">5 tools</span></div>
+<p class="cat-blurb">Scale a recipe, convert cups and grams, and see what one serving actually costs.</p>
 <div class="grid">
 <a class="tc" href="/recipe-scaler.html" data-name="recipe scaler converter multiply divide servings" data-cat="cooking"><div class="tc-top"><div class="tc-icon" style="background:#00C85118">&#127860;</div><span class="badge b-hot">Hot</span></div><div class="tc-name">Recipe Scaler</div><div class="tc-desc">Scale any recipe up or down to a new serving size, with fractions handled automatically.</div><div class="tc-ft"><span class="tc-cat">Cooking</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/cooking-measurement-converter.html" data-name="cooking measurement converter cups grams ounces ingredient" data-cat="cooking"><div class="tc-top"><div class="tc-icon" style="background:#f9731618">&#127850;</div><span class="badge b-hot">Hot</span></div><div class="tc-name">Cooking Measurement Converter</div><div class="tc-desc">Convert cups, tablespoons, and grams for real ingredients, each with correct density.</div><div class="tc-ft"><span class="tc-cat">Cooking</span><span class="tc-arr">&rarr;</span></div></a>
@@ -310,6 +345,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="writing">
 <div class="cat-header"><span class="cat-icon">&#9997;</span><span class="cat-title">Text &amp; Writing</span><span class="cat-count">5 tools</span></div>
+<p class="cat-blurb">Word counts, a readability score, headline checks, and a word-by-word diff.</p>
 <div class="grid">
 <a class="tc" href="/word-counter.html" data-name="word counter character count reading time" data-cat="writing"><div class="tc-top"><div class="tc-icon" style="background:#00C85118">&#128221;</div><span class="badge b-hot">Hot</span></div><div class="tc-name">Word &amp; Character Counter</div><div class="tc-desc">Words, characters, sentences, paragraphs, and reading time &mdash; updated live as you type.</div><div class="tc-ft"><span class="tc-cat">Writing</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/case-converter.html" data-name="case converter uppercase lowercase title camel snake" data-cat="writing"><div class="tc-top"><div class="tc-icon" style="background:#3b82f618">&#128196;</div><span class="badge b-live">Live</span></div><div class="tc-name">Case Converter</div><div class="tc-desc">UPPERCASE, lowercase, Title Case, Sentence case, camelCase, or snake_case in one click.</div><div class="tc-ft"><span class="tc-cat">Writing</span><span class="tc-arr">&rarr;</span></div></a>
@@ -321,6 +357,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="shopping">
 <div class="cat-header"><span class="cat-icon">&#128722;</span><span class="cat-title">Shopping &amp; Deals</span><span class="cat-count">2 tools</span></div>
+<p class="cat-blurb">Stacked discounts, and price per ounce so the bigger box is not assumed to be cheaper.</p>
 <div class="grid">
 <a class="tc" href="/discount-calculator.html" data-name="discount calculator stacked sales percent off" data-cat="shopping"><div class="tc-top"><div class="tc-icon" style="background:#FF4D4D18">&#127991;</div><span class="badge b-hot">Hot</span></div><div class="tc-name">Discount Calculator</div><div class="tc-desc">Stack multiple discounts and see the real final price &mdash; it's not just addition.</div><div class="tc-ft"><span class="tc-cat">Shopping</span><span class="tc-arr">&rarr;</span></div></a>
 <a class="tc" href="/unit-price-comparator.html" data-name="unit price comparator which size cheaper per ounce" data-cat="shopping"><div class="tc-top"><div class="tc-icon" style="background:#00C85118">&#128722;</div><span class="badge b-live">Live</span></div><div class="tc-name">Unit Price Comparator</div><div class="tc-desc">Compare price per unit across package sizes to find the actual better deal.</div><div class="tc-ft"><span class="tc-cat">Shopping</span><span class="tc-arr">&rarr;</span></div></a>
@@ -329,6 +366,7 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="pets">
 <div class="cat-header"><span class="cat-icon">&#128021;</span><span class="cat-title">Pets</span><span class="cat-count">1 tool</span></div>
+<p class="cat-blurb">Dog and cat age in human years, using a curve instead of multiplying by seven.</p>
 <div class="grid">
 <a class="tc" href="/pet-age-calculator.html" data-name="dog cat age calculator human years" data-cat="pets"><div class="tc-top"><div class="tc-icon" style="background:#FFE50018">&#128021;</div><span class="badge b-hot">Hot</span></div><div class="tc-name">Dog &amp; Cat Age Calculator</div><div class="tc-desc">Real human-equivalent age using modern non-linear formulas, not the outdated &times;7 myth.</div><div class="tc-ft"><span class="tc-cat">Pets</span><span class="tc-arr">&rarr;</span></div></a>
 </div>
@@ -336,9 +374,10 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 
 <div class="cat-section" data-cat="feedback">
 <div class="cat-header"><span class="cat-icon">&#128172;</span><span class="cat-title">Feedback &amp; Support</span><span class="cat-count">2 links</span></div>
+<p class="cat-blurb">The same short form for a calculator that is wrong and for a tool that should exist. You can also email diy9lives@gmail.com.</p>
 <div class="grid">
-<a class="tc" href="https://docs.google.com/forms/d/e/1FAIpQLSdeiTstSH216Kn4kQ_NOQjAt8MamcWDsOe1pTFXKTlSsaDKUg/viewform" target="_blank" rel="noopener" data-name="report a bug issue problem broken" data-cat="feedback"><div class="tc-top"><div class="tc-icon" style="background:#FF4D4D18;font-size:20px">&#128030;</div></div><div class="tc-name" style="color:#999">Report a bug</div><div class="tc-desc" style="color:#555">Something broken? Let us know exactly what and where.</div><div class="tc-ft"><span class="tc-cat" style="color:#555">2-min form</span><span class="tc-arr" style="color:#555">&rarr;</span></div></a>
-<a class="tc" href="https://docs.google.com/forms/d/e/1FAIpQLSdeiTstSH216Kn4kQ_NOQjAt8MamcWDsOe1pTFXKTlSsaDKUg/viewform" target="_blank" rel="noopener" data-name="suggest tool request idea" data-cat="feedback"><div class="tc-top"><div class="tc-icon" style="background:#ffffff06;font-size:20px">&#128161;</div></div><div class="tc-name" style="color:#555">Suggest a tool</div><div class="tc-desc" style="color:#3a3a3a">Got a problem? Tell us and we will build it free for everyone.</div><div class="tc-ft"><span class="tc-cat" style="color:#333">2-min form</span><span class="tc-arr" style="color:#333">&rarr;</span></div></a>
+<a class="tc" href="https://docs.google.com/forms/d/e/1FAIpQLSdeiTstSH216Kn4kQ_NOQjAt8MamcWDsOe1pTFXKTlSsaDKUg/viewform" target="_blank" rel="noopener" data-name="report a bug issue problem broken" data-cat="feedback"><div class="tc-top"><div class="tc-icon" style="background:#FF4D4D18;font-size:20px">&#128030;</div></div><div class="tc-name">Report a bug</div><div class="tc-desc">Tell me which tool, what you typed, and what you expected. I read these.</div><div class="tc-ft"><span class="tc-cat">Form</span><span class="tc-arr">&rarr;</span></div></a>
+<a class="tc" href="https://docs.google.com/forms/d/e/1FAIpQLSdeiTstSH216Kn4kQ_NOQjAt8MamcWDsOe1pTFXKTlSsaDKUg/viewform" target="_blank" rel="noopener" data-name="suggest tool request idea" data-cat="feedback"><div class="tc-top"><div class="tc-icon" style="background:#FFE50018;font-size:20px">&#128161;</div></div><div class="tc-name">Suggest a tool</div><div class="tc-desc">Most of the calculators here started as someone&rsquo;s request. Send the next one.</div><div class="tc-ft"><span class="tc-cat">Form</span><span class="tc-arr">&rarr;</span></div></a>
 </div>
 </div>
 </div>
@@ -351,35 +390,52 @@ footer{border-top:1px solid var(--border);padding:28px 32px;display:flex;justify
 <div class="aff-card"><div class="aff-icon">&#128663;</div><div class="aff-title">Shopping for a car?</div><div class="aff-desc">CarGurus shows real market prices from every dealer near you.</div><a href="https://www.cargurus.com" target="_blank" rel="noopener" class="aff-link">Search cars &rarr;</a></div>
 </div>
 
+
+<div class="why-section" id="guides">
+<div class="why-inner">
+<div class="sec-l">Guides</div>
+<div class="sec-t">The calculators, with the numbers worked out.</div>
+<div class="why-grid">
+<a class="why-card" href="/guides/pennsylvania-paycheck-and-car-tax.html" style="text-decoration:none;color:inherit"><div class="why-t">Pennsylvania paycheck and car tax</div><div class="why-tx">Flat 3.07% state tax, the local line, and 6% versus Philadelphia and Allegheny sales tax.</div></a>
+<a class="why-card" href="/guides/reading-a-car-deal.html" style="text-decoration:none;color:inherit"><div class="why-t">How to read a car deal</div><div class="why-tx">Out-the-door price, the loan, depreciation, fuel, and a tire-size check.</div></a>
+<a class="why-card" href="/guides/freelance-taxes-and-rates.html" style="text-decoration:none;color:inherit"><div class="why-t">Freelance taxes and rates</div><div class="why-tx">What a 1099 year owes, and the hourly rate that can cover it.</div></a>
+<a class="why-card" href="/guides/household-money.html" style="text-decoration:none;color:inherit"><div class="why-t">Household money</div><div class="why-tx">Mortgage, affordability, debt order, and a retirement balance.</div></a>
+<a class="why-card" href="/guides/home-project-quantities.html" style="text-decoration:none;color:inherit"><div class="why-t">Home project quantities</div><div class="why-tx">Paint, concrete, mulch, flooring, and room air conditioner size.</div></a>
+<a class="why-card" href="/guides/solar-payback.html" style="text-decoration:none;color:inherit"><div class="why-t">Solar payback</div><div class="why-tx">A bill turned into kilowatts, with the federal credit box left at zero.</div></a>
+</div>
+<p style="margin-top:16px;font-size:13px;color:#888">Each tool page keeps its original how-it-works note and adds a worked example plus sources. <a href="/guides.html" style="color:#FFE500">All guides</a>. Checked October 29, 2026.</p>
+</div>
+</div>
+
 <div class="why-section" id="why">
 <div class="why-inner">
 <div class="sec-l">Why DIY9lives</div>
-<div class="sec-t">Other tools charge $40/month<br>for this stuff.</div>
+<div class="sec-t">One job per page.<br>The formula is on the page.</div>
 <div class="why-grid">
-<div class="why-card"><div class="why-n">01</div><div class="why-t">Actually free</div><div class="why-tx">No trial. No credit card. No "3 free uses." Open it, use it, done.</div></div>
-<div class="why-card"><div class="why-n">02</div><div class="why-t">No account needed</div><div class="why-tx">No login walls. No data selling. Just open the tool and use it.</div></div>
-<div class="why-card"><div class="why-n">03</div><div class="why-t">Built for real people</div><div class="why-tx">Not enterprise bloatware. Each tool does one thing fast.</div></div>
-<div class="why-card"><div class="why-n">04</div><div class="why-t">Built on requests</div><div class="why-tx">Most tools started as someone&#39;s request. Got a problem? Tell us.</div></div>
+<div class="why-card"><div class="why-n">01</div><div class="why-t">No account</div><div class="why-tx">Open the calculator and use it. There is no trial, no login, and no paywall on the result.</div></div>
+<div class="why-card"><div class="why-n">02</div><div class="why-t">Math you can check</div><div class="why-tx">Each tool explains the formula it actually runs, with a worked example and a link to the source.</div></div>
+<div class="why-card"><div class="why-n">03</div><div class="why-t">Stays on your device</div><div class="why-tx">What you type is not uploaded, except the VIN lookup and the daily exchange-rate request.</div></div>
+<div class="why-card"><div class="why-n">04</div><div class="why-t">Updated when the rules change</div><div class="why-tx">Tax figures are labeled with the year they use. The notes under the tools were checked October 29, 2026.</div></div>
 </div>
 </div>
 </div>
 
 <div class="cta-band">
-<h2>You have got 9 lives.<br>Stop wasting them on admin.</h2>
-<a href="#tools" style="background:var(--black);color:var(--yellow);font-weight:800;font-size:14px;border:none;padding:12px 24px;border-radius:9px;text-decoration:none;display:inline-block;white-space:nowrap">Browse all 69 free tools &rarr;</a>
+<h2>Start with a guide,<br>or open a calculator.</h2>
+<a href="/guides.html" style="background:var(--black);color:var(--yellow);font-weight:800;font-size:14px;border:none;padding:12px 24px;border-radius:9px;text-decoration:none;display:inline-block;white-space:nowrap">Read the guides &rarr;</a>
 </div>
 
 <div style="max-width:720px;margin:0 auto 36px;padding:0 24px;text-align:center">
-<p style="color:#aaa;font-size:15px;line-height:1.7;margin-bottom:16px">Whatever you&#39;re figuring out &mdash; money, work, a car, a hobby, whatever &mdash; if one of these tools actually helped, share the site. That&#39;s how it keeps growing and staying free.</p>
+<p style="color:#aaa;font-size:15px;line-height:1.7;margin-bottom:16px">If a number on a calculator looks wrong, <a href="/contact.html" style="color:#FFE500">say which tool and what you typed</a>. That is how the formulas get corrected. Sharing the link is useful too, because the site stays free that way.</p>
 <button id="shareBtn" type="button" style="background:#FFE500;color:#0a0a0a;font-weight:800;font-size:14px;border:none;padding:12px 26px;border-radius:9px;cursor:pointer;font-family:inherit">Share DIY9lives</button>
 </div>
 
 <footer>
 <div class="footer-logo">DIY<span>9</span>lives</div>
 <div class="footer-links">
-<a href="#tools">Tools</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a>
+<a href="#tools">Tools</a><a href="/guides.html">Guides</a><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a>
 </div>
-<div class="foot-copy">&copy; 2026 DIY9lives &middot; Fix it yourself.</div>
+<div class="foot-copy">&copy; 2026 DIY9lives &middot; Estimates only, not professional advice. &middot; Notes checked October 29, 2026.</div>
 </footer>
 
 <div class="toast" id="toast"></div>
