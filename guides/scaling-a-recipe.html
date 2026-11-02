@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Scaling a recipe: pans, batches and oven temperature &mdash; DIY9lives</title>
+<meta name="description" content="Why doubling a cake recipe is not doubling the tin, how pan area changes the maths, and which ingredients genuinely do not scale linearly."/>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--white:#FAFAFA;--muted:#666;--border:#222}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:860px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:36px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:12px}
+h1{font-size:clamp(26px,5vw,46px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:560px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:14px}
+.prose h2{font-size:18px;font-weight:800;margin:24px 0 8px}
+.prose h2:first-child{margin-top:0}
+.prose h3{font-size:15px;font-weight:700;margin:18px 0 6px}
+.prose p{color:#aaa;margin-bottom:10px;font-size:14px;line-height:1.75}
+.prose ul,.prose ol{margin:0 0 10px 20px;color:#aaa;font-size:14px;line-height:1.75}
+.prose a{color:#FFE500}
+.prose strong{color:#fff}
+.prose table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 14px}
+.prose th,.prose td{text-align:left;padding:7px 6px;border-top:1px solid #2a2a2a;vertical-align:top}
+.prose th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#888}
+@media(max-width:640px){.page{padding:32px 18px}.card{padding:18px}h1{font-size:clamp(24px,7vw,34px)}.sub{font-size:14px}.prose table{font-size:12px}.prose th,.prose td{padding:6px 4px}}
+</style>
+<link rel="canonical" href="https://www.diy9lives.com/guides/scaling-a-recipe.html"/>
+<link rel="icon" href="/favicon.ico" sizes="48x48"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<meta property="og:title" content="Scaling a recipe: pans, batches and oven temperature"/>
+<meta property="og:description" content="Why doubling a cake recipe is not doubling the tin, how pan area changes the maths, and which ingredients genuinely do not scale linearly."/>
+<meta property="og:url" content="https://www.diy9lives.com/guides/scaling-a-recipe.html"/>
+<meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
+<meta property="og:type" content="article"/>
+<meta property="og:site_name" content="DIY9lives"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Scaling a recipe: pans, batches and oven temperature"/>
+<meta name="twitter:description" content="Why doubling a cake recipe is not doubling the tin, how pan area changes the maths, and which ingredients genuinely do not scale linearly."/>
+<meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Article", "headline": "Scaling a recipe: pans, batches and oven temperature", "url": "https://www.diy9lives.com/guides/scaling-a-recipe.html", "mainEntityOfPage": "https://www.diy9lives.com/guides/scaling-a-recipe.html", "author": {"@type": "Person", "name": "David Liu", "jobTitle": "Founder, DIY9lives", "url": "https://www.diy9lives.com/about.html"}, "publisher": {"@type": "Organization", "name": "DIY9lives", "url": "https://www.diy9lives.com/"}, "dateModified": "2026-11-02"}]}</script>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <span style="display:flex;gap:14px;align-items:center"><a style="color:#666;text-decoration:none;font-size:13px" href="/guides.html">All guides</a><a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a></span>
+</nav>
+<div class="page">
+<div class="hero"><div class="ey">Guide</div><h1>Scaling a recipe<br>without wrecking it</h1><p class="sub">Ingredients multiply. Pans, time and salt do not.</p></div>
+<div class="card prose">
+<p style="font-size:13px;color:#888;margin:0 0 18px;padding-bottom:14px;border-bottom:1px solid #222">By <strong style="color:#fff">David Liu</strong>, founder of DIY9lives. Last updated November 2, 2026.</p>
+<p>Multiplying the ingredient list is the easy part, and it is the part the <a href="/recipe-scaler.html">recipe scaler</a> does in a second. The part that goes wrong is everything else: the pan you own, the depth of the batter in it, and the handful of ingredients whose correct amount is not proportional. This guide covers both halves.</p>
+
+<h2>Linear scaling, and where it stops</h2>
+<p>Flour, sugar, butter, milk, eggs and liquid all scale in proportion. So does rice, pasta and meat. The scaler multiplies the leading number on each line and keeps the unit, which handles the whole list.</p>
+<p>Eggs are the first friction point. One and a half eggs is measurable if you beat them first and take half by weight; one and a quarter is a judgement call. For anything where the egg is structural &mdash; custards, pastry, a cake that relies on exact hydration &mdash; weigh the beaten egg rather than guessing.</p>
+<p>Leavening and salt are the second. Baking powder and soda usually scale with the flour, but a double batch in a deeper pan can rise differently, and an over-leavened batter can collapse. Salt is a matter of taste at the margin, and reducing it slightly in a very large batch is safer than doubling it blindly.</p>
+<p>Strong flavours scale sub-linearly for most people: chilli, garlic, dried spice and vanilla are usually scaled to about three-quarters of the proportional amount when a recipe is doubled, then adjusted upwards after tasting. That is a preference, not a rule.</p>
+
+<h2>Pans are area, not volume</h2>
+<p>This is the arithmetic that matters most. A recipe is written for a pan of a given area and depth, and the same batter in a smaller pan is deeper and takes longer. Compare areas, not diameters.</p>
+<table><tr><th>Pan</th><th>Area</th><th>Relative to an 8 in round</th></tr>
+<tr><td>8 in round</td><td>50.3 sq in</td><td>1.00</td></tr>
+<tr><td>9 in round</td><td>63.6 sq in</td><td>1.27</td></tr>
+<tr><td>9 by 13 in</td><td>117 sq in</td><td>2.33</td></tr>
+<tr><td>Two 8 in rounds</td><td>100.5 sq in</td><td>2.00</td></tr></table>
+<p>Two 8 inch rounds hold exactly twice the batter of one, which is why doubling a layer cake is safe. Moving the same recipe from an 8 inch round to a 9 inch round needs 27% more batter for the same depth &mdash; not 12.5%, which is what the diameter difference suggests. This is the single most common scaling error in home baking.</p>
+<p>A 9 by 13 pan is 2.33 times the area of an 8 inch round, so a recipe written for the round will be about 43% too shallow in the rectangular pan unless you scale it up.</p>
+
+<h2>Depth decides the time</h2>
+<p>Heat reaches the centre through the batter, so a deeper batter needs longer and a shallower one needs less. Two practical rules:</p>
+<ul>
+<li><strong>Same depth, same time.</strong> If the pan change keeps the batter at the same depth, the bake time barely moves.</li>
+<li><strong>Deeper batter, lower and longer.</strong> Drop the oven by 25&deg;F and extend the time, checking early. A deep batter that browns before the middle sets is the classic failure.</li>
+</ul>
+<p>The <a href="/oven-temperature-converter.html">oven temperature converter</a> is useful here, particularly if the recipe is written for a fan oven and yours is conventional, or the reverse. A 25&deg;F difference is enough to change the outcome of a delicate bake.</p>
+
+<h2>Batch cooking that is not baking</h2>
+<p>Soups, stews, sauces and braises are far more forgiving. Doubling a stew is nearly always safe, with two exceptions. Salt and stock concentrate do not double cleanly, because the liquid reduces by the same amount regardless of batch size in a wide pot, concentrating whatever salt is in it. And browning happens on surface area, so twice the meat in the same pan steams instead of browning; brown in batches and combine afterwards.</p>
+<p>Rice, pasta and grains scale linearly by weight, but the pot and the water ratio matter more than the arithmetic for small quantities. A triple batch in a pot that is nearly full will boil over.</p>
+
+<h2>Baker's percentages, briefly</h2>
+<p>Professional baking writes formulas as percentages of the flour weight, which makes scaling trivial. If flour is 100% and water is 65%, then for 500 g of flour you need 325 g of water, and for 750 g of flour, 487 g. The total weight is always more than the flour, which is why a "100% hydration" dough is half flour and half water by weight.</p>
+<p>You do not need to convert a home recipe to percentages to double it. You do need to weigh rather than scoop if you are changing batch sizes, because a cup of flour varies by 20% depending on how it was filled, and that variation multiplies with the batch.</p>
+
+<h2>A safe order of operations</h2>
+<ol>
+<li>Decide the pan first, then the batch size. Pan area, not diameter.</li>
+<li>Scale the ingredients to fill the pan at roughly the original depth.</li>
+<li>Weigh the flour and the eggs rather than counting cups.</li>
+<li>Keep the oven temperature for the same depth; lower it for a deeper batter.</li>
+<li>Start checking at the original time, and judge by look and feel rather than the clock.</li>
+</ol>
+<p>For the cake above, moving from one 8 inch round to a 9 by 13 pan means multiplying every ingredient by 2.33 and expecting a similar bake time, because the depth is close. Moving the same recipe to a single 9 inch round means 1.27 times the batter and a slightly shorter time. Both are simple; only one of them is what most people assume.</p>
+<h2>Freezing and reheating a scaled batch</h2>
+<p>The reason to scale up is usually to have food later, and that changes what is worth scaling. Stews, braises, soups, chilli and tomato sauces freeze well and improve in the fridge for a day or two. Rice, pasta and potatoes do not: they absorb liquid, break down, and reheating turns them to mush. Cook those fresh to order and freeze only the sauce.</p>
+<p>Cool a large batch quickly before it goes in the freezer. A deep pot of stew left on the counter cools slowly through the middle, which is the range where bacteria are happiest. Divide it into shallow containers, leave the lids off until it stops steaming, then seal and freeze. Portion at the same time, because a solid block of frozen stew is hard to divide later.</p>
+<p>Label with the date and the contents. A freezer full of unlabelled containers is a freezer full of mystery, and the food gets thrown away, which defeats the point of the batch. Three months is a reasonable default for cooked dishes, though quality rather than safety is what usually declines first.</p>
+<h2>Weighing instead of scooping</h2>
+<p>The reason professional recipes are written in grams is repeatability. A cup of flour scooped from a bag can weigh anywhere from about 120 to 150 grams depending on how packed it is; the same cup weighed twice can differ by 10%. In a single batch that is invisible. In a quadruple batch, that variation is multiplied, and the difference between a batter and a dough is often a few percent of hydration.</p>
+<p>A scale costs less than a good pan and removes the variable entirely. Weigh the bowl, tare, add. For liquids, a millilitre is a gram for water and milk, and close enough for oil and stock; honey is denser, which is why the <a href="/cooking-measurement-converter.html">measurement converter</a> treats each ingredient separately.</p>
+<p>If you scale a recipe often, write the weights on the page once. That single act turns a book of approximations into a set of formulas you can double reliably.</p>
+
+<p style="font-size:12px;color:#888;margin-top:18px;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Estimates only. Not tax, legal, financial, or professional advice. See the <a href="/terms.html">terms</a>.</p>
+</div>
+</div>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+</body>
+</html>
