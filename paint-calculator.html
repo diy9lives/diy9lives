@@ -83,6 +83,7 @@ input:focus,select:focus{border-color:var(--yellow)}
   <a class="back" href="/">&#8592; All tools</a>
 </nav>
 <div class="page">
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Paint Calculator</span></nav>
   <div class="hero">
     <div class="ey">&#127912; Paint Calculator</div>
     <h1>Never overbuy paint<br>or run out mid-room.</h1>
@@ -231,10 +232,49 @@ function recalc() {
 // Add first room by default
 addRoom();
 </script>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>For each room, wall area is 2 &times; (length + width) &times; height. The tool subtracts about 20 square feet per door and 15 per window to get the paintable area. Gallons needed are paintable area &times; number of coats &divide; coverage per gallon, summed across rooms, then increased by 10% for waste and rounded up to whole gallons. Cost is gallons times the price tier you choose. The calculation covers walls only, not ceilings or trim.</p></div>
-<div class="dy9-card"><h2>Frequently asked questions</h2><h3>Does this include ceilings and trim?</h3><p>No. It calculates wall paint only. Measure ceilings (length &times; width) and trim separately and add them if you are painting them.</p><h3>How much does a gallon of paint cover?</h3><p>Most paint covers roughly 350 to 450 square feet per gallon per coat, depending on the product and how smooth or textured the surface is. The label on your can has the manufacturer&#39;s number.</p><h3>Do I really need primer?</h3><p>Primer helps on new drywall, bare patches, stains, and big color changes such as dark to light. It usually saves you from adding extra coats of expensive paint.</p><h3>Why add 10% extra?</h3><p>Batches can vary slightly in color, you will lose some paint to the roller and tray, and leftovers are handy for touch-ups later.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>A 12 by 10 foot room with 9 foot walls, one door, and two windows has 396 square feet of wall and 346 after the door and windows. Two coats at 400 square feet per gallon is 1.73 gallons. The 10% buffer makes it 1.90, and the page rounds up to 2 gallons. Paint is sold by the gallon, so the extra fraction is not optional.</p><p>The ceiling is 120 square feet. Two coats at the same coverage is 0.60 gallons, about 0.66 with the buffer. Walls plus ceiling cross 2 gallons and land on 3. That is the decision the FAQ points at without doing the sum: measure the ceiling if you are painting it, because it can be the gallon that changes the budget. The 20 and 15 square foot allowances are this page’s averages for a standard door and a standard window. A sliding door or a bay window is bigger. Read the coverage on the can. The 350 / 400 / 450 presets are a range, not a brand’s promise.</p><p>If the house was built before 1978, sanding and scraping paint is a lead question, not just a quantity question. EPA’s renovation rule exists because of that.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>Coverage belongs to the manufacturer. The lead rule belongs to EPA.</p><ul><li><a href="https://www.epa.gov/lead/renovation-repair-and-painting-program" target="_blank" rel="noopener">EPA Renovation, Repair and Painting program</a>. Work that disturbs paint in pre-1978 homes. This calculator does not know the year of your house.</li></ul><p>Links checked October 29, 2026. Pages move; search the agency name and the document title if a link breaks.</p></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/guides/home-project-quantities.html">Home project quantities</a></li><li><a href="/solar-savings-calculator.html">Solar Panel Savings Calculator</a></li><li><a href="/rent-vs-buy-calculator.html">Rent vs. Buy Calculator</a></li><li><a href="/concrete-calculator.html">Concrete Calculator</a></li><li><a href="/mulch-soil-gravel-calculator.html">Mulch, Soil &amp; Gravel Calculator</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>Measure the room, not the wall you happen to be facing. You need four numbers per room, and three of them come from a tape measure.</p>
+<ol>
+<li>Length and width along the floor, then the ceiling height. Eyeballing an 8 foot ceiling when it is actually 9 feet understates the wall area by about 12%.</li>
+<li>Count the doors. Each door is deducted at 20 square feet, which is a standard 3 foot door with its casing. A double closet door counts as two.</li>
+<li>Count the windows. Each is deducted at 15 square feet. A bathroom slider is smaller than that; a picture window is a good deal larger.</li>
+<li>Set coats, coverage, and price tier once at the top. Those three apply to every room on the list, so a whole-house job uses one set of assumptions.</li>
+<li>Add a room for each space you are actually painting. A hallway, a closet, and the spare bedroom should be separate rows so each keeps its own measurements.</li>
+</ol>
+<p>The tool measures walls. Ceilings, trim, and the faces of doors are not included, and the FAQ below covers how to add them by hand.</p></div>
+
+<div class="dy9-card"><h2>A worked example: a 14 by 12 bedroom</h2>
+<p>Walls are 2 &times; (14 + 12) &times; 9, which is 468 square feet. Take out one door (20) and two windows (30) and the paintable area is 418 square feet. Two coats at 400 square feet per gallon is 2.09 gallons. The 10% buffer makes it 2.30, and the page rounds to <strong>3 gallons</strong>. At the mid-range $45 a gallon that is about $135.</p>
+<p>Now measure the ceiling, because this is where the purchase changes. The ceiling is 14 &times; 12, or 168 square feet. Two coats is 0.84 gallons, 0.92 with the buffer. Walls plus ceiling is 3.22 gallons, and the page now calls for <strong>4 gallons</strong>, roughly $180. One measurement moved the order by a whole can.</p>
+<table><thead><tr><th>What you measure</th><th>Area</th><th>Gallons, 2 coats, with buffer</th></tr></thead><tbody>
+<tr><td>Walls (14 &times; 12 &times; 9 room)</td><td>418 sq ft</td><td>2.30 &rarr; buy 3</td></tr>
+<tr><td>Ceiling</td><td>168 sq ft</td><td>0.92</td></tr>
+<tr><td>Both</td><td>586 sq ft</td><td>3.22 &rarr; buy 4</td></tr>
+</tbody></table>
+<p>Trim is a separate problem. Baseboard, casing, and crown are measured in linear feet, and 1 gallon usually covers a whole house's trim in two coats. Add it only if you are changing trim color, because that job needs its own can and its own sheen.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The headline number is whole gallons, rounded up, already carrying the 10% buffer. That extra covers color variation between cans, paint left in the tray and the roller, and touch-ups six months later. Rounding is not padding: you cannot buy 2.3 gallons, and stopping at 2 leaves a wall unfinished.</p>
+<p>Compare the per-gallon cost before you buy four singles. Most brands price a 5 gallon pail below five singles, and if your job lands at 4 or more gallons the pail is usually the cheaper way to get there. Tinting is the catch: a pail is mixed as one batch, so it is ideal when the whole job is one color and awkward when each room is different.</p>
+<p>The coverage box matters more than the price tier. The 350 / 400 / 450 presets are a range, not a promise. Fresh drywall drinks paint, so does stucco and any wall with heavy texture; smooth, previously painted walls land near the top of the range. The number printed on your can is the one to enter, and a cheap paint usually covers less than an expensive one, which quietly cancels out part of the savings.</p>
+<p>Nothing here is a substitute for a lead test. If the house was built before 1978, sanding or scraping the old paint is a containment question before it is a quantity question.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>How many gallons for a 12 by 12 room?</h3><p>With 8 foot ceilings, one door, and two windows: 384 square feet of wall, 334 after openings, 1.67 gallons at two coats, 1.84 with the buffer. Buy 2 gallons. A 9 foot ceiling pushes it to 2.08 after the buffer, and you would buy 3.</p>
+<h3>Is one coat ever enough?</h3><p>Only over an identical color and sheen in good condition. Repainting the same off-white over itself can work in one coat. Any color change, patches, or a sheen change needs two, and going light to dark usually needs a tinted primer plus two.</p>
+<h3>How much primer do I need?</h3><p>Run the same wall area through the formula with one coat. On the 14 by 12 room that is 418 &divide; 400, about 1.05 gallons, so one gallon with the buffer. Primer covers roughly like paint, but check the can, because shellac and stain-blocking primers are thinner.</p>
+<h3>Do I count the door and window faces?</h3><p>Only if you are painting them. The 20 and 15 square foot deductions assume the door and window stay as they are. Painting a door's two faces and edge adds about 40 square feet, so count it as its own row and remove the deduction.</p>
+<h3>Why does a dark color need more paint?</h3><p>Titanium dioxide, the pigment that hides what is underneath, is what makes paint opaque, and deep bases carry less of it. Going from a light wall to navy or deep red commonly needs three coats or a tinted primer. Set the coat selector to 3 and buy the extra can in the same batch.</p>
+<h3>How long does leftover paint keep?</h3><p>Water-based paint stored sealed and out of freezing temperatures is usually usable for years; oil-based lasts longer still. Label the can with the room and the date, and keep it for touch-ups rather than throwing away a half gallon you already paid for.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>Coverage per gallon belongs to the manufacturer and is printed on the can. The lead rule is the EPA's.</p>
+<ul>
+<li><a href="https://www.epa.gov/lead/renovation-repair-and-painting-program" target="_blank" rel="noopener">EPA Renovation, Repair and Painting program</a>. Work that disturbs paint in pre-1978 housing. This calculator does not know the year your house was built.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> The 20 and 15 square foot door and window allowances are this page's averages for standard openings, not a code requirement.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/guides/home-project-quantities.html">Home project quantities</a></li><li><a href="/flooring-calculator.html">Flooring Calculator</a></li><li><a href="/concrete-calculator.html">Concrete Calculator</a></li><li><a href="/home-renovation-roi.html">Home Renovation ROI</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>

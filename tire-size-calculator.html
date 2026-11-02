@@ -153,6 +153,7 @@
 </nav>
 
 <main>
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Tire Size Calculator</span></nav>
   <div class="crumb"><a href="/">Home</a> / Cars &amp; Driving / Tire Size Calculator</div>
   <h1>Tire Size <em>Calculator</em></h1>
   <p class="sub">Going from 16&quot; wheels to 18&quot;? Enter your stock tire size and instantly see the closest equivalent sizes for every wheel diameter &mdash; plus exactly how far off your speedometer will read with each one.</p>
@@ -272,9 +273,44 @@
   </div>
 </main>
 
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>Enter your stock tire size as width in millimeters, aspect ratio in percent, and wheel diameter in inches. Sidewall height is width &times; aspect ratio &divide; 100, and overall diameter is the wheel diameter (converted to millimeters) plus two sidewalls. For other wheel diameters, the tool lists commonly stocked tire sizes whose overall diameter is close to stock and shows the percentage difference.</p><p>A tire that is taller or shorter than stock makes the speedometer and odometer read wrong. The speedometer table shows your true speed for each indicated speed, calculated as indicated speed &times; new diameter &divide; stock diameter. A common rule of thumb is to stay within 3% of the stock diameter, with 1% or less being ideal. The custom compare card lets you test any specific size, including ones not in the list.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>A 225/65R17 is about 28.52 inches tall. A 235/55R18 is about 28.18 inches, which is 1.2% shorter. At an indicated 70 mph you are actually doing about 69 mph. That is inside the band most tire shops treat as interchangeable, and it is still a different tire: the sidewall is shorter, so the ride is firmer and the speedometer is slightly optimistic.</p><p>Overall diameter is the rim diameter plus two sidewalls. Sidewall height in inches is the section width in millimeters times the aspect ratio, divided by 25.4. The calculator then keeps commonly stocked sizes within 3% of your stock diameter. That 3% is a fitting rule of thumb, not a NHTSA limit. NHTSA’s instruction is blunter: buy the size on the tire placard on the driver’s door, or another size the vehicle maker recommends. A plus-size that clears the fender on paper can still rub the spring at full lock.</p><p>Click a row for the speedometer table. If the new tire is taller, the speedometer reads low and the odometer under-counts miles by the same percent. Warranty, load index, and speed rating are not in the table. Match the load index on the placard before you care about the percent.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>The diameter math is the size code printed on the sidewall. The safety instruction is NHTSA’s.</p><ul><li><a href="https://www.nhtsa.gov/vehicle-safety/tires" target="_blank" rel="noopener">NHTSA, tires</a>. How to read a passenger tire size, and why the door-jamb placard beats a guess. The agency’s tire brochure uses the same width, aspect-ratio, and rim reading.</li></ul><p>Links checked October 29, 2026. Pages move; search the agency name and the document title if a link breaks.</p></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/guides/reading-a-car-deal.html">Reading a car deal</a></li><li><a href="/vin-decoder.html">VIN Decoder</a></li><li><a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a></li><li><a href="/lease-vs-buy-calculator.html">Lease vs. Buy Calculator</a></li><li><a href="/true-cost-of-ownership-calculator.html">True Cost of Ownership</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>The size code on your sidewall contains all three numbers the tool needs, and reading it correctly is the whole task.</p>
+<ol>
+<li>Find your current size on the sidewall or the placard on the driver's door jamb. A 205/55R16 reads as 205 millimeters of section width, a sidewall height that is 55% of that width, and a 16 inch wheel.</li>
+<li>Enter those three numbers as your stock size. If the placard and the tires disagree, enter the stock size from the placard, because that is what the car was built around.</li>
+<li>Pick the wheel diameter you are considering, or use the custom compare card to test one exact size.</li>
+<li>Read the percentage difference, not just the diameter. The percent is what your speedometer and odometer care about.</li>
+<li>Click a row to see the speedometer table, which shows true speed at each indicated speed.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: 205/55R16 to 215/45R17</h2>
+<p>Stock: sidewall is 205 &times; 0.55, or 112.75 millimeters. Overall diameter is the 16 inch rim in millimeters (406.4) plus two sidewalls (225.5), which is 631.9 millimeters, or <strong>24.88 inches</strong>.</p>
+<p>The plus-one size: 215 &times; 0.45 is 96.75 millimeters of sidewall. Diameter is 431.8 plus 193.5, or 625.3 millimeters, which is <strong>24.62 inches</strong>. The new tire is 1.04% smaller than stock.</p>
+<p>That one percent shows up on the dash. At an indicated 65 mph you are actually doing <strong>64.3 mph</strong>, so the speedometer reads slightly high, which is the safe direction for a ticket and the wrong direction for your odometer, which adds a mile roughly every 96 you actually drive. The car also sits marginally lower and the ride is slightly firmer, because the sidewall is thinner even though the wheel is bigger.</p>
+<p>For comparison, a 225/65R17 is 28.52 inches and a 235/55R18 is 28.18 inches, so that pairing is about 1.2% apart. Both examples sit inside the 3% band tire shops commonly treat as interchangeable, and neither is a guarantee that the tire clears your strut at full lock.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>Diameter is the number the car's computers assume. The speedometer counts wheel rotations and multiplies by a circumference it was programmed with, so a tire that is 1% taller covers 1% more ground per turn, and the dash under-reports speed by 1%. The odometer drifts the same way, which matters at lease return and resale.</p>
+<p>The percentage is the actionable number, and the size relative to stock is what you want to minimize. Under 1% is effectively invisible. Around 3% is where you are choosing a new set of compromises, and above that you are changing the gearing the car was designed around.</p>
+<p>Diameter is not the only fitment question. Section width has to clear the strut, the spring, and the fender liner at full steering lock, and none of that appears in a diameter comparison. Offset and wheel width change where the tire actually sits.</p>
+<p>Two numbers this tool does not compare are load index and speed rating. A tire with the right diameter and a lower load index is the wrong tire. Match the load index on the placard before you care about the percentage.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>What does the 205 in 205/55R16 mean?</h3><p>Section width in millimeters, measured across the widest part of the inflated tire, not the tread. The 55 is the aspect ratio, meaning the sidewall is 55% as tall as the tire is wide, and the 16 is the wheel diameter in inches.</p>
+<h3>How much does tire size affect my speedometer?</h3><p>By exactly the percentage change in diameter. A tire 1% taller makes the speedometer read 1% low, so an indicated 65 mph is about 65.7 mph true. Two or three percent is enough to matter on a highway.</p>
+<h3>Do I need a recalibration after changing size?</h3><p>If you stay within a fraction of a percent, no. Beyond that, some vehicles can have the tire size reprogrammed through the dealer or a capable scan tool, and vehicles that derive speed from wheel sensors may need it.</p>
+<h3>Does a bigger wheel hurt fuel economy?</h3><p>A taller, heavier wheel and tire package takes more energy to accelerate and changes the effective gearing. The effect is usually small compared with driving style, but a much heavier combination is measurable.</p>
+<h3>How old is too old for a tire?</h3><p>Tires carry a DOT date code of four digits, week and year, so 3224 means the 32nd week of 2024. Rubber ages regardless of tread depth, and many manufacturers suggest inspecting closely around six years and replacing by ten, which is worth checking before buying used.</p>
+<h3>Can I change only two tires?</h3><p>Ideally all four, especially on an all-wheel-drive vehicle, where a significant diameter difference between axles strains the drivetrain. If you are replacing a pair, keep them on the same axle and match the size.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>The diameter math is just the size code printed on the sidewall. The safety instruction is NHTSA's.</p>
+<ul>
+<li><a href="https://www.nhtsa.gov/vehicle-safety/tires" target="_blank" rel="noopener">NHTSA, tires</a>. How to read a passenger tire size, and why the door-jamb placard is the authority rather than a fitment chart.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> The 3% band is a trade rule of thumb, not a regulation. The placard is the regulation.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/guides/reading-a-car-deal.html">Reading a car deal</a></li><li><a href="/vin-decoder.html">VIN Decoder</a></li><li><a href="/true-cost-of-ownership-calculator.html">True Cost of Ownership</a></li><li><a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>

@@ -31,6 +31,7 @@ textarea:focus{border-color:var(--yellow)}
 .tip:last-child{margin:0;padding:0;border:none}
 .tip strong{color:var(--white)}
 .ti{font-size:18px;flex-shrink:0}
+@media(max-width:640px){.page{padding:28px 16px}.stats{grid-template-columns:1fr 1fr;gap:8px}h1{font-size:clamp(24px,8vw,34px)}.sub{font-size:14px;line-height:1.6}}
 </style>
 <style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}.dy9-info table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 14px}.dy9-info th,.dy9-info td{text-align:left;padding:7px 6px;border-top:1px solid #2a2a2a;vertical-align:top}.dy9-info th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#888;font-weight:700}</style>
 <link rel="canonical" href="https://www.diy9lives.com/word-counter.html"/>
@@ -60,6 +61,7 @@ textarea:focus{border-color:var(--yellow)}
   <span style="display:flex;gap:14px;align-items:center"><a style="color:#666;text-decoration:none;font-size:13px" href="/guides.html">Guides</a><a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a></span>
 </nav>
 <div class="page">
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Word Counter</span></nav>
 <div class="hero"><div class="ey">Word &amp; Character Counter</div><h1>Count as you type</h1><p class="sub">Words, characters, sentences, paragraphs, and estimated reading time &mdash; updated live.</p></div>
 
 <div class="card">
@@ -108,10 +110,43 @@ analyze();
 </script>
 
 </div>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>Words are counted by splitting on whitespace, characters include every character in the box, and sentences are counted by splitting on periods, question marks, and exclamation marks. Paragraphs are blocks separated by line breaks. Reading time assumes 200 words per minute and speaking time assumes 130, and both show at least one minute. Everything updates live as you type and nothing leaves your browser.</p></div>
-<div class="dy9-card"><h2>Frequently asked questions</h2><h3>How is reading time estimated?</h3><p>It divides your word count by 200, a typical adult silent reading speed. Speaking time uses 130 words per minute, a natural pace for talking.</p><h3>Does it count characters with or without spaces?</h3><p>Both. You get the total characters and the count without spaces, because different forms, tweets, and applications use different rules.</p><h3>Why might my sentence count look off?</h3><p>Abbreviations like &ldquo;Dr.&rdquo; and numbers with decimals contain periods that look like sentence endings, so counts can be slightly high in text that uses many of them.</p><h3>Is my text saved?</h3><p>No. It is processed in your browser and is gone when you close the page.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>Four hundred words at the page’s 200 words per minute is a 2-minute silent read and about 3 minutes spoken at 130 words per minute. A college essay that asks for 1,500 words is a 7.5-minute read on that same assumption. The assumption is a round number for an average adult, not a test of your reader. Technical text with formulas is slower. A story can be faster.</p><p>“Dr. Lopez arrived at 3.5 miles.” can look like three sentences to a splitter that treats every period as an ending. The FAQ already warns about that. For a limit that counts characters, Twitter-style or a meta description, use the character totals, not the word total. Nothing is uploaded.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>The 200-word and 130-word rates are conventions this page states. They are not a measurement of your audience.</p><ul><li><a href="https://www.plainlanguage.gov/guidelines/" target="_blank" rel="noopener">plainlanguage.gov guidelines</a>. Federal guidance on short sentences and common words, which is the editing question underneath a word count.</li></ul><p>Links checked October 29, 2026. Pages move; search the agency name and the document title if a link breaks.</p></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/case-converter.html">Case Converter</a></li><li><a href="/readability-checker.html">Readability Checker</a></li><li><a href="/headline-analyzer.html">Headline Analyzer</a></li><li><a href="/text-diff-checker.html">Text Diff Checker</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this counter</h2>
+<p>Paste or type text and every figure updates as you go. The counts are mechanical, so knowing the rules behind them tells you when to trust a number.</p>
+<ol>
+<li>Paste your text into the box. Formatting is not preserved, which is fine for counting but not for editing.</li>
+<li>Read the word count first. Words are split on whitespace, so hyphenated compounds count as one and "don't" counts as one.</li>
+<li>Check characters with and without spaces separately. Forms and meta descriptions often count one or the other, and they are not interchangeable.</li>
+<li>Use the sentence count as an estimate. Abbreviations and decimals contain periods, and the splitter treats every period as a possible ending.</li>
+<li>Turn on reading time if you are writing to a length rather than to a word target.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: a 400-word page</h2>
+<p>Four hundred words at the page's 200 words per minute is a <strong>2-minute</strong> silent read. Spoken aloud at 130 words per minute, the same text is about <strong>3 minutes</strong>.</p>
+<p>Scale it to a real brief. A 1,500-word essay is a 7.5-minute read by the same assumption, and a 250-word product description is about 75 seconds. Those figures are for a comfortable adult reader on unfamiliar material.</p>
+<p>Now the sentence trap. "Dr. Lopez arrived at 3.5 miles." has two periods that are not sentence endings, and a splitter that treats every period as one reports three sentences. In a document full of abbreviations, decimals, or version numbers, the sentence count runs high and the average words per sentence runs low.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The word count is the reliable figure. It is defined by whitespace splitting, which matches how most word processors count and how most word limits are applied. Differences between tools usually come from how they treat hyphens, em dashes, and numbers.</p>
+<p>Reading time is a convention, not a measurement of your audience. Two hundred words per minute is a common adult silent reading rate, and 130 a common speaking rate. Technical material with formulas is slower, a familiar story is faster, and neither changes the word count.</p>
+<p>Character counts are what constraints actually use. A meta description, a form field, or a social post limit is measured in characters, sometimes with spaces and sometimes without, and the difference matters more than the word count does.</p>
+<p>Nothing is uploaded. The text stays in your browser, which is why this is safe for a draft you would not paste into a random website.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>How is reading time calculated?</h3><p>Words divided by 200 for silent reading and by 130 for speaking, with a minimum of one minute. Both are stated conventions rather than measurements of your specific reader.</p>
+<h3>Do you count characters with or without spaces?</h3><p>Both, because different limits use different rules. Check which one the form or platform requires before trimming.</p>
+<h3>Why does the sentence count look too high?</h3><p>Abbreviations, decimals, and ellipses contain periods that the splitter treats as endings. The word and character counts are unaffected; only the sentence count drifts.</p>
+<h3>Does it count words in a table or a list?</h3><p>Yes, because the text is counted as plain characters. A bulleted list contributes each item's words, and a table pasted as text contributes its cell contents.</p>
+<h3>Is my text saved?</h3><p>No. It is processed in your browser and is gone when you close the page. Nothing is uploaded or stored.</p>
+<h3>How long should a paragraph or a page be?</h3><p>That is an editing judgement, not a counting one. Short paragraphs help online, and a word target is a constraint rather than a goal. The counter tells you where you are, not where you should be.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>The 200-word and 130-word rates are conventions this page states. They are not measurements of your audience.</p>
+<ul>
+<li><a href="https://www.plainlanguage.gov/guidelines/" target="_blank" rel="noopener">plainlanguage.gov, guidelines</a>. Federal guidance on short sentences and common words, which is the editing question underneath a word count.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Counts are mechanical. Reading time is an assumption.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/readability-checker.html">Readability Checker</a></li><li><a href="/case-converter.html">Case Converter</a></li><li><a href="/headline-analyzer.html">Headline Analyzer</a></li><li><a href="/typing-speed-test.html">Typing Speed Test</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>

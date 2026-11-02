@@ -85,6 +85,7 @@ footer a{color:var(--yellow);}
 <body>
 <nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
 <main>
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">GPA Calculator</span></nav>
 <div class="crumb"><a href="/">Home</a> / Everyday Math / GPA Calculator</div>
 <h1>GPA <em>Calculator</em></h1>
 <p class="sub">Add each course with its credit hours and grade to calculate your weighted GPA &mdash; works for a single semester or your full cumulative record.</p>
@@ -134,9 +135,43 @@ footer a{color:var(--yellow);}
 </details>
 </div>
 </main>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>Each course&#39;s grade is converted to grade points on the standard 4.0 scale, then multiplied by its credit hours to get quality points. Your GPA is total quality points divided by total credit hours, so a 4-credit course counts more than a 1-credit one. If you enter a prior GPA and credits, the tool blends them by weighting each by its credit hours to give a cumulative GPA.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>Three courses: an A in 3 credits (4.0 × 3 = 12), a B+ in 4 credits (3.3 × 4 = 13.2), and an A− in 3 credits (3.7 × 3 = 11.1). That is 36.3 points over 10 credits, a term GPA of 3.63. Fold in a prior 3.20 over 30 credits, which is 96 points. Combined points are 132.3 over 40 credits, a cumulative GPA of 3.31.</p><p>Those grade points are a common plus/minus scale. They are not every college’s scale. Some schools give a B+ a 3.3, some a 3.33, and some do not use plus and minus at all. If your registrar publishes a different table, this number will not match the transcript. A pass/fail course usually adds credits without points, or adds neither. This page has no pass/fail button, so leave those courses off.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>There is no national GPA statute. The scale is whatever the school prints.</p><ul><li><a href="https://www.careeronestop.org/JobSearch/Resumes/Resumes.aspx" target="_blank" rel="noopener">CareerOneStop, resumes</a>. Useful when you are deciding whether a GPA belongs on a resume at all. It does not define the scale.</li></ul><p>Links checked October 29, 2026. Pages move; search the agency name and the document title if a link breaks.</p></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/currency-converter.html">Currency Converter</a></li><li><a href="/qr-code-generator.html">QR Code Generator</a></li><li><a href="/date-difference-calculator.html">Date Calculator</a></li><li><a href="/timezone-converter.html">Time Zone Converter</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>GPA is quality points divided by credit hours. The calculator builds that fraction from your course list, so the only real work is entering each course accurately.</p>
+<ol>
+<li>Add each course with its letter grade and its credit hours. A four-credit course carries more weight than a one-credit course, which is the point of the credit weighting.</li>
+<li>Check the grade points against your registrar's scale. This page uses a common plus/minus table, and not every school uses the same one.</li>
+<li>Leave pass/fail and transfer-credit courses out. They usually add credits without points, and including them would drag the average down incorrectly.</li>
+<li>Optionally enter your prior cumulative GPA and prior credit hours. The tool blends them by credit weight to produce a cumulative figure.</li>
+<li>Change one grade and watch the term GPA move. That is the fastest way to see what a single course is worth.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: three courses plus a prior average</h2>
+<p>An A in a 4-credit course is 4.0 &times; 4, or 16 quality points. A B in 3 credits is 3.0 &times; 3, or 9. A C+ in 4 credits is 2.3 &times; 4, or 9.2. Total quality points are 34.2 across 11 credits, which is a term GPA of <strong>3.11</strong>.</p>
+<p>Now blend in a prior 3.45 across 45 credits. That prior work is 3.45 &times; 45, or 155.25 points. Combined, 189.45 points across 56 credits gives a cumulative GPA of <strong>3.38</strong>.</p>
+<p>The lesson in those two numbers: a good term barely moves a long transcript. The same 3.11 term against 12 prior credits instead of 45 would land near 3.34 rather than 3.38. The more history you have, the more inertia it carries — which is encouraging if you had a rough first year and discouraging if you are trying to lift a strong one.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The number is your school's arithmetic on your school's scale, and only the second part is uncertain. A B+ is worth 3.3 here; some registrars use 3.33, some do not use plus or minus at all, and some count an A+ above 4.0. If your transcript disagrees with this result, the scale is almost always the reason rather than the arithmetic.</p>
+<p>Term GPA describes one stretch of work. Cumulative GPA describes everything, weighted by credits. Employers and graduate programs usually ask for the cumulative figure, and many want it on a specific scale, so state the scale when you report it.</p>
+<p>Withdrawals, incompletes, and repeated courses are not modeled. A repeated course may replace the old grade or average with it, depending on the institution, and that single rule can move a cumulative GPA by more than a semester of effort.</p>
+<p>Nothing here converts between scales. A 3.8 on a 4.0 scale is not a specific percentage, and the conversion tables in circulation vary enough that using one would be a guess dressed as a number.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>How is GPA calculated?</h3><p>Each grade is converted to grade points, multiplied by the course's credit hours to get quality points, then the total quality points are divided by total credit hours. That is why a 4-credit course counts twice as much as a 2-credit one.</p>
+<h3>Why doesn't this match my transcript?</h3><p>Almost always a different grade-point scale, or a rule about repeated courses and pass/fail credits. Check your registrar's published table against the one used here.</p>
+<h3>Should I include courses I'm taking now?</h3><p>Only if you have a grade to enter. An in-progress course with no grade would need a placeholder, and a guessed grade produces a guessed GPA.</p>
+<h3>What about a transfer GPA?</h3><p>Transfer credits usually appear as credits without quality points, so they raise the credit total without raising the average. Leave them out unless your school folds them in, which is uncommon.</p>
+<h3>Does a W affect my GPA?</h3><p>A withdrawal typically carries no grade points and no effect on the average, though it may affect satisfactory academic progress for financial aid. The rules are institutional.</p>
+<h3>Is a 3.0 good?</h3><p>It depends entirely on the context: the school, the major, and what the number is for. A 3.0 clears many graduate-program minimums and falls short of others. This calculator reports the number and has no opinion on it.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>There is no national GPA standard. The scale is whatever your school prints, and this page uses a common plus/minus table.</p>
+<ul>
+<li><a href="https://www.careeronestop.org/JobSearch/Resumes/resumes.aspx" target="_blank" rel="noopener">CareerOneStop, resumes</a>. Useful when deciding whether a GPA belongs on a resume at all; it does not define the scale.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Verify the grade-point table with your registrar before relying on the total.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/percentage-calculator.html">Percentage Calculator</a></li><li><a href="/word-counter.html">Word Counter</a></li><li><a href="/readability-checker.html">Readability Checker</a></li><li><a href="/age-calculator.html">Age Calculator</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>

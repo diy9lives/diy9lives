@@ -88,6 +88,7 @@ footer a{color:var(--yellow);}
 <body>
 <nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
 <main>
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Debt Payoff Planner</span></nav>
 <div class="crumb"><a href="/">Home</a> / Finance &amp; Money / Debt Payoff Planner</div>
 <h1>Debt Payoff <em>Planner</em></h1>
 <p class="sub">Enter your debts and see exactly how the snowball (smallest balance first) and avalanche (highest interest first) methods compare &mdash; time to debt-free and total interest paid, side by side.</p>
@@ -129,9 +130,45 @@ footer a{color:var(--yellow);}
 </details>
 </div>
 </main>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>The planner simulates your payoff month by month. Each month, interest (APR &divide; 12) is added to every balance and the minimum payment is made on each debt. Your extra payment, plus the minimums freed up from debts that are already paid off, then goes to one target debt. Snowball targets the smallest balance first, and avalanche targets the highest APR first. The simulation stops when everything is paid off or after 50 years, and reports total interest and months to debt-free for each method.</p><p style="font-size:12px;line-height:1.65;color:#888;margin:14px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc;font-weight:700">Last reviewed: October 2026.</strong> This is a planning estimate based on the formula above. It is not financial, tax, or legal advice.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>Enter two debts: $1,200 at 8% with a $40 minimum, and $4,500 at 24% with a $120 minimum. With $150 extra each month, snowball (smallest balance first) and avalanche (highest rate first) both finish in about 23 months. Avalanche costs roughly $230 less interest, about $1,150 versus about $1,390. Paying only the minimums, with no extra, takes about 58 months and a bit over $3,500 of interest.</p><p>The decision is usually the extra payment, not the label. Snowball and avalanche diverge when the small balance is also the cheap rate, which is this case, and even then the gap is hundreds of dollars, not a different decade. If the minimums already barely cover interest, the tool will tell you the debt never ends. That is the result to take seriously. A 22% card with a minimum that is only the interest is not a payoff plan until the payment is larger than the interest.</p><p>The simulator assumes every minimum stays constant and that freed minimums roll to the next debt. Real cards change the minimum as the balance falls, and a new purchase resets the story. Do not add a debt you are still charging.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>Snowball and avalanche are payoff orders, not products. The consumer-protection context is the CFPB’s debt-to-income and credit guidance.</p><ul><li><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/" target="_blank" rel="noopener">CFPB, debt-to-income ratio</a>. Why the monthly payment, not the slogan, is what a lender will look at later.</li><li><a href="https://studentaid.gov/manage-loans/repayment" target="_blank" rel="noopener">Federal Student Aid, repayment</a>. Federal student loans have plans this snowball chart does not model. Use the student-loan page for a single federal-style balance, and StudentAid.gov for the actual plan.</li></ul><p>Links checked October 29, 2026. Pages move; search the agency name and the document title if a link breaks.</p></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/student-loan-calculator.html">Student Loan Payoff Calculator</a></li><li><a href="/retirement-calculator.html">Retirement Calculator</a></li><li><a href="/net-worth-calculator.html">Net Worth Calculator</a></li><li><a href="/mortgage-calculator.html">Mortgage Calculator</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this planner</h2>
+<p>The planner simulates your debts month by month, so the inputs need to be as close to the statements as you can get them.</p>
+<ol>
+<li>Add each debt with its current balance, its APR, and its minimum payment. Use the minimum printed on the statement, not the amount you usually pay.</li>
+<li>Enter the extra you can put toward debt each month. If the answer is zero, that is a valid result and the planner will show you the minimum-only timeline.</li>
+<li>Compare the snowball result against the avalanche result. Both pay the same total each month; they differ only in which balance gets the extra.</li>
+<li>Read the months-to-debt-free and the total interest, and treat the months figure as the one to plan around.</li>
+<li>Leave out any debt you are still charging. A balance that grows each month breaks the simulation's assumption.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: a store card and a credit card</h2>
+<p>Two debts. A store card with $1,200 at 8% and a $40 minimum. A credit card with $4,500 at 24% and a $120 minimum. Add $150 of extra payment.</p>
+<p>Before comparing strategies, look at what each balance costs per month in interest, which is the balance times the APR divided by 12. The store card costs <strong>$8.00</strong> a month. The credit card costs <strong>$90.00</strong> a month.</p>
+<p>That single pair of numbers explains the whole decision. The store card's $40 minimum pays off $32 of principal every month. The credit card's $120 minimum pays off only $30, because three quarters of the payment is interest. The card is barely moving even though it costs three times as much to hold.</p>
+<p>So avalanche sends the extra $150 to the 24% card. Snowball sends it to the smaller balance first, clears the store card quickly, and then rolls its $40 minimum into the card. Both finish, and the avalanche run pays less interest overall; the snowball run gets the satisfaction of closing an account sooner. The gap between them is smaller than the cost of not making the extra payment at all.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>Months to debt-free is the headline. Total interest is the price of the order you chose. The difference between the two methods is usually a few hundred dollars on consumer balances, while the difference between paying minimums and paying extra is measured in years.</p>
+<p>Freed minimums roll forward in the simulation, which is what makes snowball work: once a balance closes, its minimum joins the extra payment. If you would spend that freed money instead, the timeline will not match your life.</p>
+<p>Minimums are held constant. Real card issuers recalculate the minimum as the balance falls, and a promotional 0% rate that expires mid-payoff will change everything. Neither is modeled.</p>
+<p>If the tool reports that a debt never pays off, it means the payment does not exceed the monthly interest. That is not a formatting problem. It is the single most important output on the page, and it needs a larger payment or a different plan, not a smaller balance target.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>Snowball or avalanche — which is better?</h3><p>Avalanche costs less in interest because it targets the highest rate. Snowball produces faster wins because it clears small balances first. If the motivational effect is what keeps you paying, snowball finishing is worth more than the interest difference.</p>
+<h3>What if I can only pay the minimums?</h3><p>Then the planner shows the true timeline, which is often decades on a high-rate card. That is the case for finding even a small extra amount, or for talking to a nonprofit credit counselor about the balances.</p>
+<h3>Should I include my mortgage?</h3><p>Usually not in the same list as revolving debt. A mortgage at a low fixed rate behaves differently and paying it off early is a separate decision. Include it only if it is the debt you are actually attacking.</p>
+<h3>Does this use my credit score?</h3><p>No. It uses balances, rates, and payments. Credit utilization and payment history affect your score separately, and neither is modeled here.</p>
+<h3>Why does the order change the total interest at all?</h3><p>Because interest accrues on every balance every month. The debt carrying the highest rate adds the most interest per dollar, so retiring it first stops the most expensive accrual soonest.</p>
+<h3>What about balance transfer offers?</h3><p>A 0% transfer can help, but the fee is usually a percentage of the balance and the rate resets later. The planner has no transfer-fee field, so subtract the fee from the benefit before assuming the move wins.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>Snowball and avalanche are payoff orders, not financial products. The consumer context is the CFPB's.</p>
+<ul>
+<li><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-debt-to-income-ratio-en-1791/" target="_blank" rel="noopener">CFPB, debt-to-income ratio</a>. Why the monthly payment, not the slogan, is what a lender looks at later.</li>
+<li><a href="https://studentaid.gov/help-center/answers/article/what-is-a-repayment-plan" target="_blank" rel="noopener">Federal Student Aid, repayment plans</a>. Federal loans have income-driven options this planner does not model.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Assumes fixed rates, constant minimums, and no new charges.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/student-loan-calculator.html">Student Loan Payoff Calculator</a></li><li><a href="/loan-calculator.html">Personal Loan Calculator</a></li><li><a href="/net-worth-calculator.html">Net Worth Calculator</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>

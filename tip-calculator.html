@@ -78,6 +78,7 @@ input:focus,select:focus{border-color:var(--yellow)}
 <span style="display:flex;gap:14px;align-items:center"><a style="color:#666;text-decoration:none;font-size:13px" href="/guides.html">Guides</a><a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a></span>
 </nav>
 <div class="page">
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Tip Calculator</span></nav>
 <div class="hero"><div class="ey">Tip Calculator</div><h1>Split the bill.<br>No arguments.</h1><p class="sub">Enter your bill, pick a tip percentage, and split it however many ways you need.</p></div>
 
 <div class="result-big">
@@ -149,10 +150,46 @@ calcTip();
 </script>
 
 </div>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>The tip is your bill times the tip percentage. The total is the bill plus the tip, and the per-person amount is the total divided by the number of people splitting it. The quick tip guide shows common percentages so you can compare the cost at each level.</p></div>
-<div class="dy9-card"><h2>Frequently asked questions</h2><h3>How much should I tip?</h3><p>In the United States, 15% to 20% is typical at restaurants for good service, and many people tip more for exceptional service. Customs differ in other countries.</p><h3>Should I tip on the pre-tax amount?</h3><p>Many people tip on the pre-tax subtotal, while others tip on the total. Enter whichever amount you prefer as the bill.</p><h3>What if a service charge is already included?</h3><p>Check your receipt. If a gratuity or service charge is already added, extra tipping is optional.</p><h3>How do I split unevenly?</h3><p>Enter each person&#39;s share as a separate bill, or calculate the shared items first and add personal items afterward.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>An $86.40 bill at 18% is a $15.55 tip and a $101.95 total. Split three ways, each person owes $33.98. At 20% the tip is $17.28 and each share is $34.56. The argument about 18 versus 20 is about 58 cents a person on this check.</p><p>If you tip on the pre-tax subtotal and tax was $6.40, the base is $80 and an 18% tip is $14.40, $1.15 less than tipping on the total. Either habit is coherent. Mixing them, or tipping again on a check that already has a service charge, is how tables overpay. The FAQ already flags the service-charge line. Read it before you move the slider.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>There is no federal tip rate. The IRS does care once the money is income for the server.</p><ul><li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/tip-recordkeeping-and-reporting" target="_blank" rel="noopener">IRS, tip recordkeeping and reporting</a>. For the person receiving the tip, not for how much you should leave.</li></ul><p>Links checked October 29, 2026. Pages move; search the agency name and the document title if a link breaks.</p></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/percentage-calculator.html">Percentage Calculator</a></li><li><a href="/age-calculator.html">Age Calculator</a></li><li><a href="/unit-converter.html">Unit Converter</a></li><li><a href="/password-checker.html">Password Checker &amp; Generator</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>The arithmetic is one multiplication and one division. The only judgement is which number goes in the bill field.</p>
+<ol>
+<li>Enter the bill total. Decide first whether that figure includes tax, because it changes the tip by a small but real amount.</li>
+<li>Set the percentage. The quick guide shows what each level costs before you commit to it.</li>
+<li>Enter how many people are splitting the check. The per-person figure is the total divided by that number.</li>
+<li>Round up if you are paying in cash, so the total lands on a whole note and the tip is easy to leave.</li>
+<li>Check the receipt for a service charge before you add a tip on top of it.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: an $86.40 check, split three ways</h2>
+<table><thead><tr><th>Tip</th><th>Tip amount</th><th>Total</th><th>Each of 3</th></tr></thead><tbody>
+<tr><td>18%</td><td>$15.55</td><td>$101.95</td><td>$33.98</td></tr>
+<tr><td>20%</td><td>$17.28</td><td>$103.68</td><td>$34.56</td></tr>
+</tbody></table>
+<p>The difference between 18% and 20% is $1.73 on the check, or <strong>58 cents</strong> per person. That is worth knowing before the table spends five minutes debating it.</p>
+<p>Now the tax question. If $6.40 of that bill is sales tax, the pre-tax subtotal is $80. An 18% tip on $80 is $14.40, which is <strong>$1.15 less</strong> than tipping on the total. Both habits are defensible; what is not defensible is tipping on the total while believing you tipped on the subtotal.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The total includes the tip, and the per-person figure splits that total evenly. Uneven splits need a different approach: total the shared items, split those, then add each person's own items.</p>
+<p>Tipping conventions are local, not mathematical. In the United States, 15% to 20% at a restaurant is the usual range for table service, with more for exceptional service and less where a service charge already exists. In much of Europe and Asia the custom is different, and applying an American percentage there is not generosity, it is confusion.</p>
+<p>A service charge is not a tip. If a gratuity line already appears on the check, the staff may or may not receive it depending on the establishment, and adding another 20% is a decision rather than an obligation. Ask if the line is unclear.</p>
+<p>One thing this page cannot do is decide whether the service warranted it. It converts a percentage into money, and the percentage is yours.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>Should I tip before or after tax?</h3><p>Either, as long as you know which you did. Tipping on the pre-tax subtotal is common and comes out slightly lower. Enter whichever base you intend to use.</p>
+<h3>What if a service charge is included?</h3><p>Then a tip is optional. Check whether the charge is distributed to staff, and tip on top only if you want to. Automatic gratuities on large parties are the usual case.</p>
+<h3>How do I split unevenly?</h3><p>Split the shared items first, add each person's own items, then apply the tip to each share. Doing it in the other order is how someone ends up paying for the appetizer they did not eat.</p>
+<h3>Is 20% the new standard?</h3><p>It is a common default on payment terminals, and 15% to 20% remains the conventional range for table service in the United States. There is no rule, and customs vary by city and by type of service.</p>
+<h3>Do I tip on takeout or delivery?</h3><p>Practices differ. Delivery is a service with a driver to pay, and takeout usually involves less service than a table. The calculator will compute any percentage you choose; the choice is social rather than arithmetical.</p>
+<h3>Does the tip count as income?</h3><p>For the person receiving it, yes, and there are reporting rules for tipped employees. That is their tax question, not how much you should leave.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>There is no federal tip rate. The IRS does care once the money is income for the person who received it.</p>
+<ul>
+<li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/tip-recordkeeping-and-reporting" target="_blank" rel="noopener">IRS, tip recordkeeping and reporting</a>. The reporting rules for tipped employees, not guidance on how much to leave.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Percentage conventions vary by country and by venue.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/percentage-calculator.html">Percentage Calculator</a></li><li><a href="/discount-calculator.html">Discount Calculator</a></li><li><a href="/unit-price-comparator.html">Unit Price Comparator</a></li><li><a href="/currency-converter.html">Currency Converter</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
