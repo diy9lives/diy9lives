@@ -78,6 +78,7 @@ input:focus,select:focus{border-color:var(--yellow)}
   <span style="display:flex;gap:14px;align-items:center"><a style="color:#666;text-decoration:none;font-size:13px" href="/guides.html">Guides</a><a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a></span>
 </nav>
 <div class="page">
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Age Calculator</span></nav>
 <div class="hero"><div class="ey">Age Calculator</div><h1>Your exact age,<br>down to the minute.</h1><p class="sub">Enter your birthday and see exactly how old you are, plus how long until your next one.</p></div>
 
 <div class="result-big">
@@ -136,10 +137,43 @@ calcAge();
 </script>
 
 </div>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>The tool compares your date of birth with the &ldquo;calculate as of&rdquo; date, which defaults to today, and counts whole years, then remaining months and days using the calendar. It also shows total days and hours lived and the time until your next birthday. Because it counts calendar months, the day count can differ slightly depending on the length of the months involved.</p></div>
-<div class="dy9-card"><h2>Frequently asked questions</h2><h3>When is my next birthday?</h3><p>The Next Birthday box shows how many days remain until your next birthday, counted from the &ldquo;calculate as of&rdquo; date you choose.</p><h3>Can I calculate age on a past or future date?</h3><p>Yes. Change the &ldquo;calculate as of&rdquo; date to find how old you were, or will be, on any day.</p><h3>Why do days and months change by a day sometimes?</h3><p>Months have different lengths, so the same number of days can be one month and a few days in one period and slightly different in another.</p><h3>Is my birthday stored?</h3><p>No. Everything is calculated in your browser and nothing is sent anywhere.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>Someone born March 14, 1992, counted on October 29, 2026, is 34 years, 7 months, and 15 days. The year subtraction is 34, October is 7 months after March, and the 29th is 15 days after the 14th, so nothing has to be borrowed. The next birthday is March 14, 2027, which is 136 days after October 29, 2026. The day total from the birthday to October 29, 2026 is 12,647 days.</p><p>The FAQ’s off-by-one case is the other shape: a birthday on the 31st counted in a short month. The page borrows from the month rather than inventing a February 31. Use a past “as of” date for a form that asks your age on a closing day. The birthday is not stored.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>Calendar age is civil arithmetic. It is not an actuarial age.</p><ul><li><a href="https://www.nist.gov/pml/owm/metric-si/unit-conversion" target="_blank" rel="noopener">NIST, unit conversion</a>. Only as a reminder that a day here is a calendar date, not a 24-hour physics measurement across a time zone. For that, use the time-zone page.</li></ul></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/unit-converter.html">Unit Converter</a></li><li><a href="/password-checker.html">Password Checker &amp; Generator</a></li><li><a href="/gpa-calculator.html">GPA Calculator</a></li><li><a href="/currency-converter.html">Currency Converter</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>It counts calendar years, months, and days between two dates, and it will do it for any pair of dates rather than only today.</p>
+<ol>
+<li>Enter your date of birth. The field defaults to a date, so overwrite it rather than accepting the placeholder.</li>
+<li>Leave the "calculate as of" date at today for a current age, or change it to answer a different question.</li>
+<li>Read the years, months, and days together. The years alone are what most forms want; the full breakdown is what explains a birthday that has not arrived yet.</li>
+<li>Use the total days and hours when a form asks for a duration rather than an age.</li>
+<li>Check the next-birthday box if you are counting down to a specific date.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: born March 14, 1992</h2>
+<p>Counted on October 29, 2026, that is <strong>34 years, 7 months, and 15 days</strong>.</p>
+<p>The arithmetic is subtraction with no borrowing needed. 2026 minus 1992 is 34 years. October is seven months after March. The 29th is fifteen days after the 14th. A birth date later in the month than the comparison date forces a borrow, which is why the tool counts calendar months rather than dividing days by 30.</p>
+<p>The next birthday is March 14, 2027, which is 136 days after October 29, 2026. The day total from birth to the comparison date is 12,647 days, which includes ten leap days.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The years figure is the one most forms want, and it is also the one that is easiest to get wrong by hand: an age in whole years changes on the birthday, not on January 1, and not when the year count would suggest.</p>
+<p>Months and days are calendar units, not fixed durations. A month is 28 to 31 days, so the same number of days can be one month and a few days in one stretch and slightly different in another. Two calculators that disagree by a day are usually disagreeing about borrowing rules, not about when you were born.</p>
+<p>Total days is the unambiguous figure. It does not care about month lengths, and it is what to use when the question is about elapsed time rather than a calendar age.</p>
+<p>Nothing is stored. The calculation happens in your browser and the date is gone when you close the page.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>When is my next birthday?</h3><p>The next-birthday box counts days from the "calculate as of" date to your next birthday. Change that date and the countdown moves with it.</p>
+<h3>Can I calculate my age on a past or future date?</h3><p>Yes. Set the comparison date to a closing day, an application deadline, or a future birthday. The result is your age on that specific day.</p>
+<h3>Why does the day count change sometimes?</h3><p>Because months have different lengths. The tool borrows from the month rather than assuming 30 days everywhere, which is the rule that keeps a 31st-of-the-month birthday from inventing a February 31.</p>
+<h3>Does it handle leap years?</h3><p>Yes, for the calendar arithmetic and for total days. Someone born on February 29 has a birthday that exists only in leap years, and the year count still advances every year while the celebration date is a matter of convention.</p>
+<h3>Is my birth date stored?</h3><p>No. Everything is calculated locally in your browser and nothing is transmitted or saved.</p>
+<h3>Why does the hours figure look enormous?</h3><p>Because it is total hours lived, not waking hours. It is a duration, and it is useful for trivia and for forms that ask for elapsed time, not for anything medical.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>Calendar age is civil arithmetic, not an actuarial or medical measure.</p>
+<ul>
+<li><a href="https://www.nist.gov/pml/special-publication-811" target="_blank" rel="noopener">NIST Special Publication 811</a>. Only as a reminder that a day here is a calendar date, not a physics measurement across time zones. For that, use the time-zone converter.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Calendar arithmetic. Nothing you enter is stored.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/date-difference-calculator.html">Date Difference Calculator</a></li><li><a href="/timezone-converter.html">Time Zone Converter</a></li><li><a href="/pregnancy-due-date-calculator.html">Pregnancy Due Date Calculator</a></li><li><a href="/pet-age-calculator.html">Pet Age Calculator</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>

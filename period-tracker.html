@@ -133,6 +133,7 @@ th:nth-child(4),td:nth-child(4){display:none;}
 </nav>
 
 <main>
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Period Tracker</span></nav>
 <div class="crumb"><a href="/">Home</a> / Health &amp; Body / Period &amp; Ovulation Tracker</div>
 <h1>Period &amp; Ovulation <em>Tracker</em></h1>
 <p class="sub">Enter your last period start date and average cycle length to see your predicted next period, fertile window, ovulation day, and where you are in your cycle right now &mdash; no app, no account, no data stored anywhere.</p>
@@ -226,9 +227,45 @@ th:nth-child(4),td:nth-child(4){display:none;}
 </div>
 </main>
 
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>The tracker works from the first day of your last period, your average cycle length, and your period length. It estimates ovulation as 14 days before your next period, which is your cycle length minus 14. The fertile window runs from five days before ovulation through ovulation day. Phases are shown as menstrual, follicular, ovulation, and luteal, and the table projects the next six cycles. Everything is calculated in your browser and nothing is saved.</p><p style="font-size:12px;line-height:1.65;color:#888;margin:14px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc;font-weight:700">Last reviewed: October 2026.</strong></p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>Last period started October 1 and cycles run 29 days, with bleeding for 5. The next period lands on October 30. Ovulation is estimated 14 days before that, October 16. The fertile window on this page runs from five days before ovulation through ovulation day, October 11 through October 16. The following cycle, if every cycle is also 29 days, starts November 28. Real cycles are not that punctual. A week of travel or illness moves them, and the tool will not notice.</p><p>ACOG describes a typical adult cycle as roughly 21 to 35 days and a period as roughly 2 to 7 days. A 29-day cycle with 5 days of bleeding sits inside that. It is not a fertility treatment and it is not a pregnancy test. If your cycles were regular and then were not, or bleeding is heavy enough to change a pad every hour, that is a clinician question. The pregnancy due-date page is a different calculation and should not be used as a backup contraception check.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>The 14-day luteal estimate is the usual calendar method. It is not an ultrasound.</p><ul><li><a href="https://www.acog.org/womens-health/infographics/the-menstrual-cycle" target="_blank" rel="noopener">ACOG, the menstrual cycle</a>. How menstruation and ovulation relate.</li><li><a href="https://www.acog.org/womens-health/faqs/amenorrhea-absence-of-periods" target="_blank" rel="noopener">ACOG, absence of periods</a>. Typical cycle length, and when a missing period needs a visit. The FAQ notes most cycles fall between 21 and 35 days.</li></ul></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/pregnancy-due-date-calculator.html">Pregnancy Due Date Calculator</a></li><li><a href="/macro-split-calculator.html">Macro Split Calculator</a></li><li><a href="/one-rep-max-calculator.html">One-Rep Max Calculator</a></li><li><a href="/target-heart-rate-calculator.html">Target Heart Rate Calculator</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this tracker</h2>
+<p>It projects forward from your last period using your own average cycle, so the first input is the one that decides everything else.</p>
+<ol>
+<li>Enter the first day of your last period, not the day it ended. Day one is the start of bleeding and it is the anchor for the whole calendar.</li>
+<li>Set your average cycle length. If your cycles vary, average the last several rather than using the shortest or the most recent.</li>
+<li>Enter how many days you typically bleed, which sets the length of the projected period window.</li>
+<li>Read the ovulation estimate and the fertile window. The window is an estimate from a calendar rule, not a measurement of your body.</li>
+<li>Look at the six projected cycles as a range to plan around. The further out the cycle, the less the projection means.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: a 31-day cycle</h2>
+<p>Last period began November 3, and cycles run 31 days with four days of bleeding. The next period is projected for <strong>December 4</strong>.</p>
+<p>Ovulation is estimated at 14 days before that next period, which is <strong>November 20</strong>. The fertile window here runs from five days before ovulation through ovulation day, so <strong>November 15 to November 20</strong>.</p>
+<p>The cycle after that begins January 4 if every cycle is also 31 days, and the projection repeats the same arithmetic. That is both the strength and the weakness of a calendar method: it is transparent, and it assumes a regularity your body may not provide.</p>
+<p>Five days before ovulation is not arbitrary. Sperm can survive several days in the reproductive tract while the egg is viable for roughly a day after release, which is why a calendar window is wider than the ovulation day itself.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The dates are projections from an average, not observations. The 14-day luteal phase — the stretch from ovulation to the next period — is a convention that fits many cycles but not all, and it is the part of the calculation most likely to be off for an individual.</p>
+<p>Cycle length varies for reasons that have nothing to do with a calendar: illness, travel, sleep changes, stress, and significant weight change all move it. A week of disruption can shift a projected date by more than the window is wide.</p>
+<p>This is not a contraceptive method and not a pregnancy test. Calendar-based fertility awareness requires more than a start date and an average to be reliable, and using a projection as contraception carries a risk this page cannot quantify for you.</p>
+<p>What is worth watching is change. Cycles that were regular and become irregular, bleeding that lasts much longer than usual, or bleeding heavy enough to require changing protection every hour are reasons to speak to a clinician rather than to adjust the cycle length field.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>How accurate is the ovulation estimate?</h3><p>It is a calendar estimate, accurate on average and unreliable for any single cycle. It assumes a 14-day luteal phase, which is typical but not universal, so treat the date as the centre of a window rather than a fact.</p>
+<h3>What counts as a normal cycle length?</h3><p>ACOG describes a typical adult cycle as roughly 21 to 35 days, with bleeding of roughly 2 to 7 days. A cycle outside that range is worth discussing with a clinician.</p>
+<h3>Can I use this to avoid pregnancy?</h3><p>Not reliably. A projection from one date and one average ignores the daily signals that fertility awareness methods depend on. Use a method with a failure rate you have actually looked up.</p>
+<h3>Why does the fertile window start before ovulation?</h3><p>Because sperm survive for several days, so intercourse before ovulation can still lead to conception. The window is drawn to cover that, not just the day of release.</p>
+<h3>Is my data stored?</h3><p>No. Everything is calculated in your browser and nothing is saved or transmitted. Closing the page clears the entries.</p>
+<h3>My cycle length changes every month. What should I enter?</h3><p>An average of the last several cycles, and read the projections as looser than they look. If the variation is large, a single average hides more than it predicts.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>The 14-day luteal estimate is the standard calendar assumption. It is not an ultrasound or a hormone measurement.</p>
+<ul>
+<li><a href="https://www.acog.org/womens-health/faqs/your-menstrual-cycle" target="_blank" rel="noopener">ACOG, your menstrual cycle</a>. How menstruation and ovulation relate, and typical cycle length.</li>
+<li><a href="https://www.acog.org/womens-health/faqs/amenorrhea-absence-of-menstruation" target="_blank" rel="noopener">ACOG, absence of periods</a>. When a missing or changing period warrants a visit.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Estimates from a calendar rule. Not medical advice, contraception, or a pregnancy test.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/pregnancy-due-date-calculator.html">Pregnancy Due Date Calculator</a></li><li><a href="/date-difference-calculator.html">Date Difference Calculator</a></li><li><a href="/sleep-calculator.html">Sleep Calculator</a></li><li><a href="/bmi-calculator.html">BMI Calculator</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>

@@ -80,6 +80,7 @@ input:focus,select:focus{border-color:var(--yellow)}
   <span style="display:flex;gap:14px;align-items:center"><a style="color:#666;text-decoration:none;font-size:13px" href="/guides.html">Guides</a><a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a></span>
 </nav>
 <div class="page">
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Personal Loan Calculator</span></nav>
 <div class="hero">
 <div class="ey">Loan Calculator</div>
 <h1>Know exactly what<br>any loan will cost you.</h1>
@@ -143,10 +144,47 @@ calcLoan();
 </script>
 <div class="aff"><div class="aff-t"><strong>Need a personal loan?</strong> LendingTree lets you compare personalized rates from multiple lenders without affecting your credit score.</div><a href="https://www.lendingtree.com" target="_blank" rel="noopener" class="aff-btn">Learn more &rarr;</a></div>
 </div>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>The monthly payment uses the standard amortization formula: payment = amount &times; r &divide; (1 &minus; (1 + r)<sup>&minus;n</sup>), where r is the monthly rate (APR &divide; 12) and n is the number of months. Total interest is the payment times n minus the amount borrowed. The comparison below the result shows the same loan across other common terms so you can see how term length changes the payment and the interest.</p><p style="font-size:12px;line-height:1.65;color:#888;margin:14px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc;font-weight:700">Last reviewed: October 2026.</strong> This is a planning estimate based on the formula above. It is not financial, tax, or legal advice.</p></div>
-<div class="dy9-card"><h2>Frequently asked questions</h2><h3>What is the difference between APR and interest rate?</h3><p>The interest rate is the cost of borrowing the money. APR also folds in certain fees, so it is better for comparing offers. Enter the APR if you have it.</p><h3>Why does a longer term cost more overall?</h3><p>A longer term lowers the monthly payment, but you pay interest on the balance for more months, so total interest rises.</p><h3>Does this include origination fees?</h3><p>No. Some lenders charge an origination fee that is taken out of the loan proceeds, so you receive less than you borrow. Compare offers using APR, which accounts for it.</p><h3>Can I pay the loan off early?</h3><p>Usually yes, and doing so saves interest. Ask whether the lender charges a prepayment penalty before you sign.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>A $12,000 loan at 9.9% for 3 years is about $387 a month. You pay about $1,920 of interest. Stretching the same loan to 5 years drops the payment to about $254 and raises the interest to about $3,260. The lower payment costs about $1,340. That is the whole decision this page can make: whether the monthly relief is worth the extra interest, on a fixed rate with no fees.</p><p>If the lender quotes an APR of 11% and an interest rate of 9.9%, type 9.9 into the rate box. The APR is higher because it includes fees this formula never adds to the balance. A $300 origination fee is $300 you pay up front or that gets rolled in. Add it to the amount if it is financed. Do not expect the payment here to match a loan that starts interest-only or that penalizes you for paying it off early. For several cards at once, use the debt payoff planner. For a mortgage, use the mortgage page, which also asks for tax and insurance.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>The payment formula is standard. The shopping rules are the CFPB’s.</p><ul><li><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-a-mortgage-interest-rate-en-135/" target="_blank" rel="noopener">CFPB, interest rate versus APR</a>. The distinction applies to personal loans and auto loans, not only mortgages.</li><li><a href="https://www.consumerfinance.gov/consumer-tools/auto-loans/" target="_blank" rel="noopener">CFPB, auto loans</a>. A checklist for the loan terms this calculator does not read off a contract.</li></ul></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/compound-interest.html">Compound Interest Calculator</a></li><li><a href="/salary-calculator.html">Salary &amp; Take-Home Pay</a></li><li><a href="/home-affordability-calculator.html">Home Affordability Calculator</a></li><li><a href="/debt-payoff-planner.html">Debt Payoff Planner</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>This is the plain fixed-rate loan: a single balance, one rate, one term. Add fees to the amount if they are being financed, because they are borrowed money like any other.</p>
+<ol>
+<li>Enter the amount you will actually receive or owe. If the lender deducts an origination fee from the proceeds, the amount you repay is the larger figure.</li>
+<li>Enter the APR if you have it, since it includes the fees the interest rate leaves out. The payment below is computed from the rate you type.</li>
+<li>Pick the term. The comparison table underneath shows the same loan on other terms, which is the fastest way to see what the monthly relief costs.</li>
+<li>Choose a purpose. It only labels the result; the arithmetic does not change.</li>
+<li>Read total interest next to the payment, not instead of it. Those two numbers pull in opposite directions.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: $12,000 at 9.9%</h2>
+<table><thead><tr><th>Term</th><th>Monthly</th><th>Total interest</th></tr></thead><tbody>
+<tr><td>3 years</td><td>$386.64</td><td>$1,919</td></tr>
+<tr><td>5 years</td><td>$254.37</td><td>$3,262</td></tr>
+</tbody></table>
+<p>Two extra years lowers the payment by about <strong>$132</strong> a month and adds about <strong>$1,343</strong> of interest. Whether that trade is worth it depends entirely on what the $132 buys you: an emergency fund is worth more than the interest, a streaming bundle is not.</p>
+<p>Now the fee question. A $300 origination fee deducted from the proceeds means you receive $11,700 but repay $12,000. Financed at 9.9% over three years, that $300 costs more than $300. This is why the APR on the contract is higher than the rate in the ad, and why the APR is the number to compare between two offers.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The payment is fixed principal and interest. It assumes the rate never changes, no fees are added mid-loan, and you make every payment on time and in full. A variable-rate loan, an interest-only start, or a prepayment penalty will all produce a different number from the same inputs.</p>
+<p>Total interest is the honest cost of the term. On the example above, borrowing $12,000 for three years costs 16% of the principal in interest, and five years costs 27%. The monthly figure is what you feel; the total is what you agreed to.</p>
+<p>Nothing here models late fees, deferment, forbearance, or a hardship modification. It also does not know whether the loan is secured — a secured loan can be cheaper and carries the risk of losing the collateral, which no amortization formula shows.</p>
+<p>For several balances at different rates, this page is the wrong tool. Use the debt payoff planner, which can order them by balance or by rate.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>Should I enter the interest rate or the APR?</h3><p>The APR, when the lender provides one, because it includes fees and makes two offers comparable. If the payment must match a specific contract exactly, enter the contract's nominal rate instead and note that fees sit outside the math.</p>
+<h3>Why does a longer term cost so much more?</h3><p>You pay interest for more months on a balance that shrinks slowly. The payment falls because the principal is spread thinner, not because the borrowing got cheaper.</p>
+<h3>Can I pay it off early?</h3><p>Usually, and doing so saves the remaining interest. Check for a prepayment penalty first, since some loans charge one and that can erase the saving.</p>
+<h3>Is a personal loan a good way to consolidate cards?</h3><p>It can be, if the rate is materially lower and you stop adding new charges to the cards. Consolidating while still spending on them converts unsecured revolving debt into a fixed payment plus the same cards, which is worse than either alone.</p>
+<h3>Does this include insurance or origination fees?</h3><p>No. Origination fees, insurance products, and late charges are all outside the calculation. Add a financed fee to the loan amount and expect the real payment to be higher than the one shown.</p>
+<h3>What if my payment is interest-only?</h3><p>Then the balance never falls and this formula does not describe your loan. An interest-only period ends with a higher payment, and the size of that jump is the risk to plan for.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>The payment is the standard amortization formula. The consumer rules are the CFPB's.</p>
+<ul>
+<li><a href="https://www.consumerfinance.gov/ask-cfpb/what-is-the-difference-between-an-interest-rate-and-the-apr-en-733/" target="_blank" rel="noopener">CFPB, interest rate versus APR</a>. Why the two numbers differ, and which one to use when comparing offers.</li>
+<li><a href="https://www.consumerfinance.gov/consumer-tools/loans/" target="_blank" rel="noopener">CFPB, loans</a>. A checklist for the terms this calculator does not read off a contract.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Fixed-rate, fully amortizing loans only.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/debt-payoff-planner.html">Debt Payoff Planner</a></li><li><a href="/compound-interest.html">Compound Interest Calculator</a></li><li><a href="/mortgage-calculator.html">Mortgage Calculator</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>

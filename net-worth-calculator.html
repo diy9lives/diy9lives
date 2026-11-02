@@ -82,6 +82,7 @@ footer a{color:var(--yellow);}
 <body>
 <nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
 <main>
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Net Worth Calculator</span></nav>
 <div class="crumb"><a href="/">Home</a> / Finance &amp; Money / Net Worth Calculator</div>
 <h1>Net Worth <em>Calculator</em></h1>
 <p class="sub">Add up what you own and subtract what you owe. Nothing here is saved or sent anywhere &mdash; it's just quick local math.</p>
@@ -133,9 +134,50 @@ footer a{color:var(--yellow);}
 </details>
 </div>
 </main>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>The calculator adds up every asset field to get total assets, adds up every liability field to get total liabilities, and subtracts liabilities from assets. It runs entirely in your browser, and nothing is saved or sent anywhere, so closing the page clears it.</p><p style="font-size:12px;line-height:1.65;color:#888;margin:14px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc;font-weight:700">Last reviewed: October 2026.</strong> This is a planning estimate based on the formula above. It is not financial, tax, or legal advice.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>A house worth $350,000 with a $240,000 mortgage is $110,000 of net worth, not $350,000. The car belongs in assets at what you could sell it for this month, and the loan belongs in liabilities. Counting the car at the price you paid and also ignoring the loan is how a worksheet flatters you. Retirement accounts count. The sofa usually does not, unless you would actually sell it.</p><p>A negative result means the loans are larger than the things you could sell. That is common the year you buy a house or finish a degree, and it is not a moral score. The useful comparison is the same worksheet six months from now. If liabilities are almost all credit cards, the debt payoff planner is the next page. If they are almost all a mortgage at a low rate, paying extra principal is a different decision from paying a 22% card, and this single number will not tell them apart.</p><p>Nothing is saved. If you want the figure later, print the page or write the total down. The calculator will not remember it.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>Net worth is a definition, not a federal form. The CFPB’s owning-a-home material is the right companion when the house is the largest line.</p><ul><li><a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank" rel="noopener">CFPB, Owning a home</a>. How to think about the mortgage that usually dominates the liability side.</li><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/compound-interest" target="_blank" rel="noopener">Investor.gov, compound interest</a>. For the investment accounts on the asset side, once you want them to grow rather than just to be counted.</li></ul></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/mortgage-calculator.html">Mortgage Calculator</a></li><li><a href="/loan-calculator.html">Personal Loan Calculator</a></li><li><a href="/compound-interest.html">Compound Interest Calculator</a></li><li><a href="/salary-calculator.html">Salary &amp; Take-Home Pay</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>Net worth is one subtraction with a long list on each side. The hard part is deciding what belongs, not doing the arithmetic.</p>
+<ol>
+<li>Enter assets at what they would sell for this month, not what you paid. A car is worth its resale value today, not its sticker price.</li>
+<li>Include cash accounts, brokerage accounts, and retirement accounts. Retirement balances count in full, even though the tax has not been paid yet.</li>
+<li>Enter liabilities as current balances: mortgage, auto loans, student loans, card balances, and anything else you owe.</li>
+<li>Ignore small possessions. A sofa is an asset only if you would actually sell it, and it has no place in a working tally.</li>
+<li>Record the total somewhere outside the page. Nothing is saved when you close it.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: a homeowner with student loans</h2>
+<table><thead><tr><th>Assets</th><th></th><th>Liabilities</th><th></th></tr></thead><tbody>
+<tr><td>House</td><td>$350,000</td><td>Mortgage</td><td>$240,000</td></tr>
+<tr><td>Cash</td><td>$25,000</td><td>Auto loan</td><td>$12,000</td></tr>
+<tr><td>Retirement</td><td>$60,000</td><td>Student loans</td><td>$22,000</td></tr>
+<tr><td>Vehicle</td><td>$18,000</td><td>Cards</td><td>$8,000</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>$453,000</strong></td><td><strong>Total</strong></td><td><strong>$282,000</strong></td></tr>
+</tbody></table>
+<p>Net worth is <strong>$171,000</strong>. The house contributes $110,000 of that — $350,000 of value minus the $240,000 still owed — not $350,000. A worksheet that lists the house without the mortgage reports a number that is not real.</p>
+<p>The car is the same trap in miniature. At $18,000 against a $12,000 loan it adds $6,000, and it will fall every year while the loan falls more slowly. Vehicles are the asset most likely to shrink faster than the debt attached to them.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>A single number with no context is not very useful. The useful version is the same worksheet six months or a year later, showing which side moved and why. Growth in the asset column from contributions is different from growth from markets, and the liabilities column only goes down when you pay principal.</p>
+<p>A negative result is common and not a verdict. The year you buy a house, or the year you finish a degree, liabilities can exceed assets by a wide margin. What matters is the direction over time and whether the debts carrying the highest rates are shrinking.</p>
+<p>This measure deliberately leaves out things that matter: future income, future tax on retirement balances, a pension's value, and anything you own that you would never sell. It also can't tell a 3% mortgage from a 24% card, which is a distinction no single net-worth figure can make.</p>
+<p>Use it as a checkpoint, then take the highest-rate liability to the debt payoff planner and the mortgage question to the mortgage calculator. Those pages can act on the number; this one just reports it.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>Should I include my home?</h3><p>Yes, at a realistic market value, with the mortgage as a liability. Leaving the house out and keeping the mortgage in would understate net worth badly; keeping the house and forgetting the mortgage would overstate it.</p>
+<h3>Should retirement accounts count in full?</h3><p>Yes for this measure. Note that withdrawals will be taxed, so the spendable value is lower than the balance. Some people track a separate after-tax figure for that reason.</p>
+<h3>Is a car an asset?</h3><p>It is, at resale value. It is also depreciating, so counting it at purchase price and ignoring the loan flatters the total. Use what a buyer would pay this month.</p>
+<h3>Why is my net worth negative?</h3><p>Usually a recent house purchase, a recent degree, or a period of borrowing. It is an arithmetic result, not a judgment. The direction of travel over the next year is the more useful signal.</p>
+<h3>Is my data saved?</h3><p>No. Everything runs in your browser and nothing is transmitted or stored. Closing the page clears the figures, so write down the total if you want to compare later.</p>
+<h3>How often should I update it?</h3><p>Quarterly is enough for most people and annually is enough for many. More often turns a slow measure into noise, and the point of the number is the trend rather than the day.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>Net worth is a definition, not a federal form. The CFPB's housing material is the right companion when the house dominates the asset side.</p>
+<ul>
+<li><a href="https://www.consumerfinance.gov/owning-a-home/" target="_blank" rel="noopener">CFPB, Owning a home</a>. How to think about the mortgage that usually dominates the liability side.</li>
+<li><a href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator" target="_blank" rel="noopener">Investor.gov, compound interest calculator</a>. For when you want the investment accounts to grow rather than just be counted.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> A snapshot, not a valuation. Nothing you enter is stored.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/mortgage-calculator.html">Mortgage Calculator</a></li><li><a href="/debt-payoff-planner.html">Debt Payoff Planner</a></li><li><a href="/retirement-calculator.html">Retirement Calculator</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>

@@ -80,6 +80,7 @@ input:focus,select:focus{border-color:var(--yellow)}
   <span style="display:flex;gap:14px;align-items:center"><a style="color:#666;text-decoration:none;font-size:13px" href="/guides.html">Guides</a><a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a></span>
 </nav>
 <div class="page">
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Car Payment Calculator</span></nav>
 <div class="hero">
 <div class="ey">Car Payment Calculator</div>
 <h1>Know the real cost<br>before you sign.</h1>
@@ -159,10 +160,48 @@ calcCar();
 </script>
 <div class="aff"><div class="aff-t"><strong>Shopping for a car?</strong> CarGurus and AutoTempest aggregate listings from every dealer so you can see real market prices.</div><a href="https://www.cargurus.com" target="_blank" rel="noopener" class="aff-btn">Learn more &rarr;</a></div>
 </div>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>The loan amount is the vehicle price plus sales tax (price &times; tax rate), minus your down payment and trade-in. The monthly payment comes from the standard amortization formula for your APR and term, and total interest is the payment times the number of months minus the loan amount. The True Cost section adds your monthly insurance and gas, plus maintenance and registration spread over 12 months, to show what the car costs you each month beyond the loan payment.</p><p>This calculator charges sales tax on the full vehicle price. Many states reduce the taxable amount by your trade-in value, which our Out-the-Door Price Calculator handles.</p><p style="font-size:12px;line-height:1.65;color:#888;margin:14px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc;font-weight:700">Last reviewed: October 2026.</strong> This is a planning estimate based on the formula above. It is not financial, tax, or legal advice.</p></div>
-<div class="dy9-card"><h2>Frequently asked questions</h2><h3>What interest rate should I use?</h3><p>Use the APR from an actual lender quote. Banks, credit unions, and dealers all quote different rates, and your credit score changes yours. Getting pre-approved before you visit a dealership gives you a number to compare against.</p><h3>Is a longer loan term a good idea?</h3><p>A longer term lowers the monthly payment but raises total interest and keeps you owing more than the car is worth for longer. Compare 48, 60, and 72 months to see the real cost of stretching.</p><h3>What is the 20/4/10 rule?</h3><p>A common guideline: put 20% down, finance for no more than 4 years, and keep total car costs under 10% of your gross income. It is a rule of thumb, not a requirement.</p><h3>Should I roll sales tax into the loan?</h3><p>Financing the tax raises the amount you borrow and the interest you pay on it. If you can pay tax and fees upfront, you will usually pay less overall.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>A $28,000 car, 6% sales tax, $3,000 down, and no trade is a $26,680 loan. At 6.9% for 60 months the payment is $527 and the interest is about $4,940. The same loan for 72 months is $454 a month and about $5,980 of interest. You save $73 a month and pay about $1,040 more interest, and you own a car with a longer chance of being upside down.</p><p>The ownership row underneath adds insurance, fuel, and maintenance on top of that payment. A $527 loan with $150 of insurance and $160 of fuel is already over $800 before maintenance. The 20/4/10 idea in the FAQ (20% down, no more than 4 years, no more than 10% of gross income) is a ceiling, not a result the math enforces. If 10% of your gross is $500, this example already fails before fuel. The out-the-door page is where the tax rate and the fees should be settled. This page will happily finance a tax rate you typed too low.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>The payment is the ordinary auto-loan formula. Shopping the contract is a separate step.</p><ul><li><a href="https://www.consumerfinance.gov/consumer-tools/auto-loans/" target="_blank" rel="noopener">CFPB, auto loans</a>. Rate markup, add-on products, and the questions to ask before you sign.</li><li><a href="https://www.fueleconomy.gov/" target="_blank" rel="noopener">FuelEconomy.gov</a>. The fuel number in the ownership stack should come from the car’s MPG, not from a hope.</li></ul></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/guides/reading-a-car-deal.html">Reading a car deal</a></li><li><a href="/gas-calculator.html">Gas &amp; MPG Calculator</a></li><li><a href="/tire-size-calculator.html">Tire Size Calculator</a></li><li><a href="/vin-decoder.html">VIN Decoder</a></li><li><a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>Two numbers matter here and only one of them is the monthly payment. Enter the deal as the contract states it, then read both.</p>
+<ol>
+<li>Enter the vehicle price you negotiated, before tax and fees. If the dealer quoted an out-the-door number, take the tax and fees out first or the loan will be overstated.</li>
+<li>Add the sales tax rate for your address. This page charges tax on the full price; many states reduce the taxable amount by a trade-in, which is a difference the out-the-door page handles.</li>
+<li>Enter the down payment and any trade-in value as separate figures. Both reduce what you finance.</li>
+<li>Use the APR from a real lender quote and pick the term you intend to sign, not the shortest one on the menu.</li>
+<li>Fill in insurance, fuel, maintenance, and registration to see the monthly cost of owning the car rather than the cost of the loan.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: a $28,000 car over 60 and 72 months</h2>
+<p>Price $28,000, sales tax at 6% is $1,680, so $29,680. Take off a $3,000 down payment and the loan is <strong>$26,680</strong>.</p>
+<table><thead><tr><th>Term</th><th>Payment</th><th>Total interest</th></tr></thead><tbody>
+<tr><td>60 months</td><td>$527.04</td><td>$4,942</td></tr>
+<tr><td>72 months</td><td>$453.59</td><td>$5,978</td></tr>
+</tbody></table>
+<p>Twelve extra months saves a month's payment, about <strong>$73</strong>, and costs about <strong>$1,036</strong> more in interest. It also keeps you owing more than the car is worth for longer, which matters the day it is totaled without gap coverage.</p>
+<p>Then add ownership. A $527 payment with $150 of insurance and $160 of fuel is already $837 a month before maintenance, registration, or tires. The loan is the smallest part of some car budgets and the only part people quote to each other.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The payment is principal and interest only. Everything in the true-cost row is what the car actually takes out of your month, and it does not stop when the loan does: insurance, fuel, maintenance, and registration continue at roughly the same rate.</p>
+<p>The 20/4/10 guideline — 20% down, no more than four years, total car costs under 10% of gross income — is a ceiling, not a target. On $60,000 of gross income, 10% is $500 a month, and the example above already exceeds it with the loan payment alone. That is the checklist doing its job.</p>
+<p>A longer term is not automatically wrong. It is the right tool when the alternative is a worse rate or no car at all. It is the wrong tool when it exists only to fit a payment into a budget that cannot also cover insurance and fuel.</p>
+<p>This calculator will finance whatever tax rate you type. A rate set too low produces a payment that will not survive the finance office, so check the county rate rather than a remembered one.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>Should I use the APR or the rate?</h3><p>The APR from a lender quote, because it includes fees and is the number that reflects the true cost. Dealer quotes sometimes advertise a rate that assumes perfect credit; the APR on your actual contract is the one that matters.</p>
+<h3>Is a longer term a bad idea?</h3><p>It costs more in total and keeps you upside down longer. If the shorter payment does not fit, a cheaper car usually fixes the budget better than a longer loan does.</p>
+<h3>How does a trade-in change the tax?</h3><p>In many states the taxable amount is reduced by the trade-in value, so the tax saving is real money. This page taxes the full price, which overstates the loan slightly; use the out-the-door calculator for the accurate figure.</p>
+<h3>What is gap insurance and do I need it?</h3><p>It covers the difference between what insurance pays and what you still owe if the car is totaled. It matters most when the down payment is small and the term is long, which is exactly when it is usually offered.</p>
+<h3>Does the payment include insurance?</h3><p>No. The loan payment is separate. The true-cost row adds your insurance, fuel, maintenance, and registration estimates so you can see the whole monthly figure.</p>
+<h3>Why is so much of the early payment interest?</h3><p>Interest is charged on the balance, which is highest at the start. On a 60-month loan the split shifts steadily toward principal, so extra payments early save more than the same amount later.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>The payment uses the standard auto-loan amortization formula. How to shop the contract is a separate skill, and the CFPB covers it.</p>
+<ul>
+<li><a href="https://www.consumerfinance.gov/consumer-tools/auto-loans/" target="_blank" rel="noopener">CFPB, auto loans</a>. Rate markup, add-on products, and the questions to ask before signing.</li>
+<li><a href="https://www.fueleconomy.gov/" target="_blank" rel="noopener">FuelEconomy.gov</a>. The fuel figure in the ownership row should come from the car's rated MPG and your miles, not a guess.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Sales tax rules vary by state; this page taxes the full vehicle price.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/guides/reading-a-car-deal.html">Reading a car deal</a></li><li><a href="/out-the-door-price-calculator.html">Out-the-Door Price Calculator</a></li><li><a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a></li><li><a href="/true-cost-of-ownership-calculator.html">True Cost of Ownership</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>

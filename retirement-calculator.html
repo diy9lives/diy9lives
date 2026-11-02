@@ -82,6 +82,7 @@ footer a{color:var(--yellow);}
 <body>
 <nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
 <main>
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Retirement Calculator</span></nav>
 <div class="crumb"><a href="/">Home</a> / Finance &amp; Money / Retirement Calculator</div>
 <h1>Retirement <em>Calculator</em></h1>
 <p class="sub">See how your retirement savings grow over time, what that's worth in today's dollars after inflation, and roughly how much monthly income it could support.</p>
@@ -136,9 +137,45 @@ footer a{color:var(--yellow);}
 </details>
 </div>
 </main>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>Your current savings grow at the monthly equivalent of your expected return, and your monthly contributions are added at the end of each month, using the future-value formulas for a lump sum and for a stream of payments. &ldquo;Today&#39;s dollars&rdquo; divides the result by (1 + inflation) raised to the number of years. The income estimate applies the 4% rule: 4% of the projected balance per year, divided by 12. Returns are assumed constant, which real markets never are.</p><p style="font-size:12px;line-height:1.65;color:#888;margin:14px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc;font-weight:700">Last reviewed: October 2026.</strong> This is a planning estimate based on the formula above. It is not financial, tax, or legal advice.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>Start at 35 with $20,000, add $500 a month, earn 7% a year, and retire at 65, with 3% inflation. The nominal balance is about $772,000. In today’s dollars that is about $318,000. The 4% rule applied to the nominal balance is about $2,570 a month. Applied to the inflation-adjusted balance it is about $1,060 in today’s buying power. Those are different sentences. The page shows both the nominal balance and the “today’s dollars” line. Read the second one if you are asking what the money will buy.</p><p>You contributed $180,000 of the $500 deposits over 30 years, plus the original $20,000. The rest is growth, and the growth assumes every year returns 7%. A bad first decade of retirement is the risk the 4% rule was built to talk about, and this page does not simulate it. If an employer match is part of the $500, leave it in. If it is not, the projection is missing the easiest money in the plan. Social Security is not in the number at all.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>The future-value math is textbook. The 4% rule is a research convention, not a guarantee, and the page’s own note already says so.</p><ul><li><a href="https://www.investor.gov/introduction-investing/investing-basics/glossary/compound-interest" target="_blank" rel="noopener">Investor.gov, compound interest</a>. The growth idea. Inflation and the withdrawal rate are separate assumptions you type in.</li><li><a href="https://www.ssa.gov/oact/cola/cbb.html" target="_blank" rel="noopener">Social Security contribution and benefit base</a>. Relevant only as a reminder that payroll tax stops at a cap. Benefits themselves are not estimated here.</li></ul></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/net-worth-calculator.html">Net Worth Calculator</a></li><li><a href="/mortgage-calculator.html">Mortgage Calculator</a></li><li><a href="/loan-calculator.html">Personal Loan Calculator</a></li><li><a href="/compound-interest.html">Compound Interest Calculator</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>It projects a balance forward and then applies the 4% withdrawal rule to it. Both halves are assumptions you control, so the numbers are only as good as the inputs.</p>
+<ol>
+<li>Enter your current age and the age you plan to stop working. The gap is how long contributions compound.</li>
+<li>Enter what is already invested, then the monthly contribution including any employer match. Leaving the match out is the most common way this projection comes in low.</li>
+<li>Set an expected annual return. A long-run average is an average, not a sequence, and the page applies it evenly to every year.</li>
+<li>Set expected inflation, which drives the "today's dollars" line and is the number to read if you are asking what the money will buy.</li>
+<li>Compare the nominal income against the inflation-adjusted income. They are different sentences about the same balance.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: starting at 35, retiring at 65</h2>
+<p>$20,000 invested today, $500 a month, 7% a year, 3% inflation, thirty years of contributions. The projected balance is about <strong>$772,000</strong>.</p>
+<p>In today's dollars that is about <strong>$318,000</strong>, because thirty years of 3% inflation cuts the buying power of a nominal dollar by more than half.</p>
+<p>Apply the 4% rule and the two numbers separate further. Four percent of the nominal balance is about $2,574 a month. Four percent of the inflation-adjusted balance is about $1,061 a month in today's buying power. The first figure looks like a comfortable retirement and the second is a tight one, and they come from the same projection.</p>
+<p>Of the $772,000, about $200,000 is your own money — the $20,000 plus 360 deposits of $500. The remaining <strong>$572,000</strong> is growth. That is the argument for starting early, and also the reason the result is so sensitive to the return you type.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The 4% rule is a planning convention from historical return studies, not a guarantee and not a withdrawal strategy. It says that withdrawing 4% of the starting balance, adjusted for inflation, survived most historical thirty-year periods. It says nothing about the next thirty.</p>
+<p>Constant returns are the biggest simplification. Real markets deliver the same average through very different paths, and a bad first decade in retirement does damage that a later recovery cannot fully undo. The page does not simulate a sequence of returns.</p>
+<p>Not included: Social Security, pensions, an annuity, taxes on withdrawals, and investment fees. A 1% fee is a full percentage point off the return you typed, which over thirty years is a large fraction of the growth line.</p>
+<p>The contribution rate moves the result more than the return assumption does, and it is the one input you can still change. Raising the monthly amount is a decision; raising the assumed return is a wish.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>What return should I assume?</h3><p>Something defensible for your mix, net of fees, and then run a lower one as a stress test. A projection that only works at the optimistic end is not a plan. The page applies your rate evenly, which flatters any volatile portfolio.</p>
+<h3>Why does the "today's dollars" figure matter?</h3><p>Because you will spend tomorrow's dollars on tomorrow's prices. A nominal balance answers "how many dollars", while the inflation-adjusted figure answers "how much life". The second is the one that tells you whether the plan works.</p>
+<h3>Does the 4% rule still hold?</h3><p>It is a widely used starting point, and some researchers argue for a lower rate when valuations are high or fees are not accounted for. Treat 4% as a conservative default, not a rule of nature, and test 3% as well.</p>
+<h3>Should the employer match be in my contribution?</h3><p>Yes, if it is vested or you expect it to be. It is money going into the same account, so leaving it out understates the projection by a meaningful amount.</p>
+<h3>What about Social Security?</h3><p>It is not modeled. If you expect a benefit, it reduces how much this balance has to cover, which is a material part of most retirements. Get your estimate from the Social Security statement rather than a guess.</p>
+<h3>Is the inflation adjustment applied to contributions?</h3><p>The projection compounds contributions at the nominal return and deflates the final balance. It does not raise your contribution over time, so if you plan to increase it with raises, the real result would be higher.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>The future-value math is standard. The 4% rule is a research convention, and the page labels it as one.</p>
+<ul>
+<li><a href="https://www.investor.gov/financial-tools-calculators/calculators/compound-interest-calculator" target="_blank" rel="noopener">Investor.gov, compound interest calculator</a>. The growth idea, from the SEC's investor education office.</li>
+<li><a href="https://www.ssa.gov/oact/cola/cbb.html" target="_blank" rel="noopener">Social Security contribution and benefit base</a>. Payroll tax stops at a cap; benefits are not estimated on this page.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Constant returns and constant contributions. Not a guarantee of any outcome.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/compound-interest.html">Compound Interest Calculator</a></li><li><a href="/net-worth-calculator.html">Net Worth Calculator</a></li><li><a href="/salary-calculator.html">Salary &amp; Take-Home Pay</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>

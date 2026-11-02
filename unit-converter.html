@@ -78,6 +78,7 @@ input:focus,select:focus{border-color:var(--yellow)}
   <span style="display:flex;gap:14px;align-items:center"><a style="color:#666;text-decoration:none;font-size:13px" href="/guides.html">Guides</a><a style="color:#666;text-decoration:none;font-size:13px;transition:color 0.2s" href="/">&#8592; All tools</a></span>
 </nav>
 <div class="page">
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Unit Converter</span></nav>
 <div class="hero"><div class="ey">Unit Converter</div><h1>Convert anything<br>in seconds.</h1><p class="sub">Length, weight, temperature, volume, speed — all the conversions you actually need.</p></div>
 
 <div class="card">
@@ -167,10 +168,43 @@ initCats();
 </script>
 
 </div>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>Each category (length, weight, temperature, volume, speed, area) stores every unit as a multiple of one base unit, such as meters for length or kilograms for weight. The tool converts your value into the base unit and then into the target unit, so any pair works. Temperature uses formulas instead: F = C &times; 9/5 + 32, C = (F &minus; 32) &times; 5/9, and K = C + 273.15. Volume units are US customary, so a gallon here is the US gallon.</p></div>
-<div class="dy9-card"><h2>Frequently asked questions</h2><h3>Is a US gallon the same as an imperial gallon?</h3><p>No. A US gallon is about 3.785 liters, while an imperial (UK) gallon is about 4.546 liters. This converter uses US units.</p><h3>How precise are the results?</h3><p>The conversion factors are accurate to many decimal places, and results are displayed rounded for readability.</p><h3>What is the difference between weight and mass?</h3><p>In everyday use they are interchangeable. Scientifically, mass is the amount of matter and weight is the force of gravity on it. Kilograms measure mass, but most people call them weight.</p><h3>Why do the units update when I switch categories?</h3><p>Each category has its own set of units, so the lists change to the ones that make sense for what you are converting.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>One inch is exactly 2.54 centimeters, so 6 feet, which is 72 inches, is 182.88 centimeters. A U.S. gallon is 3.785 liters, not the imperial gallon of about 4.546 liters. The FAQ already draws that line. A recipe that says “gallon” in a British book will be wrong if you trust this page’s gallon. Temperature is not a factor: 350°F is 176.7°C, from (350 − 32) × 5/9. The oven tool rounds that onto a gas mark. This one should not.</p><p>Use it when a plan mixes units, a tire width in millimeters and a garage in feet, a drug of 5 milliliters and a spoon you only know in teaspoons. Teaspoons in the volume list are U.S. teaspoons. Level them. A heaping teaspoon is not a unit.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>Exact factors are NIST’s job. This page rounds the display.</p><ul><li><a href="https://www.nist.gov/pml/owm/metric-si/unit-conversion" target="_blank" rel="noopener">NIST, unit conversion</a>. Points to Special Publication 811 for exact factors, including the inch and the gallon.</li></ul></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/password-checker.html">Password Checker &amp; Generator</a></li><li><a href="/gpa-calculator.html">GPA Calculator</a></li><li><a href="/currency-converter.html">Currency Converter</a></li><li><a href="/qr-code-generator.html">QR Code Generator</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this converter</h2>
+<p>Every unit in a category is stored as a multiple of one base unit, so any pair converts through the base. Temperature is the exception and uses formulas.</p>
+<ol>
+<li>Pick the category first. Length, weight, volume, speed, area, and temperature each have their own unit lists.</li>
+<li>Choose the unit you are converting from, then the unit you want. The result updates as you type.</li>
+<li>Enter the value with as much precision as you have. Rounding before conversion throws away accuracy you cannot recover afterwards.</li>
+<li>Check whether the unit is US or imperial for volume, since a gallon is not one thing everywhere.</li>
+<li>For temperature, read the result as exact rather than approximate — it is a formula, not a factor.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: feet to centimeters, and a familiar oven temperature</h2>
+<p>One inch is exactly 2.54 centimeters. Six feet is 72 inches, and 72 &times; 2.54 is <strong>182.88 centimeters</strong>. Exact by definition, not by rounding.</p>
+<p>The volume case is the one that catches people. A US gallon is about <strong>3.785 liters</strong>, while an imperial gallon is about <strong>4.546 liters</strong> — a difference of roughly 20%. A British recipe that calls for a gallon is calling for a fifth more liquid than the same word means in a US cookbook.</p>
+<p>Temperature is a formula: 350&deg;F is (350 &minus; 32) &times; 5/9, which is <strong>176.7&deg;C</strong>. That is the same number the oven converter rounds onto a gas mark, and rounding a temperature is a decision about baking, not a conversion error.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>Conversion factors are exact where the units are defined against each other, and the display is rounded for readability. If you need more digits, the underlying value is more precise than what you see, but a result shown to two decimals should not be quoted to five.</p>
+<p>Volume units here are US customary. That covers gallons, quarts, pints, cups, fluid ounces, tablespoons, and teaspoons as an American kitchen uses them. A metric cup, an Australian tablespoon, and an imperial pint are all different sizes, and none of them are in this list.</p>
+<p>Mass and weight are treated as interchangeable in everyday use, which they are for anything you would weigh in a kitchen or a suitcase. Strictly, kilograms measure mass and pounds measure force, and the distinction only matters in physics or in very precise trade.</p>
+<p>For cooking, remember that volume measures of dry ingredients are approximations by nature. A cup of flour depends on whether it was scooped or spooned, which is why a scale in grams beats any converter for baking.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>Is a US gallon the same as an imperial gallon?</h3><p>No. A US gallon is about 3.785 liters and an imperial gallon about 4.546 liters. This converter uses US units throughout.</p>
+<h3>Why is my kilogram-to-pound result slightly off?</h3><p>It should not be, beyond display rounding. The factor is exact. If a value looks wrong, check that you did not switch category and leave the units mismatched.</p>
+<h3>How do I convert oven temperatures?</h3><p>Use the temperature category or the dedicated oven converter. Fahrenheit to Celsius is (F &minus; 32) &times; 5/9. Gas marks are a separate scale with fixed stops, so they are approximate at the edges.</p>
+<h3>What is the difference between weight and mass?</h3><p>Mass is the amount of matter; weight is the force gravity exerts on it. In everyday use the words are interchangeable, and this converter treats them that way.</p>
+<h3>Are teaspoons and tablespoons US measures?</h3><p>Yes. A US tablespoon is three US teaspoons. An Australian tablespoon is four teaspoons, which is worth knowing before following a recipe from an Australian book.</p>
+<h3>Does it convert between categories, like cups to grams?</h3><p>No. Volume to weight requires the density of the specific ingredient, so a cup of flour and a cup of sugar weigh different amounts. Use a cooking-specific tool or a scale for that.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>Exact conversion factors are NIST's business, and this page rounds the display.</p>
+<ul>
+<li><a href="https://www.nist.gov/pml/special-publication-811" target="_blank" rel="noopener">NIST Special Publication 811</a>. The guide to the SI, including the exact factors behind the inch and the US gallon.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> US customary volume units. Display values are rounded.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/cooking-measurement-converter.html">Cooking Measurement Converter</a></li><li><a href="/oven-temperature-converter.html">Oven Temperature Converter</a></li><li><a href="/currency-converter.html">Currency Converter</a></li><li><a href="/percentage-calculator.html">Percentage Calculator</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>

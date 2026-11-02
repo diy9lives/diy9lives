@@ -78,6 +78,7 @@ footer a{color:var(--yellow);}
 <body>
 <nav><a class="logo" href="/">DIY<span>9</span>lives</a><a class="nav-cta" href="/">All tools &rarr;</a></nav>
 <main>
+<nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Student Loan Payoff Calculator</span></nav>
 <div class="crumb"><a href="/">Home</a> / Finance &amp; Money / Student Loan Payoff Calculator</div>
 <h1>Student Loan Payoff <em>Calculator</em></h1>
 <p class="sub">Enter your loan balance and payment to see exactly when you'll be debt-free and how much total interest you'll pay &mdash; then see how much extra payments could save you.</p>
@@ -118,9 +119,47 @@ footer a{color:var(--yellow);}
 </details>
 </div>
 </main>
-<section class="dy9-info">
-<div class="dy9-card"><h2>How it works</h2><p>This is a standard fixed-payment amortization calculation. With monthly rate r, the number of months to pay off a balance is &minus;ln(1 &minus; r &times; balance &divide; payment) &divide; ln(1 + r). Total interest is the payment times the months minus the balance. The extra-payment comparison reruns the same math with a larger payment. If your payment is not larger than the monthly interest, the loan never pays off, and the tool tells you so.</p><p style="font-size:12px;line-height:1.65;color:#888;margin:14px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc;font-weight:700">Last reviewed: October 2026.</strong> This is a planning estimate based on the formula above. It is not financial, tax, or legal advice.</p></div>
-<div class="dy9-card"><h2>Using the number</h2><p>$30,000 at 6.5% with a $350 payment takes about 9.6 years and about $10,400 of interest. Add $100, so the payment is $450, and the same formula finishes sooner and cuts a few thousand dollars of interest. The page reprints both. If the payment is not larger than the first month’s interest, it says the loan never pays off. On this balance the monthly interest starts near $163, so $350 does clear it. A $150 payment would not.</p><p>That is a fixed-rate, single-balance sketch. It is the wrong tool for an income-driven plan, where the payment is a percent of income and forgiveness has tax consequences this page ignores. It also assumes the rate never changes and that you never pay less in a hardship month. If you have several loans, the debt payoff planner will order them. Federal loans in a grace period or deferment are not accruing the way this formula assumes. Check the status on StudentAid.gov before you treat the payoff date as a promise.</p></div><div class="dy9-card"><h2>Sources &amp; references</h2><p>The payoff length is the standard logarithm of a fixed payment. The federal plans are not.</p><ul><li><a href="https://studentaid.gov/manage-loans/repayment" target="_blank" rel="noopener">Federal Student Aid, repayment plans</a>. Standard, graduated, and income-driven options this calculator does not switch among.</li></ul></div><div class="dy9-card"><h2>More free tools</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/retirement-calculator.html">Retirement Calculator</a></li><li><a href="/net-worth-calculator.html">Net Worth Calculator</a></li><li><a href="/mortgage-calculator.html">Mortgage Calculator</a></li><li><a href="/loan-calculator.html">Personal Loan Calculator</a></li></ul></div>
+<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<p>It answers one question: given this payment, when does the balance hit zero, and what did the interest cost along the way? The extra-payment box repeats the calculation with a larger payment.</p>
+<ol>
+<li>Enter the current balance, not the original loan amount. Statements list both and they are very different numbers.</li>
+<li>Enter the interest rate from the statement. A federal loan may have several loans at different rates; run them one at a time rather than averaging.</li>
+<li>Enter the payment you actually make each month, including any autopay discount already applied.</li>
+<li>Add an extra amount to see the effect. The page reports both scenarios side by side.</li>
+<li>Check the first-month interest figure it shows against your statement. If they disagree, the rate or the balance is off.</li>
+</ol></div>
+
+<div class="dy9-card"><h2>A worked example: $30,000 at 6.5%</h2>
+<p>The first month's interest is $30,000 &times; 0.065 &divide; 12, which is <strong>$162.50</strong>. Any payment below that does not reduce the balance at all, which is the trap the tool flags directly.</p>
+<table><thead><tr><th>Payment</th><th>Time to pay off</th><th>Total interest</th></tr></thead><tbody>
+<tr><td>$350</td><td>about 9.6 years</td><td>$10,439</td></tr>
+<tr><td>$450</td><td>about 6.9 years</td><td>$7,321</td></tr>
+</tbody></table>
+<p>One hundred dollars a month cuts nearly three years off the loan and saves about <strong>$3,118</strong> of interest. On a ten-year horizon that is the best guaranteed return most people will be offered, and it comes with no market risk.</p>
+<p>Notice the asymmetry: a 29% increase in the payment produces a 28% cut in the payoff time and a 30% cut in interest, because every extra dollar goes straight to principal while the scheduled payment is mostly servicing the balance.</p></div>
+
+<div class="dy9-card"><h2>What your results mean</h2>
+<p>The payoff date is a projection, not a promise. It assumes the rate never changes, the payment is made every month, and nothing new is borrowed. A single missed payment or a period of deferment moves the date.</p>
+<p>Total interest is the cost of the schedule. On the example above, $350 a month costs more than a third of the original balance in interest, which is the argument for paying more when the budget allows.</p>
+<p>This model is wrong for income-driven repayment, where the payment is a share of your income, the term is fixed at twenty or twenty-five years, and any remaining balance may be forgiven — with tax consequences this page cannot calculate. For those plans, use your servicer's calculator and read the forgiveness rules.</p>
+<p>It is also wrong for a loan in a grace period or deferment, when interest may be accruing but no payment is due. Check the loan status before treating the date as real.</p></div>
+
+<div class="dy9-card"><h2>Frequently asked questions</h2>
+<h3>Why does my payment barely dent the balance?</h3><p>Because most of it is interest. At 6.5% on $30,000, the first $162.50 of every payment is interest and only what remains touches the principal. As the balance falls, that split improves on its own.</p>
+<h3>What happens if I pay less than the interest?</h3><p>The balance grows. The calculator reports that the loan never pays off, which is accurate rather than pessimistic. That situation needs a larger payment or a different repayment plan.</p>
+<h3>Are extra payments applied to principal?</h3><p>On most federal and private loans, yes, when you designate them as extra. Confirm with the servicer, because some apply overpayments to future scheduled payments by default, which saves nothing.</p>
+<h3>Should I pay extra or invest?</h3><p>Paying extra earns a guaranteed return equal to the interest rate. Investing may earn more and may lose money. At a high rate the guaranteed saving is usually the stronger choice; at a low rate the comparison is closer.</p>
+<h3>Does refinancing help?</h3><p>It can, if the new rate is meaningfully lower. It can also cost you federal protections such as income-driven repayment and forgiveness, which is a trade a lower rate does not always justify.</p>
+<h3>What if I have several loans?</h3><p>Run each one here to see its own timeline, then use the debt payoff planner to decide the order of attack. Avalanche targets the highest rate, which is usually the right call for interest.</p></div>
+
+<div class="dy9-card"><h2>Sources &amp; references</h2>
+<p>The payoff length is the standard logarithm of a fixed payment. Federal repayment plans are not.</p>
+<ul>
+<li><a href="https://studentaid.gov/help-center/answers/article/what-is-a-repayment-plan" target="_blank" rel="noopener">Federal Student Aid, repayment plans</a>. Standard, graduated, and income-driven options this calculator does not switch among.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Fixed-rate, single-balance loans with a constant payment.</p></div>
+
+<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/guides/household-money.html">Household money</a></li><li><a href="/debt-payoff-planner.html">Debt Payoff Planner</a></li><li><a href="/loan-calculator.html">Personal Loan Calculator</a></li><li><a href="/retirement-calculator.html">Retirement Calculator</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>
