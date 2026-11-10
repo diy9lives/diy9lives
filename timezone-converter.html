@@ -76,14 +76,16 @@ td{padding:9px 6px;border-top:1px solid #1b1b1b}
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="DIY9lives: 69 free tools. No login. No paywall."/>
+<meta property="og:image:alt" content="DIY9lives: 70 free tools. No login. No paywall."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Free Time Zone Converter — Compare Times Worldwide | DIY9lives"/>
 <meta name="twitter:description" content="Convert any date and time between time zones and see the same moment in cities worldwide, with daylight saving handled automatically. Free, no login."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Time Zone Converter","url":"https://www.diy9lives.com/timezone-converter.html","description":"Convert any date and time between time zones and see the same moment in cities worldwide, with daylight saving handled automatically. Free, no login.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Time Zone Converter","item":"https://www.diy9lives.com/timezone-converter.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Time Zone Converter","url":"https://www.diy9lives.com/timezone-converter.html","description":"Convert any date and time between time zones and see the same moment in cities worldwide, with daylight saving handled automatically. Free, no login.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Time Zone Converter","item":"https://www.diy9lives.com/timezone-converter.html"}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
+<style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
@@ -120,11 +122,11 @@ td{padding:9px 6px;border-top:1px solid #1b1b1b}
 
 </div>
 <section class="dy9-info">
-<div class="dy9-card"><h2>How to use this calculator</h2>
+<div class="dy9-card"><h2>Pick the two cities and the time</h2>
 <p>Set a date, a time, and the zone that time belongs to, then read the same moment in the cities listed. The table shows local time for each zone plus a day marker when the date has already changed there, which is the part people miss when booking a call across the Pacific.</p>
 <p>Daylight saving is handled by the browser's own time zone database rather than a hard-coded offset, so a summer date and a winter date give different answers for the same city. That is correct behaviour, and it is the reason a fixed offset table from a search result goes wrong twice a year.</p></div>
 
-<div class="dy9-card"><h2>A worked example</h2>
+<div class="dy9-card"><h2>Worked example: 9 am in Pittsburgh</h2>
 <p>A call at 9:00 AM in New York on a January date:</p>
 <table><tr><th>City</th><th>Local time</th></tr>
 <tr><td>Los Angeles</td><td>6:00 AM, same day</td></tr>
@@ -135,22 +137,22 @@ td{padding:9px 6px;border-top:1px solid #1b1b1b}
 <tr><td>Sydney</td><td>1:00 AM, next day</td></tr></table>
 <p>New York is five hours behind UTC in January. London is on UTC, which gives the five-hour gap; Sydney is eleven hours ahead of UTC and therefore sixteen hours ahead of New York, and sixteen hours forward from 9:00 AM lands on the next calendar day. Anyone who reads "Sydney, 1:00 AM" as the same day will miss the meeting by a day rather than an hour.</p></div>
 
-<div class="dy9-card"><h2>What your results mean</h2>
+<div class="dy9-card"><h2>What daylight saving does to the answer</h2>
 <p>Every entry is the same instant expressed in a different zone, so the offsets change but the moment does not. The offsets in the table are the actual ones for the date you entered, which is why the same two cities can be four hours apart in one month and five in another: the United States and Europe change their clocks on different weekends in March and October, and the Southern Hemisphere changes in the opposite direction.</p>
 <p>The day marker is doing real work. Any zone more than about twelve hours away from yours flips the date, and so does any zone east of you when your local time is late in the evening. For scheduling, the rule is to quote the time in the other person's zone with the date attached, not just the time.</p>
 <p>Two caveats are worth knowing. Zones that share a country can differ &mdash; India is one zone at a half-hour offset, and Arizona does not observe daylight saving while the rest of its time band does. And a government can change a zone's rules with little notice; the browser's database is updated regularly but not instantly, so a booking made far in advance is worth re-checking closer to the date.</p></div>
 
-<div class="dy9-card"><h2>Frequently asked questions</h2>
+<div class="dy9-card"><h2>Timezone questions</h2>
 <h3>Why is the offset not a whole number of hours?</h3><p>Some zones sit on a half-hour or quarter-hour offset from UTC. India is UTC+5:30 and Nepal is UTC+5:45.</p>
 <h3>Does the tool know about daylight saving?</h3><p>Yes, for the date you enter. It uses the time zone rules built into your browser, so the answer reflects whether clocks are forward on that specific day.</p>
 <h3>Why did a meeting time change after I saved it?</h3><p>Because a clock change happened between booking and the meeting, or because your calendar stored a fixed offset rather than a zone. Store the zone name, not the offset.</p>
 <h3>Is UTC the same as GMT?</h3><p>For everyday scheduling, yes. GMT is a time zone with no offset; UTC is the reference standard. They read the same on a clock.</p>
 <h3>Can I convert a time in the past?</h3><p>Yes. Pick the historical date and the rules for that date apply, including whichever daylight saving arrangement was in force then.</p></div>
-<div class="dy9-card"><h2>Sources &amp; references</h2><p>The zone rules are the IANA time-zone database, applied by your browser.</p><ul><li><a href="https://www.iana.org/time-zones" target="_blank" rel="noopener">IANA time zone database</a>. The rules this page relies on. Your browser has to be new enough to include recent law changes.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
-<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/date-difference-calculator.html">Date Difference Calculator</a></li><li><a href="/age-calculator.html">Age Calculator</a></li><li><a href="/sleep-calculator.html">Sleep Calculator</a></li></ul></div>
+<div class="dy9-card"><h2>The tz database and UTC</h2><p>The zone rules are the IANA time-zone database, applied by your browser.</p><ul><li><a href="https://www.iana.org/time-zones" target="_blank" rel="noopener">IANA time zone database</a>. The rules this page relies on. Your browser has to be new enough to include recent law changes.</li></ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<div class="dy9-card"><h2>Related: date difference, age, race pace</h2><ul class="dy9-rel"><li><a href="/date-difference-calculator.html">Date Difference Calculator</a></li><li><a href="/age-calculator.html">Age Calculator</a></li><li><a href="/sleep-calculator.html">Sleep Calculator</a></li></ul></div>
 </section>
-<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>
 var ZONES=[
   ['Honolulu','Pacific/Honolulu'],['Anchorage','America/Anchorage'],['Los Angeles','America/Los_Angeles'],

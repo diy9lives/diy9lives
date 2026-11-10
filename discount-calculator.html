@@ -54,14 +54,16 @@ input:focus{border-color:var(--yellow)}
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="DIY9lives: 69 free tools. No login. No paywall."/>
+<meta property="og:image:alt" content="DIY9lives: 70 free tools. No login. No paywall."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Free Discount Calculator — Stack Multiple Sales | DIY9lives"/>
 <meta name="twitter:description" content="Calculate the real final price after one or multiple stacked discounts, plus optional tax. Free, no login."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Discount Calculator","url":"https://www.diy9lives.com/discount-calculator.html","description":"Calculate the real final price after one or multiple stacked discounts, plus optional tax. Free, no login.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Discount Calculator","item":"https://www.diy9lives.com/discount-calculator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Discount Calculator","url":"https://www.diy9lives.com/discount-calculator.html","description":"Calculate the real final price after one or multiple stacked discounts, plus optional tax. Free, no login.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Discount Calculator","item":"https://www.diy9lives.com/discount-calculator.html"}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
+<style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
@@ -148,11 +150,11 @@ calc();
 
 </div>
 <section class="dy9-info">
-<div class="dy9-card"><h2>How to use this calculator</h2>
+<div class="dy9-card"><h2>Stacking a percent off a percent off</h2>
 <p>Enter the shelf price, then add each discount as its own percentage in the order the store applies them. A single "25% off" is one row. "20% off, then an extra 10% off at the register" is two rows. The optional tax rate is applied after every discount, which is how most US jurisdictions treat a store discount. The result shows the final price, the money saved, and the real percentage off.</p>
 <p>Number the rows in the order the discounts happen, because the order changes nothing about the total but does change how you check it against the receipt.</p></div>
 
-<div class="dy9-card"><h2>A worked example</h2>
+<div class="dy9-card"><h2>Worked example: 25% then 10% off $84</h2>
 <p>A $100 jacket with a 20% sale tag and a 10% email-code discount:</p>
 <table><tr><th>Step</th><th>Price</th></tr>
 <tr><td>Starting price</td><td>$100.00</td></tr>
@@ -162,21 +164,21 @@ calc();
 <p>The real discount is 28%, not 30%, because the second percentage came off a smaller number. The missing 2% is $2, and on a $600 purchase it is $12 &mdash; the reason a "30% off everything" coupon that is really two stacked 15% codes is worth less than it reads.</p>
 <p>Reverse the order and the total is identical: 10% takes $100 to $90, and 20% of $90 is $18, leaving $72. Stacked percentages multiply, and multiplication does not care about order. Only the labels on the receipt do.</p></div>
 
-<div class="dy9-card"><h2>What your results mean</h2>
+<div class="dy9-card"><h2>Why the second discount is smaller</h2>
 <p>Three numbers matter and they answer different questions. The <strong>final price</strong> is what leaves your account. The <strong>amount saved</strong> is what the sale is worth to you in cash. The <strong>effective percentage</strong> is the honest headline, and it is the number to compare between two stores that advertise differently.</p>
 <p>Tax placement is the detail that makes results disagree with a receipt. Some states tax the pre-discount price when the discount is a manufacturer's coupon, because the store is reimbursed by the manufacturer and the full price was the sale. Store discounts are usually taxed on the reduced price. This page takes the common case: tax after all discounts. If a receipt disagrees by a few cents, that is the likely reason.</p>
 <p>What the calculator cannot see is whether you would have bought the item at full price. A 40% discount on something you did not need is a 100% loss. That is not arithmetic, but it is the number that actually matters.</p></div>
 
-<div class="dy9-card"><h2>Frequently asked questions</h2>
+<div class="dy9-card"><h2>Discount questions</h2>
 <h3>Why isn't 20% plus 10% equal to 30%?</h3><p>Because the second discount is charged on what is left, not on the original price. Percentages of a shrinking number do not add; they multiply.</p>
 <h3>Does the order of discounts matter?</h3><p>Not for the total. It matters only when one discount has a floor, such as "20% off but not below $60", and the tool has no way to know about that rule.</p>
 <h3>How do I handle buy-one-get-one-free?</h3><p>Enter it as 50% off when you are buying two of something you would have bought anyway. It is not 50% off if the second item is the only reason you are there.</p>
 <h3>Can I stack a coupon on top of a sale price?</h3><p>Sometimes, and the store decides. Put both percentages in and compare the total against the register; if they differ, the coupon likely excludes sale items.</p>
 <h3>What about "extra 10% off the lowest marked price"?</h3><p>That is the same as stacking, because the lowest price is already reduced. Enter each markdown as its own row in the order they were applied.</p></div>
-<div class="dy9-card"><h2>Sources &amp; references</h2><p>Successive discounts multiply. Sales-tax rates, if you need one to type, are published by states and summarized nationally.</p><ul><li><a href="https://taxfoundation.org/data/all/state/sales-tax-rates/" target="_blank" rel="noopener">Tax Foundation, state sales tax rates</a>. A statewide rate to type. City and county add-ons are extra.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
-<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/unit-price-comparator.html">Unit Price Comparator</a></li><li><a href="/percentage-calculator.html">Percentage Calculator</a></li><li><a href="/tip-calculator.html">Tip Calculator</a></li><li><a href="/guides/unit-price-math.html">Unit price math</a></li></ul></div>
+<div class="dy9-card"><h2>The arithmetic and the pricing rules</h2><p>Successive discounts multiply. Sales-tax rates, if you need one to type, are published by states and summarized nationally.</p><ul><li><a href="https://taxfoundation.org/data/all/state/sales-tax-rates/" target="_blank" rel="noopener">Tax Foundation, state sales tax rates</a>. A statewide rate to type. City and county add-ons are extra.</li></ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<div class="dy9-card"><h2>Related: percentage, unit price, tip</h2><ul class="dy9-rel"><li><a href="/unit-price-comparator.html">Unit Price Comparator</a></li><li><a href="/percentage-calculator.html">Percentage Calculator</a></li><li><a href="/tip-calculator.html">Tip Calculator</a></li><li><a href="/guides/unit-price-math.html">Unit price math</a></li></ul></div>
 </section>
-<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
 </html>

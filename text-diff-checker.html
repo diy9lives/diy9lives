@@ -4,6 +4,7 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,follow">
 <title>Free Text Diff Checker &mdash; Compare Two Texts | DIY9lives</title>
 <meta name="description" content="Compare two blocks of text and see exactly what changed, word by word. Free, no login, runs entirely in your browser."/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
@@ -49,14 +50,16 @@ textarea:focus{border-color:var(--yellow)}
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="DIY9lives: 69 free tools. No login. No paywall."/>
+<meta property="og:image:alt" content="DIY9lives: 70 free tools. No login. No paywall."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Free Text Diff Checker — Compare Two Texts | DIY9lives"/>
 <meta name="twitter:description" content="Compare two blocks of text and see exactly what changed, word by word. Free, no login, runs entirely in your browser."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Text Diff Checker","url":"https://www.diy9lives.com/text-diff-checker.html","description":"Compare two blocks of text and see exactly what changed, word by word. Free, no login, runs entirely in your browser.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Text Diff Checker","item":"https://www.diy9lives.com/text-diff-checker.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Text Diff Checker","url":"https://www.diy9lives.com/text-diff-checker.html","description":"Compare two blocks of text and see exactly what changed, word by word. Free, no login, runs entirely in your browser.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Text Diff Checker","item":"https://www.diy9lives.com/text-diff-checker.html"}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
+<style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
@@ -143,30 +146,30 @@ runDiff();
 
 </div>
 <section class="dy9-info">
-<div class="dy9-card"><h2>How to use this calculator</h2>
+<div class="dy9-card"><h2>Paste the two versions</h2>
 <p>Paste the earlier version into the left box and the newer version into the right, then run the comparison. The output marks what was removed and what was added, and keeps the unchanged words in place so you can read the result as a sentence rather than as two separate paragraphs.</p>
 <p>Work on one section at a time. A whole contract against a whole contract produces a wall of marks in which the two changes you care about are invisible. A single clause against its revision shows you exactly what moved.</p></div>
 
-<div class="dy9-card"><h2>A worked example</h2>
+<div class="dy9-card"><h2>Worked example: a contract clause edit</h2>
 <p>Original: <em>Payment is due within 30 days.</em><br>Revision: <em>Payment is due within 45 days of invoice.</em></p>
 <p>The comparison finds two edits, not a rewritten sentence. The number changes from 30 to 45, and the phrase <em>of invoice</em> is added at the end. Everything else &mdash; <em>Payment is due within</em> and <em>days</em> &mdash; is unchanged and shown as such.</p>
 <p>That distinction is the point. A word processor's track changes will show you the same thing, but only if the other side used track changes. Pasting two plain-text versions catches the edit made silently, which is the one that costs money.</p></div>
 
-<div class="dy9-card"><h2>What your results mean</h2>
+<div class="dy9-card"><h2>Reading additions and deletions</h2>
 <p>The comparison is word by word, not letter by letter. It finds the longest run of words the two versions share and treats everything between those runs as a change. So a typo inside a long word shows up as the whole word removed and the corrected word added, which is correct but coarser than a character diff. For proofreading spelling, read the marked version with your eyes on the words, not on the colours.</p>
 <p>Order matters to this kind of comparison. Move a paragraph from the top of the page to the bottom and the tool reports it twice: once as removed where it used to be and once as added where it now is. It is not wrong, but it is not telling you that the paragraph is the same text in a new home. If a document was reorganised, expect a lot of marks and read for content instead of counting them.</p>
 <p>The tool compares exactly what you give it, including capitalisation and punctuation. <em>Total</em> and <em>total</em> are different words to it. If you only want to know whether the wording changed and not how it was typed, that strictness is helpful. If you are checking a cleanup pass, it will flag every comma you fixed.</p></div>
 
-<div class="dy9-card"><h2>Frequently asked questions</h2>
+<div class="dy9-card"><h2>Text comparison questions</h2>
 <h3>Why is there a word limit?</h3><p>The comparison builds a grid with one row and one column per word, so the work grows with the square of the length. Long documents would freeze the tab. Split anything over roughly 3,000 words per side.</p>
 <h3>Can it ignore case and punctuation?</h3><p>Not on this page. Normalise both sides first if case should not count &mdash; the case converter can lower-case both versions without touching word order.</p>
 <h3>Will it show me who changed what?</h3><p>No. It compares two texts, not two authors. Version history belongs in your editor or your shared drive.</p>
 <h3>Is this a legal redline?</h3><p>No. It is a reading aid that shows differences quickly. For a contract, have the actual document reviewed by someone qualified; this page does not interpret what a changed clause means.</p>
 <h3>Does it save my text?</h3><p>No. Both comparisons happen in the browser and nothing is stored or transmitted.</p></div>
-<div class="dy9-card"><h2>Sources &amp; references</h2><p>The comparison is this page’s word diff. It is not a legal redline and not a programmer’s line diff.</p><ul><li><a href="https://www.plainlanguage.gov/guidelines/" target="_blank" rel="noopener">plainlanguage.gov guidelines</a>. After you see what changed, whether the new wording is clearer.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
-<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/case-converter.html">Case Converter</a></li><li><a href="/word-counter.html">Word Counter</a></li><li><a href="/readability-checker.html">Readability Checker</a></li></ul></div>
+<div class="dy9-card"><h2>Line endings, whitespace and Unicode</h2><p>The comparison is this page’s word diff. It is not a legal redline and not a programmer’s line diff.</p><ul><li><a href="https://www.plainlanguage.gov/guidelines/" target="_blank" rel="noopener">plainlanguage.gov guidelines</a>. After you see what changed, whether the new wording is clearer.</li></ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<div class="dy9-card"><h2>Related: word counter, case converter, readability</h2><ul class="dy9-rel"><li><a href="/case-converter.html">Case Converter</a></li><li><a href="/word-counter.html">Word Counter</a></li><li><a href="/readability-checker.html">Readability Checker</a></li></ul></div>
 </section>
-<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
 </html>

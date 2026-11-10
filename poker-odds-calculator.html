@@ -4,6 +4,7 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,follow">
 <title>Free Poker Odds Calculator &mdash; DIY9lives</title>
 <meta name="description" content="Calculate poker hand win probability, pot odds, and equity. Enter your hole cards and board cards for instant odds. Free, no login."/>
 <!-- Google tag (gtag.js) -->
@@ -68,14 +69,16 @@ select{display:block;width:100%;background:#111;border:1px solid var(--border);b
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="DIY9lives: 69 free tools. No login. No paywall."/>
+<meta property="og:image:alt" content="DIY9lives: 70 free tools. No login. No paywall."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Free Poker Odds Calculator — DIY9lives"/>
 <meta name="twitter:description" content="Calculate poker hand win probability, pot odds, and equity. Enter your hole cards and board cards for instant odds. Free, no login."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Poker Odds Calculator","url":"https://www.diy9lives.com/poker-odds-calculator.html","description":"Calculate poker hand win probability, pot odds, and equity. Enter your hole cards and board cards for instant odds. Free, no login.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Poker Odds Calculator","item":"https://www.diy9lives.com/poker-odds-calculator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Poker Odds Calculator","url":"https://www.diy9lives.com/poker-odds-calculator.html","description":"Calculate poker hand win probability, pot odds, and equity. Enter your hole cards and board cards for instant odds. Free, no login.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Poker Odds Calculator","item":"https://www.diy9lives.com/poker-odds-calculator.html"}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
+<style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
 <body>
 <nav>
@@ -438,11 +441,11 @@ function calcPotOdds() {
 calcPotOdds();
 </script>
 <section class="dy9-info">
-<div class="dy9-card"><h2>How to use this calculator</h2>
+<div class="dy9-card"><h2>Cards, outs and the next street</h2>
 <p>Click a slot, pick the rank and suit for your hole cards and any board cards, then set how many opponents are in the hand. The page runs a simulation &mdash; thousands of random deals for the cards you have not seen &mdash; and reports how often you win. Enter the pot and the bet you are facing to compare your equity against the price.</p>
 <p>Leave board slots empty before the flop. The simulation fills them in, which is what "random runout" means.</p></div>
 
-<div class="dy9-card"><h2>A worked example</h2>
+<div class="dy9-card"><h2>Worked example: a flush draw on the turn</h2>
 <p>You hold two hearts and the flop brings two more hearts, so you have a flush draw with 9 hearts left in the deck. There are 47 unseen cards.</p>
 <table><tr><th>Measure</th><th>Value</th></tr>
 <tr><td>Outs</td><td>9</td></tr>
@@ -452,21 +455,21 @@ calcPotOdds();
 </table>
 <p>You need to win 23.1% of the time to break even on the call, because $30 into a $100 pot means calling $30 to win $130. With 35% equity you are comfortably ahead, so the call makes money in the long run. The rule of thumb gets you close: with two cards to come, multiply outs by four for a rough percentage, and with one card to come, multiply by two.</p></div>
 
-<div class="dy9-card"><h2>What your results mean</h2>
+<div class="dy9-card"><h2>What pot odds do not tell you</h2>
 <p>The win percentage is an estimate from simulation rather than an exact calculation. That is not a weakness: with several opponents the exact number requires enumerating millions of combinations, and a large sample of random deals lands close enough for a decision. Run it again and the figure will move by a fraction of a percent.</p>
 <p>Equity and pot odds answer different questions. Equity is how often you win at showdown; pot odds are the price being offered. A hand with 35% equity is profitable to call when the price requires less than 35%, and unprofitable when it requires more. Compare the two, and act on the comparison.</p>
 <p>What the model leaves out: future betting, position, and the implied odds of winning more money when you hit. A flush draw that gets paid off on the river is worth more than its raw equity, and a draw that everyone folds to is worth less. Treat the number as the floor of the decision rather than the whole of it.</p></div>
 
-<div class="dy9-card"><h2>Frequently asked questions</h2>
+<div class="dy9-card"><h2>Poker probability questions</h2>
 <h3>How accurate is the simulation?</h3><p>Close enough for practical decisions. More trials would narrow the variance, but the difference is well under a percentage point for a normal hand.</p>
 <h3>What are pots odds in one sentence?</h3><p>The share of the final pot you are contributing. Call $30 into $100 and you are putting in $30 of $130, which is 23.1%.</p>
 <h3>Does it account for my opponents' actual hands?</h3><p>No, it deals them at random. If you can put an opponent on a range, their real hand is stronger than average, so your true equity is lower.</p>
 <h3>Why does my equity change between streets?</h3><p>Because cards are revealed and unseen cards shrink. The same draw has less chance with one card to come than with two.</p>
 <h3>Can this make me a winning player?</h3><p>No. It prices a decision. Position, bet sizing and reading opponents decide whether you get to make good decisions in the first place.</p></div>
-<div class="dy9-card"><h2>Sources &amp; references</h2><p>Hand rankings are the ordinary poker ranking. The win percent is this page’s simulation, not a published solver.</p><ul><li><a href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/" target="_blank" rel="noopener">National Problem Gambling Helpline</a>. If the session is no longer a game. 1-800-GAMBLER.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
-<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/gambling-odds-calculator.html">Gambling Odds Calculator</a></li><li><a href="/percentage-calculator.html">Percentage Calculator</a></li><li><a href="/tip-calculator.html">Tip Calculator</a></li></ul></div>
+<div class="dy9-card"><h2>The combinatorics behind the odds</h2><p>Hand rankings are the ordinary poker ranking. The win percent is this page’s simulation, not a published solver.</p><ul><li><a href="https://www.ncpgambling.org/help-treatment/about-the-national-problem-gambling-helpline/" target="_blank" rel="noopener">National Problem Gambling Helpline</a>. If the session is no longer a game. 1-800-GAMBLER.</li></ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<div class="dy9-card"><h2>Related: percentage, gambling odds, probability</h2><ul class="dy9-rel"><li><a href="/gambling-odds-calculator.html">Gambling Odds Calculator</a></li><li><a href="/percentage-calculator.html">Percentage Calculator</a></li><li><a href="/tip-calculator.html">Tip Calculator</a></li></ul></div>
 </section>
-<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
 </html>

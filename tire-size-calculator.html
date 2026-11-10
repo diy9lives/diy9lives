@@ -26,6 +26,7 @@
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;height:57px;background:rgba(10,10,10,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+  nav[aria-label="Breadcrumb"]{position:static;height:auto;background:none;border:0;padding:0;display:block;backdrop-filter:none;-webkit-backdrop-filter:none;z-index:auto;}
   .logo{font-weight:800;font-size:18px;letter-spacing:-.5px;}
   .logo span{color:var(--yellow);}
   .nav-cta{background:var(--yellow);color:var(--black);font-weight:700;font-size:13px;padding:8px 16px;border-radius:8px;}
@@ -105,6 +106,24 @@
   /* CUSTOM COMPARE */
   .cmp-btn{background:var(--yellow);color:var(--black);font-weight:800;font-size:14px;padding:12px 20px;border:none;border-radius:9px;cursor:pointer;font-family:inherit;}
   .cmp-btn:hover{background:#ffe94d;}
+  .preset-row{display:flex;flex-wrap:wrap;gap:7px;margin:10px 0 14px;}
+  .preset{background:#111;border:1px solid #333;color:#ddd;font:inherit;font-size:12px;font-weight:700;padding:7px 10px;border-radius:7px;cursor:pointer;}
+  .preset:hover{border-color:var(--yellow);color:var(--yellow);}
+  .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .act{background:#111;border:1px solid #333;color:#ddd;font:inherit;font-size:12px;font-weight:700;padding:8px 12px;border-radius:8px;cursor:pointer;}
+  .act:hover{border-color:var(--yellow);color:var(--yellow);}
+  .act-primary{background:var(--yellow);color:var(--black);border-color:var(--yellow);}
+  @media print{
+    nav,.aff,.crumbs,.hint,.actions,.preset-row,.dy9-info,footer,script{display:none!important;}
+    body{background:#fff!important;color:#000!important;}
+    main{max-width:100%;padding:0!important;}
+    .card{border:1px solid #ccc!important;background:#fff!important;color:#000!important;break-inside:avoid;}
+    .stat,.cmp-svg{background:#fff!important;border-color:#ccc!important;}
+    .stat .k,.sub,th,.speedo-cell{color:#444!important;}
+    .stat .v,td,.sz,h1,h2{color:#000!important;}
+    .warn{background:#fff!important;border-color:#999!important;color:#000!important;}
+    a{color:#000!important;}
+  }
 
   /* FAQ */
   details{border-top:1px solid var(--border);padding:14px 4px;}
@@ -123,7 +142,7 @@
   }
 </style>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
-<style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}.dy9-info table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 14px}.dy9-info th,.dy9-info td{text-align:left;padding:7px 6px;border-top:1px solid #2a2a2a;vertical-align:top}.dy9-info th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#888;font-weight:700}</style>
+<style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}.dy9-info .dy9-shot figure{margin:0 0 14px}.dy9-info .dy9-shot img{display:block;width:100%;height:auto;border:1px solid #2a2a2a;border-radius:10px;background:#0a0a0a}.dy9-info .dy9-shot figcaption{font-size:12px;color:#888;margin-top:8px;line-height:1.55}.dy9-info .dy9-shot ol{margin:0 0 4px 20px}.dy9-info .dy9-shot li{margin-bottom:8px}.dy9-info table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 14px}.dy9-info th,.dy9-info td{text-align:left;padding:7px 6px;border-top:1px solid #2a2a2a;vertical-align:top}.dy9-info th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#888;font-weight:700}</style>
 <link rel="canonical" href="https://www.diy9lives.com/tire-size-calculator.html"/>
 <link rel="icon" href="/favicon.ico" sizes="48x48"/>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
@@ -136,25 +155,26 @@
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="DIY9lives: 69 free tools. No login. No paywall."/>
+<meta property="og:image:alt" content="DIY9lives: 70 free tools. No login. No paywall."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Tire Size Calculator — Compare Equivalent Sizes &amp; Speedometer Error | DIY9lives"/>
 <meta name="twitter:description" content="Free tire size calculator. Enter your stock tire size and find equivalent sizes for 15 to 22 inch wheels, compare diameters, and see exactly how much your speedometer will be off. No login, no ads in your face."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Tire Size Calculator","url":"https://www.diy9lives.com/tire-size-calculator.html","description":"Free tire size calculator. Enter your stock tire size and find equivalent sizes for 15 to 22 inch wheels, compare diameters, and see exactly how much your speedometer will be off. No login, no ads in your face.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Tire Size Calculator","item":"https://www.diy9lives.com/tire-size-calculator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Tire Size Calculator","url":"https://www.diy9lives.com/tire-size-calculator.html","description":"Free tire size calculator. Enter your stock tire size and find equivalent sizes for 15 to 22 inch wheels, compare diameters, and see exactly how much your speedometer will be off. No login, no ads in your face.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Tire Size Calculator","item":"https://www.diy9lives.com/tire-size-calculator.html"}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
+<style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
 <body>
 
 <nav>
   <a class="logo" href="/">DIY<span>9</span>lives</a>
-  <a class="nav-cta" href="/">All 25 tools &rarr;</a>
+  <a class="nav-cta" href="/">All tools &rarr;</a>
 </nav>
 
 <main>
 <nav aria-label="Breadcrumb" style="font-size:12px;color:#666;margin:0 0 16px"><a href="/" style="color:#666;text-decoration:none">Home</a> <span style="color:#444">/</span> <span style="color:#999">Tire Size Calculator</span></nav>
-  <div class="crumb"><a href="/">Home</a> / Cars &amp; Driving / Tire Size Calculator</div>
   <h1>Tire Size <em>Calculator</em></h1>
   <p class="sub">Going from 16&quot; wheels to 18&quot;? Enter your stock tire size and instantly see the closest equivalent sizes for every wheel diameter &mdash; plus exactly how far off your speedometer will read with each one.</p>
 
@@ -174,6 +194,13 @@
         <label>Wheel (in)</label>
         <select id="inRim"></select>
       </div>
+    </div>
+    <div class="preset-row" aria-label="Common stock sizes">
+      <button class="preset" type="button" data-p="205,55,16">205/55R16</button>
+      <button class="preset" type="button" data-p="225,60,16">225/60R16</button>
+      <button class="preset" type="button" data-p="235,55,18">235/55R18</button>
+      <button class="preset" type="button" data-p="265,70,17">265/70R17</button>
+      <button class="preset" type="button" data-p="275,40,20">275/40R20</button>
     </div>
     <div class="size-readout">Stock size: <strong id="stockLabel">225/60R16</strong> &nbsp;&mdash;&nbsp; the numbers on your sidewall, e.g. <b>225 / 60 R 16</b></div>
   </div>
@@ -217,6 +244,11 @@
       <span><span class="dot" style="background:var(--orange)"></span>2&ndash;3% &mdash; edge of safe</span>
     </div>
     <p class="hint" style="margin-top:14px;">Even within the sizes above, exact stock and pricing vary a lot by brand and by season &mdash; a size that's cheap and in stock at one retailer might be back-ordered at another. <b>It pays to check two or three sellers before buying.</b></p>
+    <div class="actions">
+      <button class="act act-primary" type="button" id="shareBtn">Copy shareable link</button>
+      <button class="act" type="button" id="printBtn">Print this comparison</button>
+      <span class="hint" id="shareNote" style="margin:0;align-self:center"></span>
+    </div>
   </div>
 
   <!-- DETAIL -->
@@ -273,7 +305,11 @@
   </div>
 </main>
 
-<section class="dy9-info"><div class="dy9-card"><h2>How to use this calculator</h2>
+<section class="dy9-info"><div class="dy9-card dy9-shot"><h2>Reading a tire comparison, step by step</h2>
+<figure><img src="/img/screens/tire-size-calculator.webp" width="1000" height="483" loading="lazy" decoding="async" alt="Stock 225/60R16; the 16-inch group is the stock wheel size and the 18-inch group shows the nearest plus-two sizes."><figcaption>Stock 225/60R16; the 16-inch group is the stock wheel size and the 18-inch group shows the nearest plus-two sizes. Screenshot captured November 9, 2026 from this page.</figcaption></figure>
+<ol><li>Find the stock size on the driver's door-jamb placard and enter its three numbers. The 225/60R16 shown here is a common midsize sedan size.</li><li>Leave the wheel diameter alone and scan the rows for the diameter you are considering. Each row shows the new overall diameter and the percentage difference from stock.</li><li>Click any row to open the speedometer table. At an indicated 60 mph, the 245/45R18 is within 0.1 mph of true; the 235/55R17 is about 1.2 mph high.</li><li>Use <b>Copy shareable link</b> to send the exact comparison to a tire shop, or <b>Print</b> to take the table to the counter.</li></ol></div>
+
+<div class="dy9-card"><h2>How to use this calculator</h2>
 <p>The size code on your sidewall contains all three numbers the tool needs, and reading it correctly is the whole task.</p>
 <ol>
 <li>Find your current size on the sidewall or the placard on the driver's door jamb. A 205/55R16 reads as 205 millimeters of section width, a sidewall height that is 55% of that width, and a 16 inch wheel.</li>
@@ -289,6 +325,22 @@
 <p>That one percent shows up on the dash. At an indicated 65 mph you are actually doing <strong>64.3 mph</strong>, so the speedometer reads slightly high, which is the safe direction for a ticket and the wrong direction for your odometer, which adds a mile roughly every 96 you actually drive. The car also sits marginally lower and the ride is slightly firmer, because the sidewall is thinner even though the wheel is bigger.</p>
 <p>For comparison, a 225/65R17 is 28.52 inches and a 235/55R18 is 28.18 inches, so that pairing is about 1.2% apart. Both examples sit inside the 3% band tire shops commonly treat as interchangeable, and neither is a guarantee that the tire clears your strut at full lock.</p></div>
 
+<div class="dy9-card"><h2>Common plus-size pairings, checked</h2>
+<p>These are the pairings people ask about most. The numbers come from the same formula the calculator uses: overall diameter in millimeters = wheel diameter &times; 25.4 + 2 &times; section width &times; (aspect ratio &divide; 100).</p>
+<table>
+<thead><tr><th>Stock</th><th>New size</th><th>Stock diameter</th><th>New diameter</th><th>Difference</th><th>At 60 mph, true speed</th></tr></thead>
+<tbody>
+<tr><td>205/55R16</td><td>215/45R17</td><td>631.9 mm / 24.88 in</td><td>625.3 mm / 24.62 in</td><td>&minus;1.04%</td><td>59.4 mph</td></tr>
+<tr><td>225/60R16</td><td>235/55R17</td><td>676.4 mm / 26.63 in</td><td>690.3 mm / 27.18 in</td><td>+2.05%</td><td>61.2 mph</td></tr>
+<tr><td>225/60R16</td><td>245/45R18</td><td>676.4 mm / 26.63 in</td><td>677.7 mm / 26.68 in</td><td>+0.19%</td><td>60.1 mph</td></tr>
+<tr><td>235/55R18</td><td>245/45R19</td><td>715.7 mm / 28.18 in</td><td>703.1 mm / 27.68 in</td><td>&minus;1.76%</td><td>58.9 mph</td></tr>
+<tr><td>265/70R17</td><td>275/65R18</td><td>802.8 mm / 31.61 in</td><td>814.7 mm / 32.07 in</td><td>+1.48%</td><td>60.9 mph</td></tr>
+<tr><td>275/40R20</td><td>285/35R21</td><td>728.0 mm / 28.66 in</td><td>732.9 mm / 28.85 in</td><td>+0.67%</td><td>60.4 mph</td></tr>
+<tr><td>195/65R15</td><td>205/55R16</td><td>634.5 mm / 24.98 in</td><td>631.9 mm / 24.88 in</td><td>&minus;0.41%</td><td>59.8 mph</td></tr>
+</tbody>
+</table>
+<p>Two of these are outside the &plusmn;1% ideal band: the 235/55R17 is 2.05% larger and the 245/45R19 is 1.76% smaller. Both are still inside the &plusmn;3% range many shops treat as workable, but the speedometer and odometer error is real. A 1.76% smaller tire adds roughly one extra mile on the odometer for every 57 miles driven.</p></div>
+
 <div class="dy9-card"><h2>What your results mean</h2>
 <p>Diameter is the number the car's computers assume. The speedometer counts wheel rotations and multiplies by a circumference it was programmed with, so a tire that is 1% taller covers 1% more ground per turn, and the dash under-reports speed by 1%. The odometer drifts the same way, which matters at lease return and resale.</p>
 <p>The percentage is the actionable number, and the size relative to stock is what you want to minimize. Under 1% is effectively invisible. Around 3% is where you are choosing a new set of compromises, and above that you are changing the gearing the car was designed around.</p>
@@ -303,16 +355,26 @@
 <h3>How old is too old for a tire?</h3><p>Tires carry a DOT date code of four digits, week and year, so 3224 means the 32nd week of 2024. Rubber ages regardless of tread depth, and many manufacturers suggest inspecting closely around six years and replacing by ten, which is worth checking before buying used.</p>
 <h3>Can I change only two tires?</h3><p>Ideally all four, especially on an all-wheel-drive vehicle, where a significant diameter difference between axles strains the drivetrain. If you are replacing a pair, keep them on the same axle and match the size.</p></div>
 
+<div class="dy9-card"><h2>How the diameter is calculated</h2>
+<p><strong>Sidewall height (mm) = section width &times; aspect ratio &divide; 100.</strong> For 225/60R16 that is 225 &times; 0.60 = 135 mm. <strong>Overall diameter (mm) = wheel diameter &times; 25.4 + 2 &times; sidewall height.</strong> Here: 16 &times; 25.4 + 2 &times; 135 = 676.4 mm, or 26.63 inches.</p>
+<p>The percentage difference is <strong>(new diameter &minus; stock diameter) &divide; stock diameter &times; 100</strong>. The speedometer ratio is the same number: a tire 1% larger makes the dash read 1% low, so an indicated 60 mph is 60.6 mph true. The calculator rounds display values, but the comparison is computed from the unrounded numbers.</p>
+<p>The &plusmn;3% band is a trade rule of thumb, not a regulation or a guarantee of fitment. Vehicle manufacturers specify the original size and load rating on the door-jamb placard; NHTSA explains why that placard, not a fitment chart, is the authority.</p></div>
+
 <div class="dy9-card"><h2>Sources &amp; references</h2>
 <p>The diameter math is just the size code printed on the sidewall. The safety instruction is NHTSA's.</p>
 <ul>
 <li><a href="https://www.nhtsa.gov/vehicle-safety/tires" target="_blank" rel="noopener">NHTSA, tires</a>. How to read a passenger tire size, and why the door-jamb placard is the authority rather than a fitment chart.</li>
+<li><a href="https://www.etrto.org/" target="_blank" rel="noopener">ETRTO</a>. The European Tyre and Rim Technical Organisation publishes the dimensional standards behind the sidewall size code.</li>
+<li><a href="https://www.tirerack.com/tires/tiretech/" target="_blank" rel="noopener">Tire Rack tire tech</a>. Reference notes on plus sizing, load index and speed rating for passenger tires.</li>
 </ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>. The 3% band is a trade rule of thumb, not a regulation. The placard is the regulation.</p></div>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>. The 3% band is a trade rule of thumb, not a regulation. The placard is the regulation.</p></div>
+
+<div class="dy9-card"><h2>What the tire comparison cannot see</h2>
+<p>Diameter matching is necessary, not sufficient. The tool does not check load index, speed rating, wheel width, offset, brake clearance, suspension travel or fender clearance at full lock. A size can be within 1% and still rub or under-carry the vehicle. The placard on the driver's door jamb is the authority for the original size and load rating.</p></div>
 
 <div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/guides/reading-a-car-deal.html">Reading a car deal</a></li><li><a href="/vin-decoder.html">VIN Decoder</a></li><li><a href="/true-cost-of-ownership-calculator.html">True Cost of Ownership</a></li><li><a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a></li><li><a href="/guides/tire-size-and-speedometer-error.html">Tire size and speedo error</a></li></ul></div>
 </section>
-<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 <script>
 (function(){
   var MM_PER_IN = 25.4;
@@ -461,8 +523,10 @@
     }
   }
 
-  function showDetail(w,a,r,key){
+  var selected=null;
+  function showDetail(w,a,r,key,doScroll){
     selectedKey=key;
+    selected={w:w,a:a,r:r};
     var rows=document.querySelectorAll('tr.row');
     for(var i=0;i<rows.length;i++){
       rows[i].classList.toggle('active',rows[i].dataset.k===key);
@@ -527,17 +591,66 @@
     svg.innerHTML=s;
 
     document.getElementById('detail').style.display='block';
-    document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'nearest'});
+    if(doScroll!==false) document.getElementById('detail').scrollIntoView({behavior:'smooth',block:'nearest'});
   }
 
-  elW.addEventListener('change',recalc);
-  elA.addEventListener('change',recalc);
-  elR.addEventListener('change',recalc);
+  // Presets: one tap loads a common stock size.
+  var presets=document.querySelectorAll('.preset');
+  for(var p=0;p<presets.length;p++){
+    presets[p].addEventListener('click',function(){
+      var v=this.dataset.p.split(',');
+      elW.value=v[0]; elA.value=v[1]; elR.value=v[2];
+      recalc(); syncURL();
+    });
+  }
+
+  function syncURL(){
+    if(!window.history||!window.history.replaceState) return;
+    var q=new URLSearchParams();
+    q.set('w',elW.value); q.set('a',elA.value); q.set('r',elR.value);
+    if(selected){ q.set('cw',selected.w); q.set('ca',selected.a); q.set('cr',selected.r); }
+    history.replaceState(null,'',location.pathname+'?'+q.toString());
+  }
+
+  var shareBtn=document.getElementById('shareBtn');
+  if(shareBtn){
+    shareBtn.addEventListener('click',function(){
+      syncURL();
+      var url=location.href;
+      var note=document.getElementById('shareNote');
+      function done(){ if(note){ note.textContent='Link copied. It reloads this exact comparison.'; setTimeout(function(){note.textContent='';},4000); } }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(url).then(done,function(){ prompt('Copy this link:',url); }); }
+      else { prompt('Copy this link:',url); }
+    });
+  }
+  var printBtn=document.getElementById('printBtn');
+  if(printBtn) printBtn.addEventListener('click',function(){ window.print(); });
+
+  // Load a shared comparison from the URL before the first calculation.
+  var params=new URLSearchParams(location.search);
+  function valid(v,min,max){ var n=+v; return isFinite(n)&&n>=min&&n<=max; }
+  if(valid(params.get('w'),145,345)) elW.value=params.get('w');
+  if(valid(params.get('a'),25,85)) elA.value=params.get('a');
+  if(valid(params.get('r'),13,22)) elR.value=params.get('r');
+  var shared=null;
+  if(valid(params.get('cw'),145,345)&&valid(params.get('ca'),25,85)&&valid(params.get('cr'),13,22)){
+    shared={w:+params.get('cw'),a:+params.get('ca'),r:+params.get('cr')};
+    elCmpW.value=params.get('cw'); elCmpA.value=params.get('ca'); elCmpR.value=params.get('cr');
+  }
+
+  elW.addEventListener('change',function(){recalc();syncURL();});
+  elA.addEventListener('change',function(){recalc();syncURL();});
+  elR.addEventListener('change',function(){recalc();syncURL();});
   recalc();
 
-  // Auto-open the 18" best match as a demo so the page never looks empty
-  var firstBest=document.querySelector('tr.row[data-r="18"]');
-  if(firstBest) showDetail(+firstBest.dataset.w,+firstBest.dataset.a,+firstBest.dataset.r,firstBest.dataset.k);
+  if(shared){
+    showDetail(shared.w,shared.a,shared.r,shared.w+'-'+shared.a+'-'+shared.r,false);
+  } else {
+    // Auto-open the 18" best match as a demo so the page never looks empty
+    var firstBest=document.querySelector('tr.row[data-r="18"]');
+    if(firstBest) showDetail(+firstBest.dataset.w,+firstBest.dataset.a,+firstBest.dataset.r,firstBest.dataset.k,false);
+  }
+  syncURL();
 })();
 </script>
 </body>

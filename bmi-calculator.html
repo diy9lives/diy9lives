@@ -63,14 +63,16 @@ input:focus,select:focus{border-color:var(--yellow)}
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="DIY9lives: 69 free tools. No login. No paywall."/>
+<meta property="og:image:alt" content="DIY9lives: 70 free tools. No login. No paywall."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Free BMI Calculator — DIY9lives"/>
 <meta name="twitter:description" content="Calculate your Body Mass Index instantly. See your BMI category and healthy weight range. Free, no login."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"BMI Calculator","url":"https://www.diy9lives.com/bmi-calculator.html","description":"Calculate your Body Mass Index instantly. See your BMI category and healthy weight range. Free, no login.","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"BMI Calculator","item":"https://www.diy9lives.com/bmi-calculator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"BMI Calculator","url":"https://www.diy9lives.com/bmi-calculator.html","description":"Calculate your Body Mass Index instantly. See your BMI category and healthy weight range. Free, no login.","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"BMI Calculator","item":"https://www.diy9lives.com/bmi-calculator.html"}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
+<style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
@@ -173,11 +175,11 @@ function calcBMI() {
 
 </div>
 <section class="dy9-info">
-<div class="dy9-card"><h2>How to use this calculator</h2>
+<div class="dy9-card"><h2>Taking the measurement</h2>
 <p>Enter your height and weight, in inches and pounds or in centimetres and kilograms, and the page returns your BMI, the band it falls in, and the weight range that would put you in the middle band for your height. The age field is context only; BMI is not adjusted for age in adults.</p>
 <p>Measure height without shoes and weight at the same time of day for comparisons over time. Morning weight and evening weight differ by a couple of pounds in most people, which is enough to move a BMI at a boundary.</p></div>
 
-<div class="dy9-card"><h2>A worked example</h2>
+<div class="dy9-card"><h2>Worked example: 5 ft 9 in, 172 lb</h2>
 <p>70 inches and 160 lb:</p>
 <table><tr><th>Measure</th><th>Value</th></tr>
 <tr><td>Height in metres</td><td>1.778 m</td></tr>
@@ -188,21 +190,24 @@ function calcBMI() {
 </table>
 <p>The band edges are fixed numbers: 18.5, 25, 30. At this height the whole healthy range spans 45 pounds, which is a wide corridor. Someone at the top of it and someone at the bottom have the same BMI label and very different bodies.</p></div>
 
-<div class="dy9-card"><h2>What your results mean</h2>
+<div class="dy9-card"><h2>What BMI does and does not classify</h2>
 <p>BMI is weight divided by height squared. It is a screening tool, and it was designed to describe populations rather than individuals. Its weakness is that it cannot tell muscle from fat: a lean, heavily trained person can read as overweight, and someone with low muscle mass can read as normal while carrying a high body-fat percentage. Around the boundaries, a single point means very little.</p>
 <p>The bands come from the World Health Organization's adult classification, which uses 18.5, 25, and 30 as the cut-offs for underweight, normal, overweight and obese. Those thresholds are the same for men and women and do not change with age, which is both the tool's convenience and its limit: body composition shifts with age at the same BMI.</p>
 <p>Use it as one number among several. Waist circumference, how clothes fit, strength and cardiovascular fitness all say something BMI cannot. If your BMI sits well inside a band and has been stable, it is telling you what you already know.</p></div>
 
-<div class="dy9-card"><h2>Frequently asked questions</h2>
+<div class="dy9-card"><h2>BMI questions worth asking</h2>
 <h3>Does BMI work for athletes?</h3><p>Poorly. Muscle is denser than fat, so a muscular person can be classified as overweight at a low body-fat percentage.</p>
 <h3>Is BMI different for men and women?</h3><p>The formula and the bands are the same. Body composition differs, which is one reason the number is less informative for individuals than for groups.</p>
 <h3>What about children?</h3><p>Children are assessed on age-and-sex percentiles rather than fixed cut-offs, so this calculator does not apply to them.</p>
 <h3>What is a healthy waist measurement?</h3><p>A common guide is under 40 inches for men and under 35 for women, though the exact thresholds vary by guidance body. Waist adds information BMI cannot.</p>
 <h3>Should I try to hit a specific BMI?</h3><p>A range is more useful than a target number. Small, sustained changes in weight and activity do more than chasing a decimal.</p></div>
-<div class="dy9-card"><h2>Sources &amp; references</h2><p>Adult cutoffs are CDC’s. This tool is not CDC’s calculator, and it is not for ages 2 to 19.</p><ul><li><a href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html" target="_blank" rel="noopener">CDC, adult BMI categories</a>. Underweight below 18.5, healthy weight 18.5 to 24.9, overweight 25.0 to 29.9, obesity 30.0 and above, with three obesity classes.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
-<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/calorie-calculator.html">Calorie Calculator</a></li><li><a href="/macro-split-calculator.html">Macro Split Calculator</a></li><li><a href="/target-heart-rate-calculator.html">Target Heart Rate Calculator</a></li></ul></div>
+<div class="dy9-card"><h2>Where the categories come from</h2><p>Adult cutoffs are CDC’s. This tool is not CDC’s calculator, and it is not for ages 2 to 19.</p><ul><li><a href="https://www.cdc.gov/bmi/adult-calculator/bmi-categories.html" target="_blank" rel="noopener">CDC, adult BMI categories</a>. Underweight below 18.5, healthy weight 18.5 to 24.9, overweight 25.0 to 29.9, obesity 30.0 and above, with three obesity classes.</li></ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<div class="dy9-card"><h2>What BMI cannot see</h2>
+<p>BMI is a ratio of weight to height. It does not distinguish muscle from fat, where the fat sits, or how fit someone is. A muscular athlete can read as overweight; an older adult can read as normal with low muscle mass. Use it as one screening number alongside waist measurement and a clinician's assessment, not as a diagnosis.</p></div>
+
+<div class="dy9-card"><h2>Related: calories, macros, body math</h2><ul class="dy9-rel"><li><a href="/calorie-calculator.html">Calorie Calculator</a></li><li><a href="/macro-split-calculator.html">Macro Split Calculator</a></li><li><a href="/target-heart-rate-calculator.html">Target Heart Rate Calculator</a></li></ul></div>
 </section>
-<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
 </html>
