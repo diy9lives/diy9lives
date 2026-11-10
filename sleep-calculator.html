@@ -4,6 +4,7 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="robots" content="noindex,follow">
 <title>Free Sleep Calculator &mdash; DIY9lives</title>
 <meta name="description" content="Find the best time to wake up or go to sleep based on sleep cycles. Wake up refreshed every morning."/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
@@ -63,14 +64,15 @@ input:focus,select:focus{border-color:var(--yellow)}
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="DIY9lives: 69 free tools. No login. No paywall."/>
+<meta property="og:image:alt" content="DIY9lives: 70 free tools. No login. No paywall."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Free Sleep Calculator — DIY9lives"/>
 <meta name="twitter:description" content="Find the best time to wake up or go to sleep based on sleep cycles. Wake up refreshed every morning."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Sleep Calculator","url":"https://www.diy9lives.com/sleep-calculator.html","description":"Find the best time to wake up or go to sleep based on sleep cycles. Wake up refreshed every morning.","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Sleep Calculator","item":"https://www.diy9lives.com/sleep-calculator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Sleep Calculator","url":"https://www.diy9lives.com/sleep-calculator.html","description":"Find the best time to wake up or go to sleep based on sleep cycles. Wake up refreshed every morning.","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Sleep Calculator","item":"https://www.diy9lives.com/sleep-calculator.html"}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
@@ -161,11 +163,11 @@ calcSleep();
 
 </div>
 <section class="dy9-info">
-<div class="dy9-card"><h2>How to use this calculator</h2>
+<div class="dy9-card"><h2>Bedtime, wake time and the cycles</h2>
 <p>Two modes. Tell it when you want to wake up and it works backwards through whole sleep cycles to suggest bedtimes. Or tell it when you are going to bed and it works forward to suggest wake-up times. The slider for how long it takes you to fall asleep is not decoration: fourteen minutes is the default because lying awake is part of the night, and the cycles only start once you are under.</p>
 <p>Pick a time near the top of the list rather than the bottom. The last option leaves you barely five cycles, and most adults need seven to nine hours rather than the minimum.</p></div>
 
-<div class="dy9-card"><h2>A worked example</h2>
+<div class="dy9-card"><h2>Worked example: a 6:30 am wake-up</h2>
 <p>Wake at 7:00 AM, falling asleep in 14 minutes:</p>
 <table><tr><th>Cycles</th><th>Bedtime</th><th>Time asleep</th></tr>
 <tr><td>6</td><td>9:46 PM</td><td>9 hours</td></tr>
@@ -175,21 +177,21 @@ calcSleep();
 </table>
 <p>The arithmetic is 90 minutes per cycle plus the time to fall asleep: six cycles is 540 minutes, plus 14, which is 554 minutes before 7:00 AM. That lands at 9:46 PM the evening before. Every option on the list is 90 minutes apart for a reason &mdash; waking in the middle of a cycle is what produces the groggy feeling that has a name, sleep inertia.</p></div>
 
-<div class="dy9-card"><h2>What your results mean</h2>
+<div class="dy9-card"><h2>What the cycle estimate assumes</h2>
 <p>The 90-minute cycle is an average. Individual cycles run from about 70 to 120 minutes, and they are not all the same shape: the early part of the night is heavy on deep sleep, the later part is heavy on REM. That is why cutting the last hour off a night costs more than cutting the first, and why the cycle model is a useful planning tool rather than a measurement of your brain.</p>
 <p>The bedtime list is a target, not an instruction. If you get into bed at 9:46 and lie there until 10:30, the cycle you were aiming for has already started late. The fall-asleep slider exists precisely because that gap is real for most people.</p>
 <p>What the calculator cannot see is consistency. A steady wake time, including at weekends, does more for how rested you feel than hitting an exact number of cycles on any single night. Treat the list as a way to stop doing arithmetic at 11pm, then keep the wake time fixed and let the bedtimes follow.</p></div>
 
-<div class="dy9-card"><h2>Frequently asked questions</h2>
+<div class="dy9-card"><h2>Sleep questions</h2>
 <h3>Is 90 minutes exact?</h3><p>No, it is an average. Cycles vary between roughly 70 and 120 minutes, so treat the times as a target within about 15 minutes.</p>
 <h3>Why do I feel worse after a longer sleep?</h3><p>Usually because you woke mid-cycle, or because a long lie-in shifted your body clock. Duration and timing both matter.</p>
 <h3>How long should I actually sleep?</h3><p>Most adults need seven to nine hours. The cycle count is a way to aim at that range, not a replacement for it.</p>
 <h3>Does the 14-minute default matter?</h3><p>It shifts every suggested bedtime by 14 minutes. If you know you take half an hour to drop off, move the slider &mdash; the answer changes accordingly.</p>
 <h3>Can this fix my sleep schedule?</h3><p>No. It plans a night. Persistent insomnia or daytime exhaustion is a conversation with a doctor, not a calculator.</p></div>
-<div class="dy9-card"><h2>Sources &amp; references</h2><p>The 90-minute step is a teaching average, not a measurement of your night.</p><ul><li><a href="https://www.nhlbi.nih.gov/health/sleep" target="_blank" rel="noopener">NIH NHLBI, sleep</a>. How sleep works and when a sleep problem is a medical question.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
-<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/timezone-converter.html">Time Zone Converter</a></li><li><a href="/target-heart-rate-calculator.html">Target Heart Rate Calculator</a></li><li><a href="/age-calculator.html">Age Calculator</a></li></ul></div>
+<div class="dy9-card"><h2>Sleep-cycle and sleep-duration guidance</h2><p>The 90-minute step is a teaching average, not a measurement of your night.</p><ul><li><a href="https://www.nhlbi.nih.gov/health/sleep" target="_blank" rel="noopener">NIH NHLBI, sleep</a>. How sleep works and when a sleep problem is a medical question.</li></ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<div class="dy9-card"><h2>Related: age calculator, calorie, BMI</h2><ul class="dy9-rel"><li><a href="/timezone-converter.html">Time Zone Converter</a></li><li><a href="/target-heart-rate-calculator.html">Target Heart Rate Calculator</a></li><li><a href="/age-calculator.html">Age Calculator</a></li></ul></div>
 </section>
-<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
 </html>

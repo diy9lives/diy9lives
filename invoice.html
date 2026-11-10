@@ -92,14 +92,15 @@ input:focus,textarea:focus{border-color:var(--coral)}
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="DIY9lives: 69 free tools. No login. No paywall."/>
+<meta property="og:image:alt" content="DIY9lives: 70 free tools. No login. No paywall."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Free Invoice Generator — DIY9lives"/>
 <meta name="twitter:description" content="Create professional invoices free. Add line items, tax, due dates. Print or save as PDF instantly. No login required."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Invoice Generator","url":"https://www.diy9lives.com/invoice.html","description":"Create professional invoices free. Add line items, tax, due dates. Print or save as PDF instantly. No login required.","applicationCategory":"BusinessApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Invoice Generator","item":"https://www.diy9lives.com/invoice.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Invoice Generator","url":"https://www.diy9lives.com/invoice.html","description":"Create professional invoices free. Add line items, tax, due dates. Print or save as PDF instantly. No login required.","applicationCategory":"BusinessApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Invoice Generator","item":"https://www.diy9lives.com/invoice.html"}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
 </head>
 <body>
 <nav>
@@ -289,11 +290,11 @@ document.getElementById('dueDate').value=due.toISOString().split('T')[0];
 renderLines();render();
 </script>
 <section class="dy9-info">
-<div class="dy9-card"><h2>How to use this calculator</h2>
+<div class="dy9-card"><h2>Line items, tax and the total</h2>
 <p>Fill your business details once, then add a line for each thing you are billing: a description, a quantity and a rate. The invoice number, issue date and due date go at the top; the tax rate and any flat discount go below the totals. The preview updates as you type, and the print button produces a clean page you can save as a PDF.</p>
 <p>Number invoices in one unbroken series and never reuse a number, even for a cancelled job. A client's bookkeeper matches payments to numbers, and a gap or a duplicate turns a simple payment into a phone call.</p></div>
 
-<div class="dy9-card"><h2>A worked example</h2>
+<div class="dy9-card"><h2>Worked example: six hours plus materials</h2>
 <p>A three-line invoice for a small web job, with a 6% tax rate and a $50 goodwill discount:</p>
 <table><tr><th>Line</th><th>Amount</th></tr>
 <tr><td>Landing page build (1 &times; $1,200)</td><td>$1,200.00</td></tr>
@@ -305,21 +306,21 @@ renderLines();render();
 <tr><td>Total due</td><td>$1,738.40</td></tr></table>
 <p>Net 30 from an issue date of 2 November 2026 puts the due date at 2 December 2026, which is a Wednesday, so the payment can actually be sent that day rather than sitting until the following Monday.</p></div>
 
-<div class="dy9-card"><h2>What your results mean</h2>
+<div class="dy9-card"><h2>Reading the invoice total</h2>
 <p>The total is the number the client pays; the subtotal is the number you can defend line by line. Keep both visible. A client who queries a total can be walked through the lines, and a client who queries a line can see how it rolls up.</p>
 <p>Where tax goes is the detail that causes reissues. Sales tax applies to goods in most US states and to a narrower set of services, and the rules differ by state and by whether the client is a business reselling your work. The tax field here is straightforward arithmetic: whatever rate you enter is applied to the discounted subtotal. It does not decide whether you should be charging tax at all, and it does not handle a mixed invoice where some lines are taxable and some are not. If your work spans those categories, split it into two invoices or add the tax as its own line rather than trusting the rate box.</p>
 <p>Discounts belong before tax, because a discount reduces the taxable amount. Applying a discount after tax overcharges the client by the tax on the discount and creates a mismatch with your own records.</p></div>
 
-<div class="dy9-card"><h2>Frequently asked questions</h2>
+<div class="dy9-card"><h2>Invoicing questions</h2>
 <h3>What payment terms should I use?</h3><p>Net 30 is the default in most business-to-business work, Net 15 for smaller clients. Put the terms in words on the invoice itself: "Due 2 December 2026" is unambiguous in a way that "Net 30" is not.</p>
 <h3>Do I need to charge sales tax?</h3><p>It depends on your state, your service, and your client. The invoice calculates the rate you give it; it cannot tell you whether that rate is right. Check with your state's revenue department.</p>
 <h3>Should the invoice show hours or a flat fee?</h3><p>Whichever you agreed to. If you quoted a flat fee, listing hours invites the client to reprice the work; if you bill hourly, listing the hours is the whole point.</p>
 <h3>What belongs on every invoice?</h3><p>Your name and contact details, a unique number, the issue and due dates, an itemised description, the total, and how to pay. Missing payment instructions is the most common reason an invoice sits unpaid.</p>
 <h3>Can I use this for international clients?</h3><p>Yes, but leave the tax box at zero unless you know the rule. Cross-border services usually follow the client's jurisdiction, and that is a question for an accountant rather than a calculator.</p></div>
-<div class="dy9-card"><h2>Sources &amp; references</h2><p>The totals are arithmetic. Whether the document is enough for your taxes is a recordkeeping question.</p><ul><li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep" target="_blank" rel="noopener">IRS, what records to keep</a>. Invoices and receipts for a business. This page does not store them for you.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
-<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/proposal.html">Proposal Generator</a></li><li><a href="/rate-calculator.html">Freelance Rate Calculator</a></li><li><a href="/freelance-tax-estimator.html">Freelance Tax Estimator</a></li></ul></div>
+<div class="dy9-card"><h2>Tax and payment terms</h2><p>The totals are arithmetic. Whether the document is enough for your taxes is a recordkeeping question.</p><ul><li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/what-kind-of-records-should-i-keep" target="_blank" rel="noopener">IRS, what records to keep</a>. Invoices and receipts for a business. This page does not store them for you.</li></ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<div class="dy9-card"><h2>Related: rate calculator, proposal, freelance tax</h2><ul class="dy9-rel"><li><a href="/proposal.html">Proposal Generator</a></li><li><a href="/rate-calculator.html">Freelance Rate Calculator</a></li><li><a href="/freelance-tax-estimator.html">Freelance Tax Estimator</a></li></ul></div>
 </section>
-<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
 </html>

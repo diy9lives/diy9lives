@@ -53,14 +53,15 @@ input:focus{border-color:var(--yellow)}
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
-<meta property="og:image:alt" content="DIY9lives: 69 free tools. No login. No paywall."/>
+<meta property="og:image:alt" content="DIY9lives: 70 free tools. No login. No paywall."/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Free VIN Decoder — DIY9lives"/>
 <meta name="twitter:description" content="Decode any 17-character VIN to see the make, model, year, engine, and plant of origin. Free, powered by the NHTSA public database."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"VIN Decoder","url":"https://www.diy9lives.com/vin-decoder.html","description":"Decode any 17-character VIN to see the make, model, year, engine, and plant of origin. Free, powered by the NHTSA public database.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"VIN Decoder","item":"https://www.diy9lives.com/vin-decoder.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"VIN Decoder","url":"https://www.diy9lives.com/vin-decoder.html","description":"Decode any 17-character VIN to see the make, model, year, engine, and plant of origin. Free, powered by the NHTSA public database.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"VIN Decoder","item":"https://www.diy9lives.com/vin-decoder.html"}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
 </head>
 <body>
 <nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.97);position:sticky;top:0;z-index:50;backdrop-filter:blur(12px)">
@@ -146,11 +147,11 @@ document.getElementById("vinInput").addEventListener("keypress",function(e){ if(
 
 </div>
 <section class="dy9-info">
-<div class="dy9-card"><h2>How to use this calculator</h2>
+<div class="dy9-card"><h2>Where the 17 characters live</h2>
 <p>Type or paste the 17-character VIN and press decode. The page sends it to the National Highway Traffic Safety Administration's public decoder and lays out the fields that come back: model year, make, model, trim, body style, engine, fuel type and where it was built.</p>
 <p>The VIN is on the driver's side of the windshield, on the door jamb sticker, and on your insurance card. Letters I, O and Q never appear in a VIN, because they are too easy to confuse with 1 and 0. If you have typed one of them, you have misread a character.</p></div>
 
-<div class="dy9-card"><h2>A worked example</h2>
+<div class="dy9-card"><h2>Worked example: a 2018 VIN</h2>
 <p>Take a VIN beginning <em>1HGCM82633A004352</em>. Position by position, the pieces are:</p>
 <table><tr><th>Positions</th><th>Meaning</th></tr>
 <tr><td>1</td><td>Country of assembly &mdash; 1 is the United States</td></tr>
@@ -163,21 +164,24 @@ document.getElementById("vinInput").addEventListener("keypress",function(e){ if(
 </table>
 <p>Position 10 is the one people want. In this example the character is a <em>3</em>, which maps to 2003. The code runs in a 30-year cycle, so the same character will mean 2033 as well &mdash; the rest of the VIN tells you which, and the decoder resolves it from the vehicle data rather than the letter alone.</p></div>
 
-<div class="dy9-card"><h2>What your results mean</h2>
+<div class="dy9-card"><h2>What each section encodes</h2>
 <p>The decoder reports what the manufacturer recorded when the vehicle was built, which is why it can tell you the engine and trim with more confidence than a used-car listing. It cannot tell you condition, mileage or accident history. A clean decode and a clean car are different questions, and the second one needs the car in front of you.</p>
 <p>Position 9 is a check digit for vehicles built for the North American market: a weighted sum of the other characters, with a remainder that must match. If a decoder rejects a VIN that looks right, a single mistyped character is the usual cause. Vehicles built elsewhere do not always use the check digit, so a failure there is not automatically a fake.</p>
 <p>Model year and registration year are not the same. A vehicle built in late 2025 can be sold and registered as a 2026 model, and the VIN records the manufacturer's designation, not the date of the first sale. If you are checking a listing's year claim, the VIN is the authority; if you are checking the title, the title is.</p></div>
 
-<div class="dy9-card"><h2>Frequently asked questions</h2>
+<div class="dy9-card"><h2>VIN questions</h2>
 <h3>Why does my VIN have 18 characters?</h3><p>It does not; you have probably included a space or a stray character from a copy and paste. Count again, and check for a letter O that should be a zero.</p>
 <h3>Can a VIN tell me the mileage?</h3><p>No. Mileage lives in service records, inspection databases and the title history, not in the VIN.</p>
 <h3>Does the decoder show accident history?</h3><p>No. It decodes factory specification only. A vehicle history report is a separate product with its own sources.</p>
 <h3>Why is a field blank?</h3><p>Because the manufacturer did not record it for that vehicle, or recorded it in a field the decoder does not map. Blank is a gap in the data, not an error in the car.</p>
 <h3>Is it safe to paste a VIN here?</h3><p>A VIN is visible through the windshield to anyone who walks past, so it is not a secret. The query goes to the NHTSA public API; nothing is stored on this site.</p></div>
-<div class="dy9-card"><h2>Sources &amp; references</h2><p>The record comes from NHTSA. This page does not keep a copy.</p><ul><li><a href="https://vpic.nhtsa.dot.gov/decoder/" target="_blank" rel="noopener">NHTSA vPIC decoder</a>. The same public decoder this tool calls. You can run a VIN there directly.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last updated: November 2, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
-<div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/out-the-door-price-calculator.html">Out-the-Door Price Calculator</a></li><li><a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a></li><li><a href="/true-cost-of-ownership-calculator.html">True Cost of Ownership</a></li></ul></div>
+<div class="dy9-card"><h2>NHTSA's VIN standard</h2><p>The record comes from NHTSA. This page does not keep a copy.</p><ul><li><a href="https://vpic.nhtsa.dot.gov/decoder/" target="_blank" rel="noopener">NHTSA vPIC decoder</a>. The same public decoder this tool calls. You can run a VIN there directly.</li></ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<div class="dy9-card"><h2>What a VIN does not tell you</h2>
+<p>A VIN identifies the vehicle's specification and manufacturer attributes. It does not report maintenance, accidents, mileage, title brands, recalls completed, or whether the car has been stolen or cloned. Use the VIN to confirm what the car is, then check a title history and have a mechanic inspect it. A clean decode is not a clean history.</p></div>
+
+<div class="dy9-card"><h2>Related: out-the-door, tire size, total cost</h2><ul class="dy9-rel"><li><a href="/out-the-door-price-calculator.html">Out-the-Door Price Calculator</a></li><li><a href="/car-depreciation-calculator.html">Car Depreciation Calculator</a></li><li><a href="/true-cost-of-ownership-calculator.html">True Cost of Ownership</a></li></ul></div>
 </section>
-<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
 </body>
 </html>
