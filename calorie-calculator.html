@@ -4,7 +4,7 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Free Calorie & TDEE Calculator &mdash; DIY9lives</title>
+<title>Calorie Calculator — Daily TDEE and a Weight-Loss Target</title>
 <meta name="description" content="Calculate your Total Daily Energy Expenditure and daily calorie needs for weight loss, maintenance, or muscle gain."/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
 <style>
@@ -70,7 +70,7 @@ input:focus,select:focus{border-color:var(--yellow)}
 <meta name="twitter:title" content="Free Calorie &amp; TDEE Calculator — DIY9lives"/>
 <meta name="twitter:description" content="Calculate your Total Daily Energy Expenditure and daily calorie needs for weight loss, maintenance, or muscle gain."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Calorie & TDEE Calculator","url":"https://www.diy9lives.com/calorie-calculator.html","description":"Calculate your Total Daily Energy Expenditure and daily calorie needs for weight loss, maintenance, or muscle gain.","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Calorie & TDEE Calculator","item":"https://www.diy9lives.com/calorie-calculator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-26","name":"Calorie & TDEE Calculator","url":"https://www.diy9lives.com/calorie-calculator.html","description":"Calculate your Total Daily Energy Expenditure and daily calorie needs for weight loss, maintenance, or muscle gain.","applicationCategory":"HealthApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Calorie & TDEE Calculator","item":"https://www.diy9lives.com/calorie-calculator.html"}]},{"@type":"FAQPage","url":"https://www.diy9lives.com/calorie-calculator.html","mainEntity":[{"@type":"Question","name":"How accurate is the estimate?","acceptedAnswer":{"@type":"Answer","text":"Usually within a couple of hundred calories for most people. It is a starting point to be corrected by two weeks of real measurements."}},{"@type":"Question","name":"Which activity level should I pick?","acceptedAnswer":{"@type":"Answer","text":"The lower one, if you are unsure. Desk work with three workouts a week sits around 1.375–1.55, not higher."}},{"@type":"Question","name":"Do I have to hit the number every day?","acceptedAnswer":{"@type":"Answer","text":"No. A weekly average is what moves weight. Daily swings of a few hundred calories are normal and harmless."}},{"@type":"Question","name":"Why is protein set by body weight?","acceptedAnswer":{"@type":"Answer","text":"Because muscle retention depends on grams per pound, not on a percentage of calories. That is why the two targets behave differently when you cut."}},{"@type":"Question","name":"Is this medical or dietary advice?","acceptedAnswer":{"@type":"Answer","text":"No. It is an estimate from a published equation. If you have a medical condition, are pregnant, or have a history of disordered eating, work with a professional instead."}}]}]}</script>
 <style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
 <style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
@@ -162,7 +162,7 @@ calcCal();
 <p>Enter sex, age, height, weight and an activity level, then pick a goal. The page estimates your resting energy need, multiplies it by an activity factor to get daily maintenance calories, and shows the target that goes with your goal. The macro breakdown below turns that target into grams.</p>
 <p>Be honest about activity. Most people overestimate it, because a desk job plus three gym sessions is not "very active". Choosing a lower factor and being pleasantly surprised is better than choosing a high one and wondering why the scale will not move.</p></div>
 
-<div class="dy9-card"><h2>Worked example: 34 years old, 165 lb, 5 ft 6 in</h2>
+<div class="dy9-card"><h2>Worked example: 30 years old, 160 lb, 5 ft 10 in</h2>
 <p>A 30-year-old man, 5 ft 10 in (70 inches), 160 lb, moderately active:</p>
 <table><tr><th>Step</th><th>Value</th></tr>
 <tr><td>Resting need (Mifflin-St Jeor)</td><td>1,692 cal</td></tr>
@@ -177,6 +177,20 @@ calcCal();
 <p>The 500-calorie deficit behind the "lose" number is a convention with a real basis: a pound of body fat stores roughly 3,500 calories, so 500 a day is about a pound a week. It is also a rate that many people can sustain, which matters more than the arithmetic. Deficits of double that produce faster early loss, more muscle loss and a much higher chance of stopping.</p>
 <p>Every one of these numbers is an estimate with a spread. Two people with identical inputs can differ by a couple of hundred calories a day in reality, because activity, digestion and genetics all vary. Use the number for two weeks, weigh yourself under the same conditions, and adjust by about 200 calories based on what actually happened. The scale is a better instrument than the formula.</p></div>
 
+<h2>What the activity multipliers mean</h2>
+<p>Every TDEE formula is a resting estimate multiplied by an activity factor. The factor is where most of the disagreement between two calculators comes from, so it is worth knowing what each one assumes.</p>
+<table><tr><th>Factor</th><th>Level</th><th>What it describes</th></tr>
+<tr><td>1.2</td><td>Sedentary</td><td>Desk job, little planned exercise, mostly sitting</td></tr>
+<tr><td>1.375</td><td>Light</td><td>One to three sessions a week, or a job with some walking</td></tr>
+<tr><td>1.55</td><td>Moderate</td><td>Three to five sessions a week</td></tr>
+<tr><td>1.725</td><td>Very active</td><td>Six or seven sessions a week, hard training</td></tr>
+<tr><td>1.9</td><td>Extra active</td><td>Physical job plus daily training</td></tr>
+</table>
+<p>The gap between light and very active is about 25% of your maintenance calories, which is larger than most people's weekly deficit. Pick the lower level if you are unsure, live with it for two weeks, and adjust from what the scale does rather than from what the calculator predicted.</p>
+
+<div class="dy9-card"><h2>Common mistakes</h2>
+<ul><li>Choosing an activity level that describes your intentions rather than your week. A desk job and three gym sessions is light, not very active.</li><li>Eating back exercise calories on top of an activity multiplier that already includes them, which cancels the deficit.</li><li>Never recalculating. Maintenance calories fall as body weight falls, so a target set at the start of a cut becomes maintenance by the end.</li><li>Treating the number as exact. The formula estimates within roughly ten per cent, which is a couple of hundred calories at these totals.</li></ul></div>
+
 <div class="dy9-card"><h2>Calorie questions people ask</h2>
 <h3>How accurate is the estimate?</h3><p>Usually within a couple of hundred calories for most people. It is a starting point to be corrected by two weeks of real measurements.</p>
 <h3>Which activity level should I pick?</h3><p>The lower one, if you are unsure. Desk work with three workouts a week sits around 1.375&ndash;1.55, not higher.</p>
@@ -184,7 +198,7 @@ calcCal();
 <h3>Why is protein set by body weight?</h3><p>Because muscle retention depends on grams per pound, not on a percentage of calories. That is why the two targets behave differently when you cut.</p>
 <h3>Is this medical or dietary advice?</h3><p>No. It is an estimate from a published equation. If you have a medical condition, are pregnant, or have a history of disordered eating, work with a professional instead.</p></div>
 <div class="dy9-card"><h2>Activity factors and the equations used</h2><p>Mifflin-St Jeor is a published equation from 1990. It is not a measurement of your metabolism.</p><ul><li><a href="https://www.dietaryguidelines.gov/" target="_blank" rel="noopener">Dietary Guidelines for Americans</a>. Federal guidance on calorie balance and eating patterns. This calculator does not implement those tables.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 26, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
 <div class="dy9-card"><h2>What the calorie estimate cannot see</h2>
 <p>The equation estimates resting energy from age, sex, height and weight, then multiplies by an activity factor you choose. It does not know your body composition, medical conditions, medications, pregnancy, or how accurately you log food. Treat the number as a starting point, adjust from real weight trends over three to four weeks, and talk to a clinician or dietitian for a therapeutic diet.</p></div>
 

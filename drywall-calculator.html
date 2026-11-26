@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Drywall Calculator — How Many Sheets, Mud and Tape</title>
+<meta name="description" content="Work out how many sheets of drywall a room needs, plus joint compound, tape and screws, from the room dimensions and the sheet size you can actually buy."/>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-0D6KZ606DX');</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851}
+body{background:var(--black);color:var(--white);font-family:system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.5;min-height:100vh}
+.page{max-width:900px;margin:0 auto;padding:48px 24px}
+.hero{text-align:center;margin-bottom:40px}
+.ey{display:inline-block;background:var(--yellow);color:var(--black);font-size:11px;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;padding:5px 14px;border-radius:99px;margin-bottom:14px}
+h1{font-size:clamp(28px,5vw,48px);font-weight:900;letter-spacing:-0.03em;line-height:1.05;margin-bottom:10px}
+.sub{font-size:15px;color:#888;max-width:480px;margin:0 auto;line-height:1.6}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:28px;margin-bottom:16px}
+.card-title{font-size:15px;font-weight:800;margin-bottom:18px;display:flex;align-items:center;gap:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.field{margin-bottom:14px}
+label{display:block;font-size:11px;font-weight:700;color:var(--muted);letter-spacing:0.06em;text-transform:uppercase;margin-bottom:5px}
+input,select{display:block;width:100%;background:#111;border:1px solid var(--border);border-radius:8px;padding:10px 12px;color:var(--white);font-family:inherit;font-size:14px;outline:none;transition:border-color 0.2s}
+input:focus,select:focus{border-color:var(--yellow)}
+.result-big{background:linear-gradient(135deg,#141414,#1c1c1c);border:2px solid var(--yellow);border-radius:16px;padding:32px;text-align:center;margin-bottom:20px}
+.result-label{font-size:12px;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:6px}
+.result-val{font-size:56px;font-weight:900;color:var(--yellow);letter-spacing:-0.04em;line-height:1}
+.result-sub{font-size:13px;color:#666;margin-top:8px}
+.breakdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.bk{background:#111;border-radius:10px;padding:12px;text-align:center}
+.bk-l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:3px}
+.bk-v{font-size:16px;font-weight:800}
+.tips{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:24px;margin-bottom:20px}
+.tip{display:flex;gap:10px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border);font-size:13px;color:#888;line-height:1.5}
+.tip:last-child{margin:0;padding:0;border:none}
+.tip-icon{font-size:18px;flex-shrink:0}
+.tip strong{color:var(--white)}
+.aff{background:linear-gradient(135deg,#1a0533,#0d1333);border:1px solid #7c3aed44;border-radius:14px;padding:20px 24px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-top:16px}
+.aff-t{font-size:13px;color:#c4b5fd}.aff-t strong{color:#fff}
+.aff-btn{padding:9px 18px;border-radius:8px;background:#7c3aed;color:#fff;font-weight:700;font-size:13px;text-decoration:none;white-space:nowrap;flex-shrink:0}
+.table{width:100%;border-collapse:collapse;font-size:13px}
+.table th{text-align:left;padding:8px;font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;border-bottom:1px solid var(--border)}
+.table td{padding:8px;border-bottom:1px solid #1a1a1a}
+.table tr:last-child td{border:none}
+.green{color:var(--green)}.red{color:var(--coral)}.yellow{color:var(--yellow)}
+@media(max-width:680px){.grid2,.grid3{grid-template-columns:1fr}.breakdown{grid-template-columns:1fr 1fr}}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5009982929504195" crossorigin="anonymous"></script>
+<style id="dy9-info-css">.dy9-info{max-width:860px;margin:8px auto 0;padding:0 24px 8px;font-family:system-ui,-apple-system,sans-serif}.dy9-info .dy9-card{background:#141414;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:14px}.dy9-info h2{font-size:18px;font-weight:800;color:#fff;margin:0 0 12px;line-height:1.3}.dy9-info h3{font-size:14px;font-weight:700;color:#fff;margin:18px 0 4px;line-height:1.4}.dy9-info p{font-size:14px;line-height:1.75;margin:0 0 10px;color:#aaa}.dy9-info ul,.dy9-info ol{margin:0 0 10px 20px;font-size:14px;line-height:1.75;color:#aaa}.dy9-info a{color:#FFE500;text-decoration:none}.dy9-info a:hover{text-decoration:underline}.dy9-info .dy9-rel{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}.dy9-info .dy9-rel a{display:inline-block;background:#111;border:1px solid #222;border-radius:8px;padding:8px 12px;font-size:13px;color:#ddd}.dy9-info table{width:100%;border-collapse:collapse;font-size:13px;margin:8px 0 14px}.dy9-info th,.dy9-info td{text-align:left;padding:7px 6px;border-top:1px solid #2a2a2a;vertical-align:top}.dy9-info th{font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:#888;font-weight:700}.dy9-info figure{margin:0 0 14px}.dy9-info figure img{display:block;width:100%;height:auto;border:1px solid #2a2a2a;border-radius:10px}.dy9-info figcaption{font-size:12px;color:#777;line-height:1.6;margin-top:8px}.dy9-info img{display:block;width:100%;height:auto;border:1px solid #2a2a2a;border-radius:10px;background:#0a0a0a}.dy9-info figure{margin:0 0 14px}.dy9-info figcaption{font-size:12px;color:#888;margin-top:8px;line-height:1.6}</style>
+<link rel="canonical" href="https://www.diy9lives.com/drywall-calculator.html"/>
+<link rel="icon" href="/favicon.ico" sizes="48x48"/>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml"/>
+<link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48"/>
+<link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"/>
+<link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
+<meta property="og:title" content="Drywall Calculator — How Many Sheets, Mud and Tape | DIY9lives"/>
+<meta property="og:description" content="Work out how many sheets of drywall a room needs, plus joint compound, tape and screws, from the room dimensions and the sheet size you can buy."/>
+<meta property="og:url" content="https://www.diy9lives.com/drywall-calculator.html"/>
+<meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="DIY9lives: free tools. No login. No paywall."/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="DIY9lives"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Drywall Calculator — How Many Sheets, Mud and Tape | DIY9lives"/>
+<meta name="twitter:description" content="How many sheets, how much mud, and how much tape a room actually needs."/>
+<meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-26","name":"Drywall Calculator","url":"https://www.diy9lives.com/drywall-calculator.html","description":"Work out how many sheets of drywall a room needs, plus joint compound, tape and screws, from the room dimensions and the sheet size you can actually buy.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Drywall Calculator","item":"https://www.diy9lives.com/drywall-calculator.html"}]},{"@type":"FAQPage","url":"https://www.diy9lives.com/drywall-calculator.html","mainEntity":[{"@type":"Question","name":"How many screws do I need per sheet of drywall?","acceptedAnswer":{"@type":"Answer","text":"About 32 screws for a 4 by 8 sheet when studs are 16 inches apart and screws go every 12 inches: three rows of 8 down the 8-foot side. A 4 by 12 sheet takes about 48. Buy by weight, roughly one pound per 200 square feet, and keep a box of the next length up."}},{"@type":"Question","name":"Can I hang drywall horizontally instead of vertically?","acceptedAnswer":{"@type":"Answer","text":"Yes, and for walls it is usually better. Horizontal sheets put the long factory edge at the top and bottom and spread joints away from the corners, which is where cracks start. It also means fewer vertical butt joints, which are the slowest ones to finish."}},{"@type":"Question","name":"How much joint compound does a room use?","acceptedAnswer":{"@type":"Answer","text":"A ready-mixed estimate is about 4.5 gallons per 1,000 square feet of board for taping plus three coats. Small rooms almost always need one bucket regardless of the arithmetic, because you cannot buy half a bucket and you will want a second coat on the butt joints."}},{"@type":"Question","name":"Should I add waste to the sheet count?","acceptedAnswer":{"@type":"Answer","text":"Yes. Ten percent is a sensible default for a plain rectangular room. Add more for a room with many openings, a diagonal or angled wall, or a ceiling full of recessed lights, because every cut-off piece has to be big enough to be useful."}},{"@type":"Question","name":"Does this calculator work for ceilings and garages?","acceptedAnswer":{"@type":"Answer","text":"It does if you tell it the room dimensions and include the ceiling. Use a sheet long enough to span the ceiling in one direction where you can, and check local rules for garages: many areas require a fire-rated board between a garage and the house."}}]}]}</script>
+<style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
+<style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
+</head>
+<body>
+<nav style="display:flex;align-items:center;justify-content:space-between;padding:14px 32px;border-bottom:1px solid #222;background:rgba(10,10,10,0.96);position:sticky;top:0;z-index:50">
+  <a style="font-size:20px;font-weight:900;color:#fff;text-decoration:none" href="/">DIY<span style="color:#FFE500">9</span>lives</a>
+  <span style="display:flex;gap:14px;align-items:center"><a style="color:#666;text-decoration:none;font-size:13px" href="/guides.html">Guides</a><a style="color:#666;text-decoration:none;font-size:13px" href="/">&#8592; All tools</a></span>
+</nav>
+<div class="page">
+<div class="hero">
+<div class="ey">Drywall Calculator</div>
+<h1>How many sheets<br>do you actually need?</h1>
+<p class="sub">Enter the room, the sheet size you can buy, and the openings. The page returns sheets, joint compound, tape and screws.</p>
+</div>
+
+<div class="result-big">
+  <div class="result-label">Sheets of Drywall</div>
+  <div class="result-val" id="dSheets">19</div>
+  <div class="result-sub" id="dSub">4 &times; 8 ft sheets, including 10% waste</div>
+  <div class="breakdown">
+    <div class="bk"><div class="bk-l">Board Area</div><div class="bk-v" id="dArea">586 sq ft</div></div>
+    <div class="bk"><div class="bk-l">Joint Compound</div><div class="bk-v" id="dMud">3 gal</div></div>
+    <div class="bk"><div class="bk-l">Tape</div><div class="bk-v" id="dTape">1 roll</div></div>
+    <div class="bk"><div class="bk-l">Screws</div><div class="bk-v" id="dScrews">3 lb</div></div>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-title">&#128207; The Room</div>
+  <div class="grid3">
+    <div class="field"><label>Length (ft)</label><input type="number" id="dLen" value="12" min="1" step="0.5" oninput="calcDrywall()"/></div>
+    <div class="field"><label>Width (ft)</label><input type="number" id="dWid" value="14" min="1" step="0.5" oninput="calcDrywall()"/></div>
+    <div class="field"><label>Wall height (ft)</label><input type="number" id="dHgt" value="8" min="1" step="0.5" oninput="calcDrywall()"/></div>
+  </div>
+  <div class="grid3">
+    <div class="field"><label>Doors</label><input type="number" id="dDoors" value="1" min="0" step="1" oninput="calcDrywall()"/></div>
+    <div class="field"><label>Windows</label><input type="number" id="dWins" value="2" min="0" step="1" oninput="calcDrywall()"/></div>
+    <div class="field"><label>Ceiling included?</label>
+      <select id="dCeil" onchange="calcDrywall()">
+        <option value="1" selected>Yes, walls and ceiling</option>
+        <option value="0">Walls only</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid3">
+    <div class="field"><label>Sheet size</label>
+      <select id="dSheet" onchange="calcDrywall()">
+        <option value="32" selected>4 &times; 8 ft (32 sq ft)</option>
+        <option value="36">4 &times; 9 ft (36 sq ft)</option>
+        <option value="40">4 &times; 10 ft (40 sq ft)</option>
+        <option value="48">4 &times; 12 ft (48 sq ft)</option>
+      </select>
+    </div>
+    <div class="field"><label>Waste allowance</label>
+      <select id="dWaste" onchange="calcDrywall()">
+        <option value="5">5% (simple, square room)</option>
+        <option value="10" selected>10% (normal)</option>
+        <option value="15">15% (angled, many openings)</option>
+      </select>
+    </div>
+    <div class="field"><label>Price per sheet ($)</label><input type="number" id="dPrice" value="16" min="0" step="0.5" oninput="calcDrywall()"/></div>
+  </div>
+</div>
+
+<div class="card" id="dCostCard">
+  <div class="card-title">&#128176; What to Buy</div>
+  <div id="dBuy" style="font-size:14px;line-height:1.9;color:#aaa"></div>
+</div>
+
+<div class="tips">
+  <div style="font-size:14px;font-weight:800;margin-bottom:14px">Before you order</div>
+  <div class="tip"><span class="tip-icon">&#128208;</span><div><strong>Sheet size decides the joint count.</strong> A 12-foot sheet costs more and wastes less, because it replaces a butt joint with a taped factory edge. On a 12-foot wall it is usually the cheaper board.</div></div>
+  <div class="tip"><span class="tip-icon">&#128260;</span><div><strong>Buy by the pallet if you can.</strong> Board is priced per sheet but shipped and handled in bundles. Damaged corners come out of your waste allowance, not the supplier's.</div></div>
+  <div class="tip"><span class="tip-icon">&#128295;</span><div><strong>Mud is the line people underbuy.</strong> The mud is cheap next to the trip back to the store, and a half-used bucket keeps for months if it is sealed.</div></div>
+</div>
+<script>
+function round1(n){return Math.round(n*10)/10;}
+function calcDrywall(){
+  var len=parseFloat(document.getElementById('dLen').value)||0;
+  var wid=parseFloat(document.getElementById('dWid').value)||0;
+  var hgt=parseFloat(document.getElementById('dHgt').value)||0;
+  var doors=parseFloat(document.getElementById('dDoors').value)||0;
+  var wins=parseFloat(document.getElementById('dWins').value)||0;
+  var ceilOn=document.getElementById('dCeil').value==='1';
+  var sheetSf=parseFloat(document.getElementById('dSheet').value);
+  var waste=parseFloat(document.getElementById('dWaste').value);
+  var price=parseFloat(document.getElementById('dPrice').value)||0;
+
+  var perimeter=2*(len+wid);
+  var wallRaw=perimeter*hgt;
+  var openings=doors*21+wins*15;
+  var walls=Math.max(0,wallRaw-openings);
+  var ceiling=ceilOn?len*wid:0;
+  var net=walls+ceiling;
+  var area=net*(1+waste/100);
+
+  var sheets=Math.ceil(area/sheetSf);
+  var mud=area*4.5/1000;
+  var mudBuy=mud<=0?0:(mud<=4.5?1:Math.ceil(mud/4.5));
+  var tapeFt=area*500/1000;
+  var tapeRolls=tapeFt<=0?0:Math.ceil(tapeFt/500);
+  var screwsLb=area<=0?0:Math.ceil(area/200);
+  var boardCost=sheets*price;
+
+  document.getElementById('dSheets').textContent=sheets;
+  document.getElementById('dSub').textContent=
+    document.getElementById('dSheet').selectedOptions[0].textContent.replace(/\s*\(\d+ sq ft\)/,'')+
+    ' sheets, including '+waste+'% waste';
+  document.getElementById('dArea').textContent=Math.round(area)+' sq ft';
+  document.getElementById('dMud').textContent=round1(mud)+' gal';
+  document.getElementById('dTape').textContent=tapeRolls+' roll'+(tapeRolls===1?'':'s');
+  document.getElementById('dScrews').textContent=screwsLb+' lb';
+
+  var lines='';
+  lines+='Board: <strong style="color:#FFE500">'+sheets+' sheets</strong> at '+sheetSf+' sq ft each = '+(sheets*sheetSf)+' sq ft of board<br>';
+  lines+='Joint compound: <strong style="color:#FFE500">'+round1(mud)+' gallons</strong>'+
+    (mudBuy===1?' (one 4.5 gallon bucket covers it)':' (buy '+mudBuy+' buckets)')+'<br>';
+  lines+='Tape: <strong style="color:#FFE500">'+Math.ceil(tapeFt)+' linear ft</strong>, so '+tapeRolls+' roll'+(tapeRolls===1?'':'s')+' of 500 ft<br>';
+  lines+='Screws: <strong style="color:#FFE500">'+screwsLb+' lb</strong> of 1-1/4 inch coarse-thread<br>';
+  lines+='<span style="display:block;margin-top:8px;padding-top:10px;border-top:1px solid #222">Board cost at $'+price.toFixed(2)+' a sheet: <strong style="color:#FFE500">$'+boardCost.toFixed(2)+'</strong></span>';
+  lines+='<span style="display:block;font-size:12px;color:#666;margin-top:6px">Net area '+Math.round(net)+' sq ft after '+Math.round(openings)+' sq ft of openings. Materials use the area including waste.</span>';
+  document.getElementById('dBuy').innerHTML=lines;
+}
+calcDrywall();
+</script>
+<div class="aff"><div class="aff-t"><strong>Buying a pallet?</strong> Local lumber yards usually beat box stores on 12-foot board and will deliver it.</div><a href="https://www.gypsum.org/" target="_blank" rel="noopener" class="aff-btn">Install guidance &rarr;</a></div>
+</div>
+<section class="dy9-info">
+<div class="dy9-card dy9-shot"><h2>How to use it</h2>
+<figure><img src="/img/screens/drywall-calculator.webp" width="1000" height="888" loading="lazy" decoding="async" alt="Drywall calculator showing 19 sheets for a 12 by 14 foot room with an 8 foot ceiling, one door and two windows, plus 2.6 gallons of joint compound, 1 roll of tape and 3 pounds of screws."><figcaption>A 12 &times; 14 ft room with an 8 ft ceiling, one door and two windows: 19 sheets of 4 &times; 8 board, 2.6 gallons of compound, 1 roll of tape. Screenshot captured November 26, 2026 from this page.</figcaption></figure>
+<ol><li>Measure the room's length, width and ceiling height. Measure floor to ceiling in the middle of the room, not in a corner where the drywall might be out of level.</li><li>Count doors and windows. The calculator deducts 21 sq ft per door and 15 sq ft per window, which is a standard opening rather than your exact one.</li><li>Choose whether the ceiling is part of the job. A ceiling adds length times width and usually changes the sheet length you want.</li><li>Pick the sheet size you can actually buy and carry. A 4 &times; 12 sheet weighs about 70 pounds and will not fit in most cars.</li><li>Read the sheet count first, then the materials list under it. The cost line is board only: mud, tape and screws are priced separately.</li></ol></div>
+
+<div class="dy9-card"><h2>Common mistakes</h2>
+<ul><li>Forgetting the ceiling. On a 12 &times; 14 room that is 168 sq ft, or about five extra sheets.</li><li>Deducting every opening at its exact size. A door casing covers more than the rough opening, and the offcut around a window is rarely reusable.</li><li>Buying 4 &times; 8 because it is cheaper per sheet. On a 12-foot wall, two 8-foot sheets create a butt joint that a 12-foot sheet does not.</li><li>Ordering mud by the gallon when it comes in a 4.5 gallon bucket. One bucket is the real minimum for a room.</li></ul></div>
+
+<div class="dy9-card"><h2>Where the area comes from</h2>
+<p>The wall area is the room's perimeter times the ceiling height. For a 12 &times; 14 room with an 8 ft ceiling that is 52 ft around by 8 ft high, or 416 sq ft. Openings come off the top: 21 sq ft for a standard door, 15 sq ft for a standard window. With one door and two windows the walls are 365 sq ft.</p>
+<p>Add the ceiling if it is part of the job, which is another 168 sq ft here, and the net area is 533 sq ft. Apply the waste allowance and you have the board to order. Every figure the page reports comes from that number, so if the sheet count looks wrong, check the area first.</p>
+<p>The sheet count is the answer to a purchasing question, not a hanging plan. Board is priced per sheet and sold in the sizes the yard stocks, so a 4 &times; 12 sheet that covers a wall in one piece is often cheaper per square foot of wall than two 4 &times; 8 sheets plus the joint between them, even though the sheet costs more.</p></div>
+
+<div class="dy9-card"><h2>Worked example: a 12 &times; 14 bedroom</h2>
+<p>A 12 &times; 14 ft room, 8 ft walls, one door, two windows, ceiling included, 4 &times; 8 board, 10% waste:</p>
+<table><tr><th>Line</th><th>Figure</th></tr>
+<tr><td>Perimeter</td><td>52 ft</td></tr>
+<tr><td>Gross wall area</td><td>416 sq ft</td></tr>
+<tr><td>Openings deducted</td><td>&minus;51 sq ft</td></tr>
+<tr><td>Ceiling added</td><td>+168 sq ft</td></tr>
+<tr><td>Net area</td><td>533 sq ft</td></tr>
+<tr><td>With 10% waste</td><td>586 sq ft</td></tr>
+<tr><td>4 &times; 8 sheets needed</td><td>19</td></tr>
+<tr><td>Joint compound</td><td>2.6 gal (buy a 4.5 gal bucket)</td></tr>
+<tr><td>Tape</td><td>293 ft (one 500 ft roll)</td></tr>
+<tr><td>Screws</td><td>3 lb</td></tr>
+</table>
+<p>Nineteen sheets at $16 is $304 of board. The mud, tape and screws add roughly $60 against that, which is why a board-only estimate feels optimistic at the register. If the same room used 4 &times; 12 sheets at 48 sq ft, the count falls to 13, and the difference is not only price: it is two fewer butt joints per wall to finish.</p></div>
+
+<div class="dy9-card"><h2>Finishing questions</h2>
+<h3>How many screws do I need per sheet of drywall?</h3><p>About 32 screws for a 4 &times; 8 sheet when studs are 16 inches apart and screws go every 12 inches: three rows of 8 down the 8-foot side. A 4 &times; 12 sheet takes about 48. Buy by weight, roughly one pound per 200 square feet, and keep a box of the next length up.</p>
+<h3>Can I hang drywall horizontally instead of vertically?</h3><p>Yes, and for walls it is usually better. Horizontal sheets put the long factory edge at the top and bottom and spread joints away from the corners, which is where cracks start. It also means fewer vertical butt joints, which are the slowest ones to finish.</p>
+<h3>How much joint compound does a room use?</h3><p>A ready-mixed estimate is about 4.5 gallons per 1,000 square feet of board for taping plus three coats. Small rooms almost always need one bucket regardless of the arithmetic, because you cannot buy half a bucket and you will want a second coat on the butt joints.</p>
+<h3>Should I add waste to the sheet count?</h3><p>Yes. Ten percent is a sensible default for a plain rectangular room. Add more for a room with many openings, a diagonal or angled wall, or a ceiling full of recessed lights, because every cut-off piece has to be big enough to be useful.</p>
+<h3>Does this calculator work for ceilings and garages?</h3><p>It does if you tell it the room dimensions and include the ceiling. Use a sheet long enough to span the ceiling in one direction where you can, and check local rules for garages: many areas require a fire-rated board between a garage and the house.</p></div>
+<div class="dy9-card"><h2>Where these rates come from</h2><p>The coverage figures are the published planning numbers from the board manufacturers, not measurements of one room. Your mud use depends on how many coats you run and how tight your joints are.</p><ul>
+<li><a href="https://www.gypsum.org/" target="_blank" rel="noopener">Gypsum Association</a>. Installation standards, board thicknesses, and where fire-rated assemblies are required.</li>
+<li><a href="https://www.usg.com/" target="_blank" rel="noopener">USG technical guides</a>. Published joint compound and tape coverage per 1,000 sq ft, and the fastener spacing diagrams.</li>
+</ul>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 26, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<div class="dy9-card"><h2>Related: paint, flooring, concrete</h2><ul class="dy9-rel"><li><a href="/paint-calculator.html">Paint Calculator</a></li><li><a href="/flooring-calculator.html">Flooring Calculator</a></li><li><a href="/concrete-calculator.html">Concrete Calculator</a></li><li><a href="/home-renovation-roi.html">Home Renovation ROI</a></li><li><a href="/guides/home-project-quantities.html">Quantities for a weekend project</a></li></ul></div>
+</section>
+<footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>
+</body>
+</html>

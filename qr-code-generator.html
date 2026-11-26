@@ -4,9 +4,8 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<meta name="robots" content="noindex,follow">
-<title>Free QR Code Generator &mdash; DIY9lives</title>
-<meta name="description" content="Generate a free QR code for any URL, text, or Wi-Fi login. No login, no watermark, download as PNG instantly."/>
+<title>QR Code Generator — Free PNG, No Watermark</title>
+<meta name="description" content="Turn a URL, text or Wi-Fi login into a downloadable QR code in the browser. No account, no watermark, no expiry, and nothing uploaded."/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 <style>
@@ -47,7 +46,7 @@ input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
 <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48"/>
 <link rel="icon" href="/favicon-192.png" type="image/png" sizes="192x192"/>
 <link rel="apple-touch-icon" href="/apple-touch-icon.png"/>
-<meta property="og:title" content="Free QR Code Generator — DIY9lives"/>
+<meta property="og:title" content="QR Code Generator — Free PNG, No Watermark"/>
 <meta property="og:description" content="Generate a free QR code for any URL, text, or Wi-Fi login. No login, no watermark, download as PNG instantly."/>
 <meta property="og:url" content="https://www.diy9lives.com/qr-code-generator.html"/>
 <meta property="og:image" content="https://www.diy9lives.com/og-image.png"/>
@@ -57,10 +56,10 @@ input:focus,select:focus,textarea:focus{border-color:var(--yellow)}
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="DIY9lives"/>
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Free QR Code Generator — DIY9lives"/>
+<meta name="twitter:title" content="QR Code Generator — Free PNG, No Watermark"/>
 <meta name="twitter:description" content="Generate a free QR code for any URL, text, or Wi-Fi login. No login, no watermark, download as PNG instantly."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"QR Code Generator","url":"https://www.diy9lives.com/qr-code-generator.html","description":"Generate a free QR code for any URL, text, or Wi-Fi login. No login, no watermark, download as PNG instantly.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"QR Code Generator","item":"https://www.diy9lives.com/qr-code-generator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-26","name":"QR Code Generator","url":"https://www.diy9lives.com/qr-code-generator.html","description":"Generate a free QR code for any URL, text, or Wi-Fi login. No login, no watermark, download as PNG instantly.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"QR Code Generator","item":"https://www.diy9lives.com/qr-code-generator.html"}]},{"@type":"FAQPage","url":"https://www.diy9lives.com/qr-code-generator.html","mainEntity":[{"@type":"Question","name":"Do QR codes expire?","acceptedAnswer":{"@type":"Answer","text":"Not the ones made here. The content is encoded directly, so the code works for as long as the thing it points to exists. Codes from subscription services that redirect through their own domain stop working when you stop paying."}},{"@type":"Question","name":"Can I change the link after printing?","acceptedAnswer":{"@type":"Answer","text":"Only if you used a redirect service. A static code like this one is fixed at the moment it is generated."}},{"@type":"Question","name":"Why will my phone not scan it?","acceptedAnswer":{"@type":"Answer","text":"Usually contrast or size. Dark code on a light background, printed large enough, with white space around it, is what scanners need. A dark-mode background or a low-contrast colour pair defeats most cameras."}},{"@type":"Question","name":"Should I use a logo in the middle?","acceptedAnswer":{"@type":"Answer","text":"Small, and only at the higher error-correction settings. The middle is the part most likely to be damaged and the part a logo covers."}},{"@type":"Question","name":"Is a Wi-Fi code secure?","acceptedAnswer":{"@type":"Answer","text":"It hands the password to anyone who can see it. Print it for a guest network, never for the one your own devices use."}}]}]}</script>
 <style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
 <style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
@@ -183,6 +182,19 @@ window.addEventListener("load",genQR);
 <p>Density and size trade against each other. More characters means more modules in the same square, so each module is smaller and harder for a camera to resolve at a distance. A long URL printed small is the classic failure. If a code must be scanned from far away, shorten the URL first and print the code larger.</p>
 <p>Leave white space around the code. The specification calls for a quiet zone of four modules on every side, and designers crop it because the margin looks untidy. Without it, scanners lose the boundary between the code and the background. Never place a code on a busy photograph without a solid white border around it.</p></div>
 
+<h2>How big to print it</h2>
+<p>Scanning distance and code size scale together. A workable rule of thumb is one unit of code width for every ten units of distance, measured across the printed code including its quiet margin.</p>
+<table><tr><th>Scanning distance</th><th>Printed code width</th><th>Typical use</th></tr>
+<tr><td>30 cm</td><td>about 2 cm</td><td>Business card, sticker on a counter</td></tr>
+<tr><td>1 m</td><td>about 5 cm</td><td>Table tent, product label</td></tr>
+<tr><td>3 m</td><td>about 12 cm</td><td>Shop window, poster at eye level</td></tr>
+<tr><td>10 m</td><td>about 40 cm</td><td>Signage, a board across a room</td></tr>
+</table>
+<p>The margin matters as much as the size: a code cropped tight to its squares often will not read, because the scanner uses that blank border to find the symbol. Keep the background plain and matte, and add a short line of text next to the code telling people what it does before they point a camera at it.</p>
+
+<div class="dy9-card"><h2>Common mistakes</h2>
+<ul><li>Printing a code for a link you might change. The code encodes the URL itself, so a new address means a new code, not an edited one.</li><li>Placing the code on a busy photo or a low-contrast background. Scanners need the blank margin around the code, and dark-on-light contrast.</li><li>Printing it too small for the distance it will be scanned from. A code on a table menu and a code on a poster are not the same size.</li><li>Inverting the colours for style. Light modules on a dark background fail on some scanners and in poor light.</li></ul></div>
+
 <div class="dy9-card"><h2>QR code questions</h2>
 <h3>Do QR codes expire?</h3><p>Not the ones made here. The content is encoded directly, so the code works for as long as the thing it points to exists. Codes from subscription services that redirect through their own domain stop working when you stop paying.</p>
 <h3>Can I change the link after printing?</h3><p>Only if you used a redirect service. A static code like this one is fixed at the moment it is generated.</p>
@@ -190,7 +202,7 @@ window.addEventListener("load",genQR);
 <h3>Should I use a logo in the middle?</h3><p>Small, and only at the higher error-correction settings. The middle is the part most likely to be damaged and the part a logo covers.</p>
 <h3>Is a Wi-Fi code secure?</h3><p>It hands the password to anyone who can see it. Print it for a guest network, never for the one your own devices use.</p></div>
 <div class="dy9-card"><h2>Error correction and the QR standard</h2><p>QR Code is a registered trademark and a real specification. Denso Wave’s own site is the inventor’s description.</p><ul><li><a href="https://www.qrcode.com/en/about/" target="_blank" rel="noopener">Denso Wave, about QR Code</a>. What the code is. Level M’s roughly 15% recovery is part of the QR specification this generator selects.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 26, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
 <div class="dy9-card"><h2>Related: word counter, unit price, invoice</h2><ul class="dy9-rel"><li><a href="/password-checker.html">Password Checker</a></li><li><a href="/vin-decoder.html">VIN Decoder</a></li><li><a href="/unit-converter.html">Unit Converter</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>

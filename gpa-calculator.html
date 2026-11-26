@@ -11,7 +11,7 @@ gtag('config', 'G-0D6KZ606DX');
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8">
-<title>GPA Calculator &mdash; Free Weighted &amp; Cumulative GPA Tool | DIY9lives</title>
+<title>GPA Calculator — Weighted and Cumulative, 4.0 Scale</title>
 <meta name="description" content="Free GPA calculator. Add your courses, credit hours, and grades to instantly calculate your weighted GPA. Supports 4.0 and custom scales.">
 <style>
 :root{--black:#0a0a0a;--card:#141414;--yellow:#FFE500;--coral:#FF4D4D;--white:#FAFAFA;--muted:#666;--border:#222;--green:#00C851;}
@@ -81,7 +81,7 @@ footer a{color:var(--yellow);}
 <meta name="twitter:title" content="GPA Calculator — Free Weighted &amp; Cumulative GPA Tool | DIY9lives"/>
 <meta name="twitter:description" content="Free GPA calculator. Add your courses, credit hours, and grades to instantly calculate your weighted GPA. Supports 4.0 and custom scales."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"GPA Calculator","url":"https://www.diy9lives.com/gpa-calculator.html","description":"Free GPA calculator. Add your courses, credit hours, and grades to instantly calculate your weighted GPA. Supports 4.0 and custom scales.","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"GPA Calculator","item":"https://www.diy9lives.com/gpa-calculator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-26","name":"GPA Calculator","url":"https://www.diy9lives.com/gpa-calculator.html","description":"Free GPA calculator. Add your courses, credit hours, and grades to instantly calculate your weighted GPA. Supports 4.0 and custom scales.","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"GPA Calculator","item":"https://www.diy9lives.com/gpa-calculator.html"}]},{"@type":"FAQPage","url":"https://www.diy9lives.com/gpa-calculator.html","mainEntity":[{"@type":"Question","name":"How is GPA calculated?","acceptedAnswer":{"@type":"Answer","text":"Each grade is converted to grade points, multiplied by the course's credit hours to get quality points, then the total quality points are divided by total credit hours. That is why a 4-credit course counts twice as much as a 2-credit one."}},{"@type":"Question","name":"Why doesn't this match my transcript?","acceptedAnswer":{"@type":"Answer","text":"Almost always a different grade-point scale, or a rule about repeated courses and pass/fail credits. Check your registrar's published table against the one used here."}},{"@type":"Question","name":"Should I include courses I'm taking now?","acceptedAnswer":{"@type":"Answer","text":"Only if you have a grade to enter. An in-progress course with no grade would need a placeholder, and a guessed grade produces a guessed GPA."}},{"@type":"Question","name":"What about a transfer GPA?","acceptedAnswer":{"@type":"Answer","text":"Transfer credits usually appear as credits without quality points, so they raise the credit total without raising the average. Leave them out unless your school folds them in, which is uncommon."}},{"@type":"Question","name":"Does a W affect my GPA?","acceptedAnswer":{"@type":"Answer","text":"A withdrawal typically carries no grade points and no effect on the average, though it may affect satisfactory academic progress for financial aid. The rules are institutional."}},{"@type":"Question","name":"Is a 3.0 good?","acceptedAnswer":{"@type":"Answer","text":"It depends entirely on the context: the school, the major, and what the number is for. A 3.0 clears many graduate-program minimums and falls short of others. This calculator reports the number and has no opinion on it."}}]}]}</script>
 <style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
 <style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
@@ -158,6 +158,19 @@ footer a{color:var(--yellow);}
 <p>Withdrawals, incompletes, and repeated courses are not modeled. A repeated course may replace the old grade or average with it, depending on the institution, and that single rule can move a cumulative GPA by more than a semester of effort.</p>
 <p>Nothing here converts between scales. A 3.8 on a 4.0 scale is not a specific percentage, and the conversion tables in circulation vary enough that using one would be a guess dressed as a number.</p></div>
 
+<h2>What one grade does to a term</h2>
+<p>GPA is quality points divided by credit hours, so the size of a course matters as much as the grade in it. On a 15-credit term, replacing one grade moves the average by a predictable amount.</p>
+<table><tr><th>Change</th><th>New GPA</th><th>Move</th></tr>
+<tr><td>Start: five 3-credit courses at B (3.0)</td><td>3.00</td><td>&mdash;</td></tr>
+<tr><td>One B becomes an A (4.0)</td><td>3.20</td><td>+0.20</td></tr>
+<tr><td>One B becomes a C (2.0)</td><td>2.80</td><td>&minus;0.20</td></tr>
+<tr><td>A 4-credit B becomes an A</td><td>3.27</td><td>+0.27</td></tr>
+</table>
+<p>The last row is the reason to look at credit hours before planning a semester: the same letter grade is worth more in a four-credit course than in a three. It is also why a single bad grade in a one-credit seminar costs less than the same grade in a major requirement, which is either reassuring or a warning depending on which course it is.</p>
+
+<div class="dy9-card"><h2>Common mistakes</h2>
+<ul><li>Using this page's plus/minus table when your registrar uses a different one. A few schools award 4.3 for an A+, which changes the total.</li><li>Including pass/fail or transfer courses as graded credits. They usually add hours without points and pull the average down incorrectly.</li><li>Mixing a prior GPA from one scale with new grades from another. The blend is only valid if both use the same points per grade.</li><li>Rounding each course to one decimal before dividing. Round the final GPA, not the intermediate quality points.</li></ul></div>
+
 <div class="dy9-card"><h2>Frequently asked questions</h2>
 <h3>How is GPA calculated?</h3><p>Each grade is converted to grade points, multiplied by the course's credit hours to get quality points, then the total quality points are divided by total credit hours. That is why a 4-credit course counts twice as much as a 2-credit one.</p>
 <h3>Why doesn't this match my transcript?</h3><p>Almost always a different grade-point scale, or a rule about repeated courses and pass/fail credits. Check your registrar's published table against the one used here.</p>
@@ -171,7 +184,7 @@ footer a{color:var(--yellow);}
 <ul>
 <li><a href="https://www.careeronestop.org/JobSearch/Resumes/resumes.aspx" target="_blank" rel="noopener">CareerOneStop, resumes</a>. Useful when deciding whether a GPA belongs on a resume at all; it does not define the scale.</li>
 </ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>. Verify the grade-point table with your registrar before relying on the total.</p></div>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 26, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>. Verify the grade-point table with your registrar before relying on the total.</p></div>
 
 <div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/percentage-calculator.html">Percentage Calculator</a></li><li><a href="/word-counter.html">Word Counter</a></li><li><a href="/readability-checker.html">Readability Checker</a></li><li><a href="/age-calculator.html">Age Calculator</a></li></ul></div>
 </section>

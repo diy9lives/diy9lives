@@ -4,7 +4,7 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Free Word &amp; Character Counter &mdash; DIY9lives</title>
+<title>Word Counter — Words, Characters and Read Time</title>
 <meta name="description" content="Count words, characters, sentences, and paragraphs instantly, plus estimated reading and speaking time. Free, no login."/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
@@ -53,7 +53,7 @@ textarea:focus{border-color:var(--yellow)}
 <meta name="twitter:title" content="Free Word &amp; Character Counter — DIY9lives"/>
 <meta name="twitter:description" content="Count words, characters, sentences, and paragraphs instantly, plus estimated reading and speaking time. Free, no login."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Word & Character Counter","url":"https://www.diy9lives.com/word-counter.html","description":"Count words, characters, sentences, and paragraphs instantly, plus estimated reading and speaking time. Free, no login.","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Word & Character Counter","item":"https://www.diy9lives.com/word-counter.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-26","name":"Word & Character Counter","url":"https://www.diy9lives.com/word-counter.html","description":"Count words, characters, sentences, and paragraphs instantly, plus estimated reading and speaking time. Free, no login.","applicationCategory":"EducationalApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Word & Character Counter","item":"https://www.diy9lives.com/word-counter.html"}]},{"@type":"FAQPage","url":"https://www.diy9lives.com/word-counter.html","mainEntity":[{"@type":"Question","name":"How is reading time calculated?","acceptedAnswer":{"@type":"Answer","text":"Words divided by 200 for silent reading and by 130 for speaking, with a minimum of one minute. Both are stated conventions rather than measurements of your specific reader."}},{"@type":"Question","name":"Do you count characters with or without spaces?","acceptedAnswer":{"@type":"Answer","text":"Both, because different limits use different rules. Check which one the form or platform requires before trimming."}},{"@type":"Question","name":"Why does the sentence count look too high?","acceptedAnswer":{"@type":"Answer","text":"Abbreviations, decimals, and ellipses contain periods that the splitter treats as endings. The word and character counts are unaffected; only the sentence count drifts."}},{"@type":"Question","name":"Does it count words in a table or a list?","acceptedAnswer":{"@type":"Answer","text":"Yes, because the text is counted as plain characters. A bulleted list contributes each item's words, and a table pasted as text contributes its cell contents."}},{"@type":"Question","name":"Is my text saved?","acceptedAnswer":{"@type":"Answer","text":"No. It is processed in your browser and is gone when you close the page. Nothing is uploaded or stored."}},{"@type":"Question","name":"How long should a paragraph or a page be?","acceptedAnswer":{"@type":"Answer","text":"That is an editing judgement, not a counting one. Short paragraphs help online, and a word target is a constraint rather than a goal. The counter tells you where you are, not where you should be."}}]}]}</script>
 <style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
 <style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
@@ -133,6 +133,19 @@ analyze();
 <p>Character counts are what constraints actually use. A meta description, a form field, or a social post limit is measured in characters, sometimes with spaces and sometimes without, and the difference matters more than the word count does.</p>
 <p>Nothing is uploaded. The text stays in your browser, which is why this is safe for a draft you would not paste into a random website.</p></div>
 
+<h2>What the common limits actually count</h2>
+<p>Almost every limit you will write to is one of three measures, and they are not interchangeable. Knowing which one a form uses saves a rewrite at the last minute.</p>
+<table><tr><th>Where</th><th>Limit</th><th>Measure</th></tr>
+<tr><td>Search result description</td><td>about 155 characters</td><td>Characters with spaces</td></tr>
+<tr><td>Social post</td><td>280 characters</td><td>Characters with spaces, links counted in full</td></tr>
+<tr><td>University application essay</td><td>650 words</td><td>Words, including the title if the form does</td></tr>
+<tr><td>Conference abstract</td><td>250 words</td><td>Words, usually excluding the title and references</td></tr>
+</table>
+<p>For a character limit, the counter's figure without spaces is the safe one to quote and the one with spaces is the one to check against the box. For a word limit, paste exactly what you will submit: a heading the form does not accept can be the difference between 649 and 661.</p>
+
+<div class="dy9-card"><h2>Common mistakes</h2>
+<ul><li>Comparing this count with another tool's when the text contains hyphens, em dashes or numbers. Different tools split words differently, and one word either way can miss a limit.</li><li>Trusting the sentence count on text full of abbreviations, decimals and version numbers. Every period looks like an ending to a simple counter.</li><li>Using characters with spaces where the limit counts without them, or the reverse. Social posts and meta descriptions usually count with spaces, but not always.</li><li>Counting a pasted draft that still has headings, captions and reference lists you would not submit.</li></ul></div>
+
 <div class="dy9-card"><h2>Frequently asked questions</h2>
 <h3>How is reading time calculated?</h3><p>Words divided by 200 for silent reading and by 130 for speaking, with a minimum of one minute. Both are stated conventions rather than measurements of your specific reader.</p>
 <h3>Do you count characters with or without spaces?</h3><p>Both, because different limits use different rules. Check which one the form or platform requires before trimming.</p>
@@ -146,7 +159,7 @@ analyze();
 <ul>
 <li><a href="https://www.plainlanguage.gov/guidelines/" target="_blank" rel="noopener">plainlanguage.gov, guidelines</a>. Federal guidance on short sentences and common words, which is the editing question underneath a word count.</li>
 </ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>. Counts are mechanical. Reading time is an assumption.</p></div>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 26, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>. Counts are mechanical. Reading time is an assumption.</p></div>
 
 <div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/readability-checker.html">Readability Checker</a></li><li><a href="/case-converter.html">Case Converter</a></li><li><a href="/headline-analyzer.html">Headline Analyzer</a></li><li><a href="/typing-speed-test.html">Typing Speed Test</a></li></ul></div>
 </section>

@@ -12,7 +12,7 @@
 </script>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Free Hourly Rate Calculator — DIY9lives</title>
+<title>Hourly Rate Calculator — What You Must Charge</title>
 <meta name="description" content="Stop undercharging. Calculate the exact hourly rate you need to hit your income goals. Free, no login."/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -83,7 +83,7 @@ input[type=number]:focus,input[type=text]:focus{border-color:var(--yellow)}
 <meta name="twitter:title" content="Free Hourly Rate Calculator — DIY9lives"/>
 <meta name="twitter:description" content="Stop undercharging. Calculate the exact hourly rate you need to hit your income goals. Free, no login."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Hourly Rate Calculator","url":"https://www.diy9lives.com/rate-calculator.html","description":"Stop undercharging. Calculate the exact hourly rate you need to hit your income goals. Free, no login.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Hourly Rate Calculator","item":"https://www.diy9lives.com/rate-calculator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-26","name":"Hourly Rate Calculator","url":"https://www.diy9lives.com/rate-calculator.html","description":"Stop undercharging. Calculate the exact hourly rate you need to hit your income goals. Free, no login.","applicationCategory":"FinanceApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Hourly Rate Calculator","item":"https://www.diy9lives.com/rate-calculator.html"}]},{"@type":"FAQPage","url":"https://www.diy9lives.com/rate-calculator.html","mainEntity":[{"@type":"Question","name":"Why is the recommended rate higher than the minimum?","acceptedAnswer":{"@type":"Answer","text":"Because the minimum assumes you sell every available hour. The extra 25% is margin for the months when you do not."}},{"@type":"Question","name":"What counts as a business expense?","acceptedAnswer":{"@type":"Answer","text":"Software, insurance, equipment, your share of home costs, and anything else you would not pay if you were employed. Not your personal groceries."}},{"@type":"Question","name":"Should I charge hourly or by project?","acceptedAnswer":{"@type":"Answer","text":"Use the hourly number to price the project. Quoting a fixed fee prevents penalising clients for your efficiency, and the rate tells you whether the fee is viable."}},{"@type":"Question","name":"How do I raise my rate with existing clients?","acceptedAnswer":{"@type":"Answer","text":"In writing, with a date, and with a reason that is not an apology. Give existing clients a longer notice period than new ones get."}},{"@type":"Question","name":"What if I cannot sell 25 hours a week?","acceptedAnswer":{"@type":"Answer","text":"Then raise the rate or lower the take-home target. Working more unpaid hours does not fix the arithmetic."}}]}]}</script>
 <style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
 <style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
@@ -206,7 +206,7 @@ calc();
 <p>Enter the take-home pay you need each month, your business expenses, a tax buffer percentage, and how many hours a week you can actually bill. Then set your vacation weeks and your non-billable overhead. The page returns the hourly rate that covers all of it and a recommended rate with a margin on top.</p>
 <p>Two fields are where freelancers fool themselves. The hours field means billable hours, not hours at the desk, and the overhead slider accounts for the admin, marketing and quoting that nobody pays for.</p></div>
 
-<div class="dy9-card"><h2>Worked example: $6,000 a month, 25 billable hours</h2>
+<div class="dy9-card"><h2>Worked example: $5,000 a month, 25 billable hours</h2>
 <p>$5,000 a month of take-home, $800 of expenses, a 25% tax buffer, 25 billable hours a week, 4 weeks off, and 30% non-billable time:</p>
 <table><tr><th>Step</th><th>Value</th></tr>
 <tr><td>Gross needed each month</td><td>$7,733</td></tr>
@@ -221,6 +221,19 @@ calc();
 <p>The tax buffer deserves its own line because self-employment tax catches people out. Setting aside a quarter of gross is a common rule of thumb for a sole proprietor, and the freelance tax estimator will give you a better figure from your actual numbers. What matters here is that the rate is calculated on gross income, so the tax has to come out of it.</p>
 <p>The overhead slider is doing more work than it looks. At 30%, every ten billable hours costs you three hours of unbilled time on quotes, invoices and email. Raise it if you spend more time selling than delivering, which is normal in the first year. A rate built on an optimistic overhead number is a rate that quietly pays you less.</p></div>
 
+<h2>Why the billable hours move the rate so much</h2>
+<p>The rate is a monthly need divided by the hours you can actually invoice. Small changes in the hours produce large changes in the number, which is why the hours field deserves more thought than the expenses field.</p>
+<table><tr><th>Billable hours a month</th><th>Rate to cover $7,733</th></tr>
+<tr><td>70</td><td>$111</td></tr>
+<tr><td>80</td><td>$97</td></tr>
+<tr><td>100</td><td>$77</td></tr>
+<tr><td>120</td><td>$64</td></tr>
+</table>
+<p>Going from 70 billable hours to 100 is a 43% increase in capacity and a 30% cut in the rate needed for the same income. That is the arithmetic behind the common advice to raise prices rather than chase more work: the second path costs hours, and hours are the thing you ran out of first.</p>
+
+<div class="dy9-card"><h2>Common mistakes</h2>
+<ul><li>Counting hours at the desk as billable hours. Admin, email, quoting and invoicing are the overhead slider's job, not the rate's.</li><li>Leaving the self-employment tax buffer at zero, which turns a rate that looks comfortable into a tax bill you cannot pay.</li><li>Quoting the floor rate. It covers costs and nothing else, leaving no room to negotiate or to absorb a slow month.</li><li>Setting the rate once and never revisiting it. Expenses, rents and market rates move every year; the number should move too.</li></ul></div>
+
 <div class="dy9-card"><h2>Freelance rate questions</h2>
 <h3>Why is the recommended rate higher than the minimum?</h3><p>Because the minimum assumes you sell every available hour. The extra 25% is margin for the months when you do not.</p>
 <h3>What counts as a business expense?</h3><p>Software, insurance, equipment, your share of home costs, and anything else you would not pay if you were employed. Not your personal groceries.</p>
@@ -228,7 +241,7 @@ calc();
 <h3>How do I raise my rate with existing clients?</h3><p>In writing, with a date, and with a reason that is not an apology. Give existing clients a longer notice period than new ones get.</p>
 <h3>What if I cannot sell 25 hours a week?</h3><p>Then raise the rate or lower the take-home target. Working more unpaid hours does not fix the arithmetic.</p></div>
 <div class="dy9-card"><h2>Expenses, taxes and billable time</h2><p>The rate itself is this page’s arithmetic. The tax piece should be checked against the IRS, not against the buffer percent.</p><ul><li><a href="https://www.irs.gov/businesses/small-businesses-self-employed/self-employment-tax-social-security-and-medicare-taxes" target="_blank" rel="noopener">IRS, self-employment tax</a>. Why a freelancer’s tax rate is higher than an employee’s withholding.</li><li><a href="https://www.bls.gov/oes/" target="_blank" rel="noopener">BLS Occupational Employment and Wage Statistics</a>. A check on what employees in a related occupation earn, which is not the same as a freelance rate.</li></ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 26, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>.</p></div>
 <div class="dy9-card"><h2>Related: freelance tax, invoice, proposal</h2><ul class="dy9-rel"><li><a href="/freelance-tax-estimator.html">Freelance Tax Estimator</a></li><li><a href="/invoice.html">Invoice Builder</a></li><li><a href="/proposal.html">Proposal Generator</a></li><li><a href="/guides/1099-quarterly-taxes.html">1099 quarterly taxes</a></li></ul></div>
 </section>
 <footer id="site-footer" style="max-width:860px;margin:0 auto;padding:28px 24px 40px;border-top:1px solid #222;text-align:center;font-size:13px;color:#666;font-family:system-ui,-apple-system,sans-serif"><div style="margin-bottom:10px"><a href="/" style="color:#888;text-decoration:none;margin:0 9px">Home</a><a href="/about.html" style="color:#888;text-decoration:none;margin:0 9px">About</a><a href="/contact.html" style="color:#888;text-decoration:none;margin:0 9px">Contact</a><a href="/privacy.html" style="color:#888;text-decoration:none;margin:0 9px">Privacy</a><a href="/terms.html" style="color:#888;text-decoration:none;margin:0 9px">Terms</a><a href="/disclaimer.html" style="color:#888;text-decoration:none;margin:0 9px">Disclaimer</a><a href="/editorial.html" style="color:#888;text-decoration:none;margin:0 9px">Editorial</a><a href="/guides.html" style="color:#888;text-decoration:none;margin:0 9px">Guides</a></div><div>&copy; 2026 DIY9lives &middot; Free tools, estimates only. Not professional advice.</div></footer>

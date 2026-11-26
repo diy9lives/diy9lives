@@ -4,7 +4,7 @@
 <meta name="google-site-verification" content="j_izBwcI64VSd_HOFRZe4vyAshq7HDQVZmD8GEIBpi8"/>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Free Age Calculator &mdash; DIY9lives</title>
+<title>Age Calculator — Exact Age in Years, Months and Days</title>
 <meta name="description" content="Calculate your exact age in years, months, days, hours, and minutes. Find out how many days until your next birthday."/>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D6KZ606DX"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-0D6KZ606DX");</script>
 <style>
@@ -70,7 +70,7 @@ input:focus,select:focus{border-color:var(--yellow)}
 <meta name="twitter:title" content="Free Age Calculator — DIY9lives"/>
 <meta name="twitter:description" content="Calculate your exact age in years, months, days, hours, and minutes. Find out how many days until your next birthday."/>
 <meta name="twitter:image" content="https://www.diy9lives.com/og-image.png"/>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-09","name":"Age Calculator","url":"https://www.diy9lives.com/age-calculator.html","description":"Calculate your exact age in years, months, days, hours, and minutes. Find out how many days until your next birthday.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Age Calculator","item":"https://www.diy9lives.com/age-calculator.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","dateModified":"2026-11-26","name":"Age Calculator","url":"https://www.diy9lives.com/age-calculator.html","description":"Calculate your exact age in years, months, days, hours, and minutes. Find out how many days until your next birthday.","applicationCategory":"UtilitiesApplication","operatingSystem":"Any","browserRequirements":"Requires a modern web browser","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"provider":{"@type":"Organization","name":"DIY9lives","url":"https://www.diy9lives.com/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.diy9lives.com/"},{"@type":"ListItem","position":2,"name":"Age Calculator","item":"https://www.diy9lives.com/age-calculator.html"}]},{"@type":"FAQPage","url":"https://www.diy9lives.com/age-calculator.html","mainEntity":[{"@type":"Question","name":"When is my next birthday?","acceptedAnswer":{"@type":"Answer","text":"The next-birthday box counts days from the \"calculate as of\" date to your next birthday. Change that date and the countdown moves with it."}},{"@type":"Question","name":"Can I calculate my age on a past or future date?","acceptedAnswer":{"@type":"Answer","text":"Yes. Set the comparison date to a closing day, an application deadline, or a future birthday. The result is your age on that specific day."}},{"@type":"Question","name":"Why does the day count change sometimes?","acceptedAnswer":{"@type":"Answer","text":"Because months have different lengths. The tool borrows from the month rather than assuming 30 days everywhere, which is the rule that keeps a 31st-of-the-month birthday from inventing a February 31."}},{"@type":"Question","name":"Does it handle leap years?","acceptedAnswer":{"@type":"Answer","text":"Yes, for the calendar arithmetic and for total days. Someone born on February 29 has a birthday that exists only in leap years, and the year count still advances every year while the celebration date is a matter of convention."}},{"@type":"Question","name":"Is my birth date stored?","acceptedAnswer":{"@type":"Answer","text":"No. Everything is calculated locally in your browser and nothing is transmitted or saved."}},{"@type":"Question","name":"Why does the hours figure look enormous?","acceptedAnswer":{"@type":"Answer","text":"Because it is total hours lived, not waking hours. It is a duration, and it is useful for trivia and for forms that ask for elapsed time, not for anything medical."}}]}]}</script>
 <style id="dy9-mobile-fix">@media(max-width:600px){footer>div{display:flex;flex-wrap:wrap;justify-content:center;gap:2px 0}footer a{white-space:nowrap}nav{flex-wrap:wrap;row-gap:5px}nav .navlinks,nav .nav-r{flex-wrap:wrap;justify-content:center}}.foot-copy{max-width:100%;overflow-wrap:anywhere}</style>
 <style id="dy9-mobile-fix2">@media(max-width:600px){.dy9-info .dy9-card{overflow-x:auto}.dy9-info table{font-size:12px}}</style>
 </head>
@@ -160,6 +160,19 @@ calcAge();
 <p>Total days is the unambiguous figure. It does not care about month lengths, and it is what to use when the question is about elapsed time rather than a calendar age.</p>
 <p>Nothing is stored. The calculation happens in your browser and the date is gone when you close the page.</p></div>
 
+<h2>The same birthday, three different answers</h2>
+<p>Most forms do not ask for your age. They ask a question that has an age buried in it, and the date they measure from is not today.</p>
+<table><tr><th>The question</th><th>The figure to use</th></tr>
+<tr><td>School entry cut-off</td><td>Age on the district's cut-off date, not on the first day of term. A child born a week after the date waits a year.</td></tr>
+<tr><td>Car insurance or a rental desk</td><td>Age on the day the policy or rental starts, which can be days after you book it.</td></tr>
+<tr><td>Retirement or a pension statement</td><td>Age in whole years at the plan's own reference date, which is often the end of the tax year.</td></tr>
+<tr><td>A visa or passport form</td><td>Age on the application date. The form usually states it, and it is rarely the day you post it.</td></tr>
+</table>
+<p>Change the <b>calculate as of</b> field to whichever date the form names. That single field is why the tool asks for two dates rather than one.</p>
+
+<div class="dy9-card"><h2>Common mistakes</h2>
+<ul><li>Subtracting the birth year from this year and calling that the age. The whole-year figure changes on the birthday, not on 1 January.</li><li>Putting today's date in the birth field, which returns an age of zero and looks like a broken tool.</li><li>Reading the months and days as a duration. Calendar months are 28 to 31 days, so two tools can differ by a day without either being wrong.</li><li>Assuming the date is saved somewhere. The calculation runs in the browser and nothing is submitted.</li></ul></div>
+
 <div class="dy9-card"><h2>Frequently asked questions</h2>
 <h3>When is my next birthday?</h3><p>The next-birthday box counts days from the "calculate as of" date to your next birthday. Change that date and the countdown moves with it.</p>
 <h3>Can I calculate my age on a past or future date?</h3><p>Yes. Set the comparison date to a closing day, an application deadline, or a future birthday. The result is your age on that specific day.</p>
@@ -173,7 +186,7 @@ calcAge();
 <ul>
 <li><a href="https://www.nist.gov/pml/special-publication-811" target="_blank" rel="noopener">NIST Special Publication 811</a>. Only as a reminder that a day here is a calendar date, not a physics measurement across time zones. For that, use the time-zone converter.</li>
 </ul>
-<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 9, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>. Calendar arithmetic. Nothing you enter is stored.</p></div>
+<p style="font-size:12px;color:#888;margin:16px 0 0;padding-top:12px;border-top:1px solid #222"><strong style="color:#ccc">Last reviewed: November 26, 2026.</strong> Reviewed by <strong style="color:#ccc">David Liu</strong>. Calendar arithmetic. Nothing you enter is stored.</p></div>
 
 <div class="dy9-card"><h2>Related tools and guides</h2><ul class="dy9-rel"><li><a href="/date-difference-calculator.html">Date Difference Calculator</a></li><li><a href="/timezone-converter.html">Time Zone Converter</a></li><li><a href="/pregnancy-due-date-calculator.html">Pregnancy Due Date Calculator</a></li><li><a href="/pet-age-calculator.html">Pet Age Calculator</a></li></ul></div>
 </section>
